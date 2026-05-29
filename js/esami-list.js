@@ -7,6 +7,7 @@
     'Apparato urinario e urologia',
     'Tiroide e collo',
     'Muscolo-scheletrico',
+    'Pediatrica',
     'Vascolare (Doppler)',
     'Altro',
   ];

@@ -112,9 +112,18 @@ window.ESAMI = [
     nome: 'Ecografia anca',
     categoria: 'Muscolo-scheletrico',
     descrizione:
-      'Valuta tendini periarticolari (glutei, ileopsoas), borse trocanteriche e strutture morbide dell\'anca. ' +
+      'Valuta tendini periarticolari (glutei, ileopsoas), borse trocanteriche e strutture morbide dell\'anca nell\'adulto. ' +
       'Utile per tendinopatia del trocantere, borsite, dolore inguinale o laterale dell\'anca e follow-up post-trauma.',
     prenotaNome: 'Ecografia anca',
+  },
+  {
+    id: 'anca-neonatale',
+    nome: 'Ecografia anca neonatale',
+    categoria: 'Pediatrica',
+    descrizione:
+      'Screening ecografico delle anche del neonato e del lattante (metodo di Graf) per escludere lussazione o displasia congenita dell\'anca. ' +
+      'Indicata nelle prime settimane di vita, in presenza di fattori di rischio (parto podalico, familiarità, oligoidramnios) o reperti clinici sospetti; spesso ripetuta nel follow-up.',
+    prenotaNome: 'Ecografia anca neonatale',
   },
   {
     id: 'gomito',
