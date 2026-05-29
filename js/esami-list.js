@@ -2,6 +2,8 @@
   const container = document.getElementById('exam-lists');
   if (!container || !window.ESAMI) return;
 
+  const paziente = window.ESAMI_PAZIENTE || {};
+
   const ordine = [
     'Addome',
     'Apparato urinario e urologia',
@@ -39,16 +41,26 @@
       id +
       '">' +
       cat +
-      '</h2><ul class="tag-list">' +
+      '</h2><ul class="exam-list">' +
       items
-        .map(
-          (e) =>
-            '<li><a class="exam-link" href="esame.html?id=' +
-            encodeURIComponent(e.id) +
-            '">' +
+        .map((e) => {
+          const info = paziente[e.id] || {};
+          const sintesi = info.sintesi || e.descrizione.split('.')[0] + '.';
+          const href = 'esame.html?id=' + encodeURIComponent(e.id);
+          return (
+            '<li class="exam-item">' +
+            '<h3 class="exam-item-title">' +
             e.nome +
-            '</a></li>'
-        )
+            '</h3>' +
+            '<p class="exam-item-sintesi">' +
+            sintesi +
+            '</p>' +
+            '<a class="exam-item-more link-arrow" href="' +
+            href +
+            '">Scopri di più →</a>' +
+            '</li>'
+          );
+        })
         .join('') +
       '</ul>';
   }
