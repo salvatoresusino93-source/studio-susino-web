@@ -670,10 +670,35 @@ button {
 }
 
 .exam-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
   padding: 1rem 1.1rem;
   border: 1px solid var(--border);
   border-radius: var(--radius);
   background: #fff;
+}
+
+.exam-item-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.exam-item-thumb {
+  flex-shrink: 0;
+  width: 72px;
+  height: 72px;
+  border-radius: calc(var(--radius) - 2px);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--accent-soft);
+}
+
+.exam-item-thumb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .exam-item-title {
@@ -959,6 +984,11 @@ button {
 
   .site-footer {
     padding: 2.5rem 0;
+  }
+
+  .exam-item-thumb {
+    width: 88px;
+    height: 88px;
   }
 }
 
