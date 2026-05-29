@@ -39,16 +39,7 @@
       id +
       '">' +
       cat +
-      '</h2>';
-    const haPrep =
-      window.PREPARAZIONE_ESAMI &&
-      items.some(function (e) {
-        return PREPARAZIONE_ESAMI.richiedePreparazione(e.nome);
-      });
-    if (haPrep) {
-      html += PREPARAZIONE_ESAMI.htmlNota();
-    }
-    html += '<ul class="tag-list">' +
+      '</h2><ul class="tag-list">' +
       items
         .map(
           (e) =>

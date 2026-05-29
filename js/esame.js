@@ -40,9 +40,6 @@
     '<p>' +
     esame.descrizione +
     '</p>' +
-    (window.PREPARAZIONE_ESAMI && PREPARAZIONE_ESAMI.richiedePreparazione(esame.nome)
-      ? '<h2>Preparazione</h2>' + PREPARAZIONE_ESAMI.htmlNota()
-      : '') +
     '<div class="btn-stack exam-actions">' +
     '<a class="btn btn-primary" href="' +
     prenotaUrl +
