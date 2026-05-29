@@ -265,6 +265,26 @@ button {
 .hero-grid {
   display: grid;
   gap: 1.5rem;
+  align-items: center;
+}
+
+.hero-copy {
+  order: 1;
+}
+
+.hero-visual {
+  order: 0;
+  margin: 0;
+  border-radius: calc(var(--radius) + 4px);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 16px 48px rgba(30, 77, 107, 0.12);
+}
+
+.hero-visual img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
 }
 
 .hero-eyebrow {
@@ -339,6 +359,136 @@ button {
 
 .info-list a {
   word-break: break-word;
+}
+
+/* Intro panel (stile vetrina) */
+.intro-panel {
+  padding-top: 0;
+}
+
+.intro-panel-inner {
+  max-width: 40rem;
+  margin-inline: auto;
+  padding: 1.75rem 1.5rem;
+  text-align: center;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: calc(var(--radius) + 2px);
+  box-shadow: var(--shadow);
+}
+
+.intro-panel-inner h2 {
+  font-size: clamp(1.25rem, 3vw, 1.5rem);
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.02em;
+}
+
+.intro-panel-inner p {
+  color: var(--text-muted);
+  margin-bottom: 1.25rem;
+}
+
+.section-header-center {
+  text-align: center;
+  margin-inline: auto;
+}
+
+.section-header-center p {
+  margin-inline: auto;
+}
+
+.section-cta-link {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+/* Service cards con immagine */
+.service-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.service-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: calc(var(--radius) + 2px);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.service-card-media {
+  display: block;
+  overflow: hidden;
+}
+
+.service-card-media:hover {
+  text-decoration: none;
+}
+
+.service-card-media img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.service-card:hover .service-card-media img {
+  transform: scale(1.03);
+}
+
+.service-card-body {
+  padding: 1.15rem 1.25rem 1.35rem;
+}
+
+.service-card-body h3 {
+  font-size: 1.05rem;
+  margin-bottom: 0.4rem;
+}
+
+.service-card-body p {
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  margin-bottom: 0.75rem;
+}
+
+.service-card-link {
+  font-weight: 500;
+  font-size: 0.92rem;
+}
+
+.service-card-link:hover {
+  text-decoration: none;
+}
+
+/* Info strip */
+.info-strip-section {
+  padding-top: 0;
+}
+
+.info-strip {
+  display: grid;
+  gap: 1rem;
+}
+
+.info-strip-item {
+  padding: 1.15rem 1.25rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.info-strip-item strong {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--accent);
+}
+
+.info-strip-item span {
+  color: var(--text-muted);
+  font-size: 0.95rem;
 }
 
 /* Sections */
@@ -585,6 +735,27 @@ button {
     height: 36px;
   }
 
+  .hero-grid {
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 2rem;
+  }
+
+  .hero-copy {
+    order: 0;
+  }
+
+  .hero-visual {
+    order: 1;
+  }
+
+  .service-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .info-strip {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
   .info-list li {
     grid-template-columns: 8.5rem 1fr;
     gap: 0.75rem;
@@ -634,6 +805,10 @@ button {
 
   .grid-3 {
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  .service-grid {
+    grid-template-columns: repeat(4, 1fr);
   }
 
   .card {
@@ -686,5 +861,9 @@ button {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+
+  .service-card-media img {
+    transition: none;
   }
 }
