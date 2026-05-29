@@ -595,6 +595,7 @@ button {
 .content-block h2 {
   font-size: 1.2rem;
   margin: 1.75rem 0 0.75rem;
+  scroll-margin-top: 5.5rem;
 }
 
 .content-block h2:first-child {

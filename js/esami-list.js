@@ -19,12 +19,25 @@
     gruppi.get(esame.categoria).push(esame);
   }
 
+  const slugCategoria = {
+    Addome: 'addome',
+    'Apparato urinario e urologia': 'apparato-urinario',
+    'Tiroide e collo': 'tiroide-e-collo',
+    'Muscolo-scheletrico': 'muscolo-scheletrico',
+    Pediatrica: 'pediatrica',
+    'Vascolare (Doppler)': 'doppler',
+    Altro: 'altro',
+  };
+
   let html = '';
   for (const cat of ordine) {
     const items = gruppi.get(cat) || [];
     if (!items.length) continue;
+    const id = slugCategoria[cat] || cat.toLowerCase().replace(/\s+/g, '-');
     html +=
-      '<h2>' +
+      '<h2 id="' +
+      id +
+      '">' +
       cat +
       '</h2><ul class="tag-list">' +
       items
