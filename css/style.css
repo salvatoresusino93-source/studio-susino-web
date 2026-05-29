@@ -634,6 +634,39 @@ button {
   margin-bottom: 0;
 }
 
+.tag-list a.exam-link {
+  color: inherit;
+  font-weight: 500;
+}
+
+.tag-list a.exam-link:hover {
+  text-decoration: underline;
+}
+
+.exam-breadcrumb {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
+}
+
+.exam-breadcrumb a {
+  color: var(--accent);
+}
+
+.exam-detail h2:first-child {
+  margin-top: 0;
+}
+
+.exam-actions {
+  margin-top: 1.75rem;
+}
+
+.exam-note {
+  margin-top: 1.25rem;
+  color: var(--text-muted);
+  font-size: 0.92rem;
+}
+
 /* CTA band */
 .cta-band {
   background: var(--accent);

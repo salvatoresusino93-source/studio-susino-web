@@ -7,9 +7,8 @@
   <link rel="icon" href="images/favicon-32.png" type="image/png" sizes="32x32">
   <link rel="icon" href="images/favicon-48.png" type="image/png" sizes="48x48">
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-  <title>Ecografie — Esami disponibili | Studio Susino Pozzallo</title>
-  <meta name="description" content="Ecografie addome, tiroide, muscolo-scheletrico, doppler vascolare e altro. Studio Susino, Pozzallo (RG).">
-  <link rel="canonical" href="https://studiosusino.it/ecografie.html">
+  <title>Esame — Studio Susino</title>
+  <meta name="description" content="Informazioni sull'esame ecografico e prenotazione online. Studio Susino, Pozzallo (RG).">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -30,7 +29,7 @@
       </a>
       <nav class="nav-desktop" aria-label="Menu principale">
         <a href="chi-sono.html">Chi sono</a>
-        <a href="ecografie.html" aria-current="page">Ecografie</a>
+        <a href="ecografie.html">Ecografie</a>
         <a href="studio.html">Lo studio</a>
         <a href="contatti.html">Contatti</a>
         <a class="btn btn-primary" href="prenota.html">Prenota</a>
@@ -48,37 +47,7 @@
     </nav>
   </header>
 
-  <main>
-    <section class="page-hero">
-      <div class="container">
-        <h1>Ecografie ed esami</h1>
-        <p>
-          Elenco semplificato degli esami che puoi prenotare online.
-          Clicca su un esame per capire a cosa serve e prenotarlo.
-          Se quello indicato dal medico non c'è in lista, chiamaci.
-        </p>
-      </div>
-    </section>
-
-    <section class="content-block">
-      <div class="container">
-        <div id="exam-lists"></div>
-
-        <p class="content-spaced">
-          Non trovi l'esame che devi fare tra quelli in elenco?
-          <a href="contatti.html">Chiamaci</a> — spesso sulla richiesta c'è scritto in un altro modo.
-        </p>
-      </div>
-    </section>
-
-    <section class="cta-band">
-      <div class="container">
-        <h2>Esame non in elenco?</h2>
-        <p>Chiamaci o prenota online — ti diciamo quale prestazione scegliere.</p>
-        <a class="btn btn-primary" href="prenota.html">Prenota online</a>
-      </div>
-    </section>
-  </main>
+  <main id="exam-main"></main>
 
   <footer class="site-footer">
     <div class="container footer-grid">
@@ -89,6 +58,6 @@
   </footer>
   <script src="js/main.js"></script>
   <script src="js/esami-data.js"></script>
-  <script src="js/esami-list.js"></script>
+  <script src="js/esame.js"></script>
 </body>
 </html>
