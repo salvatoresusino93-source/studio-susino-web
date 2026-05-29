@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Studio Susino">
+  <defs>
+    <linearGradient id="bg" x1="8" y1="6" x2="56" y2="58" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#245f7f"/>
+      <stop offset="1" stop-color="#1e4d6b"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="18" fill="url(#bg)"/>
+  <path d="M14 40c6-10 14-14 22-14s16 4 22 14" fill="none" stroke="#ffffff" stroke-opacity=".22" stroke-width="2.2" stroke-linecap="round"/>
+  <path d="M18 44c4.5-6.5 10.5-9.5 18-9.5s13.5 3 18 9.5" fill="none" stroke="#ffffff" stroke-opacity=".38" stroke-width="2.2" stroke-linecap="round"/>
+  <path d="M22 48c3.2-4.2 7.6-6.2 14-6.2s10.8 2 14 6.2" fill="none" stroke="#ffffff" stroke-opacity=".58" stroke-width="2.2" stroke-linecap="round"/>
+  <text x="32" y="29" text-anchor="middle" fill="#ffffff" font-family="Georgia, 'Times New Roman', serif" font-size="22" font-weight="700" letter-spacing="-1.5">SS</text>
+</svg>
