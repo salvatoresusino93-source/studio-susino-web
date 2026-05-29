@@ -36,6 +36,15 @@ window.ESAMI = [
     prenotaNome: 'Ecografia apparato urinario',
   },
   {
+    id: 'renale',
+    nome: 'Ecografia renale',
+    categoria: 'Apparato urinario e urologia',
+    descrizione:
+      'Studia reni, pelvi renali e ureteri prossimali. ' +
+      'Indicata per dolore laterale, colica renale, ematuria, controllo di litiasi o follow-up renale quando non serve lo studio completo dell\'apparato urinario con vescica.',
+    prenotaNome: 'Ecografia renale',
+  },
+  {
     id: 'vescico-prostatica',
     nome: 'Ecografia vescico-prostatica',
     categoria: 'Apparato urinario e urologia',
@@ -169,6 +178,24 @@ window.ESAMI = [
       'Valuta morfologia e flusso delle carotidi, vertebrali e succlavie (tronchi sovra-aortici). ' +
       'Indicata per prevenzione e monitoraggio del rischio di ictus: fattori cardiovascolari, soffio carotideo, TIA o ictus pregressi, vertigini vascolari o stenosi già note.',
     prenotaNome: 'Ecocolordoppler TSA (tronchi sovra-aortici)',
+  },
+  {
+    id: 'doppler-aorta',
+    nome: 'Ecocolordoppler aorta addominale',
+    categoria: 'Vascolare (Doppler)',
+    descrizione:
+      'Valuta morfologia e flusso dell\'aorta addominale e delle iliache comuni. ' +
+      'Indicata per follow-up di aneurisma, sospetta dilatazione aortica o patologia vascolare addominale già nota.',
+    prenotaNome: 'Ecocolordoppler aorta addominale',
+  },
+  {
+    id: 'doppler-arterie-renali',
+    nome: 'Ecocolordoppler arterie renali',
+    categoria: 'Vascolare (Doppler)',
+    descrizione:
+      'Studia flusso e stenosi delle arterie renali. ' +
+      'Indicata per ipertensione arteriosa di origine renos vascolare, stenosi nota o sospetta, follow-up post-intervento vascolare renale.',
+    prenotaNome: 'Ecocolordoppler arterie renali',
   },
   {
     id: 'doppler-arti-inferiori',

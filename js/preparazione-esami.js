@@ -46,8 +46,8 @@
   function htmlNota() {
     return (
       '<div class="exam-prep-note" role="note">' +
-      '<strong>Preparazione:</strong> venire a <strong>digiuno</strong> e con ' +
-      '<strong>vescica piena</strong> (non urinare nelle 2–3 ore prima).' +
+      '<strong>Preparazione:</strong> venire a <strong>digiuno</strong> (almeno 6 ore) e con ' +
+      '<strong>vescica piena</strong>.' +
       '</div>'
     );
   }
