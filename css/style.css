@@ -98,46 +98,20 @@ button {
 }
 
 .logo {
-  font-weight: 600;
-  font-size: clamp(0.92rem, 3.2vw, 1.02rem);
-  color: var(--text);
-  text-decoration: none;
-  letter-spacing: -0.02em;
-  line-height: 1.2;
   min-height: var(--touch-min);
   display: inline-flex;
   align-items: center;
-  gap: 0.65rem;
+  text-decoration: none;
 }
 
 .logo:hover {
   text-decoration: none;
 }
 
-.logo-mark {
-  width: 40px;
-  height: 40px;
-  flex-shrink: 0;
-  border-radius: 11px;
-}
-
-.logo-text {
-  display: flex;
-  flex-direction: column;
-  gap: 0.05rem;
-}
-
-.logo-name {
-  font-weight: 600;
-  letter-spacing: -0.02em;
-}
-
-.logo-tag {
-  color: var(--text-muted);
-  font-weight: 500;
-  font-size: 0.78em;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+.logo-img {
+  height: 46px;
+  width: auto;
+  display: block;
 }
 
 .nav-desktop {
@@ -605,6 +579,10 @@ button {
 
   .cta-band .btn-primary {
     width: auto;
+  }
+
+  .logo-img {
+    height: 52px;
   }
 
   .info-list li {
