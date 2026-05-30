@@ -687,6 +687,52 @@ button {
   color: var(--text);
 }
 
+/* Pulsante WhatsApp fisso */
+.wa-float {
+  position: fixed;
+  right: max(1rem, var(--safe-right));
+  bottom: calc(1rem + var(--safe-bottom));
+  z-index: 90;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1rem;
+  background: #25d366;
+  color: #fff;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.wa-float:hover {
+  background: #1ebe5b;
+  color: #fff;
+  text-decoration: none;
+}
+
+.wa-float svg {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  fill: currentColor;
+}
+
+@media (max-width: 600px) {
+  .wa-float .wa-label {
+    display: none;
+  }
+  .wa-float {
+    padding: 0.85rem;
+  }
+  .wa-float svg {
+    width: 28px;
+    height: 28px;
+  }
+}
+
 .directions {
   margin: 1.25rem 0 0;
   padding-left: 1.1rem;
