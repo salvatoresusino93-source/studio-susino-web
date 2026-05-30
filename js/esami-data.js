@@ -194,7 +194,7 @@ window.ESAMI = [
     categoria: 'Vascolare (Doppler)',
     descrizione:
       'Studia flusso e stenosi delle arterie renali. ' +
-      'Indicata per ipertensione arteriosa di origine renos vascolare, stenosi nota o sospetta, follow-up post-intervento vascolare renale.',
+      'Indicata per ipertensione arteriosa di origine renovascolare, stenosi nota o sospetta, follow-up post-intervento vascolare renale.',
     prenotaNome: 'Ecocolordoppler arterie renali',
   },
   {
