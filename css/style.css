@@ -101,6 +101,7 @@ button {
   min-height: var(--touch-min);
   display: inline-flex;
   align-items: center;
+  gap: 0.55rem;
   text-decoration: none;
 }
 
@@ -108,10 +109,19 @@ button {
   text-decoration: none;
 }
 
-.logo-img {
-  height: 50px;
+.logo-mark {
+  height: 38px;
   width: auto;
   display: block;
+}
+
+.logo-word {
+  font-size: 1.08rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1;
+  color: var(--accent);
+  white-space: nowrap;
 }
 
 .nav-desktop {
@@ -936,8 +946,12 @@ button {
     width: auto;
   }
 
-  .logo-img {
-    height: 56px;
+  .logo-mark {
+    height: 44px;
+  }
+
+  .logo-word {
+    font-size: 1.2rem;
   }
 
   .hero-grid {
