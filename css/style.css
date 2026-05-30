@@ -83,9 +83,7 @@ button {
   z-index: 100;
   min-height: var(--header-h);
   padding-top: var(--safe-top);
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: var(--surface);
   border-bottom: 1px solid var(--border);
 }
 
@@ -672,6 +670,21 @@ button {
   flex-wrap: wrap;
   gap: 0.75rem;
   margin-top: 1rem;
+}
+
+.map-actions-center {
+  justify-content: center;
+}
+
+.reach-box {
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+  color: var(--text-muted);
+}
+
+.reach-box strong {
+  color: var(--text);
 }
 
 .directions {
