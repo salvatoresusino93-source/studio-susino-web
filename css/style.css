@@ -720,27 +720,6 @@ button {
   fill: currentColor;
 }
 
-/* Etichetta WhatsApp accanto al numero */
-.wa-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.25em;
-  padding: 0.05em 0.45em;
-  margin-left: 0.15em;
-  background: #25d366;
-  color: #fff;
-  border-radius: 999px;
-  font-size: 0.72em;
-  font-weight: 600;
-  line-height: 1.5;
-  letter-spacing: 0.01em;
-  vertical-align: middle;
-  white-space: nowrap;
-}
-a:hover .wa-tag {
-  background: #1ebe5b;
-}
-
 @media (max-width: 600px) {
   .wa-float .wa-label {
     display: none;
