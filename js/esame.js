@@ -96,7 +96,7 @@
     '</div>' +
     '<p class="exam-note">Al telefono: ' +
     '<a href="tel:+390932954441">0932 954441</a> · ' +
-    '<a href="tel:+393513746102">351 374 6102</a></p>' +
+    '<a href="https://wa.me/393513746102" target="_blank" rel="noopener">351 374 6102 <span class="wa-tag">WhatsApp</span></a></p>' +
     '</div>' +
     '<p class="exam-disclaimer">Queste informazioni descrivono l’esame in linea generale. ' +
     'Per il tuo caso specifico fa sempre fede quanto indicato dal medico che ti ha prescritto l’esame.</p>' +
