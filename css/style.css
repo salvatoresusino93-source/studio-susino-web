@@ -670,7 +670,9 @@ button {
 }
 
 .exam-item {
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas: 'body thumb';
   align-items: center;
   gap: 1rem;
   padding: 1rem 1.1rem;
@@ -680,14 +682,15 @@ button {
 }
 
 .exam-item-body {
-  flex: 1;
+  grid-area: body;
   min-width: 0;
 }
 
 .exam-item-thumb {
+  grid-area: thumb;
   flex-shrink: 0;
-  width: 72px;
-  height: 72px;
+  width: 80px;
+  height: 80px;
   border-radius: calc(var(--radius) - 2px);
   overflow: hidden;
   border: 1px solid var(--border);
@@ -987,8 +990,12 @@ button {
   }
 
   .exam-item-thumb {
-    width: 88px;
-    height: 88px;
+    width: 96px;
+    height: 96px;
+  }
+
+  .exam-item-thumb img {
+    object-position: center;
   }
 }
 
