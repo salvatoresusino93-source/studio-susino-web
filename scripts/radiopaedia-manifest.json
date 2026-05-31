@@ -1,0 +1,212 @@
+{
+  "licenseNote": "Immagini da Radiopaedia.org — licenza CC BY-NC-SA 3.0. Uso didattico/informativo con attribuzione. Vedi images/us-reali/ATTRIBUTIONS.md",
+  "sources": [
+    {
+      "dest": "src-addome-rene.jpg",
+      "studyId": 55956,
+      "imageIndex": 0,
+      "exam": "Ecografia addome completo",
+      "citation": "Lukies M, Normal kidneys. Radiopaedia.org (rID-50539)",
+      "doi": "10.53347/rID-50539",
+      "caseUrl": "https://radiopaedia.org/cases/normal-kidneys-3"
+    },
+    {
+      "dest": "src-rene.jpg",
+      "studyId": 55956,
+      "imageIndex": 0,
+      "exam": "Ecografia renale / apparato urinario",
+      "citation": "Lukies M, Normal kidneys. Radiopaedia.org (rID-50539)",
+      "doi": "10.53347/rID-50539",
+      "caseUrl": "https://radiopaedia.org/cases/normal-kidneys-3"
+    },
+    {
+      "dest": "src-colecisti.jpg",
+      "studyId": 135096,
+      "imageIndex": 0,
+      "exam": "Ecografia addome superiore (colecisti)",
+      "citation": "Radiopaedia.org, Cholelithiasis (rID-166243)",
+      "doi": "10.53347/rID-166243",
+      "caseUrl": "https://radiopaedia.org/cases/cholelithiasis-13"
+    },
+    {
+      "dest": "src-vescica.jpg",
+      "studyId": 134967,
+      "imageIndex": 1,
+      "exam": "Ecografia addome inferiore (vescica)",
+      "citation": "Radiopaedia.org, Benign prostatic hyperplasia (rID-166086)",
+      "doi": "10.53347/rID-166086",
+      "caseUrl": "https://radiopaedia.org/cases/benign-prostatic-hyperplasia"
+    },
+    {
+      "dest": "src-vescico-prostatica.jpg",
+      "studyId": 134967,
+      "imageIndex": 0,
+      "exam": "Ecografia vescico-prostatica",
+      "citation": "Radiopaedia.org, Benign prostatic hyperplasia (rID-166086)",
+      "doi": "10.53347/rID-166086",
+      "caseUrl": "https://radiopaedia.org/cases/benign-prostatic-hyperplasia"
+    },
+    {
+      "dest": "src-scrotale.jpg",
+      "studyId": 134724,
+      "imageIndex": 0,
+      "exam": "Ecografia scrotale e testicolare",
+      "citation": "Di Muzio B, Scrotal ultrasound - normal. Radiopaedia.org (rID-165734)",
+      "doi": "10.53347/rID-165734",
+      "caseUrl": "https://radiopaedia.org/cases/scrotal-ultrasound-normal"
+    },
+    {
+      "dest": "src-tiroide.jpg",
+      "studyId": 74926,
+      "imageIndex": 2,
+      "exam": "Ecografia tiroide",
+      "citation": "Radiopaedia.org, Normal neck ultrasound (rID-65792)",
+      "doi": "10.53347/rID-65792",
+      "caseUrl": "https://radiopaedia.org/cases/normal-neck-ultrasound"
+    },
+    {
+      "dest": "src-parotide.jpg",
+      "studyId": 139376,
+      "imageIndex": 0,
+      "exam": "Ecografia del collo (parotide)",
+      "citation": "Thibodeau R, Normal ultrasound of the parotid and submandibular glands (rID-172656)",
+      "doi": "10.53347/rID-172656",
+      "caseUrl": "https://radiopaedia.org/cases/normal-ultrasound-of-the-parotid-and-submandibular-glands"
+    },
+    {
+      "dest": "src-linfonodo.jpg",
+      "studyId": 147022,
+      "imageIndex": 0,
+      "exam": "Ecografia linfonodi",
+      "citation": "Fatema UK, Caseating tubercular cervical lymphadenitis (rID-184566)",
+      "doi": "10.53347/rID-184566",
+      "caseUrl": "https://radiopaedia.org/cases/caseating-tubercular-cervical-lymphadenitis"
+    },
+    {
+      "dest": "src-parti-molli.jpg",
+      "studyId": 104025,
+      "imageIndex": 0,
+      "exam": "Ecografia parti molli (lipoma)",
+      "citation": "Radiopaedia.org, Lipoma - biceps brachii muscle (rID-87633)",
+      "doi": "10.53347/rID-87633",
+      "caseUrl": "https://radiopaedia.org/cases/lipoma-biceps-brachii-muscle"
+    },
+    {
+      "dest": "src-carotidi.jpg",
+      "studyId": 17961,
+      "imageIndex": 0,
+      "exam": "Ecocolordoppler TSA",
+      "citation": "Radiopaedia.org, Carotid artery stenosis (rID-18165)",
+      "doi": "10.53347/rID-18165",
+      "caseUrl": "https://radiopaedia.org/cases/carotid-artery-stenosis-1"
+    },
+    {
+      "dest": "src-aorta.jpg",
+      "studyId": 141207,
+      "imageIndex": 0,
+      "exam": "Ecocolordoppler aorta addominale",
+      "citation": "Radiopaedia.org, Abdominal aortic aneurysm with arterial thrombus (rID-175406)",
+      "doi": "10.53347/rID-175406",
+      "caseUrl": "https://radiopaedia.org/cases/abdominal-aortic-aneurysm-with-arterial-thrombus"
+    },
+    {
+      "dest": "src-doppler-renale.jpg",
+      "studyId": 32980,
+      "imageIndex": 2,
+      "exam": "Ecocolordoppler arterie renali",
+      "citation": "Radiopaedia.org, Renal artery stenosis (rID-32038)",
+      "doi": "10.53347/rID-32038",
+      "caseUrl": "https://radiopaedia.org/cases/renal-artery-stenosis-6"
+    },
+    {
+      "dest": "src-doppler-arti-inferiori.jpg",
+      "studyId": 81197,
+      "imageIndex": 0,
+      "exam": "Ecocolordoppler arti inferiori",
+      "citation": "Radiopaedia.org, Femoral artery thrombosis (rID-70982)",
+      "doi": "10.53347/rID-70982",
+      "caseUrl": "https://radiopaedia.org/cases/femoral-artery-thrombosis"
+    },
+    {
+      "dest": "src-doppler-arti-superiori.jpg",
+      "studyId": 139769,
+      "imageIndex": 0,
+      "exam": "Ecocolordoppler arti superiori",
+      "citation": "Wood K, Upper limb DVT - PICC line associated thrombus (rID-173177)",
+      "doi": "10.53347/rID-173177",
+      "caseUrl": "https://radiopaedia.org/cases/upper-limb-dvt-picc-line-associated-thrombus"
+    },
+    {
+      "dest": "src-spalla-tendine.jpg",
+      "studyId": 174492,
+      "imageIndex": 0,
+      "exam": "Ecografia spalla (sovraspinato)",
+      "citation": "Machang'a K, Supraspinatus tendinopathy (rID-226693)",
+      "doi": "10.53347/rID-226693",
+      "caseUrl": "https://radiopaedia.org/cases/supraspinatus-tendinopathy-3"
+    },
+    {
+      "dest": "src-msk-generica.jpg",
+      "studyId": 156835,
+      "imageIndex": 0,
+      "exam": "Ecografia muscolo-scheletrica generica",
+      "citation": "Radiopaedia.org, Supraspinatus calcific tendinosis (rID-199492)",
+      "doi": "10.53347/rID-199492",
+      "caseUrl": "https://radiopaedia.org/cases/supraspinatus-calcific-tendinosis-with-intraosseous-migration"
+    },
+    {
+      "dest": "src-ginocchio.jpg",
+      "studyId": 94275,
+      "imageIndex": 0,
+      "exam": "Ecografia ginocchio (tendine rotuleo)",
+      "citation": "Bohyn C, Microtenotomy and prolotherapy - Patella tendon (rID-80799)",
+      "doi": "10.53347/rID-80799",
+      "caseUrl": "https://radiopaedia.org/cases/microtenotomy-and-prolotherapy-patella-tendon"
+    },
+    {
+      "dest": "src-gomito.jpg",
+      "studyId": 76323,
+      "imageIndex": 0,
+      "exam": "Ecografia gomito (tendini epicondiloidei)",
+      "citation": "Radiopaedia.org, Lateral epicondylitis (rID-67002)",
+      "doi": "10.53347/rID-67002",
+      "caseUrl": "https://radiopaedia.org/cases/lateral-epicondylitis-3"
+    },
+    {
+      "dest": "src-polso-mano.jpg",
+      "studyId": 42600,
+      "imageIndex": 0,
+      "exam": "Ecografia polso e mano (nervo mediano)",
+      "citation": "Radiopaedia.org, Carpal tunnel syndrome (rID-40095)",
+      "doi": "10.53347/rID-40095",
+      "caseUrl": "https://radiopaedia.org/cases/carpal-tunnel-syndrome-2"
+    },
+    {
+      "dest": "src-anca.jpg",
+      "studyId": 96232,
+      "imageIndex": 0,
+      "exam": "Ecografia anca",
+      "citation": "Radiopaedia.org, Greater trochanter bursa injection (rID-82181)",
+      "doi": "10.53347/rID-82181",
+      "caseUrl": "https://radiopaedia.org/cases/greater-trochanter-bursa-injection"
+    },
+    {
+      "dest": "src-anca-neonatale.jpg",
+      "studyId": 49322,
+      "imageIndex": 0,
+      "exam": "Ecografia anca neonatale (Graf)",
+      "citation": "Radiopaedia.org, Normal pediatric hip ultrasound - Graf type I (rID-45301)",
+      "doi": "10.53347/rID-45301",
+      "caseUrl": "https://radiopaedia.org/cases/normal-paediatric-hip-ultrasound-graf-type-i"
+    },
+    {
+      "dest": "src-caviglia.jpg",
+      "studyId": 108324,
+      "imageIndex": 0,
+      "exam": "Ecografia caviglia e piede",
+      "citation": "Radiopaedia.org, Plantar fasciitis - lateral cord (rID-90837)",
+      "doi": "10.53347/rID-90837",
+      "caseUrl": "https://radiopaedia.org/cases/plantar-fasciitis-lateral-cord"
+    }
+  ]
+}

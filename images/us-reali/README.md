@@ -1,52 +1,57 @@
 # Immagini ecografiche per l'elenco esami
 
-Ogni esame in `ecografie.html` ha **una miniatura dedicata** in `images/esami/{id}.jpg`, generata da una fonte specifica in questa cartella.
+Ogni esame ha **una miniatura dedicata** in `images/esami/{id}.jpg`, generata da una schermata ecografica **specifica** in `images/us-reali/`.
 
-## Rigenerare
+## Rigenerare (consigliato: Radiopaedia)
 
 ```bash
-# 1) Scarica le fonti mancanti (serve internet)
+cd ~/Projects/studio-susino-web
+
+# 1) Scarica da Radiopaedia.org (serve internet)
 bash scripts/fetch-us-reali.sh
 
-# 2) Crea le miniature 480×480
+# Oppure solo download + build separati:
+node scripts/fetch-radiopaedia-us.mjs
 bash scripts/build-esami-images.sh
 ```
 
-## Mappa esame → anatomia attesa
+Lo script legge `scripts/radiopaedia-manifest.json`: per ogni esame scarica un'immagine dal case study indicato e genera `images/us-reali/ATTRIBUTIONS.md`.
 
-| Esame | Fonte | Cosa deve vedersi |
-|-------|-------|-------------------|
-| Addome completo | Rene + fegato | Addome superiore/inferiore |
-| Addome superiore | Colecisti / fegato | Vie biliari, fegato |
-| Addome inferiore | Vescica | Pelvi, vescica |
-| Apparato urinario | Rene | Reni e vie urinarie |
-| Renale | Rene | Rene in longitudinale |
-| Vescico-prostatica | Prostata sovrapubica | Vescica e prostata |
-| Scrotale | Scroto | Testicolo/epididimo |
-| Tiroide | Tiroide color Doppler | Lobo tiroideo |
-| Collo | Parotide | Ghiandola salivare (non vescica/rene) |
-| MSK generica | Tendine (crop diverso) | Muscolo/tendine |
-| Spalla | Sovraspinato | Tendine cuffia |
-| Ginocchio | Tendine rotuleo/quadricipite | Ginocchio anteriore |
-| Anca | Articolazione anca | Testa femorale / acetabolo |
-| Anca neonatale | Graf tipo Ib | Anca neonatale |
-| Gomito | Epicondilo / tendini estensori | Gomito |
-| Polso e mano | Nervo mediano / polso | Tunnel carpale |
-| Caviglia | Caviglia / legamenti | Malleoli / tendine Achille |
-| Parti molli | Cisti sottocutanea | Lesione superficiale |
-| Doppler TSA | Carotidi | Flusso carotideo |
-| Doppler aorta | Aorta addominale | Vaso aortico |
-| Doppler arterie renali | Doppler renale | Rene con spettro |
-| Doppler arti inferiori | Femorale | Arteria/vena femorale |
-| Doppler arti superiori | Asse venoso braccio | Vasi arto superiore |
-| Linfonodi | Linfonodo collo | Linfonodo con ilo |
+## Mappa esame → anatomia
 
-## Sostituire con le tue schermate
+| Esame | Cosa deve vedersi | Fonte Radiopaedia (esempio) |
+|-------|-------------------|----------------------------|
+| Addome completo / renale | Rene in longitudinale | Normal kidneys |
+| Addome superiore | Colecisti | Cholelithiasis |
+| Addome inferiore / vescico-prostatica | Vescica e prostata | Benign prostatic hyperplasia |
+| Scrotale | Testicolo | Scrotal ultrasound - normal |
+| Tiroide | Lobo tiroideo | Normal neck ultrasound |
+| Collo | Parotide | Normal parotid/submandibular glands |
+| Spalla | Tendine sovraspinato | Supraspinatus tendinopathy |
+| Ginocchio | Tendine rotuleo | Patella tendon US |
+| Gomito | Epicondilo / tendini estensori | Lateral epicondylitis US |
+| Polso e mano | Nervo mediano | Carpal tunnel syndrome |
+| Anca | Trocantere / anca | Greater trochanter bursa US |
+| Anca neonatale | Graf tipo I | Normal pediatric hip US |
+| Caviglia | Fascia plantare / piede | Plantar fasciitis |
+| Doppler TSA | Carotidi | Carotid artery stenosis |
+| Doppler aorta | Aorta addominale | Abdominal aortic aneurysm US |
+| Doppler arterie renali | Rene + spettro renale | Renal artery stenosis |
+| Doppler arti inferiori | Femorale | Femoral artery thrombosis |
+| Linfonodi | Linfonodo collo | Cervical lymphadenitis US |
+| Parti molli | Lipoma | Lipoma biceps |
 
-Per usare **ecografie del tuo Toshiba/Samsung**, salva uno screenshot per esame come:
+## Licenza
 
-`images/us-reali/src-{nome}.jpg`
+Le immagini da Radiopaedia.org sono sotto [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/).  
+Vedi `images/us-reali/ATTRIBUTIONS.md` per citazioni e DOI.
 
-e aggiorna la mappa in `scripts/build-esami-images.sh`, poi rigenera.
+## Usare le tue schermate
 
-Le fonti Wikimedia usate da `fetch-us-reali.sh` sono a licenza libera per uso educativo; vedi [Commons:Reusing content](https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia).
+Per sostituire con ecografie del tuo ecografo, salva in `images/us-reali/`:
+
+- `src-ginocchio.jpg` — tendine rotuleo / quadricipitale  
+- `src-gomito.jpg` — epicondilo / tendini estensori  
+- `src-polso-mano.jpg` — nervo mediano al polso  
+
+Poi: `bash scripts/build-esami-images.sh`
