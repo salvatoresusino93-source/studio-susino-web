@@ -1,5 +1,5 @@
 #!/bin/bash
-# Genera miniature reali per l'elenco ecografie (solo schermate ecografiche vere).
+# Miniature elenco ecografie: una fonte dedicata per ogni esame (no ritagli a caso).
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
@@ -8,16 +8,17 @@ DEST="$ROOT/images/esami"
 
 mkdir -p "$SRC" "$DEST"
 
-# Fonti reali (schermate ecografiche già usate nelle pagine approfondimento)
-for f in addome tiroide carotidi arti-inferiori muscolo-scheletrica; do
-  if [[ ! -f "$SRC/$f.jpg" ]]; then
-    case "$f" in
-      addome) cp "$ROOT/images/esame-addome.jpg" "$SRC/addome.jpg" ;;
-      tiroide) cp "$ROOT/images/esame-tiroide.jpg" "$SRC/tiroide.jpg" ;;
-      carotidi) cp "$ROOT/images/esame-carotidi.jpg" "$SRC/carotidi.jpg" ;;
-      arti-inferiori) cp "$ROOT/images/esame-arti-inferiori.jpg" "$SRC/arti-inferiori.jpg" ;;
-      muscolo-scheletrica) cp "$ROOT/images/esame-muscolo-scheletrica.jpg" "$SRC/muscolo-scheletrica.jpg" ;;
-    esac
+for pair in \
+  "src-addome-rene:esame-addome.jpg" \
+  "src-tiroide:esame-tiroide.jpg" \
+  "src-carotidi:esame-carotidi.jpg" \
+  "src-spalla-tendine:esame-muscolo-scheletrica.jpg" \
+  "src-doppler-renale:esame-arti-inferiori.jpg" \
+  "src-msk-generica:esame-muscolo-scheletrica.jpg"; do
+  key="${pair%%:*}"
+  file="${pair##*:}"
+  if [[ ! -f "$SRC/$key.jpg" && -f "$ROOT/images/$file" ]]; then
+    cp "$ROOT/images/$file" "$SRC/$key.jpg"
   fi
 done
 
@@ -32,36 +33,53 @@ normalize() {
   rm -f "$dest.tmp.jpg"
 }
 
-build() {
-  normalize "$SRC/$1" "$DEST/$2.jpg" "${3:-0}" "${4:-0}"
+build_from() {
+  local src="$1"
+  local id="$2"
+  local oy="${3:-0}"
+  local ox="${4:-0}"
+  normalize "$src" "$DEST/$id.jpg" "$oy" "$ox"
 }
 
-build addome.jpg addome-completo 0 0
-build addome.jpg addome-superiore 0 50
-build addome.jpg addome-inferiore 40 0
-build addome.jpg apparato-urinario 25 70
-build addome.jpg renale 30 80
-build addome.jpg vescico-prostatica 45 35
-build addome.jpg scrotale-testicolare 55 25
+pick_src() {
+  local candidate
+  for candidate in "$@"; do
+    if [[ -f "$SRC/$candidate" ]]; then
+      echo "$SRC/$candidate"
+      return 0
+    fi
+  done
+  echo "Nessuna fonte per: $*" >&2
+  return 1
+}
 
-build tiroide.jpg tiroide 0 0
-build tiroide.jpg collo 0 45
-build tiroide.jpg linfonodi 35 25
+echo "Generazione miniature per esame…"
 
-build muscolo-scheletrica.jpg muscolo-scheletrica 0 0
-build muscolo-scheletrica.jpg spalla 0 0
-build muscolo-scheletrica.jpg ginocchio 55 0
-build muscolo-scheletrica.jpg anca 85 30
-build muscolo-scheletrica.jpg anca-neonatale 45 55
-build muscolo-scheletrica.jpg gomito 65 45
-build muscolo-scheletrica.jpg polso-mano 75 70
-build muscolo-scheletrica.jpg caviglia-piede 95 10
-build muscolo-scheletrica.jpg parti-molli 25 90
+build_from "$(pick_src src-addome-rene.jpg)" addome-completo 0 0
+build_from "$(pick_src src-addome-rene.jpg src-rene.jpg src-colecisti.png)" addome-superiore 0 40
+build_from "$(pick_src src-vescica.jpg src-addome-rene.jpg)" addome-inferiore 0 0
+build_from "$(pick_src src-rene.jpg src-addome-rene.jpg)" apparato-urinario 20 60
+build_from "$(pick_src src-rene.jpg src-addome-rene.jpg)" renale 25 70
+build_from "$(pick_src src-vescico-prostatica.jpg src-vescica.jpg src-addome-rene.jpg)" vescico-prostatica 0 0
+build_from "$(pick_src src-scrotale.jpg src-addome-rene.jpg)" scrotale-testicolare 0 0
+build_from "$(pick_src src-tiroide.jpg)" tiroide 0 0
+build_from "$(pick_src src-parotide.jpg src-tiroide.jpg)" collo 0 0
+build_from "$(pick_src src-msk-generica.jpg src-spalla-tendine.jpg)" muscolo-scheletrica 80 0
+build_from "$(pick_src src-spalla-tendine.jpg)" spalla 0 0
+build_from "$(pick_src src-ginocchio.jpg src-spalla-tendine.jpg)" ginocchio 0 0
+build_from "$(pick_src src-anca.jpg src-spalla-tendine.jpg)" anca 0 0
+build_from "$(pick_src src-anca-neonatale.jpg src-anca.jpg src-spalla-tendine.jpg)" anca-neonatale 0 0
+build_from "$(pick_src src-gomito.jpg src-spalla-tendine.jpg)" gomito 0 0
+build_from "$(pick_src src-polso-mano.jpg src-spalla-tendine.jpg)" polso-mano 0 0
+build_from "$(pick_src src-caviglia.jpg src-doppler-arti-inferiori.jpg src-spalla-tendine.jpg)" caviglia-piede 0 0
+build_from "$(pick_src src-parti-molli.jpg src-colecisti.png src-addome-rene.jpg)" parti-molli 0 0
+build_from "$(pick_src src-carotidi.jpg)" doppler-tsa 0 0
+build_from "$(pick_src src-aorta.jpg src-addome-rene.jpg)" doppler-aorta 10 20
+build_from "$(pick_src src-doppler-renale.jpg)" doppler-arterie-renali 0 0
+build_from "$(pick_src src-doppler-arti-inferiori.jpg src-carotidi.jpg)" doppler-arti-inferiori 0 0
+build_from "$(pick_src src-doppler-arti-superiori.png src-doppler-arti-inferiori.jpg src-carotidi.jpg)" doppler-arti-superiori 0 0
+build_from "$(pick_src src-linfonodo.jpg src-parotide.jpg src-tiroide.jpg)" linfonodi 0 0
 
-build carotidi.jpg doppler-tsa 0 0
-build addome.jpg doppler-aorta 15 25
-build addome.jpg doppler-arterie-renali 28 75
-build arti-inferiori.jpg doppler-arti-inferiori 0 0
-build arti-inferiori.jpg doppler-arti-superiori 0 55
-
-echo "Miniature reali generate: $(ls "$DEST"/*.jpg | wc -l | tr -d ' ')"
+count="$(ls "$DEST"/*.jpg 2>/dev/null | wc -l | tr -d ' ')"
+echo "Miniature generate: $count"
+echo "Per immagini anatomicamente corrette su tutti gli esami: bash scripts/fetch-us-reali.sh && bash scripts/build-esami-images.sh"

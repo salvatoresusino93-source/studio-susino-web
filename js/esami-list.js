@@ -47,7 +47,7 @@
           const info = paziente[e.id] || {};
           const sintesi = info.sintesi || e.descrizione.split('.')[0] + '.';
           const href = 'esame.html?id=' + encodeURIComponent(e.id);
-          const imgSrc = 'images/esami/' + e.id + '.jpg?v=20260601us';
+          const imgSrc = 'images/esami/' + e.id + '.jpg?v=20260601img';
           const imgAlt = e.nome;
           return (
             '<li class="exam-item">' +
