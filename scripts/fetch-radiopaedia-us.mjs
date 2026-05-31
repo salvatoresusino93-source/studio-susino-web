@@ -15,6 +15,7 @@ const ROOT = path.join(__dirname, '..');
 const DEST = path.join(ROOT, 'images', 'us-reali');
 const MANIFEST = path.join(__dirname, 'radiopaedia-manifest.json');
 const ATTRIBUTIONS = path.join(DEST, 'ATTRIBUTIONS.md');
+const IMAGE_CDN = 'https://prod-images-static.radiopaedia.org/images';
 const UA =
   'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36';
 
@@ -66,17 +67,23 @@ async function fetchJson(url) {
   return JSON.parse(buf.toString('utf8'));
 }
 
-function collectImageUrls(node, out = []) {
+function collectLegacyImageUrls(node, out = []) {
   if (typeof node === 'string') {
-    if (node.includes('prod-images-static.radiopaedia.org')) out.push(node);
+    if (
+      node.includes('prod-images-static.radiopaedia.org') &&
+      /\.(jpe?g|png|webp)(\?|$)/i.test(node) &&
+      !/\.mp4/i.test(node)
+    ) {
+      out.push(node);
+    }
     return out;
   }
   if (Array.isArray(node)) {
-    node.forEach((v) => collectImageUrls(v, out));
+    node.forEach((v) => collectLegacyImageUrls(v, out));
     return out;
   }
   if (node && typeof node === 'object') {
-    Object.values(node).forEach((v) => collectImageUrls(v, out));
+    Object.values(node).forEach((v) => collectLegacyImageUrls(v, out));
   }
   return out;
 }
@@ -90,7 +97,7 @@ function scoreUrl(url) {
   return 50;
 }
 
-function pickImageUrl(urls, imageIndex = 0) {
+function pickRankedUrl(urls, imageIndex = 0) {
   const ranked = [...new Set(urls)]
     .map((u) => ({ u, s: scoreUrl(u) }))
     .filter((x) => x.s > 0)
@@ -99,21 +106,77 @@ function pickImageUrl(urls, imageIndex = 0) {
   return ranked[Math.min(imageIndex, ranked.length - 1)].u;
 }
 
+function pickImageSeries(study) {
+  if (!study?.series?.length) return null;
+  return (
+    study.series.find((s) => s.content_type?.startsWith('image/')) ||
+    study.series.find((s) => s.encodings?.thumbnailed_files?.length) ||
+    study.series[0]
+  );
+}
+
+function pickEncodingCandidates(thumb) {
+  if (!thumb || typeof thumb !== 'object') return [];
+  const order = ['big_gallery', 'gallery', 'medium', 'original', 'jumbo'];
+  const out = [];
+  for (const key of order) {
+    const file = thumb[key];
+    if (file && /\.(jpe?g|png|webp)$/i.test(file)) out.push(file);
+  }
+  return out;
+}
+
+function resolveStudyImageUrls(json, imageIndex = 0) {
+  const legacy = collectLegacyImageUrls(json);
+  const study = json.study;
+  const series = pickImageSeries(study);
+  if (!series) {
+    const picked = pickRankedUrl(legacy, imageIndex);
+    return picked ? [picked] : [];
+  }
+
+  const thumbs = series.encodings?.thumbnailed_files || [];
+  const frames = series.frames || [];
+  if (!thumbs.length) {
+    const picked = pickRankedUrl(legacy, imageIndex);
+    return picked ? [picked] : [];
+  }
+
+  const idx = Math.min(imageIndex ?? 0, thumbs.length - 1);
+  const frameId = frames[idx]?.id ?? frames[0]?.id ?? series.stack_root_id;
+  const candidates = pickEncodingCandidates(thumbs[idx]);
+  if (!frameId || !candidates.length) {
+    const picked = pickRankedUrl(legacy, imageIndex);
+    return picked ? [picked] : [];
+  }
+
+  return candidates.map((file) => `${IMAGE_CDN}/${frameId}/${file}`);
+}
+
 async function downloadStudyImage(entry) {
   const api = `https://radiopaedia.org/studies/${entry.studyId}/annotated_viewer_json?lang=us`;
   const json = await fetchJson(api);
-  const urls = collectImageUrls(json);
-  const imageUrl = pickImageUrl(urls, entry.imageIndex ?? 0);
-  if (!imageUrl) {
+  const imageUrls = resolveStudyImageUrls(json, entry.imageIndex ?? 0);
+  if (!imageUrls.length) {
     throw new Error(`Nessuna immagine nello studio ${entry.studyId}`);
   }
-  const buf = await fetchBuffer(imageUrl);
-  if (buf.length < 5000) {
-    throw new Error(`Immagine troppo piccola (${buf.length} byte)`);
+
+  let lastError = null;
+  for (const imageUrl of imageUrls) {
+    try {
+      const buf = await fetchBuffer(imageUrl);
+      if (buf.length < 5000) {
+        throw new Error(`Immagine troppo piccola (${buf.length} byte)`);
+      }
+      const destPath = path.join(DEST, entry.dest);
+      fs.writeFileSync(destPath, buf);
+      return { destPath, imageUrl, bytes: buf.length };
+    } catch (err) {
+      lastError = err;
+    }
   }
-  const destPath = path.join(DEST, entry.dest);
-  fs.writeFileSync(destPath, buf);
-  return { destPath, imageUrl, bytes: buf.length };
+
+  throw lastError ?? new Error(`Download fallito per studio ${entry.studyId}`);
 }
 
 async function main() {
