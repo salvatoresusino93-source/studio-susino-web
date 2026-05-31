@@ -16,18 +16,36 @@ const DEST = path.join(ROOT, 'images', 'us-reali');
 const MANIFEST = path.join(__dirname, 'radiopaedia-manifest.json');
 const ATTRIBUTIONS = path.join(DEST, 'ATTRIBUTIONS.md');
 const UA =
-  'StudioSusinoBot/1.0 (https://studiosusino.it; contact salvatoresusino.md@gmail.com)';
+  'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36';
 
-function fetchBuffer(url) {
+const JSON_HEADERS = {
+  'User-Agent': UA,
+  Accept: 'application/json, text/plain, */*',
+  'Accept-Language': 'en-US,en;q=0.9',
+  Referer: 'https://radiopaedia.org/',
+  'X-Requested-With': 'XMLHttpRequest',
+};
+
+const IMAGE_HEADERS = {
+  'User-Agent': UA,
+  Accept: 'image/avif,image/webp,image/apng,image/*,*/*;q=0.8',
+  Referer: 'https://radiopaedia.org/',
+};
+
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+function fetchBuffer(url, headers = IMAGE_HEADERS) {
   return new Promise((resolve, reject) => {
     const req = https.get(
       url,
       {
-        headers: { 'User-Agent': UA, Accept: '*/*' },
+        headers,
       },
       (res) => {
         if (res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
-          fetchBuffer(res.headers.location).then(resolve).catch(reject);
+          fetchBuffer(res.headers.location, headers).then(resolve).catch(reject);
           return;
         }
         if (res.statusCode !== 200) {
@@ -44,7 +62,7 @@ function fetchBuffer(url) {
 }
 
 async function fetchJson(url) {
-  const buf = await fetchBuffer(url);
+  const buf = await fetchBuffer(url, JSON_HEADERS);
   return JSON.parse(buf.toString('utf8'));
 }
 
@@ -120,6 +138,7 @@ async function main() {
   for (const entry of manifest.sources) {
     process.stdout.write(`→ ${entry.dest} (studio ${entry.studyId})… `);
     try {
+      await sleep(350);
       const result = await downloadStudyImage(entry);
       console.log(`OK (${result.bytes} byte)`);
       lines.push(
