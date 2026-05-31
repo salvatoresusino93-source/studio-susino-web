@@ -54,15 +54,6 @@ window.ESAMI = [
     prenotaNome: 'Ecografia vescico-prostatica',
   },
   {
-    id: 'prostata-transrettale',
-    nome: 'Ecografia prostatica transrettale',
-    categoria: 'Apparato urinario e urologia',
-    descrizione:
-      'Consente una valutazione dettagliata di prostata e vescicole seminali mediante sonda endorettale. ' +
-      'Indicata per PSA elevato, nodulo alla visita urologica, sospetta prostatite, quantificazione dell\'IPB o guida a biopsia prostatica; richiede svuotamento dell\'ampolla rettale.',
-    prenotaNome: 'Ecografia prostatica transrettale',
-  },
-  {
     id: 'scrotale-testicolare',
     nome: 'Ecografia scrotale e testicolare',
     categoria: 'Apparato urinario e urologia',

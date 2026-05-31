@@ -53,15 +53,6 @@ window.ESAMI_PAZIENTE = {
     cosaControlla:
       'Valutiamo vescica e prostata e, se serve, quanta urina resta dopo aver urinato.',
   },
-  'prostata-transrettale': {
-    sintesi: 'Controllo dettagliato della prostata con una sonda piccola inserita nel retto.',
-    perche:
-      'La prescrive l’urologo se hai PSA alto, un nodulo alla visita, sospetta prostatite o serve un controllo più preciso della prostata.',
-    svolgimento:
-      'Ti sdrai di lato. Si usa una sonda sottile via rettale, dopo aver svuotato l’intestino. Può essere un po’ fastidiosa ma dura pochi minuti.',
-    cosaControlla:
-      'Guardiamo prostata e vescicole seminali con più dettaglio rispetto all’ecografia sopra il pube.',
-  },
   'scrotale-testicolare': {
     sintesi: 'Controllo di testicoli, epididimo e strutture dello scroto.',
     perche:

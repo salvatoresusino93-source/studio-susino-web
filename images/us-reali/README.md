@@ -16,4 +16,4 @@ Rigenerare le miniature:
 bash scripts/build-esami-images.sh
 ```
 
-**Da migliorare in futuro:** scrotale, prostata transrettale e anca neonatale usano per ora la fonte addome/MSK più vicina. Se hai screenshot reali dal tuo ecografo, sostituiscili in `images/us-reali/` e rilancia lo script.
+**Da migliorare in futuro:** scrotale e anca neonatale usano per ora la fonte addome/MSK più vicina.

@@ -42,7 +42,6 @@ build addome.jpg addome-inferiore 40 0
 build addome.jpg apparato-urinario 25 70
 build addome.jpg renale 30 80
 build addome.jpg vescico-prostatica 45 35
-build addome.jpg prostata-transrettale 50 45
 build addome.jpg scrotale-testicolare 55 25
 
 build tiroide.jpg tiroide 0 0
