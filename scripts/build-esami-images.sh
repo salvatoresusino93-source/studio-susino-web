@@ -13,7 +13,7 @@ for pair in \
   "src-tiroide:esame-tiroide.jpg" \
   "src-carotidi:esame-carotidi.jpg" \
   "src-spalla-tendine:esame-muscolo-scheletrica.jpg" \
-  "src-doppler-renale:esame-arti-inferiori.jpg" \
+  "src-doppler-arti-inferiori:esame-arti-inferiori.jpg" \
   "src-msk-generica:esame-muscolo-scheletrica.jpg"; do
   key="${pair%%:*}"
   file="${pair##*:}"
@@ -79,6 +79,20 @@ build_from "$(pick_src src-doppler-renale.jpg)" doppler-arterie-renali 0 0
 build_from "$(pick_src src-doppler-arti-inferiori.jpg src-carotidi.jpg)" doppler-arti-inferiori 0 0
 build_from "$(pick_src src-doppler-arti-superiori.jpg src-doppler-arti-superiori.png src-carotidi.jpg)" doppler-arti-superiori 0 0
 build_from "$(pick_src src-linfonodo.jpg src-parotide.jpg src-tiroide.jpg)" linfonodi 0 0
+
+# Hero pagine servizio (images/esame-*.jpg)
+for hero in \
+  "src-addome-rene:esame-addome.jpg" \
+  "src-tiroide:esame-tiroide.jpg" \
+  "src-carotidi:esame-carotidi.jpg" \
+  "src-spalla-tendine:esame-muscolo-scheletrica.jpg" \
+  "src-doppler-arti-inferiori:esame-arti-inferiori.jpg"; do
+  hero_src="${hero%%:*}"
+  hero_dest="${hero##*:}"
+  if [[ -f "$SRC/$hero_src.jpg" ]]; then
+    cp "$SRC/$hero_src.jpg" "$ROOT/images/$hero_dest"
+  fi
+done
 
 count="$(ls "$DEST"/*.jpg 2>/dev/null | wc -l | tr -d ' ')"
 echo "Miniature generate: $count"
