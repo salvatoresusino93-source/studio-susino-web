@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
 
+# Nessuna area admin/api su questo sito statico.
+# Il form di prenotazione reale è su referteco-production.up.railway.app
+
 Sitemap: https://studiosusino.it/sitemap.xml

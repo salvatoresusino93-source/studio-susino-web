@@ -10,6 +10,10 @@
   <title>Lo studio — Studio Ecografico Dr. Salvatore Susino | Pozzallo</title>
   <meta name="description" content="Ambulatorio di ecografia a Pozzallo (RG). Visite su appuntamento. Via dell'Arno 34.">
   <link rel="canonical" href="https://studiosusino.it/studio.html">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="twitter:title" content="Lo studio — Studio Ecografico Dr. Salvatore Susino | Pozzallo">
+  <meta name="twitter:description" content="Ambulatorio di ecografia a Pozzallo (RG). Visite su appuntamento. Via dell'Arno 34.">
+  <meta name="twitter:image" content="https://studiosusino.it/images/hero-studio.jpg">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Lo studio — Studio Ecografico Dr. Salvatore Susino | Pozzallo">
   <meta property="og:description" content="Ambulatorio di ecografia a Pozzallo (RG). Visite su appuntamento. Via dell'Arno 34.">
@@ -21,7 +25,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=20260531l">
+    <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://studiosusino.it/"},
+    {"@type":"ListItem","position":2,"name":"Lo studio","item":"https://studiosusino.it/studio.html"}
+  ]}
+  </script>
+  <link rel="stylesheet" href="css/style.css?v=20260601">
 </head>
 <body>
   <header class="site-header">
@@ -60,6 +70,7 @@
   <main>
     <section class="page-hero">
       <div class="container">
+        <nav class="breadcrumb-nav" aria-label="Percorso"><ol><li><a href="index.html">Home</a></li><li aria-current="page">Lo studio</li></ol></nav>
         <h1>Lo studio</h1>
         <p>Ambulatorio di ecografia clinica nel centro di Pozzallo. Visite su appuntamento.</p>
       </div>
@@ -127,6 +138,6 @@
       <div class="footer-links"><a href="prenota.html">Prenota</a></div>
     </div>
   </footer>
-  <script src="js/main.js?v=20260531h"></script>
+  <script src="js/main.js?v=20260601" defer></script>
 </body>
 </html>

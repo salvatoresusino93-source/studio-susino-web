@@ -24,13 +24,8 @@
 
   const sintesi =
     info && info.sintesi ? info.sintesi : esame.descrizione.split('.')[0] + '.';
-  const metaText = sintesi.slice(0, 155);
 
-  document.title = esame.nome + ' — Studio Susino';
-  const meta = document.querySelector('meta[name="description"]');
-  if (meta) meta.content = metaText;
-
-  // Icone (stroke, ereditano il colore dal contenitore)
+  // Titolo e meta gestiti da js/esame-head.js in <head>
   const ICON = {
     perche:
       '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>',
@@ -69,9 +64,27 @@
     blocks = block(ICON.perche, 'A cosa serve', esame.descrizione);
   }
 
+  const SEO_DEEP = {
+    tiroide: 'ecografia-tiroide.html',
+    'addome-completo': 'ecografia-addome.html',
+    'addome-superiore': 'ecografia-addome.html',
+    'addome-inferiore': 'ecografia-addome.html',
+    'doppler-tsa': 'ecocolordoppler-carotidi.html',
+    'doppler-arti-inferiori': 'ecocolordoppler-arti-inferiori.html',
+    spalla: 'ecografia-muscolo-scheletrica.html',
+    ginocchio: 'ecografia-muscolo-scheletrica.html',
+    'muscolo-scheletrica': 'ecografia-muscolo-scheletrica.html',
+  };
+  const deepLink = SEO_DEEP[esame.id];
+  const deepBlock = deepLink
+    ? '<p class="exam-deep-link"><a class="link-arrow" href="' +
+      deepLink +
+      '">Approfondimento su questo tipo di esame →</a></p>'
+    : '';
+
   main.innerHTML =
     '<section class="page-hero exam-hero"><div class="container">' +
-    '<p class="exam-breadcrumb"><a href="ecografie.html">Ecografie</a> · ' +
+    '<p class="exam-breadcrumb"><a href="index.html">Home</a> · <a href="ecografie.html">Ecografie</a> · ' +
     esame.categoria +
     '</p>' +
     '<h1>' +
@@ -85,6 +98,7 @@
     '<div class="exam-blocks">' +
     blocks +
     '</div>' +
+    deepBlock +
     '<div class="exam-cta-card">' +
     '<h2>Vuoi prenotare questo esame?</h2>' +
     '<p>Online in pochi passaggi, oppure al telefono se preferisci.</p>' +
