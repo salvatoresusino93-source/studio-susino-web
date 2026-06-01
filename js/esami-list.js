@@ -3,16 +3,29 @@
   if (!container || !window.ESAMI) return;
 
   const paziente = window.ESAMI_PAZIENTE || {};
+  const EN = document.documentElement.lang === 'en';
+  const moreLabel = EN ? 'Learn more →' : 'Scopri di più →';
+  const examPage = EN ? 'esame-en.html' : 'esame.html';
 
-  const ordine = [
-    'Addome',
-    'Apparato urinario e urologia',
-    'Tiroide e collo',
-    'Muscolo-scheletrico',
-    'Pediatrica',
-    'Vascolare (Doppler)',
-    'Altro',
-  ];
+  const ordine = EN
+    ? [
+        'Abdomen',
+        'Urinary tract and urology',
+        'Thyroid and neck',
+        'Musculoskeletal',
+        'Paediatric',
+        'Vascular (Doppler)',
+        'Other',
+      ]
+    : [
+        'Addome',
+        'Apparato urinario e urologia',
+        'Tiroide e collo',
+        'Muscolo-scheletrico',
+        'Pediatrica',
+        'Vascolare (Doppler)',
+        'Altro',
+      ];
 
   const gruppi = new Map();
   for (const cat of ordine) gruppi.set(cat, []);
@@ -21,15 +34,25 @@
     gruppi.get(esame.categoria).push(esame);
   }
 
-  const slugCategoria = {
-    Addome: 'addome',
-    'Apparato urinario e urologia': 'apparato-urinario',
-    'Tiroide e collo': 'tiroide-e-collo',
-    'Muscolo-scheletrico': 'muscolo-scheletrico',
-    Pediatrica: 'pediatrica',
-    'Vascolare (Doppler)': 'doppler',
-    Altro: 'altro',
-  };
+  const slugCategoria = EN
+    ? {
+        Abdomen: 'addome',
+        'Urinary tract and urology': 'apparato-urinario',
+        'Thyroid and neck': 'tiroide-e-collo',
+        Musculoskeletal: 'muscolo-scheletrico',
+        Paediatric: 'pediatrica',
+        'Vascular (Doppler)': 'doppler',
+        Other: 'altro',
+      }
+    : {
+        Addome: 'addome',
+        'Apparato urinario e urologia': 'apparato-urinario',
+        'Tiroide e collo': 'tiroide-e-collo',
+        'Muscolo-scheletrico': 'muscolo-scheletrico',
+        Pediatrica: 'pediatrica',
+        'Vascolare (Doppler)': 'doppler',
+        Altro: 'altro',
+      };
 
   let html = '';
   for (const cat of ordine) {
@@ -46,7 +69,7 @@
         .map((e) => {
           const info = paziente[e.id] || {};
           const sintesi = info.sintesi || e.descrizione.split('.')[0] + '.';
-          const href = 'esame.html?id=' + encodeURIComponent(e.id);
+          const href = examPage + '?id=' + encodeURIComponent(e.id);
           const imgSrc = 'images/esami/' + e.id + '.jpg?v=20260601rp';
           const imgAlt = e.nome;
           return (
@@ -60,7 +83,7 @@
             '</p>' +
             '<a class="exam-item-more link-arrow" href="' +
             href +
-            '">Scopri di più →</a>' +
+            '">' + moreLabel + '</a>' +
             '</div>' +
             '<div class="exam-item-thumb">' +
             '<img src="' +

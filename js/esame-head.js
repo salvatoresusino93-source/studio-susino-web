@@ -5,6 +5,11 @@
     defaultImage: 'https://studiosusino.it/images/hero-studio.jpg',
   };
 
+  var EN = document.documentElement.lang === 'en';
+  var examPage = EN ? 'esame-en.html' : 'esame.html';
+  var listPage = EN ? 'ecografie-en.html' : 'ecografie.html';
+  var scansName = EN ? 'Scans' : 'Ecografie';
+
   var params = new URLSearchParams(window.location.search);
   var id = params.get('id');
   var esame = (window.ESAMI || []).find(function (e) {
@@ -46,23 +51,33 @@
   }
 
   if (!esame) {
-    document.title = 'Esame non trovato | ' + cfg.siteName;
+    document.title = (EN ? 'Exam not found | ' : 'Esame non trovato | ') + cfg.siteName;
     setMeta('robots', 'noindex, follow');
-    setMeta('description', 'Pagina esame non trovata. Torna all’elenco ecografie.');
+    setMeta(
+      'description',
+      EN
+        ? 'Exam page not found. Back to the list of ultrasound scans.'
+        : 'Pagina esame non trovata. Torna all’elenco ecografie.'
+    );
     return;
   }
 
   var sintesi =
     info.sintesi || esame.descrizione.split('.')[0].trim() + '.';
-  var title = esame.nome + ' a Pozzallo (RG) | Dr. Susino';
+  var title = EN
+    ? esame.nome + ' in Pozzallo (RG), Italy | Dr. Susino'
+    : esame.nome + ' a Pozzallo (RG) | Dr. Susino';
   if (title.length > 60) {
-    title = esame.nome + ' | Pozzallo (RG)';
+    title = EN ? esame.nome + ' | Pozzallo (RG)' : esame.nome + ' | Pozzallo (RG)';
   }
-  var description = (sintesi + ' Prenota online o al telefono. Studio a Pozzallo (RG).').slice(
-    0,
-    160
-  );
-  var canonical = cfg.siteUrl + '/esame.html?id=' + encodeURIComponent(esame.id);
+  var description = (
+    sintesi +
+    (EN
+      ? ' Book online or by phone. Practice in Pozzallo (RG), Italy.'
+      : ' Prenota online o al telefono. Studio a Pozzallo (RG).')
+  ).slice(0, 160);
+  var canonical =
+    cfg.siteUrl + '/' + examPage + '?id=' + encodeURIComponent(esame.id);
   var image = cfg.defaultImage;
 
   document.title = title;
@@ -76,7 +91,7 @@
   setMeta('og:url', canonical, true);
   setMeta('og:image', image, true);
   setMeta('og:site_name', cfg.siteName, true);
-  setMeta('og:locale', 'it_IT', true);
+  setMeta('og:locale', EN ? 'en_US' : 'it_IT', true);
 
   setMeta('twitter:card', 'summary_large_image');
   setMeta('twitter:title', title);
@@ -87,12 +102,12 @@
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: cfg.siteUrl + '/' },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: cfg.siteUrl + '/' + (EN ? 'index-en.html' : '') },
       {
         '@type': 'ListItem',
         position: 2,
-        name: 'Ecografie',
-        item: cfg.siteUrl + '/ecografie.html',
+        name: scansName,
+        item: cfg.siteUrl + '/' + listPage,
       },
       { '@type': 'ListItem', position: 3, name: esame.nome, item: canonical },
     ],

@@ -1,5 +1,53 @@
 (function () {
   const PRENOTA_BASE = 'https://referteco-production.up.railway.app/prenota';
+  const EN = document.documentElement.lang === 'en';
+  const homePage = EN ? 'index-en.html' : 'index.html';
+  const listPage = EN ? 'ecografie-en.html' : 'ecografie.html';
+
+  const T = EN
+    ? {
+        notFoundTitle: 'Exam not found',
+        notFoundText: 'We could not find the page for this exam.',
+        backToScans: 'Back to scans',
+        notFoundDocTitle: 'Exam not found — Studio Susino',
+        why: 'Why it is done',
+        how: 'How it works',
+        whatWeCheck: 'What we check',
+        whatFor: 'What it is for',
+        deepLink: 'Read more about this type of exam →',
+        home: 'Home',
+        scans: 'Scans',
+        ctaTitle: 'Would you like to book this exam?',
+        ctaText: 'Online in a few steps, or by phone if you prefer.',
+        bookOnline: 'Book online',
+        backToList: 'Back to the list',
+        byPhone: 'By phone: ',
+        disclaimer:
+          'This information describes the exam in general terms. ' +
+          'For your specific case, what your referring doctor has indicated always takes precedence.',
+      }
+    : {
+        notFoundTitle: 'Esame non trovato',
+        notFoundText: 'Non siamo riusciti a trovare la pagina di questo esame.',
+        backToScans: 'Torna agli esami',
+        notFoundDocTitle: 'Esame non trovato — Studio Susino',
+        why: 'Perché si fa',
+        how: 'Come si svolge',
+        whatWeCheck: 'Cosa controlliamo',
+        whatFor: 'A cosa serve',
+        deepLink: 'Approfondimento su questo tipo di esame →',
+        home: 'Home',
+        scans: 'Ecografie',
+        ctaTitle: 'Vuoi prenotare questo esame?',
+        ctaText: 'Online in pochi passaggi, oppure al telefono se preferisci.',
+        bookOnline: 'Prenota online',
+        backToList: "Torna all'elenco",
+        byPhone: 'Al telefono: ',
+        disclaimer:
+          'Queste informazioni descrivono l’esame in linea generale. ' +
+          'Per il tuo caso specifico fa sempre fede quanto indicato dal medico che ti ha prescritto l’esame.',
+      };
+
   const params = new URLSearchParams(window.location.search);
   const id = params.get('id');
   const esame = (window.ESAMI || []).find((e) => e.id === id);
@@ -11,11 +59,11 @@
   if (!esame) {
     main.innerHTML =
       '<section class="page-hero"><div class="container">' +
-      '<h1>Esame non trovato</h1>' +
-      '<p>Non siamo riusciti a trovare la pagina di questo esame.</p>' +
-      '<p class="btn-stack"><a class="btn btn-primary" href="ecografie.html">Torna agli esami</a></p>' +
+      '<h1>' + T.notFoundTitle + '</h1>' +
+      '<p>' + T.notFoundText + '</p>' +
+      '<p class="btn-stack"><a class="btn btn-primary" href="' + listPage + '">' + T.backToScans + '</a></p>' +
       '</div></section>';
-    document.title = 'Esame non trovato — Studio Susino';
+    document.title = T.notFoundDocTitle;
     return;
   }
 
@@ -57,34 +105,46 @@
   let blocks = '';
   if (info) {
     blocks =
-      block(ICON.perche, 'Perché si fa', info.perche) +
-      block(ICON.svolgimento, 'Come si svolge', info.svolgimento) +
-      block(ICON.controlla, 'Cosa controlliamo', info.cosaControlla);
+      block(ICON.perche, T.why, info.perche) +
+      block(ICON.svolgimento, T.how, info.svolgimento) +
+      block(ICON.controlla, T.whatWeCheck, info.cosaControlla);
   } else {
-    blocks = block(ICON.perche, 'A cosa serve', esame.descrizione);
+    blocks = block(ICON.perche, T.whatFor, esame.descrizione);
   }
 
-  const SEO_DEEP = {
-    tiroide: 'ecografia-tiroide.html',
-    'addome-completo': 'ecografia-addome.html',
-    'addome-superiore': 'ecografia-addome.html',
-    'addome-inferiore': 'ecografia-addome.html',
-    'doppler-tsa': 'ecocolordoppler-carotidi.html',
-    'doppler-arti-inferiori': 'ecocolordoppler-arti-inferiori.html',
-    spalla: 'ecografia-muscolo-scheletrica.html',
-    ginocchio: 'ecografia-muscolo-scheletrica.html',
-    'muscolo-scheletrica': 'ecografia-muscolo-scheletrica.html',
-  };
+  const SEO_DEEP = EN
+    ? {
+        tiroide: 'ecografia-tiroide-en.html',
+        'addome-completo': 'ecografia-addome-en.html',
+        'addome-superiore': 'ecografia-addome-en.html',
+        'addome-inferiore': 'ecografia-addome-en.html',
+        'doppler-tsa': 'ecocolordoppler-carotidi-en.html',
+        'doppler-arti-inferiori': 'ecocolordoppler-arti-inferiori-en.html',
+        spalla: 'ecografia-muscolo-scheletrica-en.html',
+        ginocchio: 'ecografia-muscolo-scheletrica-en.html',
+        'muscolo-scheletrica': 'ecografia-muscolo-scheletrica-en.html',
+      }
+    : {
+        tiroide: 'ecografia-tiroide.html',
+        'addome-completo': 'ecografia-addome.html',
+        'addome-superiore': 'ecografia-addome.html',
+        'addome-inferiore': 'ecografia-addome.html',
+        'doppler-tsa': 'ecocolordoppler-carotidi.html',
+        'doppler-arti-inferiori': 'ecocolordoppler-arti-inferiori.html',
+        spalla: 'ecografia-muscolo-scheletrica.html',
+        ginocchio: 'ecografia-muscolo-scheletrica.html',
+        'muscolo-scheletrica': 'ecografia-muscolo-scheletrica.html',
+      };
   const deepLink = SEO_DEEP[esame.id];
   const deepBlock = deepLink
     ? '<p class="exam-deep-link"><a class="link-arrow" href="' +
       deepLink +
-      '">Approfondimento su questo tipo di esame →</a></p>'
+      '">' + T.deepLink + '</a></p>'
     : '';
 
   main.innerHTML =
     '<section class="page-hero exam-hero"><div class="container">' +
-    '<p class="exam-breadcrumb"><a href="index.html">Home</a> · <a href="ecografie.html">Ecografie</a> · ' +
+    '<p class="exam-breadcrumb"><a href="' + homePage + '">' + T.home + '</a> · <a href="' + listPage + '">' + T.scans + '</a> · ' +
     esame.categoria +
     '</p>' +
     '<h1>' +
@@ -100,19 +160,18 @@
     '</div>' +
     deepBlock +
     '<div class="exam-cta-card">' +
-    '<h2>Vuoi prenotare questo esame?</h2>' +
-    '<p>Online in pochi passaggi, oppure al telefono se preferisci.</p>' +
+    '<h2>' + T.ctaTitle + '</h2>' +
+    '<p>' + T.ctaText + '</p>' +
     '<div class="btn-stack exam-actions">' +
     '<a class="btn btn-primary" href="' +
     prenotaUrl +
-    '" rel="noopener noreferrer">Prenota online</a>' +
-    '<a class="btn btn-outline" href="ecografie.html">Torna all\'elenco</a>' +
+    '" rel="noopener noreferrer">' + T.bookOnline + '</a>' +
+    '<a class="btn btn-outline" href="' + listPage + '">' + T.backToList + '</a>' +
     '</div>' +
-    '<p class="exam-note">Al telefono: ' +
+    '<p class="exam-note">' + T.byPhone +
     '<a href="tel:+390932954441">0932 954441</a> · ' +
     '<a href="tel:+393513746102">351 374 6102</a></p>' +
     '</div>' +
-    '<p class="exam-disclaimer">Queste informazioni descrivono l’esame in linea generale. ' +
-    'Per il tuo caso specifico fa sempre fede quanto indicato dal medico che ti ha prescritto l’esame.</p>' +
+    '<p class="exam-disclaimer">' + T.disclaimer + '</p>' +
     '</div></section>';
 })();
