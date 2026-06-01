@@ -209,7 +209,7 @@ window.ESAMI_PAZIENTE = {
   linfonodi: {
     sintesi: 'Controllo di linfonodi ingranditi al collo, ascelle o inguine.',
     perche:
-      'La fai se senti un “nodino” che non passa, hai febbre persistente o serve un controllo di linfonodi già noti.',
+      'La fai se noti un rigonfiamento o un linfonodo ingrossato che non scompare, in caso di febbre persistente, o per controllare linfonodi già noti.',
     svolgimento:
       'Gel sulla zona del linfonodo (collo, ascella o inguine), sonda che passa sopra.',
     cosaControlla:

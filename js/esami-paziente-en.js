@@ -209,7 +209,7 @@ window.ESAMI_PAZIENTE = {
   linfonodi: {
     sintesi: 'A check of enlarged lymph nodes in the neck, armpits or groin.',
     perche:
-      'You have it if you feel a small lump that won\'t go away, have a persistent fever, or need a check of lymph nodes already known.',
+      'You have it if you notice a swelling or an enlarged lymph node that does not go away, in case of persistent fever, or to check lymph nodes already known.',
     svolgimento:
       'Gel on the area of the lymph node (neck, armpit or groin), the probe passing over it.',
     cosaControlla:
