@@ -157,7 +157,7 @@ window.ESAMI_PAZIENTE = {
     perche:
       'You have it if you feel a lump under the skin and the doctor wants to understand whether it is a cyst, a lipoma, a haematoma or something else.',
     svolgimento:
-      'Gel on the area of the swelling, the probe passing over it. It takes a few minutes.',
+      'Gel is applied to the area of the swelling and the probe is gently moved over it. It takes a few minutes.',
     cosaControlla:
       'We look at whether the lesion is fluid-filled or solid, where it is and how large it is.',
   },
@@ -211,7 +211,7 @@ window.ESAMI_PAZIENTE = {
     perche:
       'You have it if you notice a swelling or an enlarged lymph node that does not go away, in case of persistent fever, or to check lymph nodes already known.',
     svolgimento:
-      'Gel on the area of the lymph node (neck, armpit or groin), the probe passing over it.',
+      'Gel is applied to the area (neck, armpit or groin) and the probe is gently moved over it.',
     cosaControlla:
       'We assess the size, shape and internal structure of the lymph node to understand whether it has benign features or requires further investigation.',
   },

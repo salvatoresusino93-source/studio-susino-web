@@ -157,7 +157,7 @@ window.ESAMI_PAZIENTE = {
     perche:
       'La fai se senti un bozzo sotto la pelle e il medico vuole capire se è una cisti, un lipoma, un ematoma o altro.',
     svolgimento:
-      'Gel sulla zona del gonfiore, sonda che passa sopra. Dura pochi minuti.',
+      'Si applica il gel sulla zona del gonfiore e si fa scorrere delicatamente la sonda. Dura pochi minuti.',
     cosaControlla:
       'Guardiamo se la lesione è piena di liquido o solida, dove si trova e quanto è estesa.',
   },
@@ -211,7 +211,7 @@ window.ESAMI_PAZIENTE = {
     perche:
       'La fai se noti un rigonfiamento o un linfonodo ingrossato che non scompare, in caso di febbre persistente, o per controllare linfonodi già noti.',
     svolgimento:
-      'Gel sulla zona del linfonodo (collo, ascella o inguine), sonda che passa sopra.',
+      'Si applica il gel sulla zona interessata (collo, ascella o inguine) e si fa scorrere delicatamente la sonda.',
     cosaControlla:
       'Valutiamo dimensioni, forma e struttura interna del linfonodo per capire se ha caratteristiche benigne o se necessita di approfondimenti.',
   },
