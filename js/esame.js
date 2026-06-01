@@ -24,7 +24,7 @@
         byPhone: 'By phone: ',
         disclaimer:
           'This information describes the exam in general terms. ' +
-          'For your specific case, what your referring doctor has indicated always takes precedence.',
+          'If you have any doubts, or to find out which exam is most suitable for you, ask your doctor or contact us.',
       }
     : {
         notFoundTitle: 'Esame non trovato',
@@ -45,7 +45,7 @@
         byPhone: 'Al telefono: ',
         disclaimer:
           'Queste informazioni descrivono l’esame in linea generale. ' +
-          'Per il tuo caso specifico fa sempre fede quanto indicato dal medico che ti ha prescritto l’esame.',
+          'Per dubbi o per sapere qual è l’esame più adatto da eseguire, rivolgiti al tuo medico oppure contattaci.',
       };
 
   const params = new URLSearchParams(window.location.search);
