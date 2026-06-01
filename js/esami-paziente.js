@@ -213,6 +213,6 @@ window.ESAMI_PAZIENTE = {
     svolgimento:
       'Gel sulla zona del linfonodo (collo, ascella o inguine), sonda che passa sopra.',
     cosaControlla:
-      'Valutiamo dimensioni, forma e struttura interna del linfonodo per capire se è reattivo o merita approfondimenti.',
+      'Valutiamo dimensioni, forma e struttura interna del linfonodo per capire se ha caratteristiche benigne o se necessita di approfondimenti.',
   },
 };

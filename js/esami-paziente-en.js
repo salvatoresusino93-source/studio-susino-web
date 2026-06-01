@@ -213,6 +213,6 @@ window.ESAMI_PAZIENTE = {
     svolgimento:
       'Gel on the area of the lymph node (neck, armpit or groin), the probe passing over it.',
     cosaControlla:
-      'We assess the size, shape and internal structure of the lymph node to understand whether it is reactive or needs further investigation.',
+      'We assess the size, shape and internal structure of the lymph node to understand whether it has benign features or requires further investigation.',
   },
 };
