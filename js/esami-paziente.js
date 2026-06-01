@@ -2,9 +2,9 @@ window.ESAMI_PAZIENTE = {
   'addome-completo': {
     sintesi: 'Controllo dell’addome: fegato, cistifellea, pancreas, milza, reni, vescica e altri organi.',
     perche:
-      'Il medico te la prescrive se hai dolore o fastidi all'addome, analisi del sangue alterate, sospetta calcolosi o se serve un controllo di una patologia già nota.',
+      'Il medico te la prescrive se hai dolore o fastidi all’addome, analisi del sangue alterate, sospetta calcolosi o se serve un controllo di una patologia già nota.',
     svolgimento:
-      'Ti sdrai sul lettino. Si applica del gel sull'addome e si muove la sonda. A volte ti chiederanno di trattenere un po’ il respiro. Dura in genere 15–20 minuti.',
+      'Ti sdrai sul lettino. Si applica del gel sull’addome e si muove la sonda. A volte ti chiederanno di trattenere un po’ il respiro. Dura in genere 15–20 minuti.',
     cosaControlla:
       'Guardiamo fegato, cistifellea e vie biliari, pancreas, milza, reni, vescica e l’aorta addominale. Negli uomini valutiamo anche la prostata.',
   },
@@ -13,7 +13,7 @@ window.ESAMI_PAZIENTE = {
     perche:
       'Serve se hai dolore sotto le costole, sospetta colica della cistifellea, febbre senza causa chiara o analisi del fegato o del pancreas fuori norma.',
     svolgimento:
-      'Sei disteso supino. Gel sulla pelle e sonda che scorre sulla parte alta dell'addome. A volte serve trattenere il respiro qualche secondo.',
+      'Sei disteso supino. Gel sulla pelle e sonda che scorre sulla parte alta dell’addome. A volte serve trattenere il respiro qualche secondo.',
     cosaControlla:
       'Controlliamo fegato, cistifellea, vie biliari, pancreas, milza e la parte alta dei reni.',
   },
@@ -175,7 +175,7 @@ window.ESAMI_PAZIENTE = {
     perche:
       'La fai se devi controllare un aneurisma già noto, una dilatazione dell’aorta o patologie dei vasi addominali.',
     svolgimento:
-      'Disteso supino, gel sull'addome. La sonda Doppler mostra il flusso del sangue nell’aorta.',
+      'Disteso supino, gel sull’addome. La sonda Doppler mostra il flusso del sangue nell’aorta.',
     cosaControlla:
       'Valutiamo dimensioni dell’aorta addominale e delle iliache e come scorre il sangue.',
   },
