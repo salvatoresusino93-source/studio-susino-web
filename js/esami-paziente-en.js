@@ -4,7 +4,7 @@ window.ESAMI_PAZIENTE = {
     perche:
       'Your doctor requests it if you have abdominal pain or discomfort, abnormal blood tests, suspected stones, or to check a condition that is already known.',
     svolgimento:
-      'You lie down on the couch. A cool gel is applied to the abdomen and the probe is moved over it. Sometimes you will be asked to hold your breath briefly. It usually takes 15–20 minutes.',
+      'You lie down on the couch. Gel is applied to the abdomen and the probe is moved over it. Sometimes you will be asked to hold your breath briefly. It usually takes 15–20 minutes.',
     cosaControlla:
       'We look at the liver, gallbladder and biliary tract, pancreas, spleen, kidneys, bladder and the abdominal aorta. In men we also assess the prostate.',
   },
@@ -47,7 +47,7 @@ window.ESAMI_PAZIENTE = {
   'vescico-prostatica': {
     sintesi: 'A check of the bladder and prostate from above the pubic bone.',
     perche:
-      'Useful if you urinate often, with a weak stream, get up at night to go to the toilet, or your doctor suspects an enlarged prostate.',
+      'Useful if you urinate often, with a weak stream, get up at night to urinate, or your doctor suspects an enlarged prostate.',
     svolgimento:
       'It is important to arrive with a reasonably full bladder. You lie down, gel on the lower abdomen, the probe above the pubic bone.',
     cosaControlla:
@@ -101,7 +101,7 @@ window.ESAMI_PAZIENTE = {
   ginocchio: {
     sintesi: 'A check of the tendons, ligaments and any fluid in the knee.',
     perche:
-      'Useful after a sprain, a sport in which you got hurt, knee swelling or pain at the front or sides.',
+      'Useful after a sprain, a sports injury, knee swelling or pain at the front or sides.',
     svolgimento:
       'You lie down or stay seated with the knee bent. Gel and probe on the painful area. We may ask for small movements.',
     cosaControlla:
@@ -164,7 +164,7 @@ window.ESAMI_PAZIENTE = {
   'doppler-tsa': {
     sintesi: 'A check of the blood flow in the neck arteries (carotids).',
     perche:
-      'Used to prevent stroke: if you have risk factors, a bruit in the neck, dizziness or have already had a mini-stroke.',
+      'Used to prevent stroke: if you have risk factors, a bruit in the neck, dizziness or have already had a mini-stroke (TIA).',
     svolgimento:
       'You lie down. Gel is applied to the neck and the Doppler probe is used: you may hear a sound like a heartbeat.',
     cosaControlla:
@@ -191,7 +191,7 @@ window.ESAMI_PAZIENTE = {
   'doppler-arti-inferiori': {
     sintesi: 'A check of the arteries and/or veins of the legs and feet.',
     perche:
-      'Arteries: legs that hurt when walking, wounds that heal poorly. Veins: heavy legs, varicose veins, suspected thrombosis or swelling.',
+      'Arteries: leg pain when walking, wounds that heal poorly. Veins: heavy legs, varicose veins, suspected thrombosis or swelling.',
     svolgimento:
       'You lie down. Gel on the legs and feet, the Doppler probe following the arteries or veins. You may hear a sound.',
     cosaControlla:

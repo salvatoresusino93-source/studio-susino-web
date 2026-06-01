@@ -2,9 +2,9 @@ window.ESAMI_PAZIENTE = {
   'addome-completo': {
     sintesi: 'Controllo dell’addome: fegato, cistifellea, pancreas, milza, reni, vescica e altri organi.',
     perche:
-      'Il medico te la prescrive se hai dolore o fastidi in pancia, analisi del sangue alterate, sospetta calcolosi o se serve un controllo di una patologia già nota.',
+      'Il medico te la prescrive se hai dolore o fastidi all'addome, analisi del sangue alterate, sospetta calcolosi o se serve un controllo di una patologia già nota.',
     svolgimento:
-      'Ti sdrai sul lettino. Si passa un gel freddo sulla pancia e si muove la sonda. A volte ti chiederanno di trattenere un po’ il respiro. Dura in genere 15–20 minuti.',
+      'Ti sdrai sul lettino. Si applica del gel sull'addome e si muove la sonda. A volte ti chiederanno di trattenere un po’ il respiro. Dura in genere 15–20 minuti.',
     cosaControlla:
       'Guardiamo fegato, cistifellea e vie biliari, pancreas, milza, reni, vescica e l’aorta addominale. Negli uomini valutiamo anche la prostata.',
   },
@@ -13,7 +13,7 @@ window.ESAMI_PAZIENTE = {
     perche:
       'Serve se hai dolore sotto le costole, sospetta colica della cistifellea, febbre senza causa chiara o analisi del fegato o del pancreas fuori norma.',
     svolgimento:
-      'Sei disteso supino. Gel sulla pelle e sonda che scorre sulla parte alta della pancia. A volte serve trattenere il respiro qualche secondo.',
+      'Sei disteso supino. Gel sulla pelle e sonda che scorre sulla parte alta dell'addome. A volte serve trattenere il respiro qualche secondo.',
     cosaControlla:
       'Controlliamo fegato, cistifellea, vie biliari, pancreas, milza e la parte alta dei reni.',
   },
@@ -47,7 +47,7 @@ window.ESAMI_PAZIENTE = {
   'vescico-prostatica': {
     sintesi: 'Controllo di vescica e prostata dalla parte sopra il pube.',
     perche:
-      'Serve se urini spesso, con getto debole, ti alzi di notte per andare in bagno o il medico sospetta un ingrossamento della prostata.',
+      'Serve se urini spesso, con getto debole, ti alzi di notte per urinare o il medico sospetta un ingrossamento della prostata.',
     svolgimento:
       'È importante arrivare con la vescica abbastanza piena. Ti sdrai, gel sul basso ventre, sonda sopra il pube.',
     cosaControlla:
@@ -101,7 +101,7 @@ window.ESAMI_PAZIENTE = {
   ginocchio: {
     sintesi: 'Controllo di tendini, legamenti e eventuale liquido nel ginocchio.',
     perche:
-      'Utile dopo una distorsione, uno sport in cui ti sei fatto male, gonfiore del ginocchio o dolore davanti o ai lati.',
+      'Utile dopo una distorsione, un infortunio durante lo sport, gonfiore del ginocchio o dolore davanti o ai lati.',
     svolgimento:
       'Ti sdrai o resti seduto con il ginocchio piegato. Gel e sonda sulla zona dolente. Possiamo chiederti piccoli movimenti.',
     cosaControlla:
@@ -155,7 +155,7 @@ window.ESAMI_PAZIENTE = {
   'parti-molli': {
     sintesi: 'Controllo di un gonfiore o di una massa sotto la pelle.',
     perche:
-      'La fai se senti un bozzo sotto la pelle e il medico vuole capire se è una cisti, un lipoma, un ematoma o altro.',
+      'La fai se senti un rigonfiamento sotto la pelle e il medico vuole capire se è una cisti, un lipoma, un ematoma o altro.',
     svolgimento:
       'Si applica il gel sulla zona del gonfiore e si fa scorrere delicatamente la sonda. Dura pochi minuti.',
     cosaControlla:
@@ -164,7 +164,7 @@ window.ESAMI_PAZIENTE = {
   'doppler-tsa': {
     sintesi: 'Controllo del flusso del sangue nelle arterie del collo (carotidi).',
     perche:
-      'Serve per prevenire l’ictus: se hai fattori di rischio, un soffio al collo, vertigini o hai già avuto un mini-ictus.',
+      'Serve per prevenire l’ictus: se hai fattori di rischio, un soffio al collo, vertigini o hai già avuto un mini-ictus (TIA).',
     svolgimento:
       'Ti sdrai. Si passa gel sul collo e si usa la sonda Doppler: puoi sentire un suono simile al battito.',
     cosaControlla:
@@ -173,9 +173,9 @@ window.ESAMI_PAZIENTE = {
   'doppler-aorta': {
     sintesi: 'Controllo dell’aorta addominale e del flusso del sangue.',
     perche:
-      'La fai se devi controllare un aneurisma già noto, una dilatazione dell’aorta o patologie dei vasi in pancia.',
+      'La fai se devi controllare un aneurisma già noto, una dilatazione dell’aorta o patologie dei vasi addominali.',
     svolgimento:
-      'Disteso supino, gel sulla pancia. La sonda Doppler mostra il flusso del sangue nell’aorta.',
+      'Disteso supino, gel sull'addome. La sonda Doppler mostra il flusso del sangue nell’aorta.',
     cosaControlla:
       'Valutiamo dimensioni dell’aorta addominale e delle iliache e come scorre il sangue.',
   },
@@ -184,14 +184,14 @@ window.ESAMI_PAZIENTE = {
     perche:
       'Serve se hai pressione alta difficile da controllare e il medico sospetta un problema alle arterie renali.',
     svolgimento:
-      'Ti sdrai, gel su fianco e pancia. Sonda Doppler sui reni: sentirai il suono del flusso.',
+      'Ti sdrai, gel su fianco e addome. Sonda Doppler sui reni: sentirai il suono del flusso.',
     cosaControlla:
       'Guardiamo se le arterie renali sono libere o restringite e come arriva il sangue ai reni.',
   },
   'doppler-arti-inferiori': {
     sintesi: 'Controllo di arterie e/o vene di gambe e piedi.',
     perche:
-      'Arterie: gambe che fanno male camminando, ferite che guariscono male. Vene: gambe pesanti, varici, sospetta trombosi o gonfiore.',
+      'Arterie: dolore alle gambe quando si cammina, ferite che guariscono male. Vene: gambe pesanti, varici, sospetta trombosi o gonfiore.',
     svolgimento:
       'Ti sdrai. Gel su gambe e piedi, sonda Doppler che segue arterie o vene. Puoi sentire un suono.',
     cosaControlla:
