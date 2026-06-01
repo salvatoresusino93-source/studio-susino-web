@@ -68,7 +68,7 @@
   }
 
   const prenotaUrl =
-    PRENOTA_BASE + '?esame=' + encodeURIComponent(esame.prenotaNome);
+    PRENOTA_BASE + '?esame=' + encodeURIComponent(esame.prenotaNome) + (EN ? '&lang=en' : '');
 
   const sintesi =
     info && info.sintesi ? info.sintesi : esame.descrizione.split('.')[0] + '.';
