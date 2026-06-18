@@ -663,6 +663,16 @@ button {
   border-radius: var(--radius);
   background: var(--surface);
   overflow: hidden;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.faq details[open] {
+  border-color: var(--accent-soft);
+  box-shadow: var(--shadow-md);
+}
+
+.faq summary:hover {
+  background: var(--accent-soft);
 }
 
 .faq summary {
@@ -798,12 +808,15 @@ button {
 
 /* Page layout */
 .page-hero {
-  padding: 2rem 0 1.5rem;
+  padding: 2.5rem 0 2rem;
+  background: var(--gradient-soft);
+  border-bottom: 1px solid var(--border);
 }
 
 .page-hero h1 {
-  font-size: clamp(1.5rem, 5vw, 2.5rem);
-  letter-spacing: -0.02em;
+  font-size: clamp(1.65rem, 5vw, 2.6rem);
+  letter-spacing: -0.025em;
+  font-weight: 700;
   margin-bottom: 0.75rem;
 }
 
@@ -834,6 +847,19 @@ button {
   font-size: 1.2rem;
   margin: 1.75rem 0 0.75rem;
   scroll-margin-top: 5.5rem;
+  padding-left: 0.85rem;
+  position: relative;
+}
+
+.content-block h2::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.15em;
+  bottom: 0.15em;
+  width: 4px;
+  border-radius: 4px;
+  background: var(--gradient);
 }
 
 .content-block h2:first-child {
@@ -1011,6 +1037,13 @@ button {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.exam-block:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: transparent;
 }
 
 .exam-block-icon {
@@ -1044,20 +1077,49 @@ button {
 
 .exam-cta-card {
   margin-top: 1.75rem;
-  padding: 1.5rem 1.25rem;
-  background: var(--accent-soft);
-  border-radius: calc(var(--radius) + 2px);
+  padding: 2rem 1.5rem;
+  background: var(--gradient);
+  border-radius: var(--radius-lg);
   text-align: center;
+  color: #fff;
+  box-shadow: var(--shadow-md);
 }
 
 .exam-cta-card h2 {
-  font-size: 1.15rem;
+  font-size: 1.25rem;
   margin: 0 0 0.4rem;
+  color: #fff;
+  padding-left: 0;
+}
+
+.exam-cta-card h2::before {
+  display: none;
 }
 
 .exam-cta-card > p {
-  color: var(--text-muted);
-  margin-bottom: 1.1rem;
+  color: rgba(255, 255, 255, 0.92);
+  margin-bottom: 1.25rem;
+}
+
+.exam-cta-card .btn-primary {
+  background: #fff;
+  color: var(--accent);
+  box-shadow: 0 8px 20px -10px rgba(0, 0, 0, 0.4);
+}
+
+.exam-cta-card .btn-outline {
+  background: transparent;
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+.exam-cta-card .btn-outline:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.exam-cta-card a:not(.btn) {
+  color: #fff;
+  text-decoration: underline;
 }
 
 .exam-actions {
