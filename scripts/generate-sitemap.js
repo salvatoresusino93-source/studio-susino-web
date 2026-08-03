@@ -16,6 +16,7 @@ const pages = [
   { loc: '/ecografie.html', priority: '0.9', changefreq: 'weekly' },
   { loc: '/prenota.html', priority: '0.9', changefreq: 'weekly' },
   { loc: '/tariffe.html', priority: '0.85', changefreq: 'monthly' },
+  { loc: '/ecografie-modica-ispica-scicli.html', priority: '0.85', changefreq: 'monthly' },
   { loc: '/chi-sono.html', priority: '0.8', changefreq: 'monthly' },
   { loc: '/studio.html', priority: '0.8', changefreq: 'monthly' },
   { loc: '/contatti.html', priority: '0.75', changefreq: 'monthly' },
