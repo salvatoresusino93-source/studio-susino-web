@@ -49,3 +49,28 @@ Pannello Aruba → Domini → `studiosusino.it` → Gestione DNS
 - salvatoresusino93-source.github.io
 
 Propagazione: 15 min – 24 ore.
+
+## Rigenerare le pagine degli esami
+
+Ogni esame ha una **pagina HTML vera** (es. `ecografia-spalla.html`), generata
+automaticamente dai testi che stanno in `js/esami-data.js` e `js/esami-paziente.js`.
+Non vanno modificate a mano: si modificano i testi e si rilancia il generatore.
+
+```bash
+node scripts/genera-pagine-esami.js   # ricrea le pagine + l'elenco in ecografie.html
+node scripts/generate-sitemap.js      # riscrive sitemap.xml
+```
+
+Cose da sapere:
+
+- `scripts/esami-mappa.js` decide **come si chiama il file** di ogni esame.
+  Cambiare un nome lì significa cambiare l'indirizzo della pagina su Google:
+  farlo solo se davvero necessario.
+- Gli esami elencati in `GIA_ESISTENTI` **non** vengono rigenerati, perché hanno
+  una pagina scritta a mano più curata (tiroide, addome, muscolo-scheletrica,
+  carotidi, arti inferiori). Quelle si modificano direttamente.
+- L'onorario mostrato nelle pagine esame si cambia in un punto solo:
+  la costante `ONORARIO` in cima a `scripts/genera-pagine-esami.js`.
+  (La pagina `tariffe.html` invece è scritta a mano.)
+- I vecchi indirizzi `esame.html?id=...` portano automaticamente alla pagina
+  nuova, quindi i link già in giro continuano a funzionare.

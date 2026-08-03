@@ -12,6 +12,17 @@
 
   var params = new URLSearchParams(window.location.search);
   var id = params.get('id');
+
+  // Ogni esame ha ora una pagina vera (es. ecografia-spalla.html).
+  // Chi arriva sul vecchio indirizzo con "?id=" viene portato lì:
+  // una sola pagina per esame, niente doppioni agli occhi di Google.
+  var slug = (window.ESAMI_SLUG || {})[id];
+  if (slug) {
+    var destinazione = slug + (EN ? '-en' : '') + '.html';
+    window.location.replace(destinazione);
+    return;
+  }
+
   var esame = (window.ESAMI || []).find(function (e) {
     return e.id === id;
   });

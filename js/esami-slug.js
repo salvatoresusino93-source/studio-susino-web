@@ -1,0 +1,27 @@
+/* GENERATO da scripts/genera-pagine-esami.js — non modificare a mano */
+window.ESAMI_SLUG = {
+  "addome-completo": "ecografia-addome",
+  "addome-superiore": "ecografia-addome-superiore",
+  "addome-inferiore": "ecografia-addome-inferiore",
+  "apparato-urinario": "ecografia-apparato-urinario",
+  "renale": "ecografia-renale",
+  "vescico-prostatica": "ecografia-vescico-prostatica",
+  "scrotale-testicolare": "ecografia-scrotale-testicolare",
+  "tiroide": "ecografia-tiroide",
+  "collo": "ecografia-collo",
+  "muscolo-scheletrica": "ecografia-muscolo-scheletrica",
+  "spalla": "ecografia-spalla",
+  "ginocchio": "ecografia-ginocchio",
+  "anca": "ecografia-anca",
+  "anca-neonatale": "ecografia-anca-neonatale",
+  "gomito": "ecografia-gomito",
+  "polso-mano": "ecografia-polso-mano",
+  "caviglia-piede": "ecografia-caviglia-piede",
+  "parti-molli": "ecografia-parti-molli",
+  "doppler-tsa": "ecocolordoppler-carotidi",
+  "doppler-aorta": "ecocolordoppler-aorta-addominale",
+  "doppler-arterie-renali": "ecocolordoppler-arterie-renali",
+  "doppler-arti-inferiori": "ecocolordoppler-arti-inferiori",
+  "doppler-arti-superiori": "ecocolordoppler-arti-superiori",
+  "linfonodi": "ecografia-linfonodi"
+};

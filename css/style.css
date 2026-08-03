@@ -1481,3 +1481,80 @@ button {
   align-self: flex-start;
   margin-top: 4px;
 }
+
+/* --- Elenco esami correlati (pagine esame generate) --- */
+.related-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.6rem 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.related-list li {
+  margin: 0;
+}
+.related-list a {
+  display: inline-block;
+  padding: 0.45rem 0.85rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 0.92rem;
+  text-decoration: none;
+  color: var(--text);
+  background: var(--surface);
+}
+.related-list a:hover,
+.related-list a:focus-visible {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* Il titolo dell'esame in elenco e' un link: stesso aspetto di prima */
+.exam-item-title a {
+  color: inherit;
+  text-decoration: none;
+}
+.exam-item-title a:hover,
+.exam-item-title a:focus-visible {
+  text-decoration: underline;
+}
+
+/* Orari: riga in homepage e testo attenuato nelle schede contatti */
+.orari-riga {
+  margin-top: 0.6rem;
+}
+.muted {
+  color: var(--text-muted);
+}
+
+/* --- Pagina onorario --- */
+.onorario-card {
+  text-align: center;
+  padding: 2.2rem 1.5rem;
+  margin: 0 0 2rem;
+  background: var(--gradient-soft);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+}
+.onorario-cifra {
+  margin: 0;
+  font-size: clamp(3rem, 12vw, 4.5rem);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--accent-ink);
+}
+.onorario-label {
+  margin: 0.6rem 0 0;
+  font-size: 1.05rem;
+  color: var(--text-muted);
+}
+.incluso-list {
+  margin: 0.8rem 0 0;
+  padding-left: 1.2rem;
+}
+.incluso-list li {
+  margin-bottom: 0.5rem;
+}

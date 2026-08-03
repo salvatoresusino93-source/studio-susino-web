@@ -2,7 +2,12 @@
   const container = document.getElementById('exam-lists');
   if (!container || !window.ESAMI) return;
 
+  // L'elenco e' gia' scritto nell'HTML da scripts/genera-pagine-esami.js
+  // (serve a Google, che non aspetta il JavaScript). Non lo ricostruiamo.
+  if (container.children.length) return;
+
   const paziente = window.ESAMI_PAZIENTE || {};
+  const slug = window.ESAMI_SLUG || {};
   const EN = document.documentElement.lang === 'en';
   const moreLabel = EN ? 'Learn more →' : 'Scopri di più →';
   const examPage = EN ? 'esame-en.html' : 'esame.html';
@@ -69,7 +74,10 @@
         .map((e) => {
           const info = paziente[e.id] || {};
           const sintesi = info.sintesi || e.descrizione.split('.')[0] + '.';
-          const href = examPage + '?id=' + encodeURIComponent(e.id);
+          // Pagina vera se esiste, altrimenti la vecchia pagina dinamica.
+          const href = slug[e.id]
+            ? slug[e.id] + (EN ? '-en' : '') + '.html'
+            : examPage + '?id=' + encodeURIComponent(e.id);
           const imgSrc = 'images/esami/' + e.id + '.jpg?v=20260601rp';
           const imgAlt = e.nome;
           return (
