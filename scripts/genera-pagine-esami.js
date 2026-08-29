@@ -377,7 +377,6 @@ ${faq
       <nav class="nav-desktop" aria-label="Menu">
         <a href="${t.aboutPage}">${t.navChiSono}</a>
         <a href="${t.listPage}" aria-current="page">${t.navEcografie}</a>
-        <a href="${isEN ? 'tariffe-en.html' : 'tariffe.html'}">${isEN ? 'Fee' : 'Onorario'}</a>
         <a href="${t.studioPage}">${t.navStudio}</a>
         <a href="${t.contactPage}">${t.navContatti}</a>
         <a class="lang-switch" href="${fileAlt}" hreflang="${isEN ? 'it' : 'en'}" aria-label="${t.altLangLabel}">${t.altLang}</a>
@@ -390,7 +389,6 @@ ${faq
     <nav class="nav-mobile" aria-label="Menu">
       <a href="${t.aboutPage}">${t.navChiSono}</a>
       <a href="${t.listPage}">${t.navEcografie}</a>
-      <a href="${isEN ? 'tariffe-en.html' : 'tariffe.html'}">${isEN ? 'Fee' : 'Onorario'}</a>
       <a href="${t.studioPage}">${t.navStudio}</a>
       <a href="${t.contactPage}">${t.navContatti}</a>
       <a class="lang-switch" href="${fileAlt}" hreflang="${isEN ? 'it' : 'en'}" aria-label="${t.altLangLabel}">${t.altLang}</a>
