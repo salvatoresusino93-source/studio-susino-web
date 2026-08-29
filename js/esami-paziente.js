@@ -34,6 +34,23 @@ window.ESAMI_PAZIENTE = {
       'Prima si guarda con la vescica piena; poi, se serve, ti chiederemo di urinare e si controlla quanta urina resta in vescica. Gel sulla pancia o sul fianco.',
     cosaControlla:
       'Valutiamo reni, ureteri e vescica, e misuriamo l’eventuale residuo di urina dopo la minzione.',
+    faqExtra: [
+      {
+        q: 'Quanto devo bere e da che ora non devo urinare?',
+        a:
+          'Bevi circa un litro d’acqua nell’ora prima dell’esame e poi trattieni. La vescica piena fa da finestra: senza, la parte bassa non si valuta bene. Non serve invece il digiuno.',
+      },
+      {
+        q: 'E se proprio non riesco a trattenere?',
+        a:
+          'Dimmelo appena arrivi, non è un problema. Iniziamo studiando reni e alta via urinaria, che non dipendono dalla vescica, e recuperiamo il resto appena possibile. Una parte dell’esame si fa comunque dopo aver urinato, per misurare quanta urina resta.',
+      },
+      {
+        q: 'L’ecografia vede i calcoli?',
+        a:
+          'Vede bene i calcoli dentro il rene e l’eventuale dilatazione delle vie urinarie. I calcoli lungo l’uretere, che è profondo e circondato da aria intestinale, spesso non si vedono direttamente: in quel caso ne riconosco i segni indiretti e lo scrivo chiaramente nel referto.',
+      },
+    ],
   },
   renale: {
     sintesi: 'Controllo dei reni e delle prime porzioni delle vie urinarie.',
@@ -61,6 +78,23 @@ window.ESAMI_PAZIENTE = {
       'Ti sdrai. Si applica gel sullo scroto e si passa la sonda delicatamente. In caso di dolore acuto va segnalato subito.',
     cosaControlla:
       'Valutiamo testicoli, epididimo e il funicolo spermatico, cercando cause di dolore, gonfiore o masse.',
+    faqExtra: [
+      {
+        q: 'Quando bisogna correre subito, senza aspettare?',
+        a:
+          'Se il dolore è comparso all’improvviso ed è intenso, magari con gonfiore e nausea, non prenotare: vai in pronto soccorso. Può essere una torsione del testicolo, una condizione in cui le ore contano davvero.',
+      },
+      {
+        q: 'Serve qualche preparazione?',
+        a:
+          'Nessuna. Non serve digiuno né vescica piena. È un esame rapido, si fa da sdraiati e dura pochi minuti.',
+      },
+      {
+        q: 'Mi sono accorto di un gonfiore: cosa si riesce a distinguere?',
+        a:
+          'L’ecografia separa bene fra loro le cause più comuni: cisti dell’epididimo, idrocele, varicocele e formazioni solide del testicolo. È proprio questa distinzione a stabilire se basta un controllo nel tempo o se serve approfondire, e la sappiamo al termine dell’esame.',
+      },
+    ],
   },
   tiroide: {
     sintesi: 'Controllo della tiroide al collo: dimensioni, forma e eventuali noduli.',
@@ -97,6 +131,23 @@ window.ESAMI_PAZIENTE = {
       'Gel sulla spalla; a volte muovi il braccio su indicazione. La sonda passa davanti e lateralmente alla spalla.',
     cosaControlla:
       'Valutiamo i tendini della cuffia dei rotatori, la borsa sotto l’acromion e il tendine del bicipite.',
+    faqExtra: [
+      {
+        q: 'L’ecografia della spalla vede la cuffia dei rotatori?',
+        a:
+          'Sì, ed è proprio il suo punto di forza. I tendini della cuffia, la borsa sotto l’acromion e il capo lungo del bicipite si studiano molto bene con gli ultrasuoni, sia per le infiammazioni sia per le lesioni.',
+      },
+      {
+        q: 'Meglio l’ecografia o la risonanza per la spalla?',
+        a:
+          'Dipende dal sospetto. Per tendini, borsa e calcificazioni l’ecografia è di prima scelta, è rapida e permette di muovere il braccio durante l’esame. La risonanza serve quando il sospetto riguarda il labbro glenoideo, la cartilagine o l’osso, o quando si sta programmando un intervento.',
+      },
+      {
+        q: 'Perché mi fate muovere il braccio durante l’esame?',
+        a:
+          'Perché la spalla si studia in movimento. Facendoti alzare e ruotare il braccio vedo i tendini scorrere sotto l’acromion: alcuni conflitti e certe lesioni si rendono evidenti solo così, mentre a braccio fermo passerebbero inosservati.',
+      },
+    ],
   },
   ginocchio: {
     sintesi: 'Controllo di tendini, legamenti e eventuale liquido nel ginocchio.',
@@ -106,6 +157,23 @@ window.ESAMI_PAZIENTE = {
       'Ti sdrai o resti seduto con il ginocchio piegato. Gel e sonda sulla zona dolente. Possiamo chiederti piccoli movimenti.',
     cosaControlla:
       'Guardiamo tendini del ginocchio, legamenti laterali, borse e se c’è liquido dentro l’articolazione. I menischi profondi si vedono meno bene.',
+    faqExtra: [
+      {
+        q: 'L’ecografia del ginocchio vede i menischi e i legamenti crociati?',
+        a:
+          'Solo in parte, ed è giusto saperlo prima. Menischi e crociati stanno in profondità dentro l’articolazione e l’esame di riferimento per loro è la risonanza magnetica. L’ecografia è invece molto valida per tendini, legamenti laterali, borse e liquido.',
+      },
+      {
+        q: 'A cosa serve allora l’ecografia del ginocchio?',
+        a:
+          'Serve, e molto, per il tendine rotuleo e quello del quadricipite, per le borsiti, per i legamenti collaterali, per la cisti di Baker dietro al ginocchio e per quantificare il versamento articolare. Sono i problemi più frequenti dopo un sovraccarico sportivo o una distorsione.',
+      },
+      {
+        q: 'Ho il ginocchio gonfio: l’ecografia serve?',
+        a:
+          'Sì, è uno dei casi in cui rende di più. Vedo subito se il gonfiore è liquido dentro l’articolazione, quanto ne c’è e dove si raccoglie, e se dietro si è formata una cisti di Baker. È un’informazione che indirizza la terapia già lo stesso giorno.',
+      },
+    ],
   },
   anca: {
     sintesi: 'Controllo di tendini e strutture morbide intorno all’anca.',
@@ -124,6 +192,23 @@ window.ESAMI_PAZIENTE = {
       'Il bambino resta disteso o in braccio al genitore. Si passa una sonda piccola sulle anche, con gel.',
     cosaControlla:
       'Guardiamo se l’anca del bambino è matura e stabile, secondo il metodo usato in pediatria (Graf).',
+    faqExtra: [
+      {
+        q: 'A che età si fa l’ecografia delle anche al neonato?',
+        a:
+          'Di norma fra la quarta e la sesta settimana di vita, comunque entro i primi tre mesi. Se in famiglia ci sono stati casi di displasia, se il parto è stato podalico o se il pediatra ha notato qualcosa alla visita, si fa prima.',
+      },
+      {
+        q: 'Il bambino sente dolore durante l’esame?',
+        a:
+          'No, è del tutto indolore e non usa radiazioni. Si appoggia solo la sonda con un po’ di gel tiepido sull’anca. Dura pochi minuti e si può fare anche mentre dorme o poppa: porta pure il ciuccio o il biberon, aiuta a tenerlo tranquillo.',
+      },
+      {
+        q: 'Perché è importante farla nei tempi giusti?',
+        a:
+          'Perché una displasia riconosciuta nelle prime settimane si corregge quasi sempre con un semplice divaricatore, mentre se viene scoperta tardi può richiedere trattamenti molto più impegnativi. È il motivo per cui questo controllo si fa anche quando il bambino sta benissimo.',
+      },
+    ],
   },
   gomito: {
     sintesi: 'Controllo di tendini e borse del gomito.',
@@ -151,6 +236,23 @@ window.ESAMI_PAZIENTE = {
       'Piede e caviglia con gel; a volte piccoli movimenti del piede.',
     cosaControlla:
       'Valutiamo legamenti della caviglia, tendine di Achille, fascia plantare e borse del piede.',
+    faqExtra: [
+      {
+        q: 'Serve per il dolore al tallone?',
+        a:
+          'Sì, è l’esame di prima scelta. Nella fascite plantare misuro lo spessore della fascia al suo attacco sul calcagno e lo confronto con il lato sano: è un dato oggettivo, utile anche per seguire la risposta alla terapia nei controlli successivi.',
+      },
+      {
+        q: 'Dopo una distorsione della caviglia è utile?',
+        a:
+          'Molto. Studio i legamenti esterni, in particolare il peroneo-astragalico anteriore che è quello che si lesiona più spesso, la presenza di versamento e lo stato dei tendini peronei. Se serve, valuto anche il tendine d’Achille.',
+      },
+      {
+        q: 'Si vede il neuroma di Morton?',
+        a:
+          'Sì. Si cerca fra le teste dei metatarsi, dove dà quel dolore urente che si irradia alle dita. L’ecografia lo individua e ne misura le dimensioni, ed è un esame che si presta bene perché si può premere nel punto esatto in cui senti male.',
+      },
+    ],
   },
   'parti-molli': {
     sintesi: 'Controllo di un gonfiore o di una massa sotto la pelle.',

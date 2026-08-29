@@ -232,7 +232,12 @@ function paginaEsame(esame, info, t, tuttiEsami, isEN) {
 
   const description = (sintesi + t.descTail).slice(0, 158);
   const prep = preparazione(esame.id, t);
-  const faq = t.faq(esame.nome, testoSenzaTag(prep));
+  // Alle 4 domande comuni si aggiungono, se presenti, quelle specifiche
+  // dell'esame (info.faqExtra): servono a dare a ogni pagina contenuto
+  // proprio invece di ripetere lo stesso blocco su tutte.
+  const faq = t.faq(esame.nome, testoSenzaTag(prep)).concat(
+    info && Array.isArray(info.faqExtra) ? info.faqExtra : []
+  );
 
   const correlati = tuttiEsami
     .filter((e) => e.categoria === esame.categoria && e.id !== esame.id && SLUG[e.id])
