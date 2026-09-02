@@ -330,6 +330,7 @@ button {
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
+  object-position: center;
 }
 
 .hero-eyebrow {
@@ -385,6 +386,27 @@ button {
 
 .hero-actions .btn {
   width: 100%;
+}
+
+.hero-trust {
+  list-style: none;
+  display: grid;
+  gap: 0.55rem;
+  margin-top: 1.25rem;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.hero-trust li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+}
+
+.hero-trust li::before {
+  content: "✓";
+  color: var(--accent);
+  font-weight: 700;
 }
 
 .hero-card {
@@ -648,6 +670,79 @@ button {
 
 .content-spaced {
   margin-top: 2rem;
+}
+
+/* Prenotazione */
+.booking-card {
+  margin: 0 auto 2.5rem;
+  padding: clamp(1.25rem, 4vw, 2rem);
+  max-width: 720px;
+  background: linear-gradient(145deg, #ffffff 0%, #eef8f9 100%);
+  border: 1px solid rgba(14, 124, 139, 0.2);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.booking-card h2 {
+  padding-left: 0;
+  margin-top: 0.25rem;
+  font-size: clamp(1.35rem, 4vw, 1.85rem);
+}
+
+.booking-card h2::before {
+  display: none;
+}
+
+.booking-kicker {
+  color: var(--accent-ink) !important;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.booking-steps {
+  list-style: none;
+  display: grid;
+  gap: 0.75rem;
+  padding: 0 !important;
+  margin: 1.35rem 0 1.5rem;
+}
+
+.booking-steps li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0;
+  color: var(--text);
+}
+
+.booking-steps span {
+  display: inline-grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  flex: 0 0 2rem;
+  border-radius: 50%;
+  background: var(--accent-soft);
+  color: var(--accent-ink);
+  font-weight: 700;
+}
+
+.booking-primary {
+  width: 100%;
+}
+
+.booking-note {
+  margin: 1rem 0 0 !important;
+  font-size: 0.86rem;
+}
+
+.notice {
+  padding: 1rem 1.1rem;
+  border-left: 4px solid var(--accent);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  background: var(--accent-soft);
 }
 
 /* FAQ */

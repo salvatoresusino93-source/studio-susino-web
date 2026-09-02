@@ -18,13 +18,16 @@
   const toggle = document.querySelector('.menu-toggle');
   const mobileNav = document.querySelector('.nav-mobile');
   const body = document.body;
+  const isEnglish = document.documentElement.lang === 'en';
 
   if (!toggle || !mobileNav) return;
 
   function setMenuOpen(open) {
     mobileNav.classList.toggle('open', open);
     toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-    toggle.setAttribute('aria-label', open ? 'Chiudi menu' : 'Apri menu');
+    toggle.setAttribute('aria-label', open
+      ? (isEnglish ? 'Close menu' : 'Chiudi menu')
+      : (isEnglish ? 'Open menu' : 'Apri menu'));
     body.classList.toggle('menu-open', open);
   }
 

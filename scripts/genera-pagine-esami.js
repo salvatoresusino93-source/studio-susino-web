@@ -374,7 +374,7 @@ ${faq
         >
         <span class="logo-word">Salvatore Susino</span>
       </a>
-      <nav class="nav-desktop" aria-label="Menu">
+      <nav class="nav-desktop" aria-label="${isEN ? 'Main menu' : 'Menu principale'}">
         <a href="${t.aboutPage}">${t.navChiSono}</a>
         <a href="${t.listPage}" aria-current="page">${t.navEcografie}</a>
         <a href="${t.studioPage}">${t.navStudio}</a>
@@ -382,11 +382,11 @@ ${faq
         <a class="lang-switch" href="${fileAlt}" hreflang="${isEN ? 'it' : 'en'}" aria-label="${t.altLangLabel}">${t.altLang}</a>
         <a class="btn btn-primary" href="${t.bookPage}">${t.navPrenota}</a>
       </nav>
-      <button class="menu-toggle" type="button" aria-label="Menu">
+      <button class="menu-toggle" type="button" aria-label="${isEN ? 'Open menu' : 'Apri menu'}" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </div>
-    <nav class="nav-mobile" aria-label="Menu">
+    <nav class="nav-mobile" aria-label="${isEN ? 'Mobile menu' : 'Menu mobile'}">
       <a href="${t.aboutPage}">${t.navChiSono}</a>
       <a href="${t.listPage}">${t.navEcografie}</a>
       <a href="${t.studioPage}">${t.navStudio}</a>
@@ -472,7 +472,7 @@ ${correlatiBlock}
     </div>
   </footer>
   <script src="js/main.js?v=20260601" defer></script>
-<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "0510c857500244ef9115f66be08e0432"}'></script><!-- End Cloudflare Web Analytics -->
+<!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "0510c857500244ef9115f66be08e0432"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>
 `;

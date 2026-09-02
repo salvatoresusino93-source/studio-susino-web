@@ -1,7 +1,7 @@
 window.SEO_CONFIG = {
   siteUrl: 'https://studiosusino.it',
   siteName: 'Studio Ecografico Dr. Salvatore Susino',
-  defaultImage: 'https://studiosusino.it/images/hero-studio.jpg',
+  defaultImage: 'https://studiosusino.it/images/hero-studio-v2.jpg',
   locale: 'it_IT',
   lang: 'it',
   org: {
