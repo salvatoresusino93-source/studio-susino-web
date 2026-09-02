@@ -24,13 +24,27 @@
 
   if (!toggle || !mobileNav) return;
 
-  function setMenuOpen(open) {
+  mobileNav.id = 'menu-mobile';
+  toggle.setAttribute('aria-controls', mobileNav.id);
+  toggle.setAttribute('aria-expanded', 'false');
+  mobileNav.setAttribute('aria-hidden', 'true');
+  mobileNav.inert = true;
+
+  function setMenuOpen(open, restoreFocus) {
     mobileNav.classList.toggle('open', open);
     toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
     toggle.setAttribute('aria-label', open
       ? (isEnglish ? 'Close menu' : 'Chiudi menu')
       : (isEnglish ? 'Open menu' : 'Apri menu'));
+    mobileNav.setAttribute('aria-hidden', open ? 'false' : 'true');
+    mobileNav.inert = !open;
     body.classList.toggle('menu-open', open);
+    if (open) {
+      const firstLink = mobileNav.querySelector('a');
+      if (firstLink) firstLink.focus();
+    } else if (restoreFocus) {
+      toggle.focus();
+    }
   }
 
   toggle.addEventListener('click', () => {
