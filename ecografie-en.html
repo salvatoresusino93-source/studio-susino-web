@@ -25,9 +25,6 @@
   <meta property="og:site_name" content="Dr. Salvatore Susino Ultrasound Practice">
   <meta property="og:locale" content="en_US">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
     {"@type":"ListItem","position":1,"name":"Home","item":"https://studiosusino.it/index-en.html"},
@@ -37,6 +34,7 @@
   <link rel="stylesheet" href="css/style.css?v=20260803">
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
   <header class="site-header">
     <div class="container header-inner">
       <a class="logo" href="index-en.html" aria-label="Dr. Salvatore Susino Ultrasound Practice — home">
@@ -58,11 +56,11 @@
         <a class="lang-switch" href="ecografie.html" hreflang="it" aria-label="Versione italiana">IT</a>
         <a class="btn btn-primary" href="prenota-en.html">Book</a>
       </nav>
-      <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+      <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="menu-mobile">
         <span></span><span></span><span></span>
       </button>
     </div>
-    <nav class="nav-mobile" aria-label="Mobile menu">
+    <nav class="nav-mobile" id="menu-mobile" aria-label="Mobile menu" aria-hidden="true">
       <a href="chi-sono-en.html">About</a>
       <a href="ecografie-en.html">Scans</a>
       <a href="studio-en.html">The practice</a>
@@ -72,7 +70,7 @@
     </nav>
   </header>
 
-  <main>
+  <main id="main-content">
     <section class="page-hero">
       <div class="container">
         <nav class="breadcrumb-nav" aria-label="Breadcrumb"><ol><li><a href="index-en.html">Home</a></li><li aria-current="page">Scans</li></ol></nav>
@@ -175,7 +173,7 @@
       <div class="footer-links"><a href="prenota-en.html">Book</a></div>
     </div>
   </footer>
-  <script src="js/main.js?v=20260601" defer></script>
+  <script src="js/main.js?v=20260902" defer></script>
   <script src="js/esami-slug.js?v=20260803" defer></script>
   <script src="js/esami-data-en.js?v=20260601"></script>
   <script src="js/esami-paziente-en.js?v=20260602e"></script>
