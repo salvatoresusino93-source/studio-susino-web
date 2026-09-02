@@ -25,9 +25,6 @@
   <meta property="og:image" content="https://studiosusino.it/images/hero-studio-v2.jpg">
   <meta property="og:site_name" content="Dr. Salvatore Susino Ultrasound Practice">
   <meta property="og:locale" content="en_US">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
     {"@type":"ListItem","position":1,"name":"Home","item":"https://studiosusino.it/index-en.html"},
@@ -85,6 +82,7 @@
   </script>
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
   <header class="site-header">
     <div class="container header-inner">
       <a class="logo" href="index-en.html" aria-label="Dr. Salvatore Susino Ultrasound Practice — home">
@@ -106,11 +104,11 @@
         <a class="lang-switch" href="prenota.html" hreflang="it" aria-label="Versione italiana">IT</a>
         <a class="btn btn-primary" href="prenota-en.html" aria-current="page">Book</a>
       </nav>
-      <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+      <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="menu-mobile">
         <span></span><span></span><span></span>
       </button>
     </div>
-    <nav class="nav-mobile" aria-label="Mobile menu">
+    <nav class="nav-mobile" id="menu-mobile" aria-label="Mobile menu" aria-hidden="true">
       <a href="chi-sono-en.html">About</a>
       <a href="ecografie-en.html">Scans</a>
       <a href="studio-en.html">The practice</a>
@@ -120,7 +118,7 @@
     </nav>
   </header>
 
-  <main>
+  <main id="main-content">
     <section class="page-hero">
       <div class="container">
         <nav class="breadcrumb-nav" aria-label="Breadcrumb"><ol><li><a href="index-en.html">Home</a></li><li aria-current="page">Book online</li></ol></nav>
@@ -146,6 +144,7 @@
           </a>
           <p class="booking-note">Do not send clinical information via WhatsApp. Bring your referral and previous examinations, if available.</p>
         </div>
+        <noscript><p>JavaScript is required for online booking. Alternatively, use one of the phone numbers below.</p></noscript>
 
         <h2>By phone</h2>
         <p>
@@ -197,7 +196,9 @@
       <div class="footer-links"><a href="privacy-en.html">Privacy</a></div>
     </div>
   </footer>
-  <script src="js/main.js?v=20260601" defer></script>
+  <script src="js/esami-data-en.js?v=20260902" defer></script>
+  <script src="js/booking-config.js?v=20260902" defer></script>
+  <script src="js/main.js?v=20260902" defer></script>
 <!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "0510c857500244ef9115f66be08e0432"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>
