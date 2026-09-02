@@ -19,12 +19,10 @@
   <meta property="og:url" content="https://studiosusino.it/privacy-en.html">
   <meta name="twitter:card" content="summary">
   <meta name="robots" content="noindex, follow">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css?v=20260803">
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
   <header class="site-header">
     <div class="container header-inner">
       <a class="logo" href="index-en.html" aria-label="Dr. Salvatore Susino Ultrasound Practice — home">
@@ -46,11 +44,11 @@
         <a class="lang-switch" href="privacy.html" hreflang="it" aria-label="Versione italiana">IT</a>
         <a class="btn btn-primary" href="prenota-en.html">Book</a>
       </nav>
-      <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+      <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="menu-mobile">
         <span></span><span></span><span></span>
       </button>
     </div>
-    <nav class="nav-mobile" aria-label="Mobile menu">
+    <nav class="nav-mobile" id="menu-mobile" aria-label="Mobile menu" aria-hidden="true">
       <a href="chi-sono-en.html">About</a>
       <a href="ecografie-en.html">Scans</a>
       <a href="studio-en.html">The practice</a>
@@ -60,25 +58,36 @@
     </nav>
   </header>
 
-  <main>
+  <main id="main-content">
     <section class="page-hero">
       <div class="container">
-        <h1>Privacy policy</h1>
-        <p>Text to be completed together, in compliance with the GDPR.</p>
+        <h1>Website privacy notice</h1>
+        <p>How data is handled when you browse the website or contact us.</p>
       </div>
     </section>
 
     <section class="content-block">
       <div class="container">
-        <p class="placeholder">
-          [The website privacy policy will be added here. A dedicated privacy notice
-          for online booking already exists in the scheduling system.]
-        </p>
-        <p>
-          <a href="https://referteco-production.up.railway.app/privacy" rel="noopener">
-            Online booking privacy notice →
-          </a>
-        </p>
+        <p><strong>Last updated:</strong> 2 September 2026.</p>
+        <h2>Data controller</h2>
+        <p>Dr Salvatore Susino, Dr Salvatore Susino Ultrasound Practice,<br>Via dell'Arno 34, 97016 Pozzallo (RG), Italy.<br>Email: <a href="mailto:salvatoresusino.md@gmail.com">salvatoresusino.md@gmail.com</a>.<br>Phone: <a href="tel:+390932954441">+39 0932 954441</a> · <a href="tel:+393513746102">+39 351 374 6102</a>.</p>
+        <h2>Data handled through this website</h2>
+        <p>This information website has no forms and does not directly collect health data. The server and technical services may process connection and security data such as IP address, date and time, requested page, browser and errors. Cloudflare Web Analytics provides aggregate statistics without profiling cookies.</p>
+        <p>If you contact us by phone, email or WhatsApp, we process the information you provide in order to reply. Please avoid sending unnecessary clinical details through these channels.</p>
+        <h2>Purposes and legal bases</h2>
+        <ul>
+          <li>providing and securing the website and diagnosing errors, based on legitimate interests;</li>
+          <li>replying to requests and arranging appointments, to take steps requested before providing a service;</li>
+          <li>complying with applicable legal obligations.</li>
+        </ul>
+        <h2>Recipients, transfers and retention</h2>
+        <p>Technical data may be handled by hosting, network and analytics providers acting as processors where required. Email and WhatsApp are separate services; when used, data also passes through their providers. Some providers may process data outside the EEA using safeguards required by the GDPR.</p>
+        <p>Data is kept only as long as needed for these purposes and, for communications with administrative or clinical relevance, for periods required by law. Technical log retention follows the providers’ retention policies.</p>
+        <h2>Online booking</h2>
+        <p>“Book online” opens an external system that presents its own privacy notice before collecting data. This information website forwards only the language and, when selected, the exam name; it does not forward patient details.</p>
+        <p><a href="https://referteco-production.up.railway.app/privacy" rel="noopener noreferrer" referrerpolicy="no-referrer">Read the online booking privacy notice →</a></p>
+        <h2>Your rights</h2>
+        <p>You may request access, correction, deletion, restriction, portability or objection where applicable by emailing the controller. You may also lodge a complaint with the <a href="https://www.garanteprivacy.it/" target="_blank" rel="noopener noreferrer">Italian Data Protection Authority</a>.</p>
       </div>
     </section>
   </main>
@@ -89,7 +98,7 @@
       <div><a href="index-en.html">Home</a></div>
     </div>
   </footer>
-  <script src="js/main.js?v=20260601" defer></script>
+  <script src="js/main.js?v=20260902" defer></script>
 <!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "0510c857500244ef9115f66be08e0432"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>

@@ -1,5 +1,4 @@
 (function () {
-  const PRENOTA_BASE = 'https://referteco-production.up.railway.app/prenota';
   const EN = document.documentElement.lang === 'en';
   const homePage = EN ? 'index-en.html' : 'index.html';
   const listPage = EN ? 'ecografie-en.html' : 'ecografie.html';
@@ -52,7 +51,7 @@
   const id = params.get('id');
   const esame = (window.ESAMI || []).find((e) => e.id === id);
   const info = (window.ESAMI_PAZIENTE || {})[id];
-  const main = document.getElementById('exam-main');
+  const main = document.getElementById('main-content');
 
   if (!main) return;
 
@@ -68,7 +67,7 @@
   }
 
   const prenotaUrl =
-    PRENOTA_BASE + '?esame=' + encodeURIComponent(esame.prenotaNome) + (EN ? '&lang=en' : '');
+    (EN ? 'prenota-en.html' : 'prenota.html') + '?esame=' + encodeURIComponent(esame.prenotaNome);
 
   const sintesi =
     info && info.sintesi ? info.sintesi : esame.descrizione.split('.')[0] + '.';

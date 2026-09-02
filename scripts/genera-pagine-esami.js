@@ -202,8 +202,6 @@ const T = {
 
 const TEL1 = '+39 0932 954441';
 const TEL2 = '+39 351 374 6102';
-const PRENOTA_BASE = 'https://referteco-production.up.railway.app/prenota';
-
 /* ------------------------------------------------------------------ */
 /* Costruzione della pagina                                            */
 /* ------------------------------------------------------------------ */
@@ -245,12 +243,8 @@ function paginaEsame(esame, info, t, tuttiEsami, isEN) {
 
   const img = `images/esami/${esame.id}.jpg`;
 
-  // Link diretto alla prenotazione con l'esame gia' selezionato: un passaggio in meno.
-  const prenotaUrl =
-    PRENOTA_BASE +
-    '?esame=' +
-    encodeURIComponent(esame.prenotaNome || esame.nome) +
-    (isEN ? '&lang=en' : '');
+  // Passa dalla pagina locale: mantiene il confine privacy e centralizza l'endpoint esterno.
+  const prenotaUrl = t.bookPage + '?esame=' + encodeURIComponent(esame.prenotaNome || esame.nome);
 
   const feeBlock = ONORARIO.MOSTRA
     ? `
@@ -303,9 +297,6 @@ ${correlati
   <meta name="twitter:title" content="${esc(title)}">
   <meta name="twitter:description" content="${esc(description)}">
   <meta name="twitter:image" content="${BASE}/${img}">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css?v=20260803">
   <script type="application/ld+json">
   {

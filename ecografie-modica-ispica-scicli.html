@@ -24,9 +24,6 @@
   <meta name="twitter:title" content="Ecografie per Modica, Ispica, Scicli e Ragusa — Dr. Susino">
   <meta name="twitter:description" content="Studio ecografico a Pozzallo (RG), a pochi minuti dai comuni vicini.">
   <meta name="twitter:image" content="https://studiosusino.it/images/hero-studio-v2.jpg">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css?v=20260803">
   <script type="application/ld+json">
   {
@@ -68,6 +65,7 @@
   </script>
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Salta al contenuto principale</a>
   <header class="site-header">
     <div class="container header-inner">
       <a class="logo" href="/" aria-label="Studio Ecografico Dr. Salvatore Susino — home">
@@ -88,11 +86,11 @@
         <a href="contatti.html">Contatti</a>
         <a class="btn btn-primary" href="prenota.html">Prenota</a>
       </nav>
-      <button class="menu-toggle" type="button" aria-label="Apri menu" aria-expanded="false">
+      <button class="menu-toggle" type="button" aria-label="Apri menu" aria-expanded="false" aria-controls="menu-mobile">
         <span></span><span></span><span></span>
       </button>
     </div>
-    <nav class="nav-mobile" aria-label="Menu mobile">
+    <nav class="nav-mobile" id="menu-mobile" aria-label="Menu mobile" aria-hidden="true">
       <a href="chi-sono.html">Chi sono</a>
       <a href="ecografie.html">Ecografie</a>
       <a href="studio.html">Lo studio</a>
@@ -101,7 +99,7 @@
     </nav>
   </header>
 
-  <main>
+  <main id="main-content">
     <section class="page-hero">
       <div class="container">
         <nav class="breadcrumb-nav" aria-label="Percorso"><ol><li><a href="/">Home</a></li><li aria-current="page">Da dove si arriva</li></ol></nav>
@@ -275,7 +273,7 @@
       </div>
     </div>
   </footer>
-  <script src="js/main.js?v=20260601" defer></script>
+  <script src="js/main.js?v=20260902" defer></script>
 <!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "0510c857500244ef9115f66be08e0432"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>

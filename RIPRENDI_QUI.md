@@ -1,4 +1,4 @@
-# RIPRENDI QUI — Sito Studio Susino
+| **Prenotazione** | Endpoint esterno centralizzato in `js/booking-config.js` |no
 
 Ultimo aggiornamento: **2026-05-29**
 
@@ -44,7 +44,7 @@ cd studio-susino-web
 
 Oppure copia da Google Drive `Il mio Drive/studio-susino-web`.
 
-## Collegato a RefertEco
+## Confine della prenotazione
 
 Elenco prenotabile online sincronizzato con `RefertEco/scripts/sync_tipi.js` e Supabase.
 Vedi `RefertEco/RIPRENDI_QUI.md` sezione sito vetrina.

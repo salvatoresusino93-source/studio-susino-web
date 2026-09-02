@@ -9,8 +9,6 @@ const { SLUG } = require('./esami-mappa');
 
 const ROOT = path.join(__dirname, '..');
 const base = 'https://studiosusino.it';
-const today = new Date().toISOString().slice(0, 10);
-
 const pages = [
   { loc: '/', priority: '1.0', changefreq: 'weekly' },
   { loc: '/ecografie.html', priority: '0.9', changefreq: 'weekly' },
@@ -20,7 +18,6 @@ const pages = [
   { loc: '/chi-sono.html', priority: '0.8', changefreq: 'monthly' },
   { loc: '/studio.html', priority: '0.8', changefreq: 'monthly' },
   { loc: '/contatti.html', priority: '0.75', changefreq: 'monthly' },
-  { loc: '/privacy.html', priority: '0.2', changefreq: 'yearly' },
 ];
 
 /* Una riga per ogni pagina-esame presente sul disco */
@@ -55,9 +52,7 @@ const xml =
         '  <url><loc>' +
         base +
         p.loc +
-        '</loc><lastmod>' +
-        today +
-        '</lastmod><changefreq>' +
+        '</loc><changefreq>' +
         p.changefreq +
         '</changefreq><priority>' +
         p.priority +
