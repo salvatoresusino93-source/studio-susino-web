@@ -1,4 +1,4 @@
-# Pubblicare il sito — guida rapida
+# Pubblicare il sito — guida rapida\n\n> ATTENZIONE: documento storico. Il repository attuale contiene `CNAME` per `studiosusino.it`: non rinominare il repository né svuotare il dominio personalizzato senza una verifica esplicita. Prima di pubblicare eseguire `npm run build`.
 
 ## Problema attuale
 L'URL lungo `.../studio-susino-web/` dà problemi. La soluzione è rinominare il repository.
