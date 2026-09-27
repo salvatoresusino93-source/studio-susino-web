@@ -300,13 +300,33 @@ window.ESAMI_PAZIENTE = {
       'We assess whether the blood reaches the legs well (arterial) or whether the veins carry the blood back to the heart as they should (venous).',
   },
   'doppler-arti-superiori': {
-    sintesi: 'A check of the arteries and veins of the arms and forearms.',
+    sintesi: 'A check of the arteries and veins of the arms, including dialysis fistulas.',
     perche:
-      'Useful if one arm is swollen compared with the other, suspected thrombosis, a dialysis fistula or problems with arterial flow.',
+      'You have it if one arm is more swollen than the other, for suspected venous thrombosis, to check a dialysis fistula, or if one arm or hand feels colder, paler or tires sooner than the other side (a possible arterial flow problem).',
     svolgimento:
-      'Arm resting, gel and Doppler probe along the arteries and veins.',
+      'You sit or lie down with the arm extended and turned slightly outward. Gel and the probe follow the arteries and veins from the shoulder to the wrist, and we often compare the healthy arm with the one that troubles you. You may hear the sound of the blood flow through the speaker.',
     cosaControlla:
-      'We look at the arteries and veins of the arm and whether the blood flow is normal.',
+      'We look at the calibre and wall of the arteries and veins of the arm (subclavian, axillary, brachial, radial, ulnar) and check whether the blood flows normally or whether there are narrowings, clots or, in the case of a fistula, whether it is working well.',
+    faqExtra: [
+      /* DA VERIFICARE: confirm that the practice really carries out vessel mapping before fistula creation and checks fistula maturation afterwards, and that the clinical description is correct */
+      {
+        q: 'Is the Doppler also used for a dialysis fistula?',
+        a:
+          'Yes. Before a fistula is created, we measure the calibre of the arm veins and arteries to choose the best site. After surgery, we check whether the fistula has developed well and whether blood flows through it normally.',
+      },
+      /* DA VERIFICARE: confirm the indication (central venous catheter or pacemaker lead as a possible cause of arm vein thrombosis) */
+      {
+        q: 'My arm is swollen after a vein catheter or a pacemaker: do I need a Doppler?',
+        a:
+          'Yes. A central venous catheter or a pacemaker lead can sometimes cause thrombosis in the deep veins of the arm. The Doppler finds it and shows how far it extends.',
+      },
+      /* DA VERIFICARE: confirm whether this manoeuvre is performed in the practice and that the explanation of thoracic outlet syndrome is correct */
+      {
+        q: 'Why do you sometimes ask me to raise my arm above my head?',
+        a:
+          'To see whether that position compresses the vessels between the collarbone and the first rib, a condition called thoracic outlet syndrome. In some people the blood flow changes only in that position.',
+      },
+    ],
   },
   linfonodi: {
     sintesi: 'A check of enlarged lymph nodes in the neck, armpits or groin.',

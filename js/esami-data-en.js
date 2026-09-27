@@ -202,8 +202,8 @@ window.ESAMI = [
     nome: 'Upper-limb Doppler ultrasound',
     categoria: 'Vascular (Doppler)',
     descrizione:
-      'Assesses the arteries and veins of the arms and forearms. ' +
-      'Indicated for asymmetric swelling or oedema, suspected upper-limb venous thrombosis, haemodialysis fistulas or changes in peripheral arterial flow.',
+      'Assesses how blood flows in the arteries and veins of the shoulder, arm, forearm and hand. ' +
+      'Used for asymmetric arm swelling (oedema), suspected venous thrombosis, checking a dialysis fistula, or a change in peripheral arterial flow.',
     prenotaNome: 'Ecocolordoppler arti superiori',
   },
   {

@@ -202,8 +202,8 @@ window.ESAMI = [
     nome: 'Ecocolordoppler arti superiori',
     categoria: 'Vascolare (Doppler)',
     descrizione:
-      'Valuta arterie e vene di braccia e avambracci. ' +
-      'Indicata per edema o gonfiore asimmetrico, sospetta trombosi venosa degli arti superiori, fistole per emodialisi o alterazioni del flusso arterioso periferico.',
+      'Valuta come scorre il sangue nelle arterie e nelle vene di spalla, braccio, avambraccio e mano. ' +
+      'Si usa per un edema (gonfiore) asimmetrico a un braccio, il sospetto di una trombosi venosa, il controllo di una fistola per l’emodialisi o un’alterazione del flusso arterioso periferico.',
     prenotaNome: 'Ecocolordoppler arti superiori',
   },
   {

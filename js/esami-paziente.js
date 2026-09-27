@@ -300,13 +300,33 @@ window.ESAMI_PAZIENTE = {
       'Valutiamo se il sangue arriva bene alle gambe (arterioso) o se le vene portano il sangue verso il cuore come deve (venoso).',
   },
   'doppler-arti-superiori': {
-    sintesi: 'Controllo di arterie e vene di braccia e avambracci.',
+    sintesi: 'Controllo di arterie e vene di braccia e avambracci, utile anche per le fistole da dialisi.',
     perche:
-      'Utile se un braccio è gonfio rispetto all’altro, sospetta trombosi, fistola per dialisi o problemi al flusso arterioso.',
+      'La fai se un braccio è più gonfio dell’altro, per un sospetto di trombosi venosa, per il controllo di una fistola per l’emodialisi, oppure se un braccio o una mano sono più freddi, pallidi o si stancano prima dell’altro lato (possibile problema di flusso arterioso).',
     svolgimento:
-      'Braccio appoggiato, gel e sonda Doppler lungo arterie e vene.',
+      'Ti siedi o ti sdrai con il braccio disteso e leggermente ruotato verso l’esterno. Passo il gel e la sonda lungo arterie e vene, dalla spalla al polso, e confronto spesso il braccio sano con quello che dà disturbi. Con l’altoparlante puoi sentire il suono del flusso del sangue.',
     cosaControlla:
-      'Guardiamo arterie e vene del braccio e se il flusso del sangue è regolare.',
+      'Guardiamo il calibro e la parete di arterie e vene del braccio (succlavia, ascellare, brachiale, radiale, ulnare) e controlliamo se il sangue scorre regolare o se ci sono restringimenti, trombi o, in caso di fistola, se funziona bene.',
+    faqExtra: [
+      /* DA VERIFICARE: conferma che lo studio esegue davvero la mappatura dei vasi prima della creazione della fistola e il controllo della maturazione dopo l'intervento, e che la descrizione clinica sia corretta */
+      {
+        q: 'Il Doppler serve anche per la fistola della dialisi?',
+        a:
+          'Sì. Prima di creare la fistola, misuriamo il calibro delle vene e delle arterie del braccio per scegliere il punto migliore. Dopo l’intervento, controlliamo se la fistola si è sviluppata bene e se il sangue vi scorre in modo regolare.',
+      },
+      /* DA VERIFICARE: conferma l'indicazione (catetere venoso centrale o elettrocatetere di pacemaker come possibile causa di trombosi venosa del braccio) */
+      {
+        q: 'Un braccio gonfio dopo un catetere in vena o un pacemaker: serve il Doppler?',
+        a:
+          'Sì. Un catetere venoso centrale o l’elettrocatetere di un pacemaker possono a volte favorire una trombosi delle vene profonde del braccio. Il Doppler la individua e ne stabilisce l’estensione.',
+      },
+      /* DA VERIFICARE: conferma se in studio si esegue questa manovra e se la spiegazione della sindrome dello stretto toracico è corretta */
+      {
+        q: 'Perché a volte mi fate alzare il braccio sopra la testa?',
+        a:
+          'Per vedere se in quella posizione i vasi si comprimono fra la clavicola e la prima costola: è la sindrome dello stretto toracico. In alcune persone il flusso del sangue cambia solo così.',
+      },
+    ],
   },
   linfonodi: {
     sintesi: 'Controllo di linfonodi ingranditi al collo, ascelle o inguine.',
