@@ -23,11 +23,12 @@ Tutte le 51 FAQ rimaste (30 specifiche + 21 di gruppo) sono state approvate e ha
 
 Confronto con siti simili (Santagostino, San Raffaele, Humanitas, centri diagnostici): terminologia e lunghezza delle risposte allineate. Tipi di domanda presenti altrove e ancora assenti qui, da decidere con il medico: dolore/fastidio, durata in minuti per esame, creme e gioielli, controindicazioni e gravidanza, ritorno alle attività.
 
-### Domande pratiche (29/09, approvate dal medico)
-- `scripts/faq-pratiche.js`: su ogni pagina esame "Fa male?", "Quanto dura?" e una domanda su creme/abbigliamento, con testi diversi per gruppo di esami e, nel muscolo-scheletrico e nei Doppler addominali, per singolo esame. Non si aggiungono dove la pagina ha già la domanda (dolore o durata).
-- Controindicazioni/gravidanza e "Dopo l'esame" sono uguali per tutti gli esami: stanno una volta sola nelle FAQ di Prenota (IT/EN), non su ogni pagina.
-- Durata **20–30 minuti per tutti gli esami** (decisione del medico): allineati i testi che dicevano "pochi minuti" o "15–20 minuti" (Prenota, tiroide, addome, carotidi, scrotale, parti molli, anca neonatale, IT/EN).
-- Somiglianza tra pagine esame con tutte le FAQ approvate: **massimo 33%** (con le 5 domande uguali per gruppo sarebbe stata 49%).
+### Domande pratiche (29/09, decise dal medico)
+- `scripts/faq-pratiche.js`: su ogni pagina esame "Fa male?", "Quanto dura?" e una domanda su creme/abbigliamento.
+- **"Fa male?": una sola risposta standard, uguale per tutti gli esami** (testo del medico). Non viene aggiunta dove la pagina ha già una domanda sul dolore: tiroide, addome completo, muscolo-scheletrica, carotidi, arti inferiori (pagine scritte a mano) e anca neonatale.
+- **Durate diverse per esame**, dalle medie dei siti di strutture italiane, valori scelti dal medico: addome completo 15–30 (di solito 20); addome superiore, inferiore, renale, apparato urinario, tiroide, collo 15–20; vescico-prostatica 10–15; scrotale 10–20; linfonodi 15–20 (fino a 30); muscolo-scheletrico 15–20 (fino a 30 se complesso); anca neonatale 10–15; Doppler carotidi 10–20, aorta 15–20, arterie renali 20–30, arti superiori 15–20, arti inferiori 20–30. Allineati anche i testi già presenti (IT/EN) e la FAQ di Prenota ("tra 10 e 30 minuti, vedi la pagina dell'esame"). Per il collo, non indicato, si usa il valore della tiroide.
+- Creme/abbigliamento: testi per esame o gruppo. Controindicazioni e "dopo l'esame": una volta sola su Prenota.
+- Somiglianza massima tra pagine esame: **39%**, nessuna coppia sopra il 40%.
 
 ### Parità IT/EN su prenota e tariffe
 Le due FAQ mancanti in inglese non erano state tolte di proposito: erano state aggiunte solo in italiano nel commit `d77e8d3`.

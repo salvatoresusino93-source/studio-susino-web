@@ -4,7 +4,7 @@ window.ESAMI_PAZIENTE = {
     perche:
       'Il medico te la prescrive se hai dolore o fastidi all’addome, analisi del sangue alterate, sospetta calcolosi o se serve un controllo di una patologia già nota.',
     svolgimento:
-      'Ti sdrai sul lettino. Si applica del gel sull’addome e si muove la sonda. A volte ti chiederanno di trattenere un po’ il respiro. Dura in genere 20–30 minuti.',
+      'Ti sdrai sul lettino. Si applica del gel sull’addome e si muove la sonda. A volte ti chiederanno di trattenere un po’ il respiro. Dura in genere 15–30 minuti, di solito circa 20.',
     cosaControlla:
       'Guardiamo fegato, cistifellea e vie biliari, pancreas, milza, reni, vescica e l’aorta addominale. Negli uomini valutiamo anche la prostata.',
   },
@@ -149,7 +149,7 @@ window.ESAMI_PAZIENTE = {
       {
         q: 'Serve qualche preparazione?',
         a:
-          'Nessuna. Non serve digiuno né vescica piena. Si fa da sdraiati e dura in genere 20–30 minuti.',
+          'Nessuna. Non serve digiuno né vescica piena. Si fa da sdraiati e dura in genere 10–20 minuti.',
       },
       {
         q: 'Mi sono accorto di un gonfiore: cosa si riesce a distinguere?',
@@ -163,7 +163,7 @@ window.ESAMI_PAZIENTE = {
     perche:
       'La fai se senti un gonfiore al collo, hai un nodulo palpabile, disturbi alla voce o analisi della tiroide alterate.',
     svolgimento:
-      'Ti sdrai con il collo leggermente all’indietro. Gel sul collo, sonda che scorre sulla tiroide. Dura in genere 20–30 minuti.',
+      'Ti sdrai con il collo leggermente all’indietro. Gel sul collo, sonda che scorre sulla tiroide. Dura in genere 15–20 minuti.',
     cosaControlla:
       'Guardiamo grandezza, struttura e presenza di noduli o altre alterazioni della tiroide.',
   },
@@ -315,7 +315,7 @@ window.ESAMI_PAZIENTE = {
       {
         q: 'Il bambino sente dolore durante l’esame?',
         a:
-          'No, è del tutto indolore e non usa radiazioni. Si appoggia solo la sonda con un po’ di gel tiepido sull’anca. Dura in genere 20–30 minuti e si può fare anche mentre dorme o poppa: porta pure il ciuccio o il biberon, aiuta a tenerlo tranquillo.',
+          'No, è del tutto indolore e non usa radiazioni. Si appoggia solo la sonda con un po’ di gel tiepido sull’anca. Dura in genere 10–15 minuti e si può fare anche mentre dorme o poppa: porta pure il ciuccio o il biberon, aiuta a tenerlo tranquillo.',
       },
       {
         q: 'Perché è importante farla nei tempi giusti?',
@@ -401,7 +401,7 @@ window.ESAMI_PAZIENTE = {
     perche:
       'La fai se senti un rigonfiamento sotto la pelle e il medico vuole capire se è una cisti, un lipoma, un ematoma o altro.',
     svolgimento:
-      'Si applica il gel sulla zona del gonfiore e si fa scorrere delicatamente la sonda. Dura in genere 20–30 minuti.',
+      'Si applica il gel sulla zona del gonfiore e si fa scorrere delicatamente la sonda. Dura in genere 15–20 minuti.',
     cosaControlla:
       'Guardiamo se la lesione è piena di liquido o solida, dove si trova e quanto è estesa.',
     faqExtra: [
