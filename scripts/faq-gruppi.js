@@ -9,10 +9,10 @@
  * - solo:    la domanda compare solo su questi esami
  * - esclusi: la domanda non compare su questi esami
  *
- * DA VERIFICARE: tutte le domande qui sotto sono nuove (settembre 2026) e
- * vanno riviste dal medico. Una domanda compare nelle pagine SOLO se ha
- * `verificata: true`: finche' manca, resta qui ma non viene pubblicata.
- * Dopo la revisione: aggiungere `verificata: true` e rilanciare
+ * Approvate dal medico il 29/09/2026 (verificata: true). Una domanda compare
+ * nelle pagine SOLO se ha `verificata: true`: una domanda nuova si aggiunge
+ * senza il campo (o con verificata: false) e resta nascosta finche' il medico
+ * non la approva. Poi si rilanciano
  *   node scripts/genera-pagine-esami.js
  *   node scripts/faq-pagine-manuali.js
  */
@@ -20,6 +20,7 @@ const FAQ_GRUPPI = {
   addome: [
     {
       id: 'stomaco-intestino',
+      verificata: true,
       esclusi: ['addome-inferiore'],
       it: {
         q: 'L’ecografia dell’addome vede anche stomaco e intestino?',
@@ -32,6 +33,7 @@ const FAQ_GRUPPI = {
     },
     {
       id: 'tac-risonanza',
+      verificata: true,
       it: {
         q: 'Ho già fatto una TAC o una risonanza: l’ecografia serve lo stesso?',
         a: 'Dipende dal quesito clinico. L’ecografia è spesso usata per i controlli nel tempo, perché è rapida e senza radiazioni. Porta con te referti e immagini degli esami precedenti: il confronto rende l’ecografia più utile.',
@@ -43,6 +45,7 @@ const FAQ_GRUPPI = {
     },
     {
       id: 'prostata-sovrapubica',
+      verificata: true,
       solo: ['addome-inferiore'],
       it: {
         q: 'Negli uomini si vede anche la prostata?',
@@ -58,6 +61,7 @@ const FAQ_GRUPPI = {
   'apparato-urinario': [
     {
       id: 'esami-sangue-urine',
+      verificata: true,
       esclusi: ['scrotale-testicolare'],
       it: {
         q: 'L’ecografia sostituisce gli esami del sangue e delle urine?',
@@ -70,6 +74,7 @@ const FAQ_GRUPPI = {
     },
     {
       id: 'residuo',
+      verificata: true,
       solo: ['vescico-prostatica'],
       it: {
         q: 'Perché si controlla la vescica anche dopo aver urinato?',
@@ -82,6 +87,7 @@ const FAQ_GRUPPI = {
     },
     {
       id: 'cisti-renale',
+      verificata: true,
       solo: ['renale', 'apparato-urinario'],
       it: {
         q: 'Se nel rene si vede una cisti devo preoccuparmi?',
@@ -97,6 +103,7 @@ const FAQ_GRUPPI = {
   'tiroide-e-collo': [
     {
       id: 'collo-vs-tiroide',
+      verificata: true,
       solo: ['collo'],
       it: {
         q: 'Che differenza c’è con l’ecografia della tiroide?',
@@ -109,6 +116,7 @@ const FAQ_GRUPPI = {
     },
     {
       id: 'gonfiore-collo',
+      verificata: true,
       solo: ['collo'],
       it: {
         q: 'Ho un gonfiore sul collo: l’ecografia serve?',
@@ -121,6 +129,7 @@ const FAQ_GRUPPI = {
     },
     {
       id: 'tiroide-esami-sangue',
+      verificata: true,
       it: {
         q: 'L’ecografia sostituisce gli esami del sangue della tiroide?',
         a: 'No. L’ecografia mostra la forma della ghiandola e gli eventuali noduli; gli esami del sangue, come il TSH (l’ormone che regola la tiroide), dicono come funziona. Sono complementari.',
@@ -132,6 +141,7 @@ const FAQ_GRUPPI = {
     },
     {
       id: 'nodulo-dopo',
+      verificata: true,
       esclusi: ['collo'],
       it: {
         q: 'Se viene trovato un nodulo, cosa succede dopo?',
@@ -147,6 +157,7 @@ const FAQ_GRUPPI = {
   'muscolo-scheletrico': [
     {
       id: 'fratture',
+      verificata: true,
       esclusi: ['parti-molli'],
       it: {
         q: 'L’ecografia vede le fratture?',
@@ -159,6 +170,7 @@ const FAQ_GRUPPI = {
     },
     {
       id: 'lato-sano',
+      verificata: true,
       it: {
         q: 'Perché a volte si guarda anche il lato che non fa male?',
         a: 'Perché il confronto con il lato sano aiuta a capire se una differenza è significativa. Se serve lo faccio durante lo stesso esame, senza costi aggiuntivi.',
@@ -170,6 +182,7 @@ const FAQ_GRUPPI = {
     },
     {
       id: 'esami-precedenti',
+      verificata: true,
       it: {
         q: 'Devo portare radiografie o risonanze già fatte?',
         a: 'Sì, se le hai. Il confronto con gli esami precedenti permette di capire come è cambiata la situazione e di concentrare l’ecografia sul punto giusto.',
@@ -181,6 +194,7 @@ const FAQ_GRUPPI = {
     },
     {
       id: 'abbigliamento',
+      verificata: true,
       it: {
         q: 'Come conviene vestirsi?',
         a: 'Con abiti comodi che permettano di scoprire facilmente la zona da esaminare: per esempio pantaloncini per ginocchio e caviglia, una maglietta per spalla e gomito.',
@@ -192,6 +206,7 @@ const FAQ_GRUPPI = {
     },
     {
       id: 'cisti-lipoma',
+      verificata: true,
       solo: ['parti-molli'],
       it: {
         q: 'Si capisce se è una cisti o un lipoma?',
@@ -209,6 +224,7 @@ const FAQ_GRUPPI = {
   doppler: [
     {
       id: 'eco-vs-doppler',
+      verificata: true,
       it: {
         q: 'Che differenza c’è tra ecografia ed ecocolordoppler?',
         a: 'L’ecocolordoppler è un’ecografia che, oltre all’immagine dei vasi, mostra il flusso del sangue: direzione e velocità. Serve a capire se ci sono restringimenti, dilatazioni o ostacoli al passaggio del sangue.',
@@ -220,6 +236,7 @@ const FAQ_GRUPPI = {
     },
     {
       id: 'aghi-contrasto',
+      verificata: true,
       it: {
         q: 'Si usano aghi o mezzo di contrasto?',
         a: 'No. Si appoggia solo la sonda sulla pelle con un po’ di gel: niente iniezioni, niente mezzo di contrasto, niente radiazioni.',
@@ -231,6 +248,7 @@ const FAQ_GRUPPI = {
     },
     {
       id: 'ripetere',
+      verificata: true,
       it: {
         q: 'Ogni quanto va ripetuto il controllo?',
         a: 'Dipende da cosa emerge e dalla situazione di ciascuno: lo indicano il referto o il medico curante. Non usando radiazioni, si può ripetere tutte le volte che serve.',
@@ -242,6 +260,7 @@ const FAQ_GRUPPI = {
     },
     {
       id: 'digiuno-vasi',
+      verificata: true,
       solo: ['doppler-aorta', 'doppler-arterie-renali'],
       it: {
         q: 'Perché serve il digiuno per un esame dei vasi?',
@@ -257,6 +276,7 @@ const FAQ_GRUPPI = {
   altro: [
     {
       id: 'linfonodo-ingrossato',
+      verificata: true,
       solo: ['linfonodi'],
       it: {
         q: 'Un linfonodo ingrossato è sempre un problema?',
@@ -269,6 +289,7 @@ const FAQ_GRUPPI = {
     },
     {
       id: 'quando-linfonodo',
+      verificata: true,
       solo: ['linfonodi'],
       it: {
         q: 'Quando conviene fare l’ecografia di un linfonodo?',

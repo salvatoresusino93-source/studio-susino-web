@@ -18,6 +18,11 @@ Le 30 FAQ sono state riscritte con termini medici corretti, spiegati tra parente
 - gomito: tendine comune degli estensori (epicondilo) e dei flessori-pronatori (epitroclea);
 - addome inferiore: nelle infezioni ricorrenti si cercano idronefrosi, calcoli, residuo post-minzionale elevato, diverticoli; l'esame non serve in tutti i casi.
 
+### Approvazione del medico (29/09)
+Tutte le 51 FAQ rimaste (30 specifiche + 21 di gruppo) sono state approvate e hanno `verificata: true`: compaiono nelle pagine dopo il merge della PR #8. Similarità massima tra pagine esame con le FAQ pubblicate: 35%, nessuna coppia sopra il 40%.
+
+Confronto con siti simili (Santagostino, San Raffaele, Humanitas, centri diagnostici): terminologia e lunghezza delle risposte allineate. Tipi di domanda presenti altrove e ancora assenti qui, da decidere con il medico: dolore/fastidio, durata in minuti per esame, creme e gioielli, controindicazioni e gravidanza, ritorno alle attività.
+
 ### Parità IT/EN su prenota e tariffe
 Le due FAQ mancanti in inglese non erano state tolte di proposito: erano state aggiunte solo in italiano nel commit `d77e8d3`.
 - `prenota-en.html`: aggiunta la FAQ "How much does the scan cost?" e la sezione "How much it costs". La sezione italiana è già un riassunto di una frase con link a `tariffe.html`, non una copia: in inglese è lo stesso riassunto con link a `tariffe-en.html`.

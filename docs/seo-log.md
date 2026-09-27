@@ -14,7 +14,7 @@ Quando decidi su una proposta o un "Da verificare", spunta la casella e aggiungi
 - 26 pagine esame (13 esami IT/EN) restano senza FAQ finche' non si approvano: niente sezione vuota e niente FAQPage.
 
 ### Da verificare per il medico
-- [ ] Le 22 FAQ di gruppo in `scripts/faq-gruppi.js`: approvarle una per una con `verificata: true`.
+- [x] FAQ di gruppo: approvate dal medico il 29/09 (tolta 1; restano 21).
 
 ## 2026-09-29 — FAQ specifiche per 13 esami, parità IT/EN prenota e tariffe
 
@@ -28,7 +28,7 @@ Quando decidi su una proposta o un "Da verificare", spunta la casella e aggiungi
 - Similarità massima tra pagine esame da 45% a 36%; nessuna coppia sopra il 40%.
 
 ### Da verificare per il medico
-- [ ] 30 FAQ specifiche nuove (`js/esami-paziente.js`, `js/esami-paziente-en.js`).
+- [x] FAQ specifiche nuove: approvate dal medico il 29/09 (tolte 4, aggiunte 3 sulla spalla; restano 30).
 - [ ] Testi EN nuovi su prenota-en e tariffe-en.
 
 ## 2026-09-28 — Title, contenuti sottili, FAQ differenziate
