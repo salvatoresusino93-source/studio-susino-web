@@ -27,7 +27,7 @@ Sito vetrina statico (HTML/CSS/JS): home, chi sono, ecografie, singoli esami, st
 - Specialità: **Radiologia** (non radiodiagnostica)
 - **No** mammella, ginecologia, ostetrica in elenco
 - **No** giorni (martedì/venerdì) né fasce orarie sul sito — solo «su appuntamento»
-- **Preparazione digiuno/vescica** solo in `/prenota`, non sul sito vetrina
+- **Preparazione** (digiuno / vescica piena): mostrata nelle pagine esame, generata da `scripts/genera-pagine-esami.js` (liste `DIGIUNO` e `VESCICA_PIENA`)
 - Logo header: **50px** mobile, **56px** desktop (`css/style.css`)
 
 ## Esami in elenco (25)

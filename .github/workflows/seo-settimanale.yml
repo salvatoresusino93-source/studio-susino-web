@@ -1,0 +1,108 @@
+# Cura SEO settimanale di studiosusino.it
+#
+# Ogni lunedì mattina esegue /seo-periodico con Claude Code e apre una Pull Request
+# con le modifiche e la voce aggiunta a docs/seo-log.md.
+# NESSUN merge automatico: la PR la approva e la unisce il medico.
+#
+# Secret richiesti (Settings → Secrets and variables → Actions), UNO dei due:
+#   CLAUDE_CODE_OAUTH_TOKEN  — da `claude setup-token` (usa l'abbonamento Claude Pro/Max)
+#   ANTHROPIC_API_KEY        — chiave API da console.anthropic.com (a consumo)
+# Inoltre: Settings → Actions → General → Workflow permissions →
+#   "Read and write permissions" + "Allow GitHub Actions to create and approve pull requests".
+
+name: SEO settimanale
+
+on:
+  schedule:
+    # Lunedì 06:00 UTC = 08:00 ora legale / 07:00 ora solare in Italia
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+    inputs:
+      search_console:
+        description: "Testo facoltativo copiato da Google Search Console (ha priorità)"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+  pull-requests: write
+  id-token: write
+
+concurrency:
+  group: seo-settimanale
+  cancel-in-progress: false
+
+jobs:
+  controllo:
+    runs-on: ubuntu-latest
+    outputs:
+      procedi: ${{ steps.aperta.outputs.procedi }}
+    steps:
+      - name: Salta se c'è già una PR SEO da rivedere
+        id: aperta
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          n=$(gh pr list --repo "$GITHUB_REPOSITORY" --label seo-settimanale --state open --json number --jq 'length')
+          if [ "$n" != "0" ] && [ "$GITHUB_EVENT_NAME" = "schedule" ]; then
+            echo "::notice::C'è già una PR SEO aperta: questa settimana si salta finché non la rivedi."
+            echo "procedi=no" >> "$GITHUB_OUTPUT"
+          else
+            echo "procedi=si" >> "$GITHUB_OUTPUT"
+          fi
+
+  seo:
+    needs: controllo
+    if: needs.controllo.outputs.procedi == 'si'
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Esegui /seo-periodico
+        uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          prompt: |
+            /seo-periodico ${{ github.event.inputs.search_console }}
+          claude_args: >-
+            --max-turns 120
+            --allowedTools "Agent,Task,Read,Edit,Write,Grep,Glob,WebFetch,WebSearch,Bash(ls:*),Bash(du:*),Bash(find:*),Bash(date:*),Bash(git log:*),Bash(git diff:*),Bash(git status:*),Bash(curl -sI:*),Bash(node scripts/genera-pagine-esami.js),Bash(node scripts/generate-sitemap.js),Bash(node -e:*),Bash(npx --yes html-validate:*)"
+
+      - name: Prepara la descrizione della PR dal log
+        id: log
+        run: |
+          echo "oggi=$(date +%F)" >> "$GITHUB_OUTPUT"
+          {
+            echo "Sessione SEO automatica del $(date +%F). **Da rivedere e approvare a mano: nessun merge automatico.**"
+            echo
+            # prima voce del log: dalla riga-segnalibro fino al titolo "## " successivo
+            awk '/<!-- NUOVE VOCI SOTTO QUESTA RIGA -->/{on=1; next} on && /^## /{c++} on && c==2{exit} on' docs/seo-log.md
+            echo
+            echo "---"
+            echo "Cerca \`DA VERIFICARE\` nei file modificati prima di approvare."
+            echo
+            echo "🤖 Generated with [Claude Code](https://claude.com/claude-code)"
+          } > "$RUNNER_TEMP/pr-body.md"
+          git status --short
+
+      - name: Apri la Pull Request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: seo/settimanale-${{ steps.log.outputs.oggi }}
+          base: main
+          delete-branch: true
+          commit-message: "SEO settimanale ${{ steps.log.outputs.oggi }}"
+          title: "SEO settimanale ${{ steps.log.outputs.oggi }}"
+          body-path: ${{ runner.temp }}/pr-body.md
+          labels: seo-settimanale
+          draft: false
