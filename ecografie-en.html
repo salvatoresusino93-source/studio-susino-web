@@ -87,6 +87,22 @@
 
     <section class="content-block">
       <div class="container">
+        <section class="exam-finder" aria-labelledby="exam-finder-title">
+          <div class="exam-finder-heading">
+            <div>
+              <p class="exam-finder-kicker">Find the right service quickly</p>
+              <h2 id="exam-finder-title">Which scan are you looking for?</h2>
+            </div>
+            <button class="exam-clear" type="button" hidden>Reset</button>
+          </div>
+          <label class="exam-search-label" for="exam-search">Search by name or body area</label>
+          <div class="exam-search-wrap">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-4.35-4.35m2.35-5.65a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z"/></svg>
+            <input id="exam-search" type="search" inputmode="search" autocomplete="off" placeholder="For example: thyroid, shoulder, kidneys…">
+          </div>
+          <div class="exam-filters" role="group" aria-label="Filter by category"></div>
+          <p class="exam-results" role="status" aria-live="polite"></p>
+        </section>
         <!-- ELENCO-ESAMI: generato, non modificare a mano -->
         <div id="exam-lists">
           <h2 id="addome">Abdomen</h2>

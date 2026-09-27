@@ -87,6 +87,22 @@
 
     <section class="content-block">
       <div class="container">
+        <section class="exam-finder" aria-labelledby="exam-finder-title">
+          <div class="exam-finder-heading">
+            <div>
+              <p class="exam-finder-kicker">Trova rapidamente la prestazione</p>
+              <h2 id="exam-finder-title">Che esame stai cercando?</h2>
+            </div>
+            <button class="exam-clear" type="button" hidden>Reimposta</button>
+          </div>
+          <label class="exam-search-label" for="exam-search">Cerca per nome o parte del corpo</label>
+          <div class="exam-search-wrap">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-4.35-4.35m2.35-5.65a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z"/></svg>
+            <input id="exam-search" type="search" inputmode="search" autocomplete="off" placeholder="Per esempio: tiroide, spalla, reni…">
+          </div>
+          <div class="exam-filters" role="group" aria-label="Filtra per categoria"></div>
+          <p class="exam-results" role="status" aria-live="polite"></p>
+        </section>
         <!-- ELENCO-ESAMI: generato, non modificare a mano -->
         <div id="exam-lists">
           <h2 id="addome">Addome</h2>
@@ -129,7 +145,7 @@
 
           <h2 id="doppler">Vascolare (Doppler)</h2>
           <ul class="exam-list">
-            <li class="exam-item"><div class="exam-item-body"><h3 class="exam-item-title"><a href="ecocolordoppler-carotidi.html">Ecocolordoppler TSA</a></h3><p class="exam-item-sintesi">Controllo del flusso del sangue nelle arterie del collo (carotidi).</p><a class="exam-item-more link-arrow" href="ecocolordoppler-carotidi.html">Scopri di più →</a></div><div class="exam-item-thumb"><img src="images/esami/doppler-tsa.jpg?v=20260803" alt="Ecocolordoppler TSA" width="88" height="88" loading="lazy"></div></li>
+            <li class="exam-item"><div class="exam-item-body"><h3 class="exam-item-title"><a href="ecocolordoppler-carotidi.html">Ecocolordoppler carotidi</a></h3><p class="exam-item-sintesi">Controllo del flusso del sangue nelle arterie del collo (carotidi).</p><a class="exam-item-more link-arrow" href="ecocolordoppler-carotidi.html">Scopri di più →</a></div><div class="exam-item-thumb"><img src="images/esami/doppler-tsa.jpg?v=20260803" alt="Ecocolordoppler carotidi" width="88" height="88" loading="lazy"></div></li>
             <li class="exam-item"><div class="exam-item-body"><h3 class="exam-item-title"><a href="ecocolordoppler-aorta-addominale.html">Ecocolordoppler aorta addominale</a></h3><p class="exam-item-sintesi">Controllo dell’aorta addominale e del flusso del sangue.</p><a class="exam-item-more link-arrow" href="ecocolordoppler-aorta-addominale.html">Scopri di più →</a></div><div class="exam-item-thumb"><img src="images/esami/doppler-aorta.jpg?v=20260803" alt="Ecocolordoppler aorta addominale" width="88" height="88" loading="lazy"></div></li>
             <li class="exam-item"><div class="exam-item-body"><h3 class="exam-item-title"><a href="ecocolordoppler-arterie-renali.html">Ecocolordoppler arterie renali</a></h3><p class="exam-item-sintesi">Controllo del flusso nelle arterie che portano sangue ai reni.</p><a class="exam-item-more link-arrow" href="ecocolordoppler-arterie-renali.html">Scopri di più →</a></div><div class="exam-item-thumb"><img src="images/esami/doppler-arterie-renali.jpg?v=20260803" alt="Ecocolordoppler arterie renali" width="88" height="88" loading="lazy"></div></li>
             <li class="exam-item"><div class="exam-item-body"><h3 class="exam-item-title"><a href="ecocolordoppler-arti-inferiori.html">Ecocolordoppler arti inferiori</a></h3><p class="exam-item-sintesi">Controllo di arterie e/o vene di gambe e piedi.</p><a class="exam-item-more link-arrow" href="ecocolordoppler-arti-inferiori.html">Scopri di più →</a></div><div class="exam-item-thumb"><img src="images/esami/doppler-arti-inferiori.jpg?v=20260803" alt="Ecocolordoppler arti inferiori" width="88" height="88" loading="lazy"></div></li>

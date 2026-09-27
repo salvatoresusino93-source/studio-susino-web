@@ -14,6 +14,31 @@
   document.body.appendChild(a);
 })();
 
+// Entrate leggere durante lo scorrimento, disattivate se l'utente riduce le animazioni.
+(function () {
+  if (!('IntersectionObserver' in window)) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  const targets = document.querySelectorAll(
+    '.service-card, .info-strip-item, .intro-panel-inner, .exam-item, .booking-card, .faq details'
+  );
+  if (!targets.length) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('is-visible');
+      observer.unobserve(entry.target);
+    });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+
+  targets.forEach((target, index) => {
+    target.classList.add('reveal-item');
+    target.style.setProperty('--reveal-delay', `${Math.min(index % 4, 3) * 55}ms`);
+    observer.observe(target);
+  });
+})();
+
 (function () {
   const toggle = document.querySelector('.menu-toggle');
   const mobileNav = document.querySelector('.nav-mobile');

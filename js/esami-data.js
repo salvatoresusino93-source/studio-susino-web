@@ -163,7 +163,7 @@ window.ESAMI = [
   },
   {
     id: 'doppler-tsa',
-    nome: 'Ecocolordoppler TSA',
+    nome: 'Ecocolordoppler carotidi',
     categoria: 'Vascolare (Doppler)',
     descrizione:
       'Valuta morfologia e flusso delle carotidi, vertebrali e succlavie (tronchi sovra-aortici). ' +
