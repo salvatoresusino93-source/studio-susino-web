@@ -5,11 +5,12 @@
  */
 const fs = require('fs');
 const path = require('path');
+const { execFileSync } = require('child_process');
 const { SLUG } = require('./esami-mappa');
 
 const ROOT = path.join(__dirname, '..');
 const base = 'https://studiosusino.it';
-const today = new Date().toISOString().slice(0, 10);
+const today = new Date().toLocaleDateString('sv-SE'); // AAAA-MM-GG, ora locale come le date di git
 
 const pages = [
   { loc: '/', priority: '1.0', changefreq: 'weekly' },
@@ -20,7 +21,6 @@ const pages = [
   { loc: '/chi-sono.html', priority: '0.8', changefreq: 'monthly' },
   { loc: '/studio.html', priority: '0.8', changefreq: 'monthly' },
   { loc: '/contatti.html', priority: '0.75', changefreq: 'monthly' },
-  { loc: '/privacy.html', priority: '0.2', changefreq: 'yearly' },
 ];
 
 /* Una riga per ogni pagina-esame presente sul disco */
@@ -42,27 +42,35 @@ for (const en of [
   pages.push({ loc: en, priority: '0.6', changefreq: 'monthly' });
 }
 
-const esistenti = pages.filter(
-  (p) => p.loc === '/' || fs.existsSync(path.join(ROOT, p.loc.slice(1)))
-);
+const fileDi = (loc) => path.join(ROOT, loc === '/' ? 'index.html' : loc.slice(1));
 
+/* Solo pagine che esistono e che non sono marcate noindex:
+   una URL noindex in sitemap e' un segnale contraddittorio per Google. */
+const esistenti = pages.filter((p) => {
+  const f = fileDi(p.loc);
+  if (!fs.existsSync(f)) return false;
+  return !/<meta\s+name="robots"\s+content="[^"]*noindex/i.test(fs.readFileSync(f, 'utf8'));
+});
+
+/* lastmod reale: data dell'ultimo commit che ha toccato il file,
+   oppure oggi se il file ha modifiche non ancora committate. */
+function lastmod(loc) {
+  const rel = path.relative(ROOT, fileDi(loc));
+  const git = (args) => execFileSync('git', args, { cwd: ROOT, encoding: 'utf8' }).trim();
+  try {
+    if (git(['status', '--porcelain', '--', rel])) return today;
+    return git(['log', '-1', '--format=%cs', '--', rel]) || today;
+  } catch (e) {
+    return today;
+  }
+}
+
+/* changefreq e priority non si scrivono: Google li ignora. */
 const xml =
   '<?xml version="1.0" encoding="UTF-8"?>\n' +
   '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
   esistenti
-    .map(
-      (p) =>
-        '  <url><loc>' +
-        base +
-        p.loc +
-        '</loc><lastmod>' +
-        today +
-        '</lastmod><changefreq>' +
-        p.changefreq +
-        '</changefreq><priority>' +
-        p.priority +
-        '</priority></url>'
-    )
+    .map((p) => '  <url><loc>' + base + p.loc + '</loc><lastmod>' + lastmod(p.loc) + '</lastmod></url>')
     .join('\n') +
   '\n</urlset>\n';
 

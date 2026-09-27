@@ -1,0 +1,63 @@
+#!/usr/bin/env node
+/**
+ * Controlli SEO da lanciare dopo aver rigenerato pagine e sitemap:
+ *   node scripts/verifica-seo.js
+ * Esce con errore se trova problemi (hreflang, canonical, sitemap,
+ * JSON-LD non valido, pagine esame con meno di 3 link in entrata).
+ */
+const fs = require('fs');
+const path = require('path');
+
+const ROOT = path.join(__dirname, '..');
+const BASE = 'https://studiosusino.it/';
+const file = (url) => (url === BASE ? 'index.html' : url.replace(BASE, ''));
+const url = (f) => (f === 'index.html' ? BASE : BASE + f);
+
+const pagine = {};
+for (const f of fs.readdirSync(ROOT).filter((f) => f.endsWith('.html'))) {
+  const html = fs.readFileSync(path.join(ROOT, f), 'utf8');
+  const head = html.split('</head>')[0];
+  const main = (html.match(/<main[\s\S]*?<\/main>/) || [html])[0];
+  pagine[f] = {
+    html,
+    canonical: (head.match(/rel="canonical"\s+href="([^"]+)"/) || [])[1],
+    noindex: /name="robots"\s+content="[^"]*noindex/.test(head),
+    hreflang: Object.fromEntries(
+      [...head.matchAll(/rel="alternate" hreflang="([^"]+)" href="([^"]+)"/g)].map((m) => [m[1], m[2]])
+    ),
+    link: new Set([...main.matchAll(/href="([^"#?]+)/g)].map((m) => m[1])),
+  };
+}
+
+const errori = [];
+for (const [f, p] of Object.entries(pagine)) {
+  if (p.canonical !== url(f)) errori.push(`${f}: canonical ${p.canonical} non punta a se stessa`);
+  const hl = p.hreflang;
+  if (!Object.keys(hl).length) { errori.push(`${f}: nessun hreflang`); continue; }
+  if (!Object.values(hl).includes(url(f))) errori.push(`${f}: hreflang senza la pagina stessa`);
+  if (hl['x-default'] !== hl.it) errori.push(`${f}: x-default diverso dalla versione italiana`);
+  for (const [lingua, u] of Object.entries(hl)) {
+    const altra = pagine[file(u)];
+    if (!altra) errori.push(`${f}: hreflang ${lingua} verso pagina inesistente ${u}`);
+    else if (!Object.values(altra.hreflang).includes(url(f))) errori.push(`${f}: hreflang ${lingua} non ricambiato da ${file(u)}`);
+  }
+  for (const m of p.html.matchAll(/<script type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)) {
+    try { JSON.parse(m[1]); } catch (e) { errori.push(`${f}: JSON-LD non valido (${e.message})`); }
+  }
+}
+
+const sitemap = [...fs.readFileSync(path.join(ROOT, 'sitemap.xml'), 'utf8').matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
+const indicizzabili = Object.keys(pagine).filter((f) => !pagine[f].noindex).map(url);
+for (const u of sitemap) if (!indicizzabili.includes(u)) errori.push(`sitemap: ${u} non esiste o e' noindex`);
+for (const u of indicizzabili) if (!sitemap.includes(u)) errori.push(`sitemap: manca ${u}`);
+
+for (const esame of Object.keys(pagine).filter((f) => /^(ecografia|ecocolordoppler)-/.test(f))) {
+  const da = Object.keys(pagine).filter((f) => f !== esame && pagine[f].link.has(esame));
+  if (da.length < 3) errori.push(`${esame}: solo ${da.length} link in entrata (${da.join(', ')})`);
+}
+
+if (errori.length) {
+  console.error(errori.join('\n'));
+  process.exit(1);
+}
+console.log(`OK: ${Object.keys(pagine).length} pagine, ${sitemap.length} URL in sitemap, nessun problema.`);

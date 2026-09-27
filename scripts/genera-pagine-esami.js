@@ -28,7 +28,7 @@ const ONORARIO = {
 };
 
 /* Mappa id -> nome file, condivisa con generate-sitemap.js */
-const { SLUG, GIA_ESISTENTI } = require('./esami-mappa');
+const { SLUG, GIA_ESISTENTI, CORRELATI_EXTRA } = require('./esami-mappa');
 
 /* Preparazione richiesta, per esame */
 const DIGIUNO = ['addome-completo', 'addome-superiore', 'doppler-aorta', 'doppler-arterie-renali'];
@@ -239,9 +239,17 @@ function paginaEsame(esame, info, t, tuttiEsami, isEN) {
     info && Array.isArray(info.faqExtra) ? info.faqExtra : []
   );
 
-  const correlati = tuttiEsami
-    .filter((e) => e.categoria === esame.categoria && e.id !== esame.id && SLUG[e.id])
-    .slice(0, 5);
+  // Prima i correlati scelti a mano fra categorie diverse, poi quelli della
+  // stessa categoria partendo dall'esame successivo (a rotazione), cosi' i link
+  // si distribuiscono su tutta la categoria e non solo sui primi della lista.
+  const perId = new Map(tuttiEsami.map((e) => [e.id, e]));
+  const extra = (CORRELATI_EXTRA[esame.id] || []).map((id) => perId.get(id));
+  const stessaCat = tuttiEsami.filter((e) => e.categoria === esame.categoria);
+  const pos = stessaCat.findIndex((e) => e.id === esame.id);
+  const rotati = stessaCat.slice(pos + 1).concat(stessaCat.slice(0, pos));
+  const correlati = [...new Set(extra.concat(rotati))]
+    .filter((e) => e && e.id !== esame.id && SLUG[e.id])
+    .slice(0, 6);
 
   const img = `images/esami/${esame.id}.jpg`;
 

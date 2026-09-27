@@ -57,8 +57,11 @@ automaticamente dai testi che stanno in `js/esami-data.js` e `js/esami-paziente.
 Non vanno modificate a mano: si modificano i testi e si rilancia il generatore.
 
 ```bash
-node scripts/genera-pagine-esami.js   # ricrea le pagine + l'elenco in ecografie.html
-node scripts/generate-sitemap.js      # riscrive sitemap.xml
+node scripts/genera-pagine-esami.js      # ricrea le pagine + l'elenco in ecografie.html
+node scripts/correlati-pagine-manuali.js # "Esami correlati" nelle pagine scritte a mano
+node scripts/dati-strutturati-studio.js  # JSON-LD studio + medico (home, contatti, chi sono)
+node scripts/generate-sitemap.js         # riscrive sitemap.xml (solo pagine indicizzabili)
+node scripts/verifica-seo.js             # controlli: hreflang, canonical, sitemap, link interni
 ```
 
 Cose da sapere:
@@ -72,5 +75,10 @@ Cose da sapere:
 - L'onorario mostrato nelle pagine esame si cambia in un punto solo:
   la costante `ONORARIO` in cima a `scripts/genera-pagine-esami.js`.
   (La pagina `tariffe.html` invece è scritta a mano.)
+- I link "Esami correlati" tra categorie diverse si decidono in
+  `CORRELATI_EXTRA` / `CORRELATI_MANUALI` in `scripts/esami-mappa.js`.
+- Indirizzo, telefoni e orari nei dati strutturati stanno in
+  `scripts/dati-strutturati-studio.js`: se cambiano, aggiornarli anche lì.
+- Report SEO e azioni manuali in Search Console: `docs/seo-fix-report.md`.
 - I vecchi indirizzi `esame.html?id=...` portano automaticamente alla pagina
   nuova, quindi i link già in giro continuano a funzionare.
