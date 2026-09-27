@@ -6,6 +6,37 @@ Quando decidi su una proposta o un "Da verificare", spunta la casella e aggiungi
 
 <!-- NUOVE VOCI SOTTO QUESTA RIGA -->
 
+## 2026-09-27 — Sessione periodica
+
+**Fonte dati:** audit automatico (nessun testo Search Console in questa sessione)
+
+### Problemi trovati
+- [NUOVO] `https://www.studiosusino.it/` non fa un redirect 301 pulito in HTTPS: il TLS handshake presenta il certificato wildcard di default di GitHub Pages (`*.github.io`), non uno valido per `www.studiosusino.it` — il browser mostra un errore di certificato invece del redirect (in chiaro su HTTP il redirect invece funziona). Serve intervento su DNS/GitHub Pages, fuori dal repo.
+- [NUOVO] `index.html`/`index-en.html`: `aria-label` su `<ul class="hero-trust">` segnalato da html-validate (`aria-label-misuse`) — corretto in questa sessione (vedi sotto).
+- Ancora aperti: 22 FAQ di gruppo in `scripts/faq-gruppi.js` da approvare; traduzioni EN mancanti per alcune FAQ specifiche in `js/esami-paziente-en.js`; `faqExtra` mancante per alcuni esami; `prenota`/`tariffe` con una FAQ in meno in EN; secret del workflow settimanale da configurare.
+
+### Modifiche fatte
+- Correzioni tecniche: rimosso `aria-label` non valido su `<ul class="hero-trust">` in `index.html` e `index-en.html` (html-validate ora pulito).
+- Contenuti: `ecografia-renale.html` (+ EN) — testi (`perche`, `svolgimento`, `cosaControlla`) riscritti in `js/esami-paziente.js`/`-en.js` per differenziare l'esame da `ecografia-apparato-urinario` e `ecocolordoppler-arterie-renali`; aggiunte 3 FAQ specifiche per lingua (non ancora visibili: `verificata: false`, in attesa di approvazione come da regola del 2026-09-29).
+
+### Da verificare per il medico
+- [ ] `js/esami-paziente.js` sopra `renale.perche`: "esempio di controllo nel tempo di una cisti o di un calcolo renale già noti, aggiunto per spiegare quando si sceglie questo esame invece dell'ecografia dell'apparato urinario" (e equivalente EN in `js/esami-paziente-en.js`).
+- [ ] `js/esami-paziente.js` sopra `renale.cosaControlla`: "elenco esplicito di calcoli, cisti e dilatazione delle vie urinarie come reperti tipici che si possono vedere con questo esame" (e equivalente EN).
+- [ ] 3 nuove FAQ su `renale` (IT+EN) in `js/esami-paziente.js`/`-en.js`: differenza da ecografia apparato urinario, differenza da ecocolordoppler arterie renali, vescica piena/digiuno non necessari — impostare `verificata: true` dopo revisione e rigenerare con `node scripts/genera-pagine-esami.js`.
+- [ ] Redirect `www.studiosusino.it` senza certificato valido (vedi sopra): da sistemare su DNS/GitHub Pages, non nel repo.
+- [ ] Proposte dello stratega da approvare o scartare:
+  1. FAQ EN "For visitors and international patients" su prenota-en/contatti-en (referto in italiano, pagamento estero, accompagnatore non necessario).
+  2. FAQ "posso venire da solo" e "l'esame fa male" su contatti/studio (+EN).
+  3. Paragrafo "Accessibilità" (ingresso, parcheggio) in studio.html/-en — dato strutturale da verificare col medico.
+  4. Paragrafo turistico su Marina di Ragusa in ecografie-en.html.
+  5. FAQ su tempi di appuntamento (nessuna corsia prioritaria a pagamento) su contatti.html.
+  6. FAQ "referto via email" su prenota/contatti — da verificare la prassi attuale.
+  7. Controllo coerenza NAP (nome/indirizzo/telefono/categoria) tra sito e Google Business Profile — nessuna pubblicazione, solo verifica.
+  8. FAQ su detraibilità 730 in tariffe.html — da verificare con il medico/commercialista prima di pubblicare.
+
+### Pagine lavorate
+- ecografia-renale.html, ecografia-renale-en.html
+
 ## 2026-09-29 — FAQ non verificate nascoste fino ad approvazione
 
 ### Modifiche fatte
