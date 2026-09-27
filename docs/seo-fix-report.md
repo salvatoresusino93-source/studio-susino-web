@@ -23,6 +23,12 @@ Tutte le 51 FAQ rimaste (30 specifiche + 21 di gruppo) sono state approvate e ha
 
 Confronto con siti simili (Santagostino, San Raffaele, Humanitas, centri diagnostici): terminologia e lunghezza delle risposte allineate. Tipi di domanda presenti altrove e ancora assenti qui, da decidere con il medico: dolore/fastidio, durata in minuti per esame, creme e gioielli, controindicazioni e gravidanza, ritorno alle attività.
 
+### Domande pratiche (29/09, approvate dal medico)
+- `scripts/faq-pratiche.js`: su ogni pagina esame "Fa male?", "Quanto dura?" e una domanda su creme/abbigliamento, con testi diversi per gruppo di esami e, nel muscolo-scheletrico e nei Doppler addominali, per singolo esame. Non si aggiungono dove la pagina ha già la domanda (dolore o durata).
+- Controindicazioni/gravidanza e "Dopo l'esame" sono uguali per tutti gli esami: stanno una volta sola nelle FAQ di Prenota (IT/EN), non su ogni pagina.
+- Durata **20–30 minuti per tutti gli esami** (decisione del medico): allineati i testi che dicevano "pochi minuti" o "15–20 minuti" (Prenota, tiroide, addome, carotidi, scrotale, parti molli, anca neonatale, IT/EN).
+- Somiglianza tra pagine esame con tutte le FAQ approvate: **massimo 33%** (con le 5 domande uguali per gruppo sarebbe stata 49%).
+
 ### Parità IT/EN su prenota e tariffe
 Le due FAQ mancanti in inglese non erano state tolte di proposito: erano state aggiunte solo in italiano nel commit `d77e8d3`.
 - `prenota-en.html`: aggiunta la FAQ "How much does the scan cost?" e la sezione "How much it costs". La sezione italiana è già un riassunto di una frase con link a `tariffe.html`, non una copia: in inglese è lo stesso riassunto con link a `tariffe-en.html`.

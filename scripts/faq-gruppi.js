@@ -194,6 +194,8 @@ const FAQ_GRUPPI = {
     },
     {
       id: 'abbigliamento',
+      // Le articolazioni hanno gia' una domanda specifica su abiti e creme (scripts/faq-pratiche.js)
+      esclusi: ['spalla', 'ginocchio', 'anca', 'gomito', 'polso-mano', 'caviglia-piede', 'parti-molli'],
       verificata: true,
       it: {
         q: 'Come conviene vestirsi?',

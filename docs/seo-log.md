@@ -6,6 +6,17 @@ Quando decidi su una proposta o un "Da verificare", spunta la casella e aggiungi
 
 <!-- NUOVE VOCI SOTTO QUESTA RIGA -->
 
+## 2026-09-29 — Domande pratiche per esame e durata 20–30 minuti
+
+### Modifiche fatte
+- `scripts/faq-pratiche.js`: "Fa male?", "Quanto dura?", creme/abbigliamento su ogni pagina esame, testi differenziati per gruppo e per articolazione; controindicazioni e "dopo l'esame" una volta sola su Prenota.
+- Durata 20–30 minuti per tutti gli esami, allineati i testi precedenti (IT/EN).
+- Esclusa dalle articolazioni la FAQ di gruppo "Come conviene vestirsi?" (ora c'è la domanda specifica).
+- Somiglianza massima tra pagine esame: 33%.
+
+### Da verificare per il medico
+- [x] Testi approvati il 29/09; resta da confermare la resa finale prima del merge della PR #8.
+
 ## 2026-09-29 — FAQ non verificate nascoste fino ad approvazione
 
 ### Modifiche fatte

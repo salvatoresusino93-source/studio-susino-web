@@ -4,7 +4,7 @@ window.ESAMI_PAZIENTE = {
     perche:
       'Your doctor requests it if you have abdominal pain or discomfort, abnormal blood tests, suspected stones, or to check a condition that is already known.',
     svolgimento:
-      'You lie down on the couch. Gel is applied to the abdomen and the probe is moved over it. Sometimes you will be asked to hold your breath briefly. It usually takes 15–20 minutes.',
+      'You lie down on the couch. Gel is applied to the abdomen and the probe is moved over it. Sometimes you will be asked to hold your breath briefly. It usually takes 20–30 minutes.',
     cosaControlla:
       'We look at the liver, gallbladder and biliary tract, pancreas, spleen, kidneys, bladder and the abdominal aorta. In men we also assess the prostate.',
   },
@@ -149,7 +149,7 @@ window.ESAMI_PAZIENTE = {
       {
         q: "Is any preparation needed?",
         a:
-          "None. No fasting and no full bladder. It is a quick scan, done lying down, and it takes a few minutes.",
+          "None. No fasting and no full bladder. It is done lying down and usually takes 20–30 minutes.",
       },
       {
         q: "I have noticed a swelling: what can be told apart?",
@@ -163,7 +163,7 @@ window.ESAMI_PAZIENTE = {
     perche:
       'You have it if you notice a swelling in the neck, a palpable nodule, voice problems or abnormal thyroid blood tests.',
     svolgimento:
-      'You lie down with your neck tilted slightly back. Gel on the neck, the probe gliding over the thyroid. It takes a few minutes.',
+      'You lie down with your neck tilted slightly back. Gel on the neck, the probe gliding over the thyroid. It usually takes 20–30 minutes.',
     cosaControlla:
       'We look at the size, structure and presence of nodules or other changes in the thyroid.',
   },
@@ -315,7 +315,7 @@ window.ESAMI_PAZIENTE = {
       {
         q: "Does the baby feel any pain during the scan?",
         a:
-          "No, it is completely painless and uses no radiation. The probe is simply placed on the hip with a little warm gel. It takes a few minutes and can even be done while the baby sleeps or feeds: feel free to bring a dummy or bottle, it helps keep the baby calm.",
+          "No, it is completely painless and uses no radiation. The probe is simply placed on the hip with a little warm gel. It usually takes 20–30 minutes and can even be done while the baby sleeps or feeds: feel free to bring a dummy or bottle, it helps keep the baby calm.",
       },
       {
         q: "Why is it important to do it at the right time?",
@@ -401,7 +401,7 @@ window.ESAMI_PAZIENTE = {
     perche:
       'You have it if you feel a lump under the skin and the doctor wants to understand whether it is a cyst, a lipoma, a haematoma or something else.',
     svolgimento:
-      'Gel is applied to the area of the swelling and the probe is gently moved over it. It takes a few minutes.',
+      'Gel is applied to the area of the swelling and the probe is gently moved over it. It usually takes 20–30 minutes.',
     cosaControlla:
       'We look at whether the lesion is fluid-filled or solid, where it is and how large it is.',
     faqExtra: [
