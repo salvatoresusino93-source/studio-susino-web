@@ -6,6 +6,16 @@ Quando decidi su una proposta o un "Da verificare", spunta la casella e aggiungi
 
 <!-- NUOVE VOCI SOTTO QUESTA RIGA -->
 
+## 2026-09-29 — FAQ non verificate nascoste fino ad approvazione
+
+### Modifiche fatte
+- Generatore e `faq-pagine-manuali.js`: in pagina vanno solo FAQ approvate. FAQ di gruppo solo con `verificata: true`; `faqExtra` nascoste se `verificata: false` (quelle senza campo sono precedenti, approvate con la PR #2).
+- Nascoste le 22 FAQ di gruppo pubblicate il 28/09 (nessuna ancora verificata). Nelle pagine scritte a mano resta un commento segnaposto nella stessa posizione.
+- 26 pagine esame (13 esami IT/EN) restano senza FAQ finche' non si approvano: niente sezione vuota e niente FAQPage.
+
+### Da verificare per il medico
+- [ ] Le 22 FAQ di gruppo in `scripts/faq-gruppi.js`: approvarle una per una con `verificata: true`.
+
 ## 2026-09-28 — Title, contenuti sottili, FAQ differenziate
 
 **Fonte dati:** report `docs/seo-fix-report.md` (Search Console: 30 pagine "Scansionata ma non indicizzata").

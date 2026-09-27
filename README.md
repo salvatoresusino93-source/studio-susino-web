@@ -78,8 +78,11 @@ Cose da sapere:
   (La pagina `tariffe.html` invece è scritta a mano.)
 - I link "Esami correlati" tra categorie diverse si decidono in
   `CORRELATI_EXTRA` / `CORRELATI_MANUALI` in `scripts/esami-mappa.js`.
-- Le domande frequenti per gruppo di esami stanno in `scripts/faq-gruppi.js`
-  (quelle nuove vanno riviste dal medico: vedi `verificata`).
+- Le domande frequenti per gruppo di esami stanno in `scripts/faq-gruppi.js`.
+  **Una FAQ compare nelle pagine solo dopo l'approvazione del medico**:
+  le FAQ di gruppo servono `verificata: true`; le `faqExtra` in
+  `js/esami-paziente*.js` scritte con `verificata: false` restano nascoste
+  finche' non diventano `true`. Poi si rilanciano i generatori.
 - Indirizzo, telefoni e orari nei dati strutturati stanno in
   `scripts/dati-strutturati-studio.js`: se cambiano, aggiornarli anche lì.
 - Report SEO e azioni manuali in Search Console: `docs/seo-fix-report.md`.

@@ -236,7 +236,12 @@ function paginaEsame(esame, info, t, tuttiEsami, isEN) {
   // scelte a rotazione. Niente piu' blocco di domande generiche uguale su
   // tutte le pagine: preparazione, impegnativa e referto stanno gia' nel testo
   // della pagina e in prenota/tariffe.
-  const faqEsame = info && Array.isArray(info.faqExtra) ? info.faqExtra : [];
+  // In pagina vanno solo FAQ approvate dal medico: le faqExtra nuove si scrivono
+  // con verificata: false e restano nascoste finche' non diventano true. Quelle
+  // senza il campo sono precedenti a questa regola (approvate con la PR #2).
+  const faqEsame = (info && Array.isArray(info.faqExtra) ? info.faqExtra : []).filter(
+    (f) => f.verificata !== false
+  );
   const gruppo = GRUPPO[categoriaIt(esame.id)];
   const stessoGruppo = tuttiEsami.filter((e) => e.categoria === esame.categoria);
   const faq = faqEsame.concat(
@@ -360,7 +365,7 @@ ${correlati
     }
   }
   </script>
-  <script type="application/ld+json">
+${faq.length ? `  <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -377,7 +382,7 @@ ${faq
     ]
   }
   </script>
-</head>
+` : ''}</head>
 <body>
   <header class="site-header">
     <div class="container header-inner">
@@ -451,18 +456,18 @@ ${feeBlock}
           <a class="btn btn-outline" href="tel:+393513746102">${t.call} ${TEL2}</a>
         </div>
 
-        <h2>${t.hFaq}</h2>
+${faq.length ? `        <h2>${t.hFaq}</h2>
         <div class="faq">
 ${faq
   .map(
-    (f) => `${f.daVerificare ? `          <!-- DA VERIFICARE: FAQ di gruppo "${f.daVerificare}" (scripts/faq-gruppi.js) -->\n` : ''}          <details>
+    (f) => `          <details>
             <summary>${esc(f.q)}</summary>
             <p>${f.a}</p>
           </details>`
   )
   .join('\n')}
         </div>
-${correlatiBlock}
+` : ''}${correlatiBlock}
         <p class="content-spaced">
           ${t.seeAlso} <a href="${t.listPage}">${t.seeAlsoLink}</a> ${t.seeAlsoTail}
           <a href="${t.studioPage}">${t.studioWord}</a> ${t.andWord}

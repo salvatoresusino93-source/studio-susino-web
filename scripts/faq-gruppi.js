@@ -10,10 +10,11 @@
  * - esclusi: la domanda non compare su questi esami
  *
  * DA VERIFICARE: tutte le domande qui sotto sono nuove (settembre 2026) e
- * vanno riviste dal medico. Finche' una domanda non ha `verificata: true`,
- * il generatore scrive nella pagina un commento <!-- DA VERIFICARE --> prima
- * di quella domanda. Dopo la revisione: aggiungere `verificata: true` e
- * rilanciare node scripts/genera-pagine-esami.js.
+ * vanno riviste dal medico. Una domanda compare nelle pagine SOLO se ha
+ * `verificata: true`: finche' manca, resta qui ma non viene pubblicata.
+ * Dopo la revisione: aggiungere `verificata: true` e rilanciare
+ *   node scripts/genera-pagine-esami.js
+ *   node scripts/faq-pagine-manuali.js
  */
 const FAQ_GRUPPI = {
   addome: [
@@ -294,13 +295,17 @@ const FAQ_GRUPPI = {
 };
 
 /**
- * Domande di gruppo per un esame: filtra per solo/esclusi e ruota la lista
+ * Domande di gruppo per un esame: solo quelle verificate, filtrate per
+ * solo/esclusi, e ruota la lista
  * in base alla posizione dell'esame nel gruppo, cosi' esami vicini non
  * ricevono tutti le stesse domande.
  */
 function faqGruppo(gruppo, idEsame, posizione, quante, lingua) {
   const valide = (FAQ_GRUPPI[gruppo] || []).filter(
-    (f) => (!f.solo || f.solo.includes(idEsame)) && !(f.esclusi || []).includes(idEsame)
+    (f) =>
+      f.verificata === true &&
+      (!f.solo || f.solo.includes(idEsame)) &&
+      !(f.esclusi || []).includes(idEsame)
   );
   if (!valide.length) return [];
   const k = posizione % valide.length;
@@ -308,14 +313,14 @@ function faqGruppo(gruppo, idEsame, posizione, quante, lingua) {
     .slice(k)
     .concat(valide.slice(0, k))
     .slice(0, quante)
-    .map((f) => ({ ...f[lingua], daVerificare: f.verificata ? null : f.id }));
+    .map((f) => f[lingua]);
 }
 
-/** Una domanda precisa, per le pagine scritte a mano. */
+/** Una domanda precisa, per le pagine scritte a mano (con il suo stato di verifica). */
 function faqPerId(id, lingua) {
   for (const lista of Object.values(FAQ_GRUPPI)) {
     const f = lista.find((x) => x.id === id);
-    if (f) return { ...f[lingua], daVerificare: f.verificata ? null : f.id };
+    if (f) return { ...f[lingua], verificata: f.verificata === true };
   }
   throw new Error('FAQ non trovata: ' + id);
 }

@@ -3,13 +3,14 @@
  * FAQ delle pagine scritte a mano (esami in GIA_ESISTENTI, contatti,
  * prenota, tariffe, pagina comuni vicini).
  *
- * 1. Sostituisce le domande generiche ripetute su tutto il sito
- *    ("Serve l'impegnativa?", "Quanto dura?") con domande del gruppo
- *    dell'esame, prese da scripts/faq-gruppi.js.
+ * 1. Al posto delle domande generiche ripetute su tutto il sito
+ *    ("Serve l'impegnativa?", "Quanto dura?") mette la domanda del gruppo
+ *    dell'esame (scripts/faq-gruppi.js) se e' verificata: true, altrimenti
+ *    un commento segnaposto (la domanda resta nascosta).
  * 2. Riscrive il JSON-LD FAQPage partendo dalle FAQ visibili nella pagina,
  *    cosi' i due restano sempre identici (regola in CLAUDE.md).
  *
- * Si puo' rilanciare: le sostituzioni gia' fatte vengono saltate.
+ * Si puo' rilanciare: ogni volta allinea le pagine allo stato di verifica.
  *   node scripts/faq-pagine-manuali.js
  */
 const fs = require('fs');
@@ -72,19 +73,26 @@ for (const nome of PAGINE_FAQ) {
   const lingua = nome.endsWith('-en.html') ? 'en' : 'it';
 
   for (const [vecchia, id] of Object.entries(SOSTITUZIONI[nome] || {})) {
+    const f = faqPerId(id, lingua);
+    // La FAQ di gruppo puo' trovarsi in pagina in tre forme: la domanda
+    // generica originale, la FAQ gia' pubblicata (con o senza il vecchio
+    // commento DA VERIFICARE) oppure il segnaposto di una FAQ nascosta.
+    const segnaposto = `<!-- FAQ di gruppo "${id}" nascosta finche' non verificata (scripts/faq-gruppi.js) -->`;
+    const dettagli = (q) => '<details>\\s*<summary>' + reEsc(q) + '</summary>[\\s\\S]*?</details>';
     const re = new RegExp(
-      '( *)<details>\\s*<summary>' + reEsc(vecchia) + '</summary>[\\s\\S]*?</details>'
+      '( *)(?:<!-- DA VERIFICARE: [^>]*-->\\s*)?(?:' +
+        [dettagli(vecchia), dettagli(esc(f.q)), reEsc(segnaposto)].join('|') +
+        ')'
     );
     const m = html.match(re);
-    if (!m) continue; // gia' sostituita
-    const f = faqPerId(id, lingua);
+    if (!m) throw new Error(`FAQ "${id}" non trovata in ${nome}`);
     const ind = m[1];
-    const nota = f.daVerificare
-      ? `${ind}<!-- DA VERIFICARE: FAQ di gruppo "${f.daVerificare}" (scripts/faq-gruppi.js) -->\n`
-      : '';
+    // Solo le FAQ approvate dal medico (verificata: true) vanno in pagina.
     html = html.replace(
       re,
-      `${nota}${ind}<details>\n${ind}  <summary>${esc(f.q)}</summary>\n${ind}  <p>${esc(f.a)}</p>\n${ind}</details>`
+      f.verificata
+        ? `${ind}<details>\n${ind}  <summary>${esc(f.q)}</summary>\n${ind}  <p>${esc(f.a)}</p>\n${ind}</details>`
+        : `${ind}${segnaposto}`
     );
   }
 
