@@ -6,7 +6,7 @@ allowed-tools: Agent, Task, Read, Grep, Glob, Bash(ls:*), Bash(du:*), Bash(find:
 
 Esegui solo il controllo, **senza modificare alcun file** (nemmeno `docs/seo-log.md`).
 
-1. Lancia il subagent `seo-auditor` chiedendogli l'audit completo del sito, confrontato con l'ultima voce di `docs/seo-log.md`.
+1. Lancia il subagent `seo-auditor` con `run_in_background: false` (aspetta il suo report prima di rispondere, non chiudere la sessione prima) chiedendogli l'audit completo del sito, confrontato con l'ultima voce di `docs/seo-log.md`.
 2. Se qui sotto c'è testo incollato da Google Search Console, passalo all'auditor e chiedigli di controllare per primi gli URL e i problemi lì citati (pagine escluse, "Duplicata, Google ha scelto un canonical diverso", 404, "Scansionata ma non indicizzata", ecc.).
 3. Mostrami il report così com'è, poi in coda aggiungi:
    - le 3 correzioni più urgenti;

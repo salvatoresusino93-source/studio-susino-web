@@ -87,13 +87,17 @@ window.ESAMI_PAZIENTE = {
     ],
   },
   renale: {
-    sintesi: 'A check of the kidneys and the first part of the urinary tract.',
+    sintesi: 'A focused check of the kidneys: their size, shape and structure.',
+    /* DA VERIFICARE: example of follow-up for a known kidney cyst or stone, added to explain when
+       this scan is chosen instead of the urinary tract ultrasound. */
     perche:
-      'Indicated for flank pain, suspected colic from a stone, blood in the urine, or follow-up of a kidney already monitored, without studying the whole bladder.',
+      'Your doctor requests it for flank or back pain, suspected renal colic, blood in the urine, or to follow up a kidney already monitored, for example because of a cyst or a stone that is already known. This scan, focused only on the kidneys, is chosen when there is no need to also check the bladder or blood flow.',
     svolgimento:
-      'You lie on your back or your side. Gel on the flank and back, the probe gliding over the kidneys.',
+      'You lie on the couch, first on your back and then on each side. I apply a little gel to your back and flank, where the kidneys are, and move the probe to see them from different angles. It is painless, like any ultrasound scan.',
+    /* DA VERIFICARE: explicit list of stones, cysts and dilation of the urinary tract as typical
+       findings that can be seen with this scan. */
     cosaControlla:
-      'We look at the size and structure of the kidneys, the renal pelvis and the start of the ureters.',
+      'We check the size, shape and position of the kidneys, the thickness of the kidney tissue and the renal pelvis, the inner part where urine collects before flowing into the ureter. We also see the start of the ureters, but not the bladder. We look for stones, cysts or a kidney that is dilated because of an obstruction to urine flow.',
     faqExtra: [
       {
         q: "How does it differ from the urinary tract ultrasound?",
@@ -106,6 +110,18 @@ window.ESAMI_PAZIENTE = {
         a:
           "Kidney stones usually can, although stones of just a few millimetres may be missed. Ureteral stones are rarely seen directly: the indirect sign is hydronephrosis, a dilation of the kidney’s collecting system above the blockage. The report states the limits of the scan.",
         verificata: true,
+      },
+      {
+        q: 'What is the difference from the renal artery Doppler ultrasound?',
+        a:
+          'They are two different exams. A kidney ultrasound looks at the shape and structure of the kidneys. The renal artery Doppler ultrasound instead looks at how blood flows in the arteries that supply the kidneys: it is mainly used for high blood pressure that is hard to control.',
+        verificata: false,
+      },
+      {
+        q: 'Do I need a full bladder or to fast, like for the urinary tract ultrasound?',
+        a:
+          'No. For a kidney ultrasound you do not need a full bladder or fasting: you can eat, drink and urinate normally. A full bladder is only needed when the bladder itself is examined, as in the urinary tract or bladder and prostate ultrasound.',
+        verificata: false,
       },
     ],
   },

@@ -87,13 +87,17 @@ window.ESAMI_PAZIENTE = {
     ],
   },
   renale: {
-    sintesi: 'Controllo dei reni e delle prime porzioni delle vie urinarie.',
+    sintesi: 'Controllo mirato di dimensioni, forma e struttura dei reni.',
+    /* DA VERIFICARE: esempio di controllo nel tempo di una cisti o di un calcolo renale già noti,
+       aggiunto per spiegare quando si sceglie questo esame invece dell’ecografia dell’apparato urinario. */
     perche:
-      'Indicata per dolore al fianco, sospetta colica da calcolo, sangue nelle urine o controllo di un rene già seguito, senza studiare tutta la vescica.',
+      'Il medico te la prescrive per dolore al fianco o alla schiena, sospetta colica renale, sangue nelle urine, oppure per controllare nel tempo un rene già seguito, per esempio per una cisti o un calcolo già noti. Si sceglie questo esame, mirato solo ai reni, quando non serve guardare anche la vescica o il flusso del sangue.',
     svolgimento:
-      'Ti sdrai supino o di lato. Gel su fianco e schiena, sonda che passa sui reni.',
+      'Ti sdrai sul lettino, prima supino e poi su un fianco e sull’altro. Metto un po’ di gel sulla schiena e sul fianco, dove si trovano i reni, e sposto la sonda per vederli da più lati. È indolore, come ogni ecografia.',
+    /* DA VERIFICARE: elenco esplicito di calcoli, cisti e dilatazione delle vie urinarie
+       come reperti tipici che si possono vedere con questo esame. */
     cosaControlla:
-      'Guardiamo dimensioni e struttura dei reni, la pelvi renale e l’inizio degli ureteri.',
+      'Guardiamo dimensioni, forma e posizione dei reni, lo spessore del tessuto renale e la pelvi renale, cioè la parte interna dove si raccoglie l’urina prima di scendere nell’uretere. Vediamo anche l’inizio degli ureteri, ma non la vescica. Notiamo se ci sono calcoli, cisti o un rene dilatato per un ostacolo al deflusso dell’urina.',
     faqExtra: [
       {
         q: "Che differenza c’è con l’ecografia dell’apparato urinario?",
@@ -106,6 +110,18 @@ window.ESAMI_PAZIENTE = {
         a:
           "I calcoli nel rene in genere sì, anche se quelli di pochi millimetri possono sfuggire. I calcoli dell’uretere raramente si vedono direttamente: il segno indiretto è l’idronefrosi, cioè la dilatazione delle cavità del rene a monte dell’ostruzione. Il referto indica i limiti dell’esame.",
         verificata: true,
+      },
+      {
+        q: 'Che differenza c’è con l’ecocolordoppler delle arterie renali?',
+        a:
+          'Sono due esami diversi. L’ecografia renale guarda la forma e la struttura dei reni. L’ecocolordoppler delle arterie renali guarda invece come scorre il sangue nelle arterie che portano sangue ai reni: si usa soprattutto per la pressione alta difficile da controllare.',
+        verificata: false,
+      },
+      {
+        q: 'Devo arrivare con la vescica piena, come per l’ecografia dell’apparato urinario?',
+        a:
+          'No. Per l’ecografia renale non serve avere la vescica piena né il digiuno: puoi mangiare, bere e urinare normalmente. La vescica piena serve solo quando si guarda anche quest’organo, come nell’ecografia dell’apparato urinario o vescico-prostatica.',
+        verificata: false,
       },
     ],
   },
