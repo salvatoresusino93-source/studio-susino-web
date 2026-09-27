@@ -21,21 +21,21 @@ window.ESAMI_PAZIENTE = {
       {
         q: "Si vedono i calcoli della colecisti?",
         a:
-          "Sì. La colecisti (la cistifellea) è uno degli organi studiati e l’ecografia è l’esame usato di solito quando si sospetta una colica da calcoli.",
+          "Sì. Per la colelitiasi (calcoli nella colecisti) l’ecografia è l’esame di prima scelta. I calcoli nella via biliare principale (il coledoco) sono invece più difficili da vedere: se il sospetto rimane, il medico può indicare altri esami.",
         verificata: false,
       },
       /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
       {
         q: "Ho le analisi del fegato alterate: l’ecografia serve?",
         a:
-          "Sì, è uno dei motivi per cui si richiede. Si guardano fegato, vie biliari e pancreas; il risultato va letto dal tuo medico insieme alle analisi del sangue.",
+          "Sì, l’alterazione degli indici di funzionalità epatica (transaminasi, bilirubina) o degli enzimi pancreatici (amilasi, lipasi) è una delle indicazioni. Si valutano fegato, vie biliari e pancreas, per esempio la presenza di steatosi (accumulo di grasso nel fegato) o di dilatazione delle vie biliari. Il risultato va interpretato dal medico insieme alle analisi.",
         verificata: false,
       },
       /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
       {
         q: "Che differenza c’è con l’ecografia dell’addome completo?",
         a:
-          "L’addome superiore comprende fegato, colecisti, vie biliari, pancreas, milza e la parte alta dei reni. L’addome completo aggiunge la vescica e, negli uomini, la prostata.",
+          "L’addome superiore comprende fegato, colecisti, vie biliari, pancreas, milza e reni. L’addome completo aggiunge la vescica e, negli uomini, la prostata con approccio sovrapubico.",
         verificata: false,
       },
     ],
@@ -51,16 +51,16 @@ window.ESAMI_PAZIENTE = {
     faqExtra: [
       /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
       {
-        q: "Ho infezioni urinarie frequenti: l’ecografia serve?",
+        q: "Ho infezioni urinarie ricorrenti: l’ecografia serve?",
         a:
-          "Sì, le infezioni urinarie che si ripetono sono una delle indicazioni. Si guardano reni e vescica per capire se c’è qualcosa che le favorisce, per esempio un ostacolo al passaggio dell’urina.",
+          "Può servire, su indicazione del medico. Si valutano reni e vescica per cercare condizioni che favoriscono le infezioni: idronefrosi (dilatazione delle cavità del rene), calcoli, un residuo post-minzionale elevato (urina che resta in vescica dopo la minzione) o diverticoli della vescica. Non è necessaria in tutti i casi.",
         verificata: false,
       },
       /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
       {
         q: "Che differenza c’è con l’ecografia dell’addome superiore?",
         a:
-          "L’addome inferiore guarda reni, vescica, prostata negli uomini e il bacino, e richiede la vescica piena. L’addome superiore guarda fegato, colecisti, pancreas e milza, e richiede il digiuno.",
+          "L’addome inferiore studia reni, vescica, prostata negli uomini e organi pelvici, e richiede la vescica piena. L’addome superiore studia fegato, colecisti, vie biliari, pancreas e milza, e richiede il digiuno.",
         verificata: false,
       },
     ],
@@ -104,21 +104,21 @@ window.ESAMI_PAZIENTE = {
       {
         q: "Che differenza c’è con l’ecografia dell’apparato urinario?",
         a:
-          "L’ecografia renale studia i reni e l’inizio degli ureteri, senza la vescica. L’ecografia dell’apparato urinario comprende anche la vescica, e per questo va fatta a vescica piena.",
+          "L’ecografia renale studia i reni, le pelvi renali (le cavità che raccolgono l’urina nel rene) e il tratto iniziale degli ureteri. L’ecografia dell’apparato urinario comprende anche la vescica e la misura del residuo post-minzionale, e per questo richiede la vescica piena.",
         verificata: false,
       },
       /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
       {
         q: "Perché a volte mi fa girare sul fianco?",
         a:
-          "Perché i reni stanno in profondità, verso la schiena. Appoggiando la sonda sul fianco e sulla schiena, da sdraiato sulla schiena o di lato, si vedono meglio.",
+          "Perché i reni sono organi retroperitoneali, cioè posti nella parte posteriore dell’addome, dietro le anse intestinali. Oltre alla posizione supina si usano il decubito laterale (sdraiati sul fianco) o prono (a pancia in giù), con la sonda sulla regione lombare o tra le coste (scansioni intercostali): così si vedono per intero, polo superiore compreso.",
         verificata: false,
       },
       /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
       {
         q: "Si vedono i calcoli?",
         a:
-          "I calcoli dentro il rene di solito sì, insieme all’eventuale dilatazione della pelvi renale. Quelli più in basso, lungo l’uretere, sono spesso nascosti dall’aria intestinale: il referto lo indica.",
+          "I calcoli nel rene in genere sì, anche se quelli di pochi millimetri possono sfuggire. I calcoli dell’uretere raramente si vedono direttamente: il segno indiretto è l’idronefrosi, cioè la dilatazione delle cavità del rene a monte dell’ostruzione. Il referto indica i limiti dell’esame.",
         verificata: false,
       },
     ],
@@ -134,16 +134,16 @@ window.ESAMI_PAZIENTE = {
     faqExtra: [
       /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
       {
-        q: "La prostata si vede dall’esterno?",
+        q: "La prostata si vede con la sonda sull’addome?",
         a:
-          "Sì, appoggiando la sonda sopra il pube. La vescica piena fa da finestra e permette di valutare dimensioni e aspetto generale della prostata.",
+          "Sì, con l’approccio sovrapubico (transaddominale): la vescica piena fa da finestra acustica e permette di stimare il volume della prostata e valutarne l’aspetto generale. Per uno studio dettagliato della struttura interna esistono esami dedicati, come l’ecografia transrettale o la risonanza magnetica, su indicazione dell’urologo.",
         verificata: false,
       },
       /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
       {
         q: "E se la vescica non è abbastanza piena?",
         a:
-          "Te lo dico all’inizio dell’esame. Di solito basta bere ancora un po’ d’acqua e aspettare qualche minuto prima di continuare.",
+          "Con la vescica poco distesa l’esame non è attendibile. In genere si beve altra acqua e si ripete la scansione quando la vescica si è riempita, di solito dopo 30–60 minuti; se non è possibile, si fissa un nuovo appuntamento.",
         verificata: false,
       },
     ],
@@ -196,14 +196,14 @@ window.ESAMI_PAZIENTE = {
       {
         q: "Si fa anche per i controlli dopo un intervento al collo?",
         a:
-          "Sì, il controllo nel tempo dopo un intervento chirurgico al collo è una delle indicazioni. Porta con te il referto dell’intervento e gli esami precedenti.",
+          "Sì. Dopo una tiroidectomia (asportazione della tiroide) o un altro intervento sul collo, l’ecografia controlla la loggia tiroidea, cioè la zona in cui si trovava la ghiandola, e i linfonodi del collo. Porta con te il referto dell’intervento, l’esame istologico e le ecografie precedenti.",
         verificata: false,
       },
       /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
       {
         q: "Devo togliere collane o sciarpe?",
         a:
-          "Sì, conviene arrivare con il collo libero: la sonda deve scorrere sulla pelle di tutto il collo, davanti e ai lati.",
+          "Sì, conviene arrivare con il collo libero: la sonda deve esplorare tutto il collo, davanti e ai lati, fino alle regioni sopra le clavicole.",
         verificata: false,
       },
     ],
@@ -282,21 +282,21 @@ window.ESAMI_PAZIENTE = {
       {
         q: "Ho dolore sul lato dell’anca: l’ecografia serve?",
         a:
-          "Sì. Sul lato esterno dell’anca (la zona del trocantere) si studiano i tendini dei glutei e le borse trocanteriche, piccoli “cuscinetti” che possono infiammarsi.",
+          "Sì. Il dolore sul lato esterno dell’anca, nella regione del grande trocantere, si chiama sindrome dolorosa del grande trocantere. L’ecografia valuta i tendini del gluteo medio e del gluteo minimo e la borsa trocanterica: spesso la causa è una tendinopatia (alterazione da sovraccarico del tendine) più che una borsite.",
         verificata: false,
       },
       /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
       {
         q: "È lo stesso esame dell’ecografia delle anche del neonato?",
         a:
-          "No. Nell’adulto si studiano tendini, borse e parti morbide attorno all’anca. Nel neonato si controlla invece lo sviluppo dell’articolazione: è un esame diverso, con una sua pagina.",
+          "No. Nell’adulto si studiano tendini, borse e tessuti molli attorno all’articolazione. Nel neonato si valuta invece la conformazione dell’articolazione, per riconoscere la displasia evolutiva dell’anca: è un esame diverso, con una sua pagina.",
         verificata: false,
       },
       /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
       {
         q: "Dovrò muovere la gamba durante l’esame?",
         a:
-          "A volte sì. A seconda di dove senti dolore, la sonda passa sull’inguine, sul fianco o su entrambi, e può servire muovere l’anca per vedere meglio tendini e borse.",
+          "A volte sì. Oltre alle scansioni a riposo può servire una valutazione dinamica, cioè durante il movimento dell’anca, per vedere meglio lo scorrimento dei tendini. La sonda si appoggia sulla regione inguinale, su quella laterale o su entrambe, secondo la sede del dolore.",
         verificata: false,
       },
     ],
@@ -338,23 +338,23 @@ window.ESAMI_PAZIENTE = {
     faqExtra: [
       /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
       {
-        q: "Serve per il “gomito del tennista”?",
+        q: "Serve per l’epicondilite (“gomito del tennista”)?",
         a:
-          "Sì. L’ecografia studia i tendini che si attaccano all’esterno del gomito (epicondilo), coinvolti nel “gomito del tennista”, e quelli all’interno (epitroclea), coinvolti nel “gomito del golfista”.",
+          "Sì. Nell’epicondilite laterale (“gomito del tennista”) si valuta il tendine comune degli estensori, che si inserisce sull’epicondilo, la sporgenza ossea sul lato esterno del gomito. Nell’epitrocleite (“gomito del golfista”) si valuta il tendine comune dei flessori-pronatori, che si inserisce sull’epitroclea, la sporgenza ossea sul lato interno del gomito. Si cercano ispessimento, alterazioni della struttura del tendine ed eventuali lesioni parziali.",
         verificata: false,
       },
       /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
       {
-        q: "Ho un gonfiore sulla punta del gomito: cosa si guarda?",
+        q: "Ho un gonfiore sulla punta del gomito: cosa si valuta?",
         a:
-          "Si guarda la borsa olecranica, un piccolo “cuscinetto” sulla punta del gomito, sopra l’ulna. L’ecografia mostra se è infiammata o se contiene liquido.",
+          "Si valuta la borsa olecranica, una borsa sierosa (piccola sacca che riduce l’attrito) posta sopra l’olecrano, la punta del gomito. L’ecografia mostra se contiene liquido (versamento), se le pareti sono ispessite e quanto è estesa: sono i segni della borsite olecranica.",
         verificata: false,
       },
       /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
       {
-        q: "Si vede anche il tendine del bicipite?",
+        q: "Si valuta anche il tendine del bicipite?",
         a:
-          "Sì, il tratto finale del tendine del bicipite, che si attacca nella piega del gomito, fa parte dell’esame.",
+          "Sì. Il tendine distale del bicipite brachiale, che si inserisce sul radio nella piega del gomito, fa parte dell’esame: si valutano la sua continuità e la sua struttura.",
         verificata: false,
       },
     ],
@@ -370,16 +370,16 @@ window.ESAMI_PAZIENTE = {
     faqExtra: [
       /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
       {
-        q: "Serve per il tunnel carpale?",
+        q: "Serve per la sindrome del tunnel carpale?",
         a:
-          "Sì. Si valuta il nervo mediano nel punto in cui passa nel tunnel carpale, al polso. È utile se hai formicolio o intorpidimento delle dita.",
+          "Sì. Si valuta il nervo mediano all’ingresso del tunnel carpale, al polso, misurandone l’area di sezione: un nervo ingrossato è uno dei segni della sindrome. L’ecografia completa, non sostituisce, l’elettroneurografia (l’esame che misura la conduzione del nervo), che il medico può richiedere.",
         verificata: false,
       },
       /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
       {
         q: "Perché mi chiede di piegare le dita?",
         a:
-          "Perché piegando ed estendendo le dita i tendini scorrono e si vede meglio come si muovono. Serve anche a riconoscere una tenosinovite, cioè l’infiammazione della guaina che avvolge il tendine.",
+          "Per una valutazione dinamica: piegando ed estendendo le dita i tendini flessori ed estensori scorrono nelle loro guaine e si vede se il movimento è regolare. Aiuta a riconoscere una tenosinovite, cioè l’infiammazione della guaina sinoviale che avvolge il tendine.",
         verificata: false,
       },
     ],
@@ -421,16 +421,16 @@ window.ESAMI_PAZIENTE = {
     faqExtra: [
       /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
       {
-        q: "Dopo un colpo si vede un ematoma?",
+        q: "Dopo un trauma si vede un ematoma?",
         a:
-          "Sì. Tra le cose che l’ecografia valuta ci sono gli ematomi, cioè raccolte di sangue sotto la pelle dopo un trauma: se ne vedono posizione ed estensione.",
+          "Sì. L’ematoma è una raccolta di sangue nei tessuti molli dopo un trauma. L’ecografia ne indica sede, dimensioni e aspetto del contenuto, che cambia nel tempo man mano che l’ematoma si riassorbe; per questo a volte serve un controllo successivo.",
         verificata: false,
       },
       /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
       {
-        q: "Devo indicare io dove si trova il gonfiore?",
+        q: "Devo indicare io dove si trova la tumefazione?",
         a:
-          "Sì, mostrami il punto: la sonda si concentra su quella zona. Se il gonfiore si sente meglio in una certa posizione, dimmelo all’inizio dell’esame.",
+          "Sì, mostrami il punto esatto: l’esame si concentra su quella zona e la confronta con i tessuti vicini. Se la tumefazione si sente meglio in una certa posizione o sotto sforzo, dimmelo all’inizio.",
         verificata: false,
       },
     ],
@@ -457,14 +457,14 @@ window.ESAMI_PAZIENTE = {
       {
         q: "Ho un aneurisma già noto: a cosa serve il controllo?",
         a:
-          "Un aneurisma è una dilatazione dell’aorta. Il controllo ne misura le dimensioni e le confronta con quelle degli esami precedenti: porta con te i referti.",
+          "L’aneurisma dell’aorta addominale è una dilatazione permanente dell’aorta, in genere definita da un diametro di almeno 3 cm. Il controllo misura il diametro massimo e lo confronta con quello degli esami precedenti: porta con te i referti. La frequenza dei controlli dipende dal diametro e la stabilisce lo specialista.",
         verificata: false,
       },
       /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
       {
-        q: "Si vedono anche le arterie iliache?",
+        q: "Si valutano anche le arterie iliache?",
         a:
-          "Sì, le iliache comuni, cioè le due arterie in cui l’aorta si divide nel bacino, fanno parte dell’esame.",
+          "Sì. Le arterie iliache comuni sono i due rami in cui l’aorta si divide (biforcazione aortica) nella parte bassa dell’addome: se ne valutano calibro e flusso.",
         verificata: false,
       },
     ],
@@ -482,14 +482,14 @@ window.ESAMI_PAZIENTE = {
       {
         q: "Perché si controllano le arterie renali se ho la pressione alta?",
         a:
-          "Perché un restringimento delle arterie che portano sangue ai reni può essere una delle cause di una pressione alta difficile da controllare. L’esame valuta se le arterie sono libere.",
+          "Perché la stenosi (restringimento) di un’arteria renale può causare un’ipertensione nefrovascolare, cioè una pressione alta dovuta al ridotto afflusso di sangue al rene, spesso difficile da controllare con i farmaci. Il Doppler misura la velocità del sangue nell’arteria: un aumento marcato nel punto del restringimento è il segno della stenosi.",
         verificata: false,
       },
       /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
       {
         q: "Che cos’è il suono che sento durante l’esame?",
         a:
-          "È il flusso del sangue nelle arterie, reso udibile dal Doppler. È normale e aiuta a valutare come scorre il sangue.",
+          "È il segnale Doppler: l’apparecchio trasforma in suono la velocità del sangue nel vaso, e la tonalità cambia con la velocità del flusso. È normale e fa parte della valutazione.",
         verificata: false,
       },
     ],
@@ -516,14 +516,14 @@ window.ESAMI_PAZIENTE = {
       {
         q: "Ho un braccio più gonfio dell’altro: l’esame serve?",
         a:
-          "Sì, il gonfiore di un solo braccio è una delle indicazioni. Si controllano le vene per capire se c’è una trombosi, cioè un coagulo che ostacola il passaggio del sangue.",
+          "Sì, il gonfiore (edema) asimmetrico di un braccio è una delle indicazioni. Si cerca una trombosi venosa profonda, cioè un trombo (coagulo) in una vena profonda: con l’ecografia con compressione una vena normale si schiaccia sotto la sonda, una vena trombizzata no. Se il gonfiore è comparso all’improvviso, con dolore, rivolgiti subito al medico.",
         verificata: false,
       },
       /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
       {
         q: "Si fa anche per la fistola della dialisi?",
         a:
-          "Sì. La fistola per emodialisi è un collegamento tra un’arteria e una vena del braccio, usato per la dialisi: l’esame ne controlla il flusso.",
+          "Sì. La fistola artero-venosa per emodialisi è un collegamento creato chirurgicamente tra un’arteria e una vena del braccio. L’ecocolordoppler ne misura la portata (quanto sangue vi scorre ogni minuto) e cerca eventuali stenosi, cioè restringimenti.",
         verificata: false,
       },
     ],
@@ -539,16 +539,16 @@ window.ESAMI_PAZIENTE = {
     faqExtra: [
       /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
       {
-        q: "Quali zone si possono controllare?",
+        q: "Quali stazioni linfonodali si possono controllare?",
         a:
-          "I linfonodi superficiali del collo, delle ascelle e dell’inguine. Di solito si esamina la zona indicata dal medico o quella in cui senti il rigonfiamento.",
+          "Le stazioni superficiali: laterocervicali (ai lati del collo), ascellari e inguinali. Di solito si esamina la sede indicata dal medico o quella in cui senti il rigonfiamento, confrontandola se serve con il lato opposto.",
         verificata: false,
       },
       /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
       {
         q: "Se ho già fatto un’ecografia dei linfonodi, devo portarla?",
         a:
-          "Sì. Confrontare dimensioni e forma dei linfonodi nel tempo è uno degli scopi del controllo: i referti precedenti rendono l’esame più utile.",
+          "Sì. Il confronto nel tempo di dimensioni, forma e struttura interna (in particolare dell’ilo, la parte centrale del linfonodo) è uno degli elementi principali per interpretare l’esame: i referti precedenti lo rendono più utile.",
         verificata: false,
       },
     ],

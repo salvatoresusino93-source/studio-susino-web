@@ -21,21 +21,21 @@ window.ESAMI_PAZIENTE = {
       {
         q: "Can gallstones be seen?",
         a:
-          "Yes. The gallbladder is one of the organs studied, and ultrasound is the exam usually used when a gallstone attack is suspected.",
+          "Yes. For cholelithiasis (stones in the gallbladder) ultrasound is the first-choice exam. Stones in the main bile duct (the common bile duct) are harder to see: if the suspicion remains, your doctor may recommend other tests.",
         verificata: false,
       },
       /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
       {
         q: "My liver blood tests are abnormal: is the ultrasound useful?",
         a:
-          "Yes, it is one of the reasons it is requested. The liver, bile ducts and pancreas are examined; your doctor reads the result together with your blood tests.",
+          "Yes, abnormal liver function tests (transaminases, bilirubin) or pancreatic enzymes (amylase, lipase) are one of the indications. The liver, bile ducts and pancreas are assessed, for example for steatosis (fat in the liver) or dilated bile ducts. Your doctor interprets the result together with the blood tests.",
         verificata: false,
       },
       /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
       {
         q: "How does it differ from a complete abdominal ultrasound?",
         a:
-          "The upper abdomen covers the liver, gallbladder, bile ducts, pancreas, spleen and upper part of the kidneys. The complete abdomen also includes the bladder and, in men, the prostate.",
+          "The upper abdomen covers the liver, gallbladder, bile ducts, pancreas, spleen and kidneys. The complete abdomen also includes the bladder and, in men, the prostate with a suprapubic approach.",
         verificata: false,
       },
     ],
@@ -51,16 +51,16 @@ window.ESAMI_PAZIENTE = {
     faqExtra: [
       /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
       {
-        q: "I have frequent urinary infections: is the ultrasound useful?",
+        q: "I have recurrent urinary infections: is the ultrasound useful?",
         a:
-          "Yes, repeated urinary infections are one of the reasons for this scan. The kidneys and bladder are checked to see whether something favours them, for example an obstacle to the flow of urine.",
+          "It can be, on your doctor’s advice. The kidneys and bladder are assessed for conditions that favour infections: hydronephrosis (dilation of the kidney’s collecting system), stones, a high post-void residual (urine left in the bladder after voiding) or bladder diverticula. It is not needed in every case.",
         verificata: false,
       },
       /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
       {
         q: "How does it differ from an upper abdominal ultrasound?",
         a:
-          "The lower abdomen covers the kidneys, bladder, prostate in men and the pelvis, and needs a full bladder. The upper abdomen covers the liver, gallbladder, pancreas and spleen, and needs fasting.",
+          "The lower abdomen covers the kidneys, bladder, prostate in men and pelvic organs, and needs a full bladder. The upper abdomen covers the liver, gallbladder, bile ducts, pancreas and spleen, and needs fasting.",
         verificata: false,
       },
     ],
@@ -104,21 +104,21 @@ window.ESAMI_PAZIENTE = {
       {
         q: "How does it differ from the urinary tract ultrasound?",
         a:
-          "Kidney ultrasound studies the kidneys and the start of the ureters, without the bladder. The urinary tract ultrasound also includes the bladder, which is why it needs a full bladder.",
+          "Kidney ultrasound studies the kidneys, the renal pelvis (the cavity that collects urine inside the kidney) and the first part of the ureters. The urinary tract ultrasound also includes the bladder and the post-void residual measurement, which is why it needs a full bladder.",
         verificata: false,
       },
       /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
       {
         q: "Why am I sometimes asked to turn onto my side?",
         a:
-          "Because the kidneys lie deep, towards the back. Placing the probe on the side and back, lying on your back or on your side, gives a better view.",
+          "Because the kidneys are retroperitoneal organs: they lie at the back of the abdomen, behind the bowel. As well as lying on your back, lying on your side (lateral decubitus) or on your front (prone) is used, with the probe on the lower back or between the ribs (intercostal views): this allows the whole kidney to be seen, including its upper pole.",
         verificata: false,
       },
       /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
       {
         q: "Can stones be seen?",
         a:
-          "Stones inside the kidney usually can, together with any dilation of the renal pelvis. Those further down, along the ureter, are often hidden by bowel gas: the report will say so.",
+          "Kidney stones usually can, although stones of just a few millimetres may be missed. Ureteral stones are rarely seen directly: the indirect sign is hydronephrosis, a dilation of the kidney’s collecting system above the blockage. The report states the limits of the scan.",
         verificata: false,
       },
     ],
@@ -134,16 +134,16 @@ window.ESAMI_PAZIENTE = {
     faqExtra: [
       /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
       {
-        q: "Can the prostate be seen from outside?",
+        q: "Can the prostate be seen with the probe on the abdomen?",
         a:
-          "Yes, by placing the probe above the pubic bone. A full bladder acts as a window and allows the size and general appearance of the prostate to be assessed.",
+          "Yes, with the suprapubic (transabdominal) approach: the full bladder acts as an acoustic window and allows the prostate volume to be estimated and its general appearance assessed. For a detailed study of its internal structure there are dedicated exams, such as transrectal ultrasound or MRI, on the urologist’s advice.",
         verificata: false,
       },
       /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
       {
         q: "What if my bladder is not full enough?",
         a:
-          "I will tell you at the start of the scan. Usually it is enough to drink a little more water and wait a few minutes before continuing.",
+          "With an under-filled bladder the scan is not reliable. Usually you drink more water and the scan is repeated once the bladder has filled, typically after 30–60 minutes; if this is not possible, a new appointment is arranged.",
         verificata: false,
       },
     ],
@@ -196,14 +196,14 @@ window.ESAMI_PAZIENTE = {
       {
         q: "Is it also done for check-ups after neck surgery?",
         a:
-          "Yes, follow-up after neck surgery is one of the reasons for this scan. Bring the surgery report and any previous scans with you.",
+          "Yes. After a thyroidectomy (removal of the thyroid) or other neck surgery, ultrasound checks the thyroid bed, the area where the gland used to be, and the lymph nodes of the neck. Bring the surgery report, the histology report and previous scans with you.",
         verificata: false,
       },
       /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
       {
         q: "Should I take off necklaces or scarves?",
         a:
-          "Yes, it is best to arrive with your neck uncovered: the probe needs to move over the skin of the whole neck, at the front and sides.",
+          "Yes, it is best to arrive with your neck uncovered: the probe needs to examine the whole neck, front and sides, down to the areas above the collarbones.",
         verificata: false,
       },
     ],
@@ -282,21 +282,21 @@ window.ESAMI_PAZIENTE = {
       {
         q: "I have pain on the side of my hip: is ultrasound useful?",
         a:
-          "Yes. On the outer side of the hip (the trochanter area) the gluteal tendons and the trochanteric bursae are studied: small “cushions” that can become inflamed.",
+          "Yes. Pain on the outer side of the hip, around the greater trochanter, is called greater trochanteric pain syndrome. Ultrasound assesses the gluteus medius and gluteus minimus tendons and the trochanteric bursa: the cause is often a tendinopathy (overload damage of the tendon) rather than bursitis.",
         verificata: false,
       },
       /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
       {
         q: "Is it the same as the newborn hip ultrasound?",
         a:
-          "No. In adults the tendons, bursae and soft tissues around the hip are studied. In newborns the development of the joint is checked instead: it is a different exam, with its own page.",
+          "No. In adults the tendons, bursae and soft tissues around the joint are studied. In newborns the shape of the joint itself is assessed, to detect developmental dysplasia of the hip: it is a different exam, with its own page.",
         verificata: false,
       },
       /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
       {
         q: "Will I have to move my leg during the scan?",
         a:
-          "Sometimes, yes. Depending on where it hurts, the probe is moved over the groin, the side of the hip or both, and moving the hip can help to see the tendons and bursae better.",
+          "Sometimes, yes. As well as scans at rest, a dynamic assessment, during movement of the hip, may be needed to see how the tendons glide. The probe is placed on the groin, on the side of the hip or both, depending on where the pain is.",
         verificata: false,
       },
     ],
@@ -338,23 +338,23 @@ window.ESAMI_PAZIENTE = {
     faqExtra: [
       /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
       {
-        q: "Is it useful for “tennis elbow”?",
+        q: "Is it useful for epicondylitis (“tennis elbow”)?",
         a:
-          "Yes. Ultrasound studies the tendons attached to the outside of the elbow (lateral epicondyle), involved in “tennis elbow”, and those on the inside (medial epicondyle), involved in “golfer’s elbow”.",
+          "Yes. In lateral epicondylitis (“tennis elbow”) the common extensor tendon, attached to the lateral epicondyle, is assessed. In medial epicondylitis (“golfer’s elbow”) the common flexor-pronator tendon, attached to the medial epicondyle on the inner side of the elbow, is assessed. The scan looks for thickening, changes in tendon structure and any partial tears.",
         verificata: false,
       },
       /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
       {
-        q: "I have a swelling on the tip of my elbow: what is checked?",
+        q: "I have a swelling on the tip of my elbow: what is assessed?",
         a:
-          "The olecranon bursa is checked: a small “cushion” on the tip of the elbow, over the ulna. Ultrasound shows whether it is inflamed or contains fluid.",
+          "The olecranon bursa is assessed: a small fluid-filled sac that reduces friction, lying over the olecranon, the tip of the elbow. Ultrasound shows whether it contains fluid (effusion), whether its walls are thickened and how large it is: these are the signs of olecranon bursitis.",
         verificata: false,
       },
       /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
       {
-        q: "Can the biceps tendon be seen too?",
+        q: "Is the biceps tendon assessed too?",
         a:
-          "Yes, the lower end of the biceps tendon, which attaches in the crease of the elbow, is part of the scan.",
+          "Yes. The distal biceps tendon, which attaches to the radius in the crease of the elbow, is part of the scan: its continuity and structure are assessed.",
         verificata: false,
       },
     ],
@@ -370,16 +370,16 @@ window.ESAMI_PAZIENTE = {
     faqExtra: [
       /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
       {
-        q: "Is it useful for carpal tunnel?",
+        q: "Is it useful for carpal tunnel syndrome?",
         a:
-          "Yes. The median nerve is assessed where it passes through the carpal tunnel at the wrist. It is useful if you have tingling or numbness in your fingers.",
+          "Yes. The median nerve is assessed at the entrance of the carpal tunnel, at the wrist, by measuring its cross-sectional area: an enlarged nerve is one of the signs of the syndrome. Ultrasound complements, but does not replace, nerve conduction studies, which your doctor may request.",
         verificata: false,
       },
       /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
       {
         q: "Why am I asked to bend my fingers?",
         a:
-          "Because bending and straightening your fingers makes the tendons slide, so it is easier to see how they move. It also helps to recognise tenosynovitis, an inflammation of the sheath around the tendon.",
+          "For a dynamic assessment: when you bend and straighten your fingers, the flexor and extensor tendons glide inside their sheaths, showing whether the movement is smooth. It helps to recognise tenosynovitis, an inflammation of the synovial sheath around the tendon.",
         verificata: false,
       },
     ],
@@ -421,16 +421,16 @@ window.ESAMI_PAZIENTE = {
     faqExtra: [
       /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
       {
-        q: "Can a haematoma be seen after a knock?",
+        q: "Can a haematoma be seen after an injury?",
         a:
-          "Yes. Ultrasound assesses haematomas, which are collections of blood under the skin after an injury: their position and size can be seen.",
+          "Yes. A haematoma is a collection of blood in the soft tissues after an injury. Ultrasound shows its position, size and the appearance of its contents, which change over time as it is reabsorbed; this is why a follow-up scan is sometimes needed.",
         verificata: false,
       },
       /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
       {
-        q: "Should I show where the swelling is?",
+        q: "Should I show where the lump is?",
         a:
-          "Yes, show me the spot: the probe focuses on that area. If the swelling is easier to feel in a certain position, tell me at the start of the scan.",
+          "Yes, show me the exact spot: the scan focuses on that area and compares it with the surrounding tissues. If the lump is easier to feel in a certain position or when straining, tell me at the start.",
         verificata: false,
       },
     ],
@@ -457,14 +457,14 @@ window.ESAMI_PAZIENTE = {
       {
         q: "I have a known aneurysm: what is the check for?",
         a:
-          "An aneurysm is a widening of the aorta. The check measures its size and compares it with previous scans: bring your reports with you.",
+          "An abdominal aortic aneurysm is a permanent widening of the aorta, usually defined as a diameter of 3 cm or more. The check measures the maximum diameter and compares it with previous scans: bring your reports with you. How often checks are needed depends on the diameter and is decided by the specialist.",
         verificata: false,
       },
       /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
       {
-        q: "Can the iliac arteries be seen too?",
+        q: "Are the iliac arteries assessed too?",
         a:
-          "Yes, the common iliac arteries, the two arteries into which the aorta divides in the pelvis, are part of the scan.",
+          "Yes. The common iliac arteries are the two branches into which the aorta divides (aortic bifurcation) in the lower abdomen: their size and flow are assessed.",
         verificata: false,
       },
     ],
@@ -482,14 +482,14 @@ window.ESAMI_PAZIENTE = {
       {
         q: "Why are the renal arteries checked if I have high blood pressure?",
         a:
-          "Because a narrowing of the arteries that carry blood to the kidneys can be one of the causes of high blood pressure that is hard to control. The scan checks whether the arteries are open.",
+          "Because a stenosis (narrowing) of a renal artery can cause renovascular hypertension, high blood pressure due to reduced blood flow to the kidney, often hard to control with medication. The Doppler measures blood velocity in the artery: a marked increase at the narrowing is the sign of stenosis.",
         verificata: false,
       },
       /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
       {
         q: "What is the sound I hear during the scan?",
         a:
-          "It is the blood flowing in the arteries, made audible by the Doppler. It is normal and helps to assess how the blood is flowing.",
+          "It is the Doppler signal: the machine turns the speed of the blood in the vessel into sound, and the pitch changes with the speed of the flow. It is normal and part of the assessment.",
         verificata: false,
       },
     ],
@@ -516,14 +516,14 @@ window.ESAMI_PAZIENTE = {
       {
         q: "One arm is more swollen than the other: is the scan useful?",
         a:
-          "Yes, swelling of one arm is one of the reasons for this scan. The veins are checked for thrombosis, a clot that blocks the flow of blood.",
+          "Yes, swelling (oedema) of one arm is one of the indications. The scan looks for deep vein thrombosis, a thrombus (clot) in a deep vein: with compression ultrasound a normal vein flattens under the probe, a thrombosed vein does not. If the swelling came on suddenly, with pain, contact your doctor straight away.",
         verificata: false,
       },
       /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
       {
         q: "Is it also done for a dialysis fistula?",
         a:
-          "Yes. A haemodialysis fistula is a connection between an artery and a vein in the arm, used for dialysis: the scan checks its flow.",
+          "Yes. A haemodialysis arteriovenous fistula is a surgically created connection between an artery and a vein in the arm. Doppler ultrasound measures its flow volume (how much blood passes through it each minute) and looks for any stenosis, that is, narrowing.",
         verificata: false,
       },
     ],
@@ -539,16 +539,16 @@ window.ESAMI_PAZIENTE = {
     faqExtra: [
       /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
       {
-        q: "Which areas can be checked?",
+        q: "Which lymph node areas can be checked?",
         a:
-          "The superficial lymph nodes of the neck, armpits and groin. Usually the area indicated by your doctor, or where you feel the swelling, is examined.",
+          "The superficial ones: the sides of the neck (cervical nodes), the armpits (axillary nodes) and the groin (inguinal nodes). Usually the area indicated by your doctor, or where you feel the swelling, is examined, compared if needed with the other side.",
         verificata: false,
       },
       /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
       {
         q: "If I have had a lymph node ultrasound before, should I bring it?",
         a:
-          "Yes. Comparing the size and shape of the lymph nodes over time is one of the aims of the check: previous reports make the scan more useful.",
+          "Yes. Comparing size, shape and internal structure over time (in particular the hilum, the central part of the node) is one of the main elements in interpreting the scan: previous reports make it more useful.",
         verificata: false,
       },
     ],

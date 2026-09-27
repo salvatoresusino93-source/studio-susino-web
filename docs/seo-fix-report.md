@@ -10,6 +10,14 @@ Branch `seo/faq-specifiche-esami`, pubblicato tramite Pull Request (non su `main
 - Ogni nuova FAQ ha `verificata: false` e un commento `/* DA VERIFICARE */` nel file dati; il generatore scrive in pagina `<!-- DA VERIFICARE: FAQ specifica "id" (js/esami-paziente.js) -->`. Dopo la revisione: `verificata: true` (o togliere il campo) e rigenerare.
 - Generatore: unica modifica, il commento DA VERIFICARE ora vale anche per le `faqExtra` con `verificata: false` (prima solo per le FAQ di gruppo). Le FAQ esistenti non cambiano.
 
+### Terminologia rivista (29/09, su richiesta del medico)
+Le 30 FAQ sono state riscritte con termini medici corretti, spiegati tra parentesi la prima volta, confrontandoli con letteratura e con siti sanitari italiani (Policlinico Gemelli, Humanitas, Auxologico, SIECVI, SIUMB). Correzioni sostanziali rispetto alla prima versione:
+- vescico-prostatica: con vescica poco distesa l'attesa è di solito 30–60 minuti o un nuovo appuntamento, non "qualche minuto";
+- renale: i calcoli di pochi millimetri possono sfuggire e quelli dell'uretere raramente si vedono direttamente (segno indiretto: idronefrosi); reni "retroperitoneali", decubito laterale/prono, scansioni intercostali;
+- anca: sindrome dolorosa del grande trocantere, più spesso tendinopatia del gluteo medio/minimo che borsite;
+- gomito: tendine comune degli estensori (epicondilo) e dei flessori-pronatori (epitroclea);
+- addome inferiore: nelle infezioni ricorrenti si cercano idronefrosi, calcoli, residuo post-minzionale elevato, diverticoli; l'esame non serve in tutti i casi.
+
 ### Parità IT/EN su prenota e tariffe
 Le due FAQ mancanti in inglese non erano state tolte di proposito: erano state aggiunte solo in italiano nel commit `d77e8d3`.
 - `prenota-en.html`: aggiunta la FAQ "How much does the scan cost?" e la sezione "How much it costs". La sezione italiana è già un riassunto di una frase con link a `tariffe.html`, non una copia: in inglese è lo stesso riassunto con link a `tariffe-en.html`.
