@@ -83,6 +83,9 @@ Cose da sapere:
   le FAQ di gruppo servono `verificata: true`; le `faqExtra` in
   `js/esami-paziente*.js` scritte con `verificata: false` restano nascoste
   finche' non diventano `true`. Poi si rilanciano i generatori.
+- Le domande pratiche (dolore, durata, creme e gioielli, controindicazioni,
+  dopo l'esame) stanno in `scripts/faq-pratiche.js`, con varianti per gruppo
+  di esami; stessa regola: in pagina solo con `verificata: true`.
 - Indirizzo, telefoni e orari nei dati strutturati stanno in
   `scripts/dati-strutturati-studio.js`: se cambiano, aggiornarli anche lì.
 - Report SEO e azioni manuali in Search Console: `docs/seo-fix-report.md`.
