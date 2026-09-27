@@ -1,5 +1,69 @@
 # Report interventi SEO — studiosusino.it
 
+## Aggiornamento 28 settembre 2026 — title, contenuti sottili, FAQ duplicate
+
+### Title e meta description
+Tutte le pagine indicizzabili ora hanno **title ≤ 60** e **description ≤ 160** caratteri (controllato da `verifica-seo.js`). URL, canonical e hreflang invariati.
+
+| Pagina | Prima | Dopo |
+|---|---|---|
+| ecocolordoppler-aorta-addominale | T61 | T56 (generatore) |
+| ecografia-scrotale-testicolare | T61 | T56 (generatore) |
+| ecografia-apparato-urinario-en / caviglia-piede-en / polso-mano-en | T61–62 | T56–57 (generatore) |
+| ecocolordoppler-arti-inferiori | T67, D163 | T59, D148 |
+| ecocolordoppler-arti-inferiori-en | D167 | D151 |
+| ecocolordoppler-carotidi / -en | D169 / D171 | D146 / D144 |
+| ecografia-addome / -en | T60 D164 / T67 D164 | T50 D155 / T57 D152 |
+| ecografia-muscolo-scheletrica | T68, D164 | T58, D158 |
+| ecografia-tiroide / -en | T62 D175 / T65 D168 | T52 D145 / T55 D150 |
+| ecografie-en | T63 | T53 |
+| tariffe-en | T63 | T54 |
+| ecografie-modica-ispica-scicli | D161 | D153 ("appuntamento in tempi brevi" → "appuntamento online": niente promesse) |
+| studio / -en | T61 D83 / T66 D78 | T53 D158 / T58 D157 |
+| contatti / -en | D96 / D95 | D152 / D155 |
+
+Nel generatore: il title prova forme via via più corte finché sta in 60 caratteri; la description viene tagliata a fine parola (prima poteva essere troncata a metà parola).
+
+### Contenuti sottili (solo informazioni già presenti sul sito)
+| Pagina | Parole prima → dopo | Aggiunto |
+|---|---|---|
+| chi-sono / -en | 154 / 172 → 359 / 387 | "Come lavoro" (esame eseguito dal medico, referto + immagini + spiegazione, confronto con esami precedenti, estensione senza costi), "Gli esami che eseguo" con link, "Prima della visita" (impegnativa, esami precedenti, preparazione) |
+| studio / -en | 172 / 177 → 328 / 337 | Orari, "Come si svolge la visita" in 4 passi (prenotazione, cosa portare, esame, pagamento e ricevuta), "Da dove arrivano i pazienti" con link alla pagina dei comuni vicini |
+| contatti / -en | 127 / 121 → 258 / 268 | Avviso "non per urgenze" (da prenota), 4 FAQ (come prenotare, spostare/disdire, sabato, parcheggio) + JSON-LD FAQPage |
+
+Fonti usate: prenota, tariffe, studio, ecografie-modica-ispica-scicli, home. Nessun dato nuovo.
+
+### Pagine esame troppo simili
+- **Tolte le 4 FAQ identiche** dalle 38 pagine generate ("fa male?", "serve preparazione?", "serve l'impegnativa?", "quanto dura e quando ho il referto?"). Preparazione, impegnativa e referto restano nel testo della pagina e in prenota/tariffe.
+- **Nuove FAQ per gruppo** in `scripts/faq-gruppi.js` (22 domande IT + EN: addome, apparato urinario, tiroide e collo, muscolo-scheletrico, doppler, linfonodi). Ogni pagina ne riceve 2–3 del proprio gruppo **a rotazione** e con filtri `solo`/`esclusi`, così pagine vicine non hanno lo stesso blocco.
+- **Tradotte in inglese** le 18 FAQ specifiche già esistenti (spalla, ginocchio, caviglia-piede, anca neonatale, apparato urinario, scrotale): prima le pagine EN avevano solo le 4 generiche.
+- **Pagine scritte a mano**: "Serve l'impegnativa?" / "Quanto dura?" sostituite con FAQ del gruppo (tiroide ×2, addome, muscolo-scheletrica, carotidi, arti inferiori; IT + EN) con `scripts/faq-pagine-manuali.js`.
+- **Risultato** (sovrapposizione di frasi di 5 parole tra pagine della stessa lingua): coppie oltre il 50% **da 42 a 0**; massimo **da 61% a 45%**. Il 43–45% residuo (gomito/anca/polso-mano, aorta/arterie renali) è il modello comune della pagina: servono FAQ specifiche per esame (`faqExtra`), che vanno scritte dal medico.
+
+### FAQPage: errori trovati e corretti
+Il JSON-LD FAQPage **non coincideva con le FAQ visibili** su 15 pagine (5 esami scritti a mano ×2, prenota ×2, tariffe ×2, comuni vicini): domande diverse o in più, come "Dove si trova lo studio?" o "Come si paga?", presenti solo nei dati strutturati. Google chiede che coincidano. Ora `faq-pagine-manuali.js` ricostruisce il FAQPage dal testo visibile e `verifica-seo.js` blocca ogni differenza su tutte le pagine.
+
+### Da verificare per il medico
+- [ ] **22 FAQ di gruppo** in `scripts/faq-gruppi.js`: informazioni generali e prudenti, ma nuove. In pagina ognuna è preceduta da `<!-- DA VERIFICARE: FAQ di gruppo "id" -->` (44 file). Dopo la revisione aggiungere `verificata: true` alla domanda e rilanciare i generatori: il commento sparisce.
+- [ ] Traduzioni EN delle 18 FAQ specifiche esistenti (`js/esami-paziente-en.js`).
+- [ ] IT/EN non allineati (preesistente): prenota ha 5 FAQ in IT e 4 in EN, tariffe 4 in IT e 3 in EN.
+- [ ] Scrivere `faqExtra` specifiche per gli esami che ne sono ancora privi: gomito, anca, polso-mano, parti molli, collo, linfonodi, renale, vescico-prostatica, addome superiore/inferiore, doppler aorta/arterie renali/arti superiori.
+
+Procedura completa dopo ogni modifica:
+```bash
+node scripts/genera-pagine-esami.js
+node scripts/correlati-pagine-manuali.js
+node scripts/faq-pagine-manuali.js
+node scripts/dati-strutturati-studio.js
+node scripts/generate-sitemap.js
+node scripts/verifica-seo.js
+npx --yes html-validate "*.html"
+```
+
+---
+
+## Intervento del 27 settembre 2026
+
 Data: 27 settembre 2026
 Situazione di partenza (Search Console): 4 pagine indicizzate su ~35; 30 "Scansionata ma attualmente non indicizzata", 1 "Esclusa da tag noindex", 1 "Pagina alternativa con tag canonical appropriato".
 

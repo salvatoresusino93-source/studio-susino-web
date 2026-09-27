@@ -59,6 +59,7 @@ Non vanno modificate a mano: si modificano i testi e si rilancia il generatore.
 ```bash
 node scripts/genera-pagine-esami.js      # ricrea le pagine + l'elenco in ecografie.html
 node scripts/correlati-pagine-manuali.js # "Esami correlati" nelle pagine scritte a mano
+node scripts/faq-pagine-manuali.js      # FAQ di gruppo + JSON-LD FAQPage = FAQ visibili
 node scripts/dati-strutturati-studio.js  # JSON-LD studio + medico (home, contatti, chi sono)
 node scripts/generate-sitemap.js         # riscrive sitemap.xml (solo pagine indicizzabili)
 node scripts/verifica-seo.js             # controlli: hreflang, canonical, sitemap, link interni
@@ -77,6 +78,8 @@ Cose da sapere:
   (La pagina `tariffe.html` invece è scritta a mano.)
 - I link "Esami correlati" tra categorie diverse si decidono in
   `CORRELATI_EXTRA` / `CORRELATI_MANUALI` in `scripts/esami-mappa.js`.
+- Le domande frequenti per gruppo di esami stanno in `scripts/faq-gruppi.js`
+  (quelle nuove vanno riviste dal medico: vedi `verificata`).
 - Indirizzo, telefoni e orari nei dati strutturati stanno in
   `scripts/dati-strutturati-studio.js`: se cambiano, aggiornarli anche lì.
 - Report SEO e azioni manuali in Search Console: `docs/seo-fix-report.md`.

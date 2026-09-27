@@ -13,6 +13,15 @@ const BASE = 'https://studiosusino.it/';
 const file = (url) => (url === BASE ? 'index.html' : url.replace(BASE, ''));
 const url = (f) => (f === 'index.html' ? BASE : BASE + f);
 
+const pulisci = (s) =>
+  s
+    .replace(/<[^>]+>/g, '')
+    .replace(/&amp;/g, '&')
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;|&apos;/g, "'")
+    .replace(/\s+/g, ' ')
+    .trim();
+
 const pagine = {};
 for (const f of fs.readdirSync(ROOT).filter((f) => f.endsWith('.html'))) {
   const html = fs.readFileSync(path.join(ROOT, f), 'utf8');
@@ -42,7 +51,20 @@ for (const [f, p] of Object.entries(pagine)) {
     else if (!Object.values(altra.hreflang).includes(url(f))) errori.push(`${f}: hreflang ${lingua} non ricambiato da ${file(u)}`);
   }
   for (const m of p.html.matchAll(/<script type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)) {
-    try { JSON.parse(m[1]); } catch (e) { errori.push(`${f}: JSON-LD non valido (${e.message})`); }
+    let dati;
+    try { dati = JSON.parse(m[1]); } catch (e) { errori.push(`${f}: JSON-LD non valido (${e.message})`); continue; }
+    // FAQPage identico alle domande visibili (stesso ordine, stesso testo)
+    if (dati['@type'] === 'FAQPage') {
+      const json = dati.mainEntity.map((q) => pulisci(q.name));
+      const visibili = [...p.html.matchAll(/<summary>([\s\S]*?)<\/summary>/g)].map((x) => pulisci(x[1]));
+      if (json.join('|') !== visibili.join('|')) errori.push(`${f}: FAQPage diverso dalle FAQ visibili`);
+    }
+  }
+  if (!p.noindex) {
+    const title = pulisci((p.html.match(/<title>([\s\S]*?)<\/title>/) || [])[1] || '');
+    const desc = pulisci((p.html.match(/<meta\s+name="description"\s+content="([^"]*)"/) || [])[1] || '');
+    if (title.length > 60) errori.push(`${f}: title di ${title.length} caratteri (max 60)`);
+    if (desc.length > 160) errori.push(`${f}: description di ${desc.length} caratteri (max 160)`);
   }
 }
 

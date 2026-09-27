@@ -29,6 +29,7 @@ const ONORARIO = {
 
 /* Mappa id -> nome file, condivisa con generate-sitemap.js */
 const { SLUG, GIA_ESISTENTI, CORRELATI_EXTRA } = require('./esami-mappa');
+const { faqGruppo } = require('./faq-gruppi');
 
 /* Preparazione richiesta, per esame */
 const DIGIUNO = ['addome-completo', 'addome-superiore', 'doppler-aorta', 'doppler-arterie-renali'];
@@ -113,24 +114,14 @@ const T = {
     studioWord: 'lo studio',
     andWord: 'e i',
     contactWord: 'contatti',
-    titleTail: 'a Pozzallo (RG)',
+    titleForms: (nome) => [
+      `${nome} a Pozzallo (RG) | Dr. Susino`,
+      `${nome} a Pozzallo | Dr. Susino`,
+      `${nome} a Pozzallo (RG)`,
+      `${nome} a Pozzallo`,
+    ],
     descTail: ' Studio a Pozzallo (RG): prenota online o al telefono.',
     lead: (nome) => `${nome} eseguita personalmente dal medico radiologo, su appuntamento, nello studio di Pozzallo (RG). Referto e spiegazione al termine dell’esame.`,
-    faq: (nome, prep) => [
-      {
-        q: `L’${nome.toLowerCase()} fa male?`,
-        a: 'No, è un esame indolore. Si appoggia la sonda sulla pelle con un po’ di gel. Usa gli ultrasuoni, non le radiazioni: è sicuro e si può ripetere quante volte serve, anche in gravidanza e nei bambini.',
-      },
-      { q: 'Serve preparazione?', a: prep },
-      {
-        q: 'Serve l’impegnativa del medico?',
-        a: 'Per la prestazione privata non è obbligatoria. Se hai la richiesta del medico portala con te, insieme a eventuali esami precedenti: aiuta a indirizzare l’ecografia sul quesito giusto.',
-      },
-      {
-        q: 'Quanto dura e quando ho il referto?',
-        a: 'L’esame dura in genere pochi minuti. Al termine ti consegno subito il referto scritto e ti spiego con parole semplici cosa è emerso e se servono altri controlli.',
-      },
-    ],
   },
   en: {
     lang: 'en',
@@ -179,24 +170,14 @@ const T = {
     studioWord: 'the practice',
     andWord: 'and',
     contactWord: 'contact details',
-    titleTail: 'in Pozzallo (RG), Italy',
+    titleForms: (nome) => [
+      `${nome} in Pozzallo (RG), Italy | Dr. Susino`,
+      `${nome} in Pozzallo, Italy | Dr. Susino`,
+      `${nome} in Pozzallo | Dr. Susino`,
+      `${nome} in Pozzallo, Italy`,
+    ],
     descTail: ' Practice in Pozzallo (RG), Italy: book online or by phone.',
     lead: (nome) => `${nome} performed personally by the radiologist, by appointment, at the practice in Pozzallo (RG), Italy. Report and explanation at the end of the scan.`,
-    faq: (nome, prep) => [
-      {
-        q: `Does the ${nome.toLowerCase()} hurt?`,
-        a: 'No, it is painless. The probe is placed on the skin with a little gel. It uses ultrasound, not radiation: it is safe and can be repeated as often as needed, including during pregnancy and in children.',
-      },
-      { q: 'Is any preparation needed?', a: prep },
-      {
-        q: 'Do I need a referral from my doctor?',
-        a: 'For a private appointment it is not compulsory. If you have a referral, bring it along with any previous scans: it helps to focus the examination on the right clinical question.',
-      },
-      {
-        q: 'How long does it take and when do I get the report?',
-        a: 'The scan usually takes a few minutes. At the end I hand you the written report and explain in plain words what was found and whether further checks are needed.',
-      },
-    ],
   },
 };
 
@@ -213,8 +194,26 @@ function preparazione(id, t) {
   return t.prepNone;
 }
 
-function testoSenzaTag(html) {
-  return html.replace(/<[^>]*>/g, '');
+/* Gruppo FAQ (scripts/faq-gruppi.js) dalla categoria italiana dell'esame:
+   vale anche per le pagine inglesi, che hanno nomi di categoria tradotti. */
+const GRUPPO = {
+  Addome: 'addome',
+  'Apparato urinario e urologia': 'apparato-urinario',
+  'Tiroide e collo': 'tiroide-e-collo',
+  'Muscolo-scheletrico': 'muscolo-scheletrico',
+  Pediatrica: 'pediatrica',
+  'Vascolare (Doppler)': 'doppler',
+  Altro: 'altro',
+};
+function categoriaIt(id) {
+  return ESAMI.find((e) => e.id === id).categoria;
+}
+
+/* Taglia a fine parola (mai a meta') e chiude con il punto. */
+function tagliaParola(testo, max) {
+  if (testo.length <= max) return testo;
+  const corto = testo.slice(0, max - 1);
+  return corto.slice(0, corto.lastIndexOf(' ')).replace(/[\s,;:]+$/, '') + '…';
 }
 
 function paginaEsame(esame, info, t, tuttiEsami, isEN) {
@@ -227,16 +226,27 @@ function paginaEsame(esame, info, t, tuttiEsami, isEN) {
 
   const sintesi = (info && info.sintesi) || esame.descrizione.split('.')[0] + '.';
 
-  let title = `${esame.nome} ${t.titleTail} | Dr. Susino`;
-  if (title.length > 62) title = `${esame.nome} ${t.titleTail}`;
+  // Title entro 60 caratteri: si prova dalla forma piu' completa alla piu' corta.
+  const title =
+    t.titleForms(esame.nome).find((x) => x.length <= 60) || t.titleForms(esame.nome).pop();
 
-  const description = (sintesi + t.descTail).slice(0, 158);
+  const description = tagliaParola(sintesi + t.descTail, 158);
   const prep = preparazione(esame.id, t);
-  // Alle 4 domande comuni si aggiungono, se presenti, quelle specifiche
-  // dell'esame (info.faqExtra): servono a dare a ogni pagina contenuto
-  // proprio invece di ripetere lo stesso blocco su tutte.
-  const faq = t.faq(esame.nome, testoSenzaTag(prep)).concat(
-    info && Array.isArray(info.faqExtra) ? info.faqExtra : []
+  // Domande dell'esame (faqExtra) + domande del suo gruppo (scripts/faq-gruppi.js),
+  // scelte a rotazione. Niente piu' blocco di domande generiche uguale su
+  // tutte le pagine: preparazione, impegnativa e referto stanno gia' nel testo
+  // della pagina e in prenota/tariffe.
+  const faqEsame = info && Array.isArray(info.faqExtra) ? info.faqExtra : [];
+  const gruppo = GRUPPO[categoriaIt(esame.id)];
+  const stessoGruppo = tuttiEsami.filter((e) => e.categoria === esame.categoria);
+  const faq = faqEsame.concat(
+    faqGruppo(
+      gruppo,
+      esame.id,
+      stessoGruppo.findIndex((e) => e.id === esame.id),
+      faqEsame.length >= 3 ? 2 : 3,
+      t.lang
+    )
   );
 
   // Prima i correlati scelti a mano fra categorie diverse, poi quelli della
@@ -445,7 +455,7 @@ ${feeBlock}
         <div class="faq">
 ${faq
   .map(
-    (f) => `          <details>
+    (f) => `${f.daVerificare ? `          <!-- DA VERIFICARE: FAQ di gruppo "${f.daVerificare}" (scripts/faq-gruppi.js) -->\n` : ''}          <details>
             <summary>${esc(f.q)}</summary>
             <p>${f.a}</p>
           </details>`

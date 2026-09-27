@@ -34,6 +34,23 @@ window.ESAMI_PAZIENTE = {
       'First we look with a full bladder; then, if needed, we ask you to urinate and check how much urine remains in the bladder. Gel on the abdomen or flank.',
     cosaControlla:
       'We assess the kidneys, ureters and bladder, and measure any urine left after voiding.',
+    faqExtra: [
+      {
+        q: "How much should I drink, and from when should I stop urinating?",
+        a:
+          "Drink about a litre of water in the hour before the scan and then hold on. A full bladder acts as a window: without it the lower part cannot be assessed properly. Fasting, on the other hand, is not needed.",
+      },
+      {
+        q: "What if I really can't hold on?",
+        a:
+          "Tell me as soon as you arrive, it is not a problem. We start with the kidneys and upper urinary tract, which do not depend on the bladder, and complete the rest as soon as possible. Part of the scan is done after you have urinated anyway, to measure how much urine is left.",
+      },
+      {
+        q: "Can the ultrasound see stones?",
+        a:
+          "It clearly shows stones inside the kidney and any dilation of the urinary tract. Stones along the ureter, which lies deep and is surrounded by bowel gas, often cannot be seen directly: in that case I look for the indirect signs and state this clearly in the report.",
+      },
+    ],
   },
   renale: {
     sintesi: 'A check of the kidneys and the first part of the urinary tract.',
@@ -61,6 +78,23 @@ window.ESAMI_PAZIENTE = {
       'You lie down. Gel is applied to the scrotum and the probe is passed gently. Any acute pain should be reported straight away.',
     cosaControlla:
       'We assess the testicles, epididymis and spermatic cord, looking for causes of pain, swelling or lumps.',
+    faqExtra: [
+      {
+        q: "When should I go straight away, without waiting?",
+        a:
+          "If the pain came on suddenly and is severe, perhaps with swelling and nausea, do not book: go to the emergency department. It may be testicular torsion, a condition in which hours really matter.",
+      },
+      {
+        q: "Is any preparation needed?",
+        a:
+          "None. No fasting and no full bladder. It is a quick scan, done lying down, and it takes a few minutes.",
+      },
+      {
+        q: "I have noticed a swelling: what can be told apart?",
+        a:
+          "Ultrasound distinguishes well between the most common causes: epididymal cysts, hydrocele, varicocele and solid lumps of the testicle. This distinction is what decides whether a follow-up check is enough or further tests are needed, and we know it at the end of the scan.",
+      },
+    ],
   },
   tiroide: {
     sintesi: 'A check of the thyroid in the neck: size, shape and any nodules.',
@@ -97,6 +131,23 @@ window.ESAMI_PAZIENTE = {
       'Gel on the shoulder; sometimes you move your arm as directed. The probe passes in front of and to the side of the shoulder.',
     cosaControlla:
       'We assess the rotator cuff tendons, the bursa under the acromion and the biceps tendon.',
+    faqExtra: [
+      {
+        q: "Can shoulder ultrasound see the rotator cuff?",
+        a:
+          "Yes, and that is its strong point. The cuff tendons, the bursa under the acromion and the long head of the biceps are studied very well with ultrasound, both for inflammation and for tears.",
+      },
+      {
+        q: "Is ultrasound or MRI better for the shoulder?",
+        a:
+          "It depends on what is suspected. For tendons, bursa and calcifications ultrasound is the first choice: it is quick and lets you move your arm during the scan. MRI is needed when the suspicion concerns the glenoid labrum, cartilage or bone, or when surgery is being planned.",
+      },
+      {
+        q: "Why do you ask me to move my arm during the scan?",
+        a:
+          "Because the shoulder is studied in motion. By having you raise and rotate your arm I can see the tendons slide under the acromion: some impingements and certain tears only become visible this way, while with the arm still they would go unnoticed.",
+      },
+    ],
   },
   ginocchio: {
     sintesi: 'A check of the tendons, ligaments and any fluid in the knee.',
@@ -106,6 +157,23 @@ window.ESAMI_PAZIENTE = {
       'You lie down or stay seated with the knee bent. Gel and probe on the painful area. We may ask for small movements.',
     cosaControlla:
       'We look at the knee tendons, collateral ligaments, bursae and whether there is fluid inside the joint. The deep menisci are less easily seen.',
+    faqExtra: [
+      {
+        q: "Can knee ultrasound see the menisci and cruciate ligaments?",
+        a:
+          "Only in part, and it is right to know this beforehand. The menisci and cruciate ligaments lie deep inside the joint and the reference exam for them is MRI. Ultrasound, on the other hand, is very good for tendons, collateral ligaments, bursae and fluid.",
+      },
+      {
+        q: "So what is knee ultrasound useful for?",
+        a:
+          "It is very useful for the patellar and quadriceps tendons, bursitis, the collateral ligaments, a Baker's cyst behind the knee and for measuring joint effusion. These are the most common problems after sports overload or a sprain.",
+      },
+      {
+        q: "My knee is swollen: will ultrasound help?",
+        a:
+          "Yes, it is one of the cases where it helps most. I can see straight away whether the swelling is fluid inside the joint, how much there is and where it collects, and whether a Baker's cyst has formed behind the knee. It is information that guides treatment on the same day.",
+      },
+    ],
   },
   anca: {
     sintesi: 'A check of the tendons and soft-tissue structures around the hip.',
@@ -124,6 +192,23 @@ window.ESAMI_PAZIENTE = {
       'The baby stays lying down or in the parent\'s arms. A small probe is passed over the hips, with gel.',
     cosaControlla:
       'We check whether the baby\'s hip is mature and stable, using the method used in paediatrics (Graf).',
+    faqExtra: [
+      {
+        q: "At what age is the newborn hip ultrasound done?",
+        a:
+          "Usually between the fourth and sixth week of life, and in any case within the first three months. If there have been cases of dysplasia in the family, if the baby was born in breech position or if the paediatrician noticed something at the check-up, it is done earlier.",
+      },
+      {
+        q: "Does the baby feel any pain during the scan?",
+        a:
+          "No, it is completely painless and uses no radiation. The probe is simply placed on the hip with a little warm gel. It takes a few minutes and can even be done while the baby sleeps or feeds: feel free to bring a dummy or bottle, it helps keep the baby calm.",
+      },
+      {
+        q: "Why is it important to do it at the right time?",
+        a:
+          "Because dysplasia recognised in the first weeks can almost always be corrected with a simple abduction brace, whereas if it is discovered late it may require much more demanding treatment. That is why this check is done even when the baby is perfectly well.",
+      },
+    ],
   },
   gomito: {
     sintesi: 'A check of the tendons and bursae of the elbow.',
@@ -151,6 +236,23 @@ window.ESAMI_PAZIENTE = {
       'Foot and ankle with gel; sometimes small movements of the foot.',
     cosaControlla:
       'We assess the ankle ligaments, the Achilles tendon, the plantar fascia and the bursae of the foot.',
+    faqExtra: [
+      {
+        q: "Is it useful for heel pain?",
+        a:
+          "Yes, it is the first-choice exam. In plantar fasciitis I measure the thickness of the fascia where it attaches to the heel bone and compare it with the healthy side: it is an objective measurement, also useful for following the response to treatment at later checks.",
+      },
+      {
+        q: "Is it useful after an ankle sprain?",
+        a:
+          "Very. I study the outer ligaments, in particular the anterior talofibular ligament, which is the one most often injured, any effusion and the state of the peroneal tendons. If needed, I also assess the Achilles tendon.",
+      },
+      {
+        q: "Can a Morton's neuroma be seen?",
+        a:
+          "Yes. It is looked for between the heads of the metatarsals, where it causes that burning pain radiating to the toes. Ultrasound detects it and measures its size, and it is well suited to the task because pressure can be applied at the exact spot where it hurts.",
+      },
+    ],
   },
   'parti-molli': {
     sintesi: 'A check of a swelling or lump under the skin.',
