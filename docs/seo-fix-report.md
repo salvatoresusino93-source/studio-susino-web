@@ -7,8 +7,8 @@ Branch `seo/faq-specifiche-esami`, pubblicato tramite Pull Request (non su `main
 ### FAQ specifiche
 - **30 nuove FAQ** (IT + EN) come `faqExtra` in `js/esami-paziente.js` / `js/esami-paziente-en.js` per gli esami che non ne avevano: gomito, anca, polso-mano, parti molli, collo, linfonodi, renale, vescico-prostatica, addome superiore, addome inferiore, ecocolordoppler aorta, arterie renali, arti superiori.
 - Ogni risposta riformula informazioni già presenti nella pagina dell'esame (descrizione, "perché si fa", "come si svolge", "cosa controllo"); nessun dato numerico o clinico nuovo.
-- Ogni nuova FAQ ha `verificata: false` e un commento `/* DA VERIFICARE */` nel file dati; il generatore scrive in pagina `<!-- DA VERIFICARE: FAQ specifica "id" (js/esami-paziente.js) -->`. Dopo la revisione: `verificata: true` (o togliere il campo) e rigenerare.
-- Generatore: unica modifica, il commento DA VERIFICARE ora vale anche per le `faqExtra` con `verificata: false` (prima solo per le FAQ di gruppo). Le FAQ esistenti non cambiano.
+- Ogni nuova FAQ ha `verificata: false` e un commento `/* DA VERIFICARE */` nel file dati. Dopo il merge della PR #9 **le FAQ non verificate non compaiono nelle pagine**: vengono pubblicate solo quando il medico mette `verificata: true` e si rilanciano i generatori.
+- Revisione del medico (29/09): tolte "Perché a volte mi fa girare sul fianco?" (renale) e "Devo indicare io dove si trova la tumefazione?" (parti molli); aggiunte 3 FAQ sulla spalla (calcificazioni, borsite subacromion-deltoidea, lesioni della cuffia). Totale: 31 FAQ nuove IT + EN.
 
 ### Terminologia rivista (29/09, su richiesta del medico)
 Le 30 FAQ sono state riscritte con termini medici corretti, spiegati tra parentesi la prima volta, confrontandoli con letteratura e con siti sanitari italiani (Policlinico Gemelli, Humanitas, Auxologico, SIECVI, SIUMB). Correzioni sostanziali rispetto alla prima versione:
@@ -26,6 +26,7 @@ Le due FAQ mancanti in inglese non erano state tolte di proposito: erano state a
 - `verifica-seo.js` controlla ora anche che ogni pagina italiana e la sua versione inglese abbiano lo stesso numero di FAQ.
 
 ### Similarità tra pagine esame (frasi di 5 parole in comune, stessa lingua)
+*Valori misurati con le FAQ visibili: si applicheranno quando le FAQ saranno approvate e pubblicate.*
 | | Prima (main) | Dopo |
 |---|---|---|
 | Massimo | 45% | **36%** |
