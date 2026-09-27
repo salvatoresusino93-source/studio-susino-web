@@ -200,13 +200,47 @@ window.ESAMI_PAZIENTE = {
     ],
   },
   anca: {
-    sintesi: 'Controllo di tendini e strutture morbide intorno all’anca.',
+    sintesi: 'Controllo di tendini e strutture morbide intorno all’anca, nell’adulto.',
+    /* DA VERIFICARE: elenco di quadri clinici (tendinopatia dei glutei, borsite trocanterica,
+       tendinopatia di ileopsoas e adduttori, anca a scatto, sport come corsa e calcio, controllo
+       dei tessuti intorno a una protesi d’anca) e indicazione che per l’artrosi si preferisce la radiografia. */
     perche:
-      'Serve per dolore all’anca o all’inguine, infiammazione sul fianco (trocantere) o fastidi dopo un trauma.',
+      'Il medico te la prescrive per dolore sul fianco dell’anca, spesso legato ai tendini dei glutei o alla borsa trocanterica, oppure per dolore all’inguine legato ai tendini più profondi (ileopsoas o adduttori). È utile anche se senti uno scatto o un click camminando, dopo un trauma, o per un fastidio comparso con lo sport, per esempio corsa o calcio. Si usa pure per controllare i tessuti molli intorno a una protesi d’anca già impiantata. Non è invece l’esame giusto per studiare l’osso o la cartilagine dell’articolazione: per l’artrosi dell’anca il medico userà più spesso una radiografia.',
+    /* DA VERIFICARE: descrizione della posizione (fianco o pancia in giù) e della manovra dinamica
+       (muovere la gamba) per lo studio dell’anca a scatto. */
     svolgimento:
-      'Gel su inguine, fianco o entrambi, a seconda del dolore. Muovi l’anca se necessario.',
+      'Ti sdrai sul lettino. Metto il gel sull’inguine, sul fianco o su entrambi, a seconda di dove senti dolore: a volte ti chiedo di girarti su un fianco o di metterti a pancia in giù, per vedere bene anche la parte posteriore. Se sospetto uno scatto dell’anca, ti chiedo di muovere la gamba mentre guardo lo schermo, per vedere come si comporta il tendine. L’esame è indolore e dura pochi minuti.',
+    /* DA VERIFICARE: elenco esplicito delle strutture valutate (glutei, ileopsoas, adduttori,
+       eventuale liquido articolare, tessuti intorno a una protesi) e limite dell’ecografia
+       rispetto a osso e cartilagine. */
     cosaControlla:
-      'Valutiamo tendini del fianco, borse trocanteriche e strutture morbide attorno all’anca.',
+      'Valutiamo i tendini dei muscoli glutei e la borsa trocanterica sul fianco, i tendini dell’ileopsoas e degli adduttori all’inguine, ed eventuale liquido nell’articolazione dell’anca. Se hai una protesi, controlliamo anche i tessuti molli intorno all’impianto. Non vediamo bene l’osso in profondità né la cartilagine dell’articolazione: per quelli restano più adatte la radiografia o la risonanza.',
+    faqExtra: [
+      {
+        q: 'Che differenza c’è tra questa ecografia e l’ecografia dell’anca del neonato?',
+        a:
+          'Sono due esami molto diversi. L’ecografia dell’anca nell’adulto guarda tendini, borse e tessuti molli intorno all’articolazione, per dolori o traumi. L’ecografia dell’anca neonatale è invece uno screening che si fa nei primi mesi di vita per controllare come si è formata l’articolazione stessa (metodo di Graf), non i tendini. Se cerchi il controllo per un neonato, prenota quella specifica.',
+        verificata: false,
+      },
+      {
+        q: 'Ho un dolore che si trasforma in uno scatto quando cammino: l’ecografia lo vede?',
+        a:
+          'Spesso sì. Quella che si chiama “anca a scatto” è spesso legata a un tendine, per esempio l’ileopsoas o la banda che passa sul trocantere, che scorre in modo anomalo sull’osso. Facendoti muovere la gamba durante l’esame, a volte riesco a vedere proprio il movimento che provoca lo scatto.',
+        verificata: false,
+      },
+      {
+        q: 'Ho una protesi d’anca: posso comunque fare l’ecografia?',
+        a:
+          'Sì. L’ecografia non usa radiazioni e può controllare i tendini e i tessuti molli intorno alla protesi, per esempio se sospetti una raccolta di liquido. Il metallo della protesi impedisce però di vedere in profondità la parte a contatto con l’osso: per quella serve un altro tipo di controllo, indicato dal tuo ortopedico.',
+        verificata: false,
+      },
+      {
+        q: 'L’ecografia vede l’artrosi dell’anca?',
+        a:
+          'Non è l’esame più adatto. L’artrosi riguarda soprattutto l’osso e la cartilagine dell’articolazione, che si vedono meglio con una radiografia. L’ecografia è invece utile per i tendini e i tessuti molli intorno all’anca, e per un eventuale versamento nell’articolazione.',
+        verificata: false,
+      },
+    ],
   },
   'anca-neonatale': {
     sintesi: 'Controllo delle anche del neonato o del lattante piccolo.',
