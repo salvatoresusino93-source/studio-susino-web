@@ -35,7 +35,7 @@ concurrency:
 
 jobs:
   controllo:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     outputs:
       procedi: ${{ steps.aperta.outputs.procedi }}
     steps:
@@ -55,16 +55,16 @@ jobs:
   seo:
     needs: controllo
     if: needs.controllo.outputs.procedi == 'si'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 60
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 0
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
-          node-version: 20
+          node-version: 22
 
       - name: Esegui /seo-periodico
         uses: anthropics/claude-code-action@v1
@@ -96,7 +96,7 @@ jobs:
           git status --short
 
       - name: Apri la Pull Request
-        uses: peter-evans/create-pull-request@v7
+        uses: peter-evans/create-pull-request@v8
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: seo/settimanale-${{ steps.log.outputs.oggi }}
