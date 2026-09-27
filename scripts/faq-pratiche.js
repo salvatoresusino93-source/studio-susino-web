@@ -26,7 +26,7 @@ const HANNO_GIA_DOLORE = [
   'anca-neonatale', 'scrotale-testicolare',
 ];
 // Pagine scritte a mano che indicano gia' la durata nel testo
-const HANNO_GIA_DURATA = ['tiroide', 'addome-completo', 'doppler-tsa'];
+const HANNO_GIA_DURATA = ['tiroide', 'addome-completo', 'doppler-tsa', 'scrotale-testicolare', 'anca-neonatale'];
 
 const FAQ_PRATICHE = [
   {
@@ -207,11 +207,11 @@ const FAQ_PRATICHE = [
         esclusi: HANNO_GIA_DOLORE,
         it: {
           q: "L’esame fa male?",
-          a: "No, è indolore. In alcuni momenti la sonda viene premuta un po’ di più, per esempio sull’addome o sulle vene per verificare che si comprimano: può dare un lieve fastidio, che passa subito.",
+          a: "No, è indolore. In alcuni momenti la sonda viene premuta un po’ di più sulle vene del braccio, per verificare che si comprimano: può dare un lieve fastidio, che passa subito.",
         },
         en: {
           q: "Does the scan hurt?",
-          a: "No, it is painless. At times the probe is pressed a little harder, for example on the abdomen or on the veins to check that they compress: this may cause slight discomfort, which passes straight away.",
+          a: "No, it is painless. At times the probe is pressed a little harder on the arm veins, to check that they compress: this may cause slight discomfort, which passes straight away.",
         },
       },
       {
@@ -287,6 +287,20 @@ const FAQ_PRATICHE = [
         en: {
           q: "How long does it take?",
           a: "Usually 20–30 minutes: the tendons, ligaments and bursae of the area are examined at rest and in motion and, if needed, the other side for comparison. You receive the report at the end.",
+        },
+      },
+      {
+        id: 'durata-renale',
+        verificata: true,
+        solo: ['renale'],
+        esclusi: HANNO_GIA_DURATA,
+        it: {
+          q: "Quanto dura?",
+          a: "In genere 20–30 minuti: si esaminano entrambi i reni, le pelvi renali e il tratto iniziale degli ureteri, in più scansioni. Il referto ti viene consegnato al termine.",
+        },
+        en: {
+          q: "How long does it take?",
+          a: "Usually 20–30 minutes: both kidneys, the renal pelvis and the first part of the ureters are examined in several views. You receive the report at the end.",
         },
       },
       {
