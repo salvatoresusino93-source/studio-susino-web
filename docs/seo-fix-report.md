@@ -1,5 +1,40 @@
 # Report interventi SEO — studiosusino.it
 
+## Aggiornamento 29 settembre 2026 — FAQ specifiche per 13 esami, parità IT/EN
+
+Branch `seo/faq-specifiche-esami`, pubblicato tramite Pull Request (non su `main` direttamente).
+
+### FAQ specifiche
+- **30 nuove FAQ** (IT + EN) come `faqExtra` in `js/esami-paziente.js` / `js/esami-paziente-en.js` per gli esami che non ne avevano: gomito, anca, polso-mano, parti molli, collo, linfonodi, renale, vescico-prostatica, addome superiore, addome inferiore, ecocolordoppler aorta, arterie renali, arti superiori.
+- Ogni risposta riformula informazioni già presenti nella pagina dell'esame (descrizione, "perché si fa", "come si svolge", "cosa controllo"); nessun dato numerico o clinico nuovo.
+- Ogni nuova FAQ ha `verificata: false` e un commento `/* DA VERIFICARE */` nel file dati; il generatore scrive in pagina `<!-- DA VERIFICARE: FAQ specifica "id" (js/esami-paziente.js) -->`. Dopo la revisione: `verificata: true` (o togliere il campo) e rigenerare.
+- Generatore: unica modifica, il commento DA VERIFICARE ora vale anche per le `faqExtra` con `verificata: false` (prima solo per le FAQ di gruppo). Le FAQ esistenti non cambiano.
+
+### Parità IT/EN su prenota e tariffe
+Le due FAQ mancanti in inglese non erano state tolte di proposito: erano state aggiunte solo in italiano nel commit `d77e8d3`.
+- `prenota-en.html`: aggiunta la FAQ "How much does the scan cost?" e la sezione "How much it costs". La sezione italiana è già un riassunto di una frase con link a `tariffe.html`, non una copia: in inglese è lo stesso riassunto con link a `tariffe-en.html`.
+- `tariffe-en.html`: aggiunta la FAQ "Can I pay online and cancel?".
+- FAQPage ricostruito dalle FAQ visibili: ora 5/5 (prenota) e 4/4 (tariffe).
+- `verifica-seo.js` controlla ora anche che ogni pagina italiana e la sua versione inglese abbiano lo stesso numero di FAQ.
+
+### Similarità tra pagine esame (frasi di 5 parole in comune, stessa lingua)
+| | Prima (main) | Dopo |
+|---|---|---|
+| Massimo | 45% | **36%** |
+| Coppie ≥ 50% | 0 | 0 |
+| Coppie ≥ 40% | 12 | **0** |
+| Coppie ≥ 35% | 19 | 2 |
+
+Le coppie più simili rimaste: ecocolordoppler aorta ↔ arterie renali (36% IT, 35% EN: stessa preparazione a digiuno, stessa FAQ di gruppo sul digiuno, modello comune della pagina) e polso-mano ↔ caviglia-piede EN (34%).
+
+### Da verificare per il medico
+- [ ] 30 FAQ specifiche nuove (elenco per esame nella descrizione della PR).
+- [ ] Testi EN aggiunti su prenota e tariffe (riprendono i testi italiani esistenti).
+- [ ] Restano da rivedere anche le 22 FAQ di gruppo della sessione precedente.
+
+---
+
+
 ## Aggiornamento 28 settembre 2026 — title, contenuti sottili, FAQ duplicate
 
 ### Title e meta description

@@ -16,6 +16,21 @@ Quando decidi su una proposta o un "Da verificare", spunta la casella e aggiungi
 ### Da verificare per il medico
 - [ ] Le 22 FAQ di gruppo in `scripts/faq-gruppi.js`: approvarle una per una con `verificata: true`.
 
+## 2026-09-29 — FAQ specifiche per 13 esami, parità IT/EN prenota e tariffe
+
+**Fonte dati:** `docs/seo-fix-report.md` (esami senza FAQ proprie; FAQ mancanti in EN).
+
+### Modifiche fatte
+- 30 FAQ specifiche IT + EN (`faqExtra`, `verificata: false`) per gomito, anca, polso-mano, parti molli, collo, linfonodi, renale, vescico-prostatica, addome superiore/inferiore, doppler aorta/arterie renali/arti superiori.
+- Le FAQ nuove restano nascoste finché non hanno `verificata: true` (regola introdotta con la PR #9).
+- prenota-en: sezione "How much it costs" + FAQ sul costo; tariffe-en: FAQ "Can I pay online and cancel?"; FAQPage allineati.
+- `verifica-seo.js`: nuovo controllo sul numero di FAQ IT = EN.
+- Similarità massima tra pagine esame da 45% a 36%; nessuna coppia sopra il 40%.
+
+### Da verificare per il medico
+- [ ] 30 FAQ specifiche nuove (`js/esami-paziente.js`, `js/esami-paziente-en.js`).
+- [ ] Testi EN nuovi su prenota-en e tariffe-en.
+
 ## 2026-09-28 — Title, contenuti sottili, FAQ differenziate
 
 **Fonte dati:** report `docs/seo-fix-report.md` (Search Console: 30 pagine "Scansionata ma non indicizzata").

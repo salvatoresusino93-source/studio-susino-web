@@ -16,6 +16,29 @@ window.ESAMI_PAZIENTE = {
       'You lie on your back. Gel on the skin and the probe gliding over the upper abdomen. Sometimes you need to hold your breath for a few seconds.',
     cosaControlla:
       'We check the liver, gallbladder, biliary tract, pancreas, spleen and the upper part of the kidneys.',
+    faqExtra: [
+      /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
+      {
+        q: "Can gallstones be seen?",
+        a:
+          "Yes. The gallbladder is one of the organs studied, and ultrasound is the exam usually used when a gallstone attack is suspected.",
+        verificata: false,
+      },
+      /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
+      {
+        q: "My liver blood tests are abnormal: is the ultrasound useful?",
+        a:
+          "Yes, it is one of the reasons it is requested. The liver, bile ducts and pancreas are examined; your doctor reads the result together with your blood tests.",
+        verificata: false,
+      },
+      /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
+      {
+        q: "How does it differ from a complete abdominal ultrasound?",
+        a:
+          "The upper abdomen covers the liver, gallbladder, bile ducts, pancreas, spleen and upper part of the kidneys. The complete abdomen also includes the bladder and, in men, the prostate.",
+        verificata: false,
+      },
+    ],
   },
   'addome-inferiore': {
     sintesi: 'A check of the lower abdomen: kidneys, bladder, prostate and pelvic organs.',
@@ -25,6 +48,22 @@ window.ESAMI_PAZIENTE = {
       'You lie down and gel is applied to the lower abdomen. The probe passes over the bladder and pelvic area.',
     cosaControlla:
       'We look at the kidneys, bladder, prostate (in men, from above the pubic bone) and the pelvic structures in that area.',
+    faqExtra: [
+      /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
+      {
+        q: "I have frequent urinary infections: is the ultrasound useful?",
+        a:
+          "Yes, repeated urinary infections are one of the reasons for this scan. The kidneys and bladder are checked to see whether something favours them, for example an obstacle to the flow of urine.",
+        verificata: false,
+      },
+      /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
+      {
+        q: "How does it differ from an upper abdominal ultrasound?",
+        a:
+          "The lower abdomen covers the kidneys, bladder, prostate in men and the pelvis, and needs a full bladder. The upper abdomen covers the liver, gallbladder, pancreas and spleen, and needs fasting.",
+        verificata: false,
+      },
+    ],
   },
   'apparato-urinario': {
     sintesi: 'A check of the kidneys, urinary tract and bladder, including after urinating.',
@@ -60,6 +99,29 @@ window.ESAMI_PAZIENTE = {
       'You lie on your back or your side. Gel on the flank and back, the probe gliding over the kidneys.',
     cosaControlla:
       'We look at the size and structure of the kidneys, the renal pelvis and the start of the ureters.',
+    faqExtra: [
+      /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
+      {
+        q: "How does it differ from the urinary tract ultrasound?",
+        a:
+          "Kidney ultrasound studies the kidneys and the start of the ureters, without the bladder. The urinary tract ultrasound also includes the bladder, which is why it needs a full bladder.",
+        verificata: false,
+      },
+      /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
+      {
+        q: "Why am I sometimes asked to turn onto my side?",
+        a:
+          "Because the kidneys lie deep, towards the back. Placing the probe on the side and back, lying on your back or on your side, gives a better view.",
+        verificata: false,
+      },
+      /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
+      {
+        q: "Can stones be seen?",
+        a:
+          "Stones inside the kidney usually can, together with any dilation of the renal pelvis. Those further down, along the ureter, are often hidden by bowel gas: the report will say so.",
+        verificata: false,
+      },
+    ],
   },
   'vescico-prostatica': {
     sintesi: 'A check of the bladder and prostate from above the pubic bone.',
@@ -69,6 +131,22 @@ window.ESAMI_PAZIENTE = {
       'It is important to arrive with a reasonably full bladder. You lie down, gel on the lower abdomen, the probe above the pubic bone.',
     cosaControlla:
       'We assess the bladder and prostate and, if needed, how much urine remains after voiding.',
+    faqExtra: [
+      /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
+      {
+        q: "Can the prostate be seen from outside?",
+        a:
+          "Yes, by placing the probe above the pubic bone. A full bladder acts as a window and allows the size and general appearance of the prostate to be assessed.",
+        verificata: false,
+      },
+      /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
+      {
+        q: "What if my bladder is not full enough?",
+        a:
+          "I will tell you at the start of the scan. Usually it is enough to drink a little more water and wait a few minutes before continuing.",
+        verificata: false,
+      },
+    ],
   },
   'scrotale-testicolare': {
     sintesi: 'A check of the testicles, epididymis and scrotal structures.',
@@ -113,6 +191,22 @@ window.ESAMI_PAZIENTE = {
       'Same position as the thyroid ultrasound: lying down, gel on the neck, the probe exploring the area indicated by the doctor.',
     cosaControlla:
       'We can assess the thyroid, salivary glands (below the ear and below the jaw), lymph nodes and neck vessels.',
+    faqExtra: [
+      /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
+      {
+        q: "Is it also done for check-ups after neck surgery?",
+        a:
+          "Yes, follow-up after neck surgery is one of the reasons for this scan. Bring the surgery report and any previous scans with you.",
+        verificata: false,
+      },
+      /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
+      {
+        q: "Should I take off necklaces or scarves?",
+        a:
+          "Yes, it is best to arrive with your neck uncovered: the probe needs to move over the skin of the whole neck, at the front and sides.",
+        verificata: false,
+      },
+    ],
   },
   'muscolo-scheletrica': {
     sintesi: 'A check of muscles, tendons and ligaments in the area that hurts.',
@@ -183,6 +277,29 @@ window.ESAMI_PAZIENTE = {
       'Gel on the groin, the side or both, depending on the pain. You move the hip if needed.',
     cosaControlla:
       'We assess the hip tendons, trochanteric bursae and the soft-tissue structures around the hip.',
+    faqExtra: [
+      /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
+      {
+        q: "I have pain on the side of my hip: is ultrasound useful?",
+        a:
+          "Yes. On the outer side of the hip (the trochanter area) the gluteal tendons and the trochanteric bursae are studied: small “cushions” that can become inflamed.",
+        verificata: false,
+      },
+      /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
+      {
+        q: "Is it the same as the newborn hip ultrasound?",
+        a:
+          "No. In adults the tendons, bursae and soft tissues around the hip are studied. In newborns the development of the joint is checked instead: it is a different exam, with its own page.",
+        verificata: false,
+      },
+      /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
+      {
+        q: "Will I have to move my leg during the scan?",
+        a:
+          "Sometimes, yes. Depending on where it hurts, the probe is moved over the groin, the side of the hip or both, and moving the hip can help to see the tendons and bursae better.",
+        verificata: false,
+      },
+    ],
   },
   'anca-neonatale': {
     sintesi: 'A check of the hips of a newborn or young infant.',
@@ -218,6 +335,29 @@ window.ESAMI_PAZIENTE = {
       'Elbow resting or extended, gel on the skin, the probe exploring the painful area.',
     cosaControlla:
       'We assess the inner and outer tendons of the elbow, the biceps tendon and the bursa over the ulna.',
+    faqExtra: [
+      /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
+      {
+        q: "Is it useful for “tennis elbow”?",
+        a:
+          "Yes. Ultrasound studies the tendons attached to the outside of the elbow (lateral epicondyle), involved in “tennis elbow”, and those on the inside (medial epicondyle), involved in “golfer’s elbow”.",
+        verificata: false,
+      },
+      /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
+      {
+        q: "I have a swelling on the tip of my elbow: what is checked?",
+        a:
+          "The olecranon bursa is checked: a small “cushion” on the tip of the elbow, over the ulna. Ultrasound shows whether it is inflamed or contains fluid.",
+        verificata: false,
+      },
+      /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
+      {
+        q: "Can the biceps tendon be seen too?",
+        a:
+          "Yes, the lower end of the biceps tendon, which attaches in the crease of the elbow, is part of the scan.",
+        verificata: false,
+      },
+    ],
   },
   'polso-mano': {
     sintesi: 'A check of the tendons, nerves and joints of the wrist and hand.',
@@ -227,6 +367,22 @@ window.ESAMI_PAZIENTE = {
       'Hand and wrist resting, gel on the skin. Sometimes you bend or straighten your fingers.',
     cosaControlla:
       'We look at the tendons, the median nerve at the carpal tunnel, and the bursae and joints of the wrist and hand.',
+    faqExtra: [
+      /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
+      {
+        q: "Is it useful for carpal tunnel?",
+        a:
+          "Yes. The median nerve is assessed where it passes through the carpal tunnel at the wrist. It is useful if you have tingling or numbness in your fingers.",
+        verificata: false,
+      },
+      /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
+      {
+        q: "Why am I asked to bend my fingers?",
+        a:
+          "Because bending and straightening your fingers makes the tendons slide, so it is easier to see how they move. It also helps to recognise tenosynovitis, an inflammation of the sheath around the tendon.",
+        verificata: false,
+      },
+    ],
   },
   'caviglia-piede': {
     sintesi: 'A check of the ligaments, Achilles tendon and structures of the foot.',
@@ -262,6 +418,22 @@ window.ESAMI_PAZIENTE = {
       'Gel is applied to the area of the swelling and the probe is gently moved over it. It takes a few minutes.',
     cosaControlla:
       'We look at whether the lesion is fluid-filled or solid, where it is and how large it is.',
+    faqExtra: [
+      /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
+      {
+        q: "Can a haematoma be seen after a knock?",
+        a:
+          "Yes. Ultrasound assesses haematomas, which are collections of blood under the skin after an injury: their position and size can be seen.",
+        verificata: false,
+      },
+      /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
+      {
+        q: "Should I show where the swelling is?",
+        a:
+          "Yes, show me the spot: the probe focuses on that area. If the swelling is easier to feel in a certain position, tell me at the start of the scan.",
+        verificata: false,
+      },
+    ],
   },
   'doppler-tsa': {
     sintesi: 'A check of the blood flow in the neck arteries (carotids).',
@@ -280,6 +452,22 @@ window.ESAMI_PAZIENTE = {
       'Lying on your back, gel on the abdomen. The Doppler probe shows the blood flow in the aorta.',
     cosaControlla:
       'We assess the size of the abdominal aorta and iliac arteries and how the blood flows.',
+    faqExtra: [
+      /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
+      {
+        q: "I have a known aneurysm: what is the check for?",
+        a:
+          "An aneurysm is a widening of the aorta. The check measures its size and compares it with previous scans: bring your reports with you.",
+        verificata: false,
+      },
+      /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
+      {
+        q: "Can the iliac arteries be seen too?",
+        a:
+          "Yes, the common iliac arteries, the two arteries into which the aorta divides in the pelvis, are part of the scan.",
+        verificata: false,
+      },
+    ],
   },
   'doppler-arterie-renali': {
     sintesi: 'A check of the flow in the arteries that supply the kidneys.',
@@ -289,6 +477,22 @@ window.ESAMI_PAZIENTE = {
       'You lie down, gel on the flank and abdomen. Doppler probe over the kidneys: you will hear the sound of the flow.',
     cosaControlla:
       'We look at whether the renal arteries are clear or narrowed and how the blood reaches the kidneys.',
+    faqExtra: [
+      /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
+      {
+        q: "Why are the renal arteries checked if I have high blood pressure?",
+        a:
+          "Because a narrowing of the arteries that carry blood to the kidneys can be one of the causes of high blood pressure that is hard to control. The scan checks whether the arteries are open.",
+        verificata: false,
+      },
+      /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
+      {
+        q: "What is the sound I hear during the scan?",
+        a:
+          "It is the blood flowing in the arteries, made audible by the Doppler. It is normal and helps to assess how the blood is flowing.",
+        verificata: false,
+      },
+    ],
   },
   'doppler-arti-inferiori': {
     sintesi: 'A check of the arteries and/or veins of the legs and feet.',
@@ -307,6 +511,22 @@ window.ESAMI_PAZIENTE = {
       'Arm resting, gel and Doppler probe along the arteries and veins.',
     cosaControlla:
       'We look at the arteries and veins of the arm and whether the blood flow is normal.',
+    faqExtra: [
+      /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
+      {
+        q: "One arm is more swollen than the other: is the scan useful?",
+        a:
+          "Yes, swelling of one arm is one of the reasons for this scan. The veins are checked for thrombosis, a clot that blocks the flow of blood.",
+        verificata: false,
+      },
+      /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
+      {
+        q: "Is it also done for a dialysis fistula?",
+        a:
+          "Yes. A haemodialysis fistula is a connection between an artery and a vein in the arm, used for dialysis: the scan checks its flow.",
+        verificata: false,
+      },
+    ],
   },
   linfonodi: {
     sintesi: 'A check of enlarged lymph nodes in the neck, armpits or groin.',
@@ -316,5 +536,21 @@ window.ESAMI_PAZIENTE = {
       'Gel is applied to the area (neck, armpit or groin) and the probe is gently moved over it.',
     cosaControlla:
       'We assess the size, shape and internal structure of the lymph node to understand whether it has benign features or requires further investigation.',
+    faqExtra: [
+      /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
+      {
+        q: "Which areas can be checked?",
+        a:
+          "The superficial lymph nodes of the neck, armpits and groin. Usually the area indicated by your doctor, or where you feel the swelling, is examined.",
+        verificata: false,
+      },
+      /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
+      {
+        q: "If I have had a lymph node ultrasound before, should I bring it?",
+        a:
+          "Yes. Comparing the size and shape of the lymph nodes over time is one of the aims of the check: previous reports make the scan more useful.",
+        verificata: false,
+      },
+    ],
   },
 };

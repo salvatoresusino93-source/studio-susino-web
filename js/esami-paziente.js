@@ -16,6 +16,29 @@ window.ESAMI_PAZIENTE = {
       'Sei disteso supino. Gel sulla pelle e sonda che scorre sulla parte alta dell’addome. A volte serve trattenere il respiro qualche secondo.',
     cosaControlla:
       'Controlliamo fegato, cistifellea, vie biliari, pancreas, milza e la parte alta dei reni.',
+    faqExtra: [
+      /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
+      {
+        q: "Si vedono i calcoli della colecisti?",
+        a:
+          "Sì. La colecisti (la cistifellea) è uno degli organi studiati e l’ecografia è l’esame usato di solito quando si sospetta una colica da calcoli.",
+        verificata: false,
+      },
+      /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
+      {
+        q: "Ho le analisi del fegato alterate: l’ecografia serve?",
+        a:
+          "Sì, è uno dei motivi per cui si richiede. Si guardano fegato, vie biliari e pancreas; il risultato va letto dal tuo medico insieme alle analisi del sangue.",
+        verificata: false,
+      },
+      /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
+      {
+        q: "Che differenza c’è con l’ecografia dell’addome completo?",
+        a:
+          "L’addome superiore comprende fegato, colecisti, vie biliari, pancreas, milza e la parte alta dei reni. L’addome completo aggiunge la vescica e, negli uomini, la prostata.",
+        verificata: false,
+      },
+    ],
   },
   'addome-inferiore': {
     sintesi: 'Controllo della parte bassa dell’addome: reni, vescica, prostata e organi pelvici.',
@@ -25,6 +48,22 @@ window.ESAMI_PAZIENTE = {
       'Ti sdrai e si applica il gel sul basso ventre. La sonda passa sopra la vescica e la zona pelvica.',
     cosaControlla:
       'Guardiamo reni, vescica, prostata (negli uomini, da sopra il pube) e le strutture del bacino in quella zona.',
+    faqExtra: [
+      /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
+      {
+        q: "Ho infezioni urinarie frequenti: l’ecografia serve?",
+        a:
+          "Sì, le infezioni urinarie che si ripetono sono una delle indicazioni. Si guardano reni e vescica per capire se c’è qualcosa che le favorisce, per esempio un ostacolo al passaggio dell’urina.",
+        verificata: false,
+      },
+      /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
+      {
+        q: "Che differenza c’è con l’ecografia dell’addome superiore?",
+        a:
+          "L’addome inferiore guarda reni, vescica, prostata negli uomini e il bacino, e richiede la vescica piena. L’addome superiore guarda fegato, colecisti, pancreas e milza, e richiede il digiuno.",
+        verificata: false,
+      },
+    ],
   },
   'apparato-urinario': {
     sintesi: 'Controllo di reni, vie urinarie e vescica, anche dopo aver urinato.',
@@ -60,6 +99,29 @@ window.ESAMI_PAZIENTE = {
       'Ti sdrai supino o di lato. Gel su fianco e schiena, sonda che passa sui reni.',
     cosaControlla:
       'Guardiamo dimensioni e struttura dei reni, la pelvi renale e l’inizio degli ureteri.',
+    faqExtra: [
+      /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
+      {
+        q: "Che differenza c’è con l’ecografia dell’apparato urinario?",
+        a:
+          "L’ecografia renale studia i reni e l’inizio degli ureteri, senza la vescica. L’ecografia dell’apparato urinario comprende anche la vescica, e per questo va fatta a vescica piena.",
+        verificata: false,
+      },
+      /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
+      {
+        q: "Perché a volte mi fa girare sul fianco?",
+        a:
+          "Perché i reni stanno in profondità, verso la schiena. Appoggiando la sonda sul fianco e sulla schiena, da sdraiato sulla schiena o di lato, si vedono meglio.",
+        verificata: false,
+      },
+      /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
+      {
+        q: "Si vedono i calcoli?",
+        a:
+          "I calcoli dentro il rene di solito sì, insieme all’eventuale dilatazione della pelvi renale. Quelli più in basso, lungo l’uretere, sono spesso nascosti dall’aria intestinale: il referto lo indica.",
+        verificata: false,
+      },
+    ],
   },
   'vescico-prostatica': {
     sintesi: 'Controllo di vescica e prostata dalla parte sopra il pube.',
@@ -69,6 +131,22 @@ window.ESAMI_PAZIENTE = {
       'È importante arrivare con la vescica abbastanza piena. Ti sdrai, gel sul basso ventre, sonda sopra il pube.',
     cosaControlla:
       'Valutiamo vescica e prostata e, se serve, quanta urina resta dopo aver urinato.',
+    faqExtra: [
+      /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
+      {
+        q: "La prostata si vede dall’esterno?",
+        a:
+          "Sì, appoggiando la sonda sopra il pube. La vescica piena fa da finestra e permette di valutare dimensioni e aspetto generale della prostata.",
+        verificata: false,
+      },
+      /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
+      {
+        q: "E se la vescica non è abbastanza piena?",
+        a:
+          "Te lo dico all’inizio dell’esame. Di solito basta bere ancora un po’ d’acqua e aspettare qualche minuto prima di continuare.",
+        verificata: false,
+      },
+    ],
   },
   'scrotale-testicolare': {
     sintesi: 'Controllo di testicoli, epididimo e strutture dello scroto.',
@@ -113,6 +191,22 @@ window.ESAMI_PAZIENTE = {
       'Stessa posizione dell’ecografia tiroide: disteso, gel sul collo, sonda che esplora la zona indicata dal medico.',
     cosaControlla:
       'Possiamo valutare tiroide, ghiandole salivari (sotto l’orecchio e sotto la mandibola), linfonodi e vasi del collo.',
+    faqExtra: [
+      /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
+      {
+        q: "Si fa anche per i controlli dopo un intervento al collo?",
+        a:
+          "Sì, il controllo nel tempo dopo un intervento chirurgico al collo è una delle indicazioni. Porta con te il referto dell’intervento e gli esami precedenti.",
+        verificata: false,
+      },
+      /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
+      {
+        q: "Devo togliere collane o sciarpe?",
+        a:
+          "Sì, conviene arrivare con il collo libero: la sonda deve scorrere sulla pelle di tutto il collo, davanti e ai lati.",
+        verificata: false,
+      },
+    ],
   },
   'muscolo-scheletrica': {
     sintesi: 'Controllo di muscoli, tendini e legamenti nella zona che ti fa male.',
@@ -183,6 +277,29 @@ window.ESAMI_PAZIENTE = {
       'Gel su inguine, fianco o entrambi, a seconda del dolore. Muovi l’anca se necessario.',
     cosaControlla:
       'Valutiamo tendini del fianco, borse trocanteriche e strutture morbide attorno all’anca.',
+    faqExtra: [
+      /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
+      {
+        q: "Ho dolore sul lato dell’anca: l’ecografia serve?",
+        a:
+          "Sì. Sul lato esterno dell’anca (la zona del trocantere) si studiano i tendini dei glutei e le borse trocanteriche, piccoli “cuscinetti” che possono infiammarsi.",
+        verificata: false,
+      },
+      /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
+      {
+        q: "È lo stesso esame dell’ecografia delle anche del neonato?",
+        a:
+          "No. Nell’adulto si studiano tendini, borse e parti morbide attorno all’anca. Nel neonato si controlla invece lo sviluppo dell’articolazione: è un esame diverso, con una sua pagina.",
+        verificata: false,
+      },
+      /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
+      {
+        q: "Dovrò muovere la gamba durante l’esame?",
+        a:
+          "A volte sì. A seconda di dove senti dolore, la sonda passa sull’inguine, sul fianco o su entrambi, e può servire muovere l’anca per vedere meglio tendini e borse.",
+        verificata: false,
+      },
+    ],
   },
   'anca-neonatale': {
     sintesi: 'Controllo delle anche del neonato o del lattante piccolo.',
@@ -218,6 +335,29 @@ window.ESAMI_PAZIENTE = {
       'Gomito appoggiato o disteso, gel sulla pelle, sonda che esplora la zona dolente.',
     cosaControlla:
       'Valutiamo i tendini interni ed esterni del gomito, quello del bicipite e la borsa sull’ulna.',
+    faqExtra: [
+      /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
+      {
+        q: "Serve per il “gomito del tennista”?",
+        a:
+          "Sì. L’ecografia studia i tendini che si attaccano all’esterno del gomito (epicondilo), coinvolti nel “gomito del tennista”, e quelli all’interno (epitroclea), coinvolti nel “gomito del golfista”.",
+        verificata: false,
+      },
+      /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
+      {
+        q: "Ho un gonfiore sulla punta del gomito: cosa si guarda?",
+        a:
+          "Si guarda la borsa olecranica, un piccolo “cuscinetto” sulla punta del gomito, sopra l’ulna. L’ecografia mostra se è infiammata o se contiene liquido.",
+        verificata: false,
+      },
+      /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
+      {
+        q: "Si vede anche il tendine del bicipite?",
+        a:
+          "Sì, il tratto finale del tendine del bicipite, che si attacca nella piega del gomito, fa parte dell’esame.",
+        verificata: false,
+      },
+    ],
   },
   'polso-mano': {
     sintesi: 'Controllo di tendini, nervi e articolazioni di polso e mano.',
@@ -227,6 +367,22 @@ window.ESAMI_PAZIENTE = {
       'Mano e polso appoggiati, gel sulla pelle. A volte pieghi o estendi le dita.',
     cosaControlla:
       'Guardiamo tendini, nervo mediano al tunnel carpale, borse e articolazioni di polso e mano.',
+    faqExtra: [
+      /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
+      {
+        q: "Serve per il tunnel carpale?",
+        a:
+          "Sì. Si valuta il nervo mediano nel punto in cui passa nel tunnel carpale, al polso. È utile se hai formicolio o intorpidimento delle dita.",
+        verificata: false,
+      },
+      /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
+      {
+        q: "Perché mi chiede di piegare le dita?",
+        a:
+          "Perché piegando ed estendendo le dita i tendini scorrono e si vede meglio come si muovono. Serve anche a riconoscere una tenosinovite, cioè l’infiammazione della guaina che avvolge il tendine.",
+        verificata: false,
+      },
+    ],
   },
   'caviglia-piede': {
     sintesi: 'Controllo di legamenti, tendine di Achille e strutture del piede.',
@@ -262,6 +418,22 @@ window.ESAMI_PAZIENTE = {
       'Si applica il gel sulla zona del gonfiore e si fa scorrere delicatamente la sonda. Dura pochi minuti.',
     cosaControlla:
       'Guardiamo se la lesione è piena di liquido o solida, dove si trova e quanto è estesa.',
+    faqExtra: [
+      /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
+      {
+        q: "Dopo un colpo si vede un ematoma?",
+        a:
+          "Sì. Tra le cose che l’ecografia valuta ci sono gli ematomi, cioè raccolte di sangue sotto la pelle dopo un trauma: se ne vedono posizione ed estensione.",
+        verificata: false,
+      },
+      /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
+      {
+        q: "Devo indicare io dove si trova il gonfiore?",
+        a:
+          "Sì, mostrami il punto: la sonda si concentra su quella zona. Se il gonfiore si sente meglio in una certa posizione, dimmelo all’inizio dell’esame.",
+        verificata: false,
+      },
+    ],
   },
   'doppler-tsa': {
     sintesi: 'Controllo del flusso del sangue nelle arterie del collo (carotidi).',
@@ -280,6 +452,22 @@ window.ESAMI_PAZIENTE = {
       'Disteso supino, gel sull’addome. La sonda Doppler mostra il flusso del sangue nell’aorta.',
     cosaControlla:
       'Valutiamo dimensioni dell’aorta addominale e delle iliache e come scorre il sangue.',
+    faqExtra: [
+      /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
+      {
+        q: "Ho un aneurisma già noto: a cosa serve il controllo?",
+        a:
+          "Un aneurisma è una dilatazione dell’aorta. Il controllo ne misura le dimensioni e le confronta con quelle degli esami precedenti: porta con te i referti.",
+        verificata: false,
+      },
+      /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
+      {
+        q: "Si vedono anche le arterie iliache?",
+        a:
+          "Sì, le iliache comuni, cioè le due arterie in cui l’aorta si divide nel bacino, fanno parte dell’esame.",
+        verificata: false,
+      },
+    ],
   },
   'doppler-arterie-renali': {
     sintesi: 'Controllo del flusso nelle arterie che portano sangue ai reni.',
@@ -289,6 +477,22 @@ window.ESAMI_PAZIENTE = {
       'Ti sdrai, gel su fianco e addome. Sonda Doppler sui reni: sentirai il suono del flusso.',
     cosaControlla:
       'Guardiamo se le arterie renali sono libere o restringite e come arriva il sangue ai reni.',
+    faqExtra: [
+      /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
+      {
+        q: "Perché si controllano le arterie renali se ho la pressione alta?",
+        a:
+          "Perché un restringimento delle arterie che portano sangue ai reni può essere una delle cause di una pressione alta difficile da controllare. L’esame valuta se le arterie sono libere.",
+        verificata: false,
+      },
+      /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
+      {
+        q: "Che cos’è il suono che sento durante l’esame?",
+        a:
+          "È il flusso del sangue nelle arterie, reso udibile dal Doppler. È normale e aiuta a valutare come scorre il sangue.",
+        verificata: false,
+      },
+    ],
   },
   'doppler-arti-inferiori': {
     sintesi: 'Controllo di arterie e/o vene di gambe e piedi.',
@@ -307,6 +511,22 @@ window.ESAMI_PAZIENTE = {
       'Braccio appoggiato, gel e sonda Doppler lungo arterie e vene.',
     cosaControlla:
       'Guardiamo arterie e vene del braccio e se il flusso del sangue è regolare.',
+    faqExtra: [
+      /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
+      {
+        q: "Ho un braccio più gonfio dell’altro: l’esame serve?",
+        a:
+          "Sì, il gonfiore di un solo braccio è una delle indicazioni. Si controllano le vene per capire se c’è una trombosi, cioè un coagulo che ostacola il passaggio del sangue.",
+        verificata: false,
+      },
+      /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
+      {
+        q: "Si fa anche per la fistola della dialisi?",
+        a:
+          "Sì. La fistola per emodialisi è un collegamento tra un’arteria e una vena del braccio, usato per la dialisi: l’esame ne controlla il flusso.",
+        verificata: false,
+      },
+    ],
   },
   linfonodi: {
     sintesi: 'Controllo di linfonodi ingranditi al collo, ascelle o inguine.',
@@ -316,5 +536,21 @@ window.ESAMI_PAZIENTE = {
       'Si applica il gel sulla zona interessata (collo, ascella o inguine) e si fa scorrere delicatamente la sonda.',
     cosaControlla:
       'Valutiamo dimensioni, forma e struttura interna del linfonodo per capire se ha caratteristiche benigne o se necessita di approfondimenti.',
+    faqExtra: [
+      /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
+      {
+        q: "Quali zone si possono controllare?",
+        a:
+          "I linfonodi superficiali del collo, delle ascelle e dell’inguine. Di solito si esamina la zona indicata dal medico o quella in cui senti il rigonfiamento.",
+        verificata: false,
+      },
+      /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
+      {
+        q: "Se ho già fatto un’ecografia dei linfonodi, devo portarla?",
+        a:
+          "Sì. Confrontare dimensioni e forma dei linfonodi nel tempo è uno degli scopi del controllo: i referti precedenti rendono l’esame più utile.",
+        verificata: false,
+      },
+    ],
   },
 };
