@@ -1,3 +1,6 @@
 .DS_Store
 *.log
-.claude/
+# Claude Code: si versionano agenti e comandi, non le impostazioni personali
+.claude/*
+!.claude/agents/
+!.claude/commands/
