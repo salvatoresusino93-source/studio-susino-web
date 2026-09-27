@@ -109,13 +109,6 @@ window.ESAMI_PAZIENTE = {
       },
       /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
       {
-        q: "Perché a volte mi fa girare sul fianco?",
-        a:
-          "Perché i reni sono organi retroperitoneali, cioè posti nella parte posteriore dell’addome, dietro le anse intestinali. Oltre alla posizione supina si usano il decubito laterale (sdraiati sul fianco) o prono (a pancia in giù), con la sonda sulla regione lombare o tra le coste (scansioni intercostali): così si vedono per intero, polo superiore compreso.",
-        verificata: false,
-      },
-      /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
-      {
         q: "Si vedono i calcoli?",
         a:
           "I calcoli nel rene in genere sì, anche se quelli di pochi millimetri possono sfuggire. I calcoli dell’uretere raramente si vedono direttamente: il segno indiretto è l’idronefrosi, cioè la dilatazione delle cavità del rene a monte dell’ostruzione. Il referto indica i limiti dell’esame.",
@@ -424,13 +417,6 @@ window.ESAMI_PAZIENTE = {
         q: "Dopo un trauma si vede un ematoma?",
         a:
           "Sì. L’ematoma è una raccolta di sangue nei tessuti molli dopo un trauma. L’ecografia ne indica sede, dimensioni e aspetto del contenuto, che cambia nel tempo man mano che l’ematoma si riassorbe; per questo a volte serve un controllo successivo.",
-        verificata: false,
-      },
-      /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
-      {
-        q: "Devo indicare io dove si trova la tumefazione?",
-        a:
-          "Sì, mostrami il punto esatto: l’esame si concentra su quella zona e la confronta con i tessuti vicini. Se la tumefazione si sente meglio in una certa posizione o sotto sforzo, dimmelo all’inizio.",
         verificata: false,
       },
     ],

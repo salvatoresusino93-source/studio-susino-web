@@ -109,13 +109,6 @@ window.ESAMI_PAZIENTE = {
       },
       /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
       {
-        q: "Why am I sometimes asked to turn onto my side?",
-        a:
-          "Because the kidneys are retroperitoneal organs: they lie at the back of the abdomen, behind the bowel. As well as lying on your back, lying on your side (lateral decubitus) or on your front (prone) is used, with the probe on the lower back or between the ribs (intercostal views): this allows the whole kidney to be seen, including its upper pole.",
-        verificata: false,
-      },
-      /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
-      {
         q: "Can stones be seen?",
         a:
           "Kidney stones usually can, although stones of just a few millimetres may be missed. Ureteral stones are rarely seen directly: the indirect sign is hydronephrosis, a dilation of the kidney’s collecting system above the blockage. The report states the limits of the scan.",
@@ -424,13 +417,6 @@ window.ESAMI_PAZIENTE = {
         q: "Can a haematoma be seen after an injury?",
         a:
           "Yes. A haematoma is a collection of blood in the soft tissues after an injury. Ultrasound shows its position, size and the appearance of its contents, which change over time as it is reabsorbed; this is why a follow-up scan is sometimes needed.",
-        verificata: false,
-      },
-      /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
-      {
-        q: "Should I show where the lump is?",
-        a:
-          "Yes, show me the exact spot: the scan focuses on that area and compares it with the surrounding tissues. If the lump is easier to feel in a certain position or when straining, tell me at the start.",
         verificata: false,
       },
     ],
