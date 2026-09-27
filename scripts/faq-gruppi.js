@@ -42,18 +42,6 @@ const FAQ_GRUPPI = {
       },
     },
     {
-      id: 'respiro',
-      esclusi: ['addome-inferiore'],
-      it: {
-        q: 'Perché a volte mi chiede di trattenere il respiro o di girarmi sul fianco?',
-        a: 'Perché cambiando posizione o respirando a fondo gli organi si spostano e si vedono meglio: fegato e milza, per esempio, scendono sotto l’arcata costale quando inspiri.',
-      },
-      en: {
-        q: 'Why am I sometimes asked to hold my breath or turn onto my side?',
-        a: 'Because changing position or breathing in deeply moves the organs so they can be seen better: the liver and spleen, for example, move down below the ribs when you breathe in.',
-      },
-    },
-    {
       id: 'prostata-sovrapubica',
       solo: ['addome-inferiore'],
       it: {

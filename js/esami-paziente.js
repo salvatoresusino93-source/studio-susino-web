@@ -389,13 +389,6 @@ window.ESAMI_PAZIENTE = {
           "Sì. Si valuta il nervo mediano all’ingresso del tunnel carpale, al polso, misurandone l’area di sezione: un nervo ingrossato è uno dei segni della sindrome. L’ecografia completa, non sostituisce, l’elettroneurografia (l’esame che misura la conduzione del nervo), che il medico può richiedere.",
         verificata: false,
       },
-      /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
-      {
-        q: "Perché mi chiede di piegare le dita?",
-        a:
-          "Per una valutazione dinamica: piegando ed estendendo le dita i tendini flessori ed estensori scorrono nelle loro guaine e si vede se il movimento è regolare. Aiuta a riconoscere una tenosinovite, cioè l’infiammazione della guaina sinoviale che avvolge il tendine.",
-        verificata: false,
-      },
     ],
   },
   'caviglia-piede': {

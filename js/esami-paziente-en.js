@@ -389,13 +389,6 @@ window.ESAMI_PAZIENTE = {
           "Yes. The median nerve is assessed at the entrance of the carpal tunnel, at the wrist, by measuring its cross-sectional area: an enlarged nerve is one of the signs of the syndrome. Ultrasound complements, but does not replace, nerve conduction studies, which your doctor may request.",
         verificata: false,
       },
-      /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
-      {
-        q: "Why am I asked to bend my fingers?",
-        a:
-          "For a dynamic assessment: when you bend and straighten your fingers, the flexor and extensor tendons glide inside their sheaths, showing whether the movement is smooth. It helps to recognise tenosynovitis, an inflammation of the synovial sheath around the tendon.",
-        verificata: false,
-      },
     ],
   },
   'caviglia-piede': {
