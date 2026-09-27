@@ -72,8 +72,6 @@ jobs:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          show_full_output: true
-          display_report: true
           prompt: |
             /seo-periodico ${{ github.event.inputs.search_console }}
           claude_args: >-
