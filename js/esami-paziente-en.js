@@ -234,6 +234,27 @@ window.ESAMI_PAZIENTE = {
         a:
           "Because the shoulder is studied in motion. By having you raise and rotate your arm I can see the tendons slide under the acromion: some impingements and certain tears only become visible this way, while with the arm still they would go unnoticed.",
       },
+      /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
+      {
+        q: "Can shoulder calcifications be seen?",
+        a:
+          "Yes. In calcific tendinopathy, calcium deposits form in the rotator cuff tendons, most often in the supraspinatus. Ultrasound shows their position and size and helps to tell compact calcifications from those being reabsorbed, which is often the most painful phase. An X-ray is a complementary exam.",
+        verificata: false,
+      },
+      /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
+      {
+        q: "What is subacromial-subdeltoid bursitis?",
+        a:
+          "It is inflammation of the subacromial-subdeltoid bursa, a small fluid-filled sac that reduces friction, lying between the rotator cuff, the acromion and the deltoid muscle. Ultrasound shows whether the bursa is thickened or contains fluid (effusion). It may occur on its own or together with a rotator cuff tendinopathy.",
+        verificata: false,
+      },
+      /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
+      {
+        q: "Can a torn shoulder tendon be seen?",
+        a:
+          "Yes. Ultrasound detects tears of the rotator cuff tendons, in particular the supraspinatus, and distinguishes a full-thickness tear (the tendon is interrupted all the way through) from a partial tear. The report states their position and extent, which help the orthopaedic surgeon decide on treatment.",
+        verificata: false,
+      },
     ],
   },
   ginocchio: {

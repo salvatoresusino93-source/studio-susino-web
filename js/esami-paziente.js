@@ -234,6 +234,27 @@ window.ESAMI_PAZIENTE = {
         a:
           'Perché la spalla si studia in movimento. Facendoti alzare e ruotare il braccio vedo i tendini scorrere sotto l’acromion: alcuni conflitti e certe lesioni si rendono evidenti solo così, mentre a braccio fermo passerebbero inosservati.',
       },
+      /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
+      {
+        q: "Si vedono le calcificazioni della spalla?",
+        a:
+          "Sì. Nella tendinopatia calcifica si formano depositi di calcio nei tendini della cuffia dei rotatori, più spesso nel sovraspinato. L’ecografia ne indica sede e dimensioni e aiuta a distinguere le calcificazioni compatte da quelle in fase di riassorbimento, che spesso è la fase più dolorosa. La radiografia è un esame complementare.",
+        verificata: false,
+      },
+      /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
+      {
+        q: "Che cos’è la borsite subacromion-deltoidea?",
+        a:
+          "È l’infiammazione della borsa subacromion-deltoidea, una borsa sierosa (piccola sacca che riduce l’attrito) posta tra la cuffia dei rotatori, l’acromion e il muscolo deltoide. L’ecografia mostra se la borsa è ispessita o contiene liquido (versamento). Può essere isolata o accompagnare una tendinopatia della cuffia.",
+        verificata: false,
+      },
+      /* DA VERIFICARE: FAQ nuova (settembre 2026), rivedere e poi mettere verificata: true */
+      {
+        q: "Si vede se un tendine della spalla è rotto?",
+        a:
+          "Sì. L’ecografia riconosce le lesioni dei tendini della cuffia dei rotatori, in particolare del sovraspinato, e distingue una lesione a tutto spessore (il tendine è interrotto da parte a parte) da una lesione parziale. Il referto ne indica sede ed estensione, utili all’ortopedico per decidere il trattamento.",
+        verificata: false,
+      },
     ],
   },
   ginocchio: {
