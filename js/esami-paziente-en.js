@@ -88,14 +88,10 @@ window.ESAMI_PAZIENTE = {
   },
   renale: {
     sintesi: 'A focused check of the kidneys: their size, shape and structure.',
-    /* DA VERIFICARE: example of follow-up for a known kidney cyst or stone, added to explain when
-       this scan is chosen instead of the urinary tract ultrasound. */
     perche:
       'Your doctor requests it for flank or back pain, suspected renal colic, blood in the urine, or to follow up a kidney already monitored, for example because of a cyst or a stone that is already known. This scan, focused only on the kidneys, is chosen when there is no need to also check the bladder or blood flow.',
     svolgimento:
       'You lie on the couch, first on your back and then on each side. I apply a little gel to your back and flank, where the kidneys are, and move the probe to see them from different angles. It is painless, like any ultrasound scan.',
-    /* DA VERIFICARE: explicit list of stones, cysts and dilation of the urinary tract as typical
-       findings that can be seen with this scan. */
     cosaControlla:
       'We check the size, shape and position of the kidneys, the thickness of the kidney tissue and the renal pelvis, the inner part where urine collects before flowing into the ureter. We also see the start of the ureters, but not the bladder. We look for stones, cysts or a kidney that is dilated because of an obstruction to urine flow.',
     faqExtra: [
@@ -115,13 +111,13 @@ window.ESAMI_PAZIENTE = {
         q: 'What is the difference from the renal artery Doppler ultrasound?',
         a:
           'They are two different exams. A kidney ultrasound looks at the shape and structure of the kidneys. The renal artery Doppler ultrasound instead looks at how blood flows in the arteries that supply the kidneys: it is mainly used for high blood pressure that is hard to control.',
-        verificata: false,
+        verificata: true,
       },
       {
-        q: 'Do I need a full bladder or to fast, like for the urinary tract ultrasound?',
+        q: "Do I need to fast? Do I need a full bladder?",
         a:
-          'No. For a kidney ultrasound you do not need a full bladder or fasting: you can eat, drink and urinate normally. A full bladder is only needed when the bladder itself is examined, as in the urinary tract or bladder and prostate ultrasound.',
-        verificata: false,
+          "Yes, fasting for 6–8 hours is recommended: bowel gas, which increases after meals, can hide the kidneys and make them harder to assess. You may drink water and take your usual medication. A full bladder is not needed, because the bladder is not part of this scan.",
+        verificata: true,
       },
     ],
   },
@@ -287,18 +283,10 @@ window.ESAMI_PAZIENTE = {
   },
   anca: {
     sintesi: 'A check of the tendons and soft-tissue structures around the hip, in adults.',
-    /* DA VERIFICARE: list of clinical scenarios (gluteal tendinopathy, trochanteric bursitis,
-       iliopsoas/adductor tendinopathy, snapping hip, sports such as running and football, checking
-       the tissue around a hip replacement) and the note that X-ray is preferred for arthritis. */
     perche:
       'Your doctor requests it for pain on the side of the hip, often linked to the gluteal tendons or the trochanteric bursa, or for groin pain linked to the deeper tendons (iliopsoas or adductors). It is also useful if you feel a snap or click when walking, after a trauma, or for discomfort that started with sport, for example running or football. It is also used to check the soft tissue around a hip replacement already in place. It is not the right exam to study the bone or the cartilage of the joint: for hip arthritis your doctor will more often use an X-ray.',
-    /* DA VERIFICARE: description of the position (side or face down) and the dynamic manoeuvre
-       (moving the leg) used to study a snapping hip. */
     svolgimento:
       'You lie on the couch. I apply gel to the groin, the side of the hip or both, depending on where it hurts: sometimes I ask you to turn on your side or lie face down, so I can see the back of the hip well too. If a snapping hip is suspected, I ask you to move your leg while I watch the screen, to see how the tendon behaves. The scan is painless and usually takes 15–20 minutes.',
-    /* DA VERIFICARE: explicit list of the structures assessed (gluteal, iliopsoas, adductor
-       tendons, any joint fluid, tissue around a hip replacement) and the limit of ultrasound
-       compared with bone and cartilage. */
     cosaControlla:
       'We assess the gluteal tendons and the trochanteric bursa on the side, the iliopsoas and adductor tendons in the groin, and any fluid in the hip joint. If you have a hip replacement, we also check the soft tissue around the implant. We cannot see the bone in depth or the joint cartilage well: X-ray or MRI remain more suitable for those.',
     faqExtra: [
@@ -330,7 +318,7 @@ window.ESAMI_PAZIENTE = {
         q: 'Can ultrasound see hip arthritis?',
         a:
           'It is not the best exam for that. Arthritis mainly involves the bone and cartilage of the joint, which are better seen with an X-ray. Ultrasound is instead useful for the tendons and soft tissue around the hip, and for any fluid in the joint.',
-        verificata: false,
+        verificata: true,
       },
     ],
   },

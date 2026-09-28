@@ -88,14 +88,10 @@ window.ESAMI_PAZIENTE = {
   },
   renale: {
     sintesi: 'Controllo mirato di dimensioni, forma e struttura dei reni.',
-    /* DA VERIFICARE: esempio di controllo nel tempo di una cisti o di un calcolo renale già noti,
-       aggiunto per spiegare quando si sceglie questo esame invece dell’ecografia dell’apparato urinario. */
     perche:
       'Il medico te la prescrive per dolore al fianco o alla schiena, sospetta colica renale, sangue nelle urine, oppure per controllare nel tempo un rene già seguito, per esempio per una cisti o un calcolo già noti. Si sceglie questo esame, mirato solo ai reni, quando non serve guardare anche la vescica o il flusso del sangue.',
     svolgimento:
       'Ti sdrai sul lettino, prima supino e poi su un fianco e sull’altro. Metto un po’ di gel sulla schiena e sul fianco, dove si trovano i reni, e sposto la sonda per vederli da più lati. È indolore, come ogni ecografia.',
-    /* DA VERIFICARE: elenco esplicito di calcoli, cisti e dilatazione delle vie urinarie
-       come reperti tipici che si possono vedere con questo esame. */
     cosaControlla:
       'Guardiamo dimensioni, forma e posizione dei reni, lo spessore del tessuto renale e la pelvi renale, cioè la parte interna dove si raccoglie l’urina prima di scendere nell’uretere. Vediamo anche l’inizio degli ureteri, ma non la vescica. Notiamo se ci sono calcoli, cisti o un rene dilatato per un ostacolo al deflusso dell’urina.',
     faqExtra: [
@@ -115,13 +111,13 @@ window.ESAMI_PAZIENTE = {
         q: 'Che differenza c’è con l’ecocolordoppler delle arterie renali?',
         a:
           'Sono due esami diversi. L’ecografia renale guarda la forma e la struttura dei reni. L’ecocolordoppler delle arterie renali guarda invece come scorre il sangue nelle arterie che portano sangue ai reni: si usa soprattutto per la pressione alta difficile da controllare.',
-        verificata: false,
+        verificata: true,
       },
       {
-        q: 'Devo arrivare con la vescica piena, come per l’ecografia dell’apparato urinario?',
+        q: "Devo essere a digiuno? Serve la vescica piena?",
         a:
-          'No. Per l’ecografia renale non serve avere la vescica piena né il digiuno: puoi mangiare, bere e urinare normalmente. La vescica piena serve solo quando si guarda anche quest’organo, come nell’ecografia dell’apparato urinario o vescico-prostatica.',
-        verificata: false,
+          "Sì, è consigliato il digiuno da 6–8 ore: l’aria nell’intestino, che aumenta dopo i pasti, può coprire i reni e renderne più difficile la valutazione. Puoi bere acqua e prendere i farmaci abituali. La vescica piena invece non serve, perché la vescica non fa parte di questo esame.",
+        verificata: true,
       },
     ],
   },
@@ -287,18 +283,10 @@ window.ESAMI_PAZIENTE = {
   },
   anca: {
     sintesi: 'Controllo di tendini e strutture morbide intorno all’anca, nell’adulto.',
-    /* DA VERIFICARE: elenco di quadri clinici (tendinopatia dei glutei, borsite trocanterica,
-       tendinopatia di ileopsoas e adduttori, anca a scatto, sport come corsa e calcio, controllo
-       dei tessuti intorno a una protesi d’anca) e indicazione che per l’artrosi si preferisce la radiografia. */
     perche:
       'Il medico te la prescrive per dolore sul fianco dell’anca, spesso legato ai tendini dei glutei o alla borsa trocanterica, oppure per dolore all’inguine legato ai tendini più profondi (ileopsoas o adduttori). È utile anche se senti uno scatto o un click camminando, dopo un trauma, o per un fastidio comparso con lo sport, per esempio corsa o calcio. Si usa pure per controllare i tessuti molli intorno a una protesi d’anca già impiantata. Non è invece l’esame giusto per studiare l’osso o la cartilagine dell’articolazione: per l’artrosi dell’anca il medico userà più spesso una radiografia.',
-    /* DA VERIFICARE: descrizione della posizione (fianco o pancia in giù) e della manovra dinamica
-       (muovere la gamba) per lo studio dell’anca a scatto. */
     svolgimento:
       'Ti sdrai sul lettino. Metto il gel sull’inguine, sul fianco o su entrambi, a seconda di dove senti dolore: a volte ti chiedo di girarti su un fianco o di metterti a pancia in giù, per vedere bene anche la parte posteriore. Se sospetto uno scatto dell’anca, ti chiedo di muovere la gamba mentre guardo lo schermo, per vedere come si comporta il tendine. L’esame è indolore e dura in genere 15–20 minuti.',
-    /* DA VERIFICARE: elenco esplicito delle strutture valutate (glutei, ileopsoas, adduttori,
-       eventuale liquido articolare, tessuti intorno a una protesi) e limite dell’ecografia
-       rispetto a osso e cartilagine. */
     cosaControlla:
       'Valutiamo i tendini dei muscoli glutei e la borsa trocanterica sul fianco, i tendini dell’ileopsoas e degli adduttori all’inguine, ed eventuale liquido nell’articolazione dell’anca. Se hai una protesi, controlliamo anche i tessuti molli intorno all’impianto. Non vediamo bene l’osso in profondità né la cartilagine dell’articolazione: per quelli restano più adatte la radiografia o la risonanza.',
     faqExtra: [
@@ -330,7 +318,7 @@ window.ESAMI_PAZIENTE = {
         q: 'L’ecografia vede l’artrosi dell’anca?',
         a:
           'Non è l’esame più adatto. L’artrosi riguarda soprattutto l’osso e la cartilagine dell’articolazione, che si vedono meglio con una radiografia. L’ecografia è invece utile per i tendini e i tessuti molli intorno all’anca, e per un eventuale versamento nell’articolazione.',
-        verificata: false,
+        verificata: true,
       },
     ],
   },

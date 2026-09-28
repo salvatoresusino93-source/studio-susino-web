@@ -33,7 +33,7 @@ const { faqGruppo } = require('./faq-gruppi');
 const { faqPratiche } = require('./faq-pratiche');
 
 /* Preparazione richiesta, per esame */
-const DIGIUNO = ['addome-completo', 'addome-superiore', 'doppler-aorta', 'doppler-arterie-renali'];
+const DIGIUNO = ['addome-completo', 'addome-superiore', 'renale', 'doppler-aorta', 'doppler-arterie-renali'];
 const VESCICA_PIENA = ['addome-inferiore', 'apparato-urinario', 'vescico-prostatica'];
 
 /* ------------------------------------------------------------------ */
@@ -189,7 +189,16 @@ const PRENOTA_BASE = 'https://referteco-production.up.railway.app/prenota';
 /* ------------------------------------------------------------------ */
 /* Costruzione della pagina                                            */
 /* ------------------------------------------------------------------ */
+// Preparazione con testo proprio, quando quello generico non si adatta all'esame
+const PREP_SPECIFICA = {
+  renale: {
+    it: 'Sì: è consigliato il <strong>digiuno da 6-8 ore</strong>, perché l’aria nell’intestino, che aumenta dopo i pasti, può coprire i reni. Puoi bere acqua e prendere i farmaci abituali. Non serve invece la vescica piena. Porta con te eventuali esami precedenti.',
+    en: 'Yes: <strong>fasting for 6-8 hours</strong> is recommended, because bowel gas, which increases after meals, can hide the kidneys. You may drink water and take your usual medication. A full bladder is not needed. Bring any previous scans with you.',
+  },
+};
+
 function preparazione(id, t) {
+  if (PREP_SPECIFICA[id]) return PREP_SPECIFICA[id][t.lang];
   if (DIGIUNO.includes(id)) return t.prepFasting;
   if (VESCICA_PIENA.includes(id)) return t.prepBladder;
   return t.prepNone;
