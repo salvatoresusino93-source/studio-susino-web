@@ -6,6 +6,37 @@ Quando decidi su una proposta o un "Da verificare", spunta la casella e aggiungi
 
 <!-- NUOVE VOCI SOTTO QUESTA RIGA -->
 
+## 2026-09-28 — Sessione periodica (3)
+
+**Fonte dati:** audit automatico (nessun testo Search Console in questa sessione)
+
+### Problemi trovati
+- Nessun problema nuovo né regressione: audit tecnico completo (canonical, hreflang, sitemap, robots, noindex, link interni, title/description, JSON-LD, immagini, html-validate, redirect live) risultato pulito.
+- Ancora aperti (invariati dalle voci precedenti): certificato TLS mancante per `www.studiosusino.it` (fuori dal repo); secret del workflow settimanale da configurare se non ancora fatto; 16 proposte stratega (8 del 27/09 + 8 di questa sessione) ancora da approvare/scartare; preparazione ecografia renale da controllare su RefertEco (voce del 2026-09-30).
+- Nota minore non bloccante: `images/hero-studio.jpg` (senza `-v2`) non risulta più referenziato in nessun HTML — file orfano, nessun impatto SEO, solo pulizia repository eventuale.
+
+### Modifiche fatte
+- Correzioni tecniche: nessuna (l'auditor non ha trovato interventi meccanici da applicare in questa sessione); sitemap rigenerata per sicurezza dopo le modifiche di contenuto, nessuna differenza (63 URL, invariata).
+- Contenuti: `ecografia-polso-mano.html` (+ EN) — arricchiti `perche`/`svolgimento`/`cosaControlla` in `js/esami-paziente.js`/`-en.js` (tendini flessori/estensori e guaina, nervo mediano al tunnel carpale spesso bilaterale, tendinite di de Quervain, cisti tendinea/ganglio, dito a scatto, dolore alle piccole articolazioni, valutazione dopo trauma al polso); aggiunte 3 FAQ specifiche per lingua in `faqExtra` (non ancora visibili: `verificata: false`, in attesa di approvazione). Rigenerato con `node scripts/genera-pagine-esami.js`; `html-validate` pulito su entrambe le pagine.
+
+### Da verificare per il medico
+- [ ] `js/esami-paziente.js`/`-en.js` sopra `polso-mano.perche`: nuove indicazioni aggiunte al testo precedente — tendinite di de Quervain, cisti tendinea (ganglio), dito a scatto, dolore alle piccole articolazioni di polso e dita — da confermare come indicazioni appropriate per l'ecografia di polso e mano in questo studio.
+- [ ] `js/esami-paziente.js`/`-en.js` sopra `polso-mano.cosaControlla`: aggiunta tra le strutture controllate la ricerca di eventuali cisti tendinee (gangli); confermare che rientra nell'esame di routine.
+- [ ] 3 nuove FAQ su `polso-mano` (IT+EN) in `js/esami-paziente.js`/`-en.js`: cisti tendinea/ganglio del polso, dito a scatto, tendinite di de Quervain — impostare `verificata: true` dopo revisione e rigenerare con `node scripts/genera-pagine-esami.js`.
+- [ ] Correzioni non sicure proposte dall'auditor: nessuna in questa sessione oltre a quelle già aperte (certificato TLS `www.studiosusino.it`, fuori dal repo); file immagine orfano `images/hero-studio.jpg` (eventuale pulizia, nessun impatto SEO).
+- [ ] Proposte dello stratega da approvare o scartare (nuove, 2026-09-28; le 8 proposte del 27/09 restano aperte a parte):
+  1. FAQ "il medico mi ha chiesto l'ecografia prima della visita specialistica (urologica, vascolare): quando la prenoto e cosa porto?" su `ecografia-vescico-prostatica.html`/`ecografia-apparato-urinario.html` (+EN).
+  2. FAQ "posso prenotare io per un genitore anziano che non usa internet/smartphone?" su `prenota.html` (+EN).
+  3. FAQ "serve il CUP o l'impegnativa rossa del SSN?" (chiarire che il servizio è privato) su `prenota.html`/`tariffe.html` (+EN).
+  4. Checklist "cosa portare il giorno dell'esame" su `prenota.html` (+EN).
+  5. Paragrafo su come arrivare senza auto (autobus) su `ecografie-modica-ispica-scicli.html`.
+  6. Aggiungere Rosolini e Pachino all'`areaServed` del JSON-LD `LocalBusiness` in `index.html`/`index-en.html`.
+  7. FAQ "come e quando posso disdire o spostare l'appuntamento?" su `prenota.html` (+EN).
+  8. Link interno a `ecografie-modica-ispica-scicli.html` da `index.html`/`ecografie.html` o dal footer, oggi non raggiungibile da lì.
+
+### Pagine lavorate
+- ecografia-polso-mano.html, ecografia-polso-mano-en.html
+
 ## 2026-09-30 — Ecografia renale a digiuno, approvazione testi rene e anca
 
 ### Modifiche fatte

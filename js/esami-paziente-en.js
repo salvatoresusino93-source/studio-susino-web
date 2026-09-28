@@ -379,18 +379,56 @@ window.ESAMI_PAZIENTE = {
   },
   'polso-mano': {
     sintesi: 'A check of the tendons, nerves and joints of the wrist and hand.',
+    /* DA VERIFICARE: nuove indicazioni aggiunte rispetto al testo precedente —
+       tendinite di de Quervain, cisti tendinea (ganglio), dito a scatto, dolore
+       alle piccole articolazioni di polso e dita — da confermare come indicazioni
+       appropriate per l’ecografia di polso e mano in questo studio. */
     perche:
-      'Useful for tingling and numbness in the fingers (suspected carpal tunnel), tendon pain or after trauma.',
+      'Useful for tingling or numbness in the fingers, when carpal tunnel syndrome is suspected. ' +
+      'It is also useful for pain or swelling along the tendons of the wrist and hand, for example in De Quervain’s tenosynovitis, on the thumb side of the wrist. ' +
+      'Other reasons include a lump on the back of the wrist, often a tendon cyst (called a ganglion), and a finger that gets stuck bent (trigger finger). ' +
+      'It is also done for pain in the small finger joints or ongoing pain after a wrist injury.',
     svolgimento:
-      'Hand and wrist resting, gel on the skin. Sometimes you bend or straighten your fingers.',
+      'You rest your hand and wrist on the couch, on a small support cushion. I put gel on the skin and move the probe over the area that hurts. ' +
+      'Sometimes I ask you to bend or straighten your fingers, or move your thumb: seeing the tendons move helps assess them better. ' +
+      'If carpal tunnel syndrome is suspected, I often examine both wrists.',
+    /* DA VERIFICARE: aggiunta tra le strutture controllate la ricerca di eventuali
+       cisti tendinee (gangli); confermare che rientra nell’esame di routine. */
     cosaControlla:
-      'We look at the tendons, the median nerve at the carpal tunnel, and the bursae and joints of the wrist and hand.',
+      'We look at the flexor tendons, on the palm side, and the extensor tendons, on the back of the hand: their structure and the sheath that surrounds them (the lining that lets them glide). ' +
+      'We check the median nerve where it enters the carpal tunnel, at the wrist. ' +
+      'We assess the small joints of the wrist and fingers, the bursae (small fluid-filled sacs that reduce friction) and any tendon cysts. ' +
+      'After an injury, we also look at the tendons and ligaments near the painful area.',
     faqExtra: [
       {
         q: "Is it useful for carpal tunnel syndrome?",
         a:
           "Yes. The median nerve is assessed at the entrance of the carpal tunnel, at the wrist, by measuring its cross-sectional area: an enlarged nerve is one of the signs of the syndrome. Ultrasound complements, but does not replace, nerve conduction studies, which your doctor may request.",
         verificata: true,
+      },
+      /* DA VERIFICARE: nuova FAQ sulla cisti tendinea (ganglio) del polso, da
+         confermare nei contenuti clinici prima della pubblicazione. */
+      {
+        q: "I have a lump on the back of my wrist: what is it?",
+        a:
+          "It is often a tendon cyst, also called a ganglion: a small fluid-filled sac that forms near a tendon or a joint. Ultrasound tells it apart from other causes of swelling, such as bursitis, and measures its size.",
+        verificata: false,
+      },
+      /* DA VERIFICARE: nuova FAQ sul dito a scatto, da confermare nei contenuti
+         clinici prima della pubblicazione. */
+      {
+        q: "One of my fingers gets stuck bent: could it be trigger finger?",
+        a:
+          "It could be. In trigger finger, the flexor tendon has trouble gliding through its sheath, often because of thickening near the base of the finger. Ultrasound shows the tendon and the pulley (the ring that holds it close to the bone) at that point.",
+        verificata: false,
+      },
+      /* DA VERIFICARE: nuova FAQ sulla tendinite di de Quervain, da confermare
+         nei contenuti clinici prima della pubblicazione. */
+      {
+        q: "I have pain at the base of my thumb, near the wrist: could it be De Quervain’s tenosynovitis?",
+        a:
+          "It is one of the possible causes. In De Quervain’s tenosynovitis, the tendons that move the thumb become inflamed, where they pass on the thumb side of the wrist. Ultrasound assesses the thickness of the sheath and whether there is fluid around the tendons.",
+        verificata: false,
       },
     ],
   },
