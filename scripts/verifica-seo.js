@@ -68,6 +68,14 @@ for (const [f, p] of Object.entries(pagine)) {
   }
 }
 
+// Parita' IT/EN: la pagina inglese ha lo stesso numero di FAQ di quella italiana
+for (const f of Object.keys(pagine).filter((f) => !f.endsWith('-en.html'))) {
+  const en = f === 'index.html' ? 'index-en.html' : f.replace('.html', '-en.html');
+  if (!pagine[en]) continue;
+  const conta = (x) => (pagine[x].html.match(/<summary>/g) || []).length;
+  if (conta(f) !== conta(en)) errori.push(`${f}: ${conta(f)} FAQ in italiano, ${conta(en)} in inglese (${en})`);
+}
+
 const sitemap = [...fs.readFileSync(path.join(ROOT, 'sitemap.xml'), 'utf8').matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
 const indicizzabili = Object.keys(pagine).filter((f) => !pagine[f].noindex).map(url);
 for (const u of sitemap) if (!indicizzabili.includes(u)) errori.push(`sitemap: ${u} non esiste o e' noindex`);

@@ -16,6 +16,7 @@
 const fs = require('fs');
 const path = require('path');
 const { faqPerId } = require('./faq-gruppi');
+const { faqPratiche } = require('./faq-pratiche');
 
 const ROOT = path.join(__dirname, '..');
 
@@ -38,6 +39,18 @@ const SOSTITUZIONI = {
   'ecocolordoppler-arti-inferiori.html': { "Serve l'impegnativa del medico?": 'ripetere' },
   'ecocolordoppler-arti-inferiori-en.html': { "Do I need a doctor's referral?": 'ripetere' },
 };
+
+/* Domande pratiche (scripts/faq-pratiche.js) in coda alle FAQ delle pagine
+   esame scritte a mano: pagina -> [gruppo, id esame] */
+const PRATICHE = {
+  'ecografia-tiroide': ['tiroide-e-collo', 'tiroide'],
+  'ecografia-addome': ['addome', 'addome-completo'],
+  'ecografia-muscolo-scheletrica': ['muscolo-scheletrico', 'muscolo-scheletrica'],
+  'ecocolordoppler-carotidi': ['doppler', 'doppler-tsa'],
+  'ecocolordoppler-arti-inferiori': ['doppler', 'doppler-arti-inferiori'],
+};
+const INIZIO_PRATICHE = '<!-- FAQ PRATICHE (scripts/faq-pratiche.js) -->';
+const FINE_PRATICHE = '<!-- /FAQ PRATICHE -->';
 
 /* Pagine il cui FAQPage si ricostruisce dalle FAQ visibili */
 const PAGINE_FAQ = Object.keys(SOSTITUZIONI).concat([
@@ -94,6 +107,25 @@ for (const nome of PAGINE_FAQ) {
         ? `${ind}<details>\n${ind}  <summary>${esc(f.q)}</summary>\n${ind}  <p>${esc(f.a)}</p>\n${ind}</details>`
         : `${ind}${segnaposto}`
     );
+  }
+
+  const base = nome.replace(/(-en)?\.html$/, '');
+  if (PRATICHE[base]) {
+    const [gruppo, id] = PRATICHE[base];
+    const voci = faqPratiche(gruppo, id, lingua)
+      .map((f) => `          <details>\n            <summary>${esc(f.q)}</summary>\n            <p>${esc(f.a)}</p>\n          </details>\n`)
+      .join('');
+    const blocco = `          ${INIZIO_PRATICHE}\n${voci}          ${FINE_PRATICHE}\n`;
+    const reBlocco = new RegExp(' *' + reEsc(INIZIO_PRATICHE) + '[\\s\\S]*?' + reEsc(FINE_PRATICHE) + '\\n');
+    if (reBlocco.test(html)) {
+      html = html.replace(reBlocco, blocco);
+    } else {
+      // In fondo al contenitore delle FAQ, prima della sua chiusura
+      const i = html.indexOf('<div class="faq">');
+      const j = html.indexOf('        </div>', i);
+      if (i < 0 || j < 0) throw new Error('Contenitore FAQ non trovato in ' + nome);
+      html = html.slice(0, j) + blocco + html.slice(j);
+    }
   }
 
   const faq = [...html.matchAll(/<details>\s*<summary>([\s\S]*?)<\/summary>([\s\S]*?)<\/details>/g)].map(

@@ -30,6 +30,7 @@ const ONORARIO = {
 /* Mappa id -> nome file, condivisa con generate-sitemap.js */
 const { SLUG, GIA_ESISTENTI, CORRELATI_EXTRA } = require('./esami-mappa');
 const { faqGruppo } = require('./faq-gruppi');
+const { faqPratiche } = require('./faq-pratiche');
 
 /* Preparazione richiesta, per esame */
 const DIGIUNO = ['addome-completo', 'addome-superiore', 'doppler-aorta', 'doppler-arterie-renali'];
@@ -251,7 +252,9 @@ function paginaEsame(esame, info, t, tuttiEsami, isEN) {
       stessoGruppo.findIndex((e) => e.id === esame.id),
       faqEsame.length >= 3 ? 2 : 3,
       t.lang
-    )
+    ),
+    // In coda le domande pratiche (dolore, durata, creme, controindicazioni, dopo)
+    faqPratiche(gruppo, esame.id, t.lang)
   );
 
   // Prima i correlati scelti a mano fra categorie diverse, poi quelli della

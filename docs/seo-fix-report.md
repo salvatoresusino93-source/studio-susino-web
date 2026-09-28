@@ -1,5 +1,61 @@
 # Report interventi SEO — studiosusino.it
 
+## Aggiornamento 29 settembre 2026 — FAQ specifiche per 13 esami, parità IT/EN
+
+Branch `seo/faq-specifiche-esami`, pubblicato tramite Pull Request (non su `main` direttamente).
+
+### FAQ specifiche
+- **30 nuove FAQ** (IT + EN) come `faqExtra` in `js/esami-paziente.js` / `js/esami-paziente-en.js` per gli esami che non ne avevano: gomito, anca, polso-mano, parti molli, collo, linfonodi, renale, vescico-prostatica, addome superiore, addome inferiore, ecocolordoppler aorta, arterie renali, arti superiori.
+- Ogni risposta riformula informazioni già presenti nella pagina dell'esame (descrizione, "perché si fa", "come si svolge", "cosa controllo"); nessun dato numerico o clinico nuovo.
+- Ogni nuova FAQ ha `verificata: false` e un commento `/* DA VERIFICARE */` nel file dati. Dopo il merge della PR #9 **le FAQ non verificate non compaiono nelle pagine**: vengono pubblicate solo quando il medico mette `verificata: true` e si rilanciano i generatori.
+- Revisione del medico (29/09): tolte "Perché a volte mi fa girare sul fianco?" (renale) e "Devo indicare io dove si trova la tumefazione?" (parti molli); aggiunte 3 FAQ sulla spalla (calcificazioni, borsite subacromion-deltoidea, lesioni della cuffia); tolte poi "Perché mi chiede di piegare le dita?" (polso-mano) e, tra le FAQ di gruppo, "Perché a volte mi chiede di trattenere il respiro o di girarmi sul fianco?" (addome). Totale: 30 FAQ specifiche nuove e 21 FAQ di gruppo, IT + EN.
+
+### Terminologia rivista (29/09, su richiesta del medico)
+Le 30 FAQ sono state riscritte con termini medici corretti, spiegati tra parentesi la prima volta, confrontandoli con letteratura e con siti sanitari italiani (Policlinico Gemelli, Humanitas, Auxologico, SIECVI, SIUMB). Correzioni sostanziali rispetto alla prima versione:
+- vescico-prostatica: con vescica poco distesa l'attesa è di solito 30–60 minuti o un nuovo appuntamento, non "qualche minuto";
+- renale: i calcoli di pochi millimetri possono sfuggire e quelli dell'uretere raramente si vedono direttamente (segno indiretto: idronefrosi); reni "retroperitoneali", decubito laterale/prono, scansioni intercostali;
+- anca: sindrome dolorosa del grande trocantere, più spesso tendinopatia del gluteo medio/minimo che borsite;
+- gomito: tendine comune degli estensori (epicondilo) e dei flessori-pronatori (epitroclea);
+- addome inferiore: nelle infezioni ricorrenti si cercano idronefrosi, calcoli, residuo post-minzionale elevato, diverticoli; l'esame non serve in tutti i casi.
+
+### Approvazione del medico (29/09)
+Tutte le 51 FAQ rimaste (30 specifiche + 21 di gruppo) sono state approvate e hanno `verificata: true`: compaiono nelle pagine dopo il merge della PR #8. Similarità massima tra pagine esame con le FAQ pubblicate: 35%, nessuna coppia sopra il 40%.
+
+Confronto con siti simili (Santagostino, San Raffaele, Humanitas, centri diagnostici): terminologia e lunghezza delle risposte allineate. Tipi di domanda presenti altrove e ancora assenti qui, da decidere con il medico: dolore/fastidio, durata in minuti per esame, creme e gioielli, controindicazioni e gravidanza, ritorno alle attività.
+
+### Domande pratiche (29/09, decise dal medico)
+- `scripts/faq-pratiche.js`: su ogni pagina esame "Fa male?", "Quanto dura?" e una domanda su creme/abbigliamento.
+- **"Fa male?": una sola risposta standard, uguale per tutti gli esami** (testo del medico). Non viene aggiunta dove la pagina ha già una domanda sul dolore: tiroide, addome completo, muscolo-scheletrica, carotidi, arti inferiori (pagine scritte a mano) e anca neonatale.
+- **Durate diverse per esame**, dalle medie dei siti di strutture italiane, valori scelti dal medico: addome completo 15–30 (di solito 20); addome superiore, inferiore, renale, apparato urinario, tiroide, collo 15–20; vescico-prostatica 10–15; scrotale 10–20; linfonodi 15–20 (fino a 30); muscolo-scheletrico 15–20 (fino a 30 se complesso); anca neonatale 10–15; Doppler carotidi 10–20, aorta 15–20, arterie renali 20–30, arti superiori 15–20, arti inferiori 20–30. Allineati anche i testi già presenti (IT/EN) e la FAQ di Prenota ("tra 10 e 30 minuti, vedi la pagina dell'esame"). Per il collo, non indicato, si usa il valore della tiroide.
+- Creme/abbigliamento: testi per esame o gruppo. Controindicazioni e "dopo l'esame": una volta sola su Prenota.
+- Somiglianza massima tra pagine esame: **39%**, nessuna coppia sopra il 40%.
+
+### Parità IT/EN su prenota e tariffe
+Le due FAQ mancanti in inglese non erano state tolte di proposito: erano state aggiunte solo in italiano nel commit `d77e8d3`.
+- `prenota-en.html`: aggiunta la FAQ "How much does the scan cost?" e la sezione "How much it costs". La sezione italiana è già un riassunto di una frase con link a `tariffe.html`, non una copia: in inglese è lo stesso riassunto con link a `tariffe-en.html`.
+- `tariffe-en.html`: aggiunta la FAQ "Can I pay online and cancel?".
+- FAQPage ricostruito dalle FAQ visibili: ora 5/5 (prenota) e 4/4 (tariffe).
+- `verifica-seo.js` controlla ora anche che ogni pagina italiana e la sua versione inglese abbiano lo stesso numero di FAQ.
+
+### Similarità tra pagine esame (frasi di 5 parole in comune, stessa lingua)
+*Valori misurati con le FAQ visibili: si applicheranno quando le FAQ saranno approvate e pubblicate.*
+| | Prima (main) | Dopo |
+|---|---|---|
+| Massimo | 45% | **36%** |
+| Coppie ≥ 50% | 0 | 0 |
+| Coppie ≥ 40% | 12 | **0** |
+| Coppie ≥ 35% | 19 | 2 |
+
+Le coppie più simili rimaste: ecocolordoppler aorta ↔ arterie renali (36% IT, 35% EN: stessa preparazione a digiuno, stessa FAQ di gruppo sul digiuno, modello comune della pagina) e polso-mano ↔ caviglia-piede EN (34%).
+
+### Da verificare per il medico
+- [ ] 30 FAQ specifiche nuove (elenco per esame nella descrizione della PR).
+- [ ] Testi EN aggiunti su prenota e tariffe (riprendono i testi italiani esistenti).
+- [ ] Restano da rivedere anche le 22 FAQ di gruppo della sessione precedente.
+
+---
+
+
 ## Aggiornamento 28 settembre 2026 — title, contenuti sottili, FAQ duplicate
 
 ### Title e meta description
