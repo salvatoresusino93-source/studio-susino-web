@@ -59,6 +59,37 @@ Quando decidi su una proposta o un "Da verificare", spunta la casella e aggiungi
 - [ ] Prenota e tariffe: una FAQ in meno nella versione EN (preesistente).
 - [ ] FAQ specifiche (`faqExtra`) per gli esami che non le hanno ancora (elenco nel report).
 
+## 2026-09-27 — Sessione periodica (2)
+
+**Fonte dati:** audit automatico (nessun testo Search Console in questa sessione)
+
+### Problemi trovati
+- Nessun problema nuovo né regressione: audit tecnico completo (canonical, hreflang, sitemap, robots, noindex, link interni, title/description, JSON-LD, immagini, html-validate, redirect) risultato pulito.
+- Ancora aperti (invariati dalle voci precedenti): certificato TLS mancante per `www.studiosusino.it` (fuori dal repo); 3 FAQ su `ecografia-renale` e 22 FAQ di gruppo in attesa di `verificata: true`; traduzioni EN mancanti per alcune FAQ specifiche; `faqExtra` mancante per diversi esami; `prenota`/`tariffe` con una FAQ in meno in EN; secret del workflow settimanale da configurare; 8 proposte stratega del 27/09 ancora da approvare/scartare.
+
+### Modifiche fatte
+- Correzioni tecniche: nessuna (l'auditor non ha trovato interventi meccanici da applicare in questa sessione).
+- Contenuti: `ecografia-anca.html` (+ EN) — arricchiti `perche`/`svolgimento`/`cosaControlla` in `js/esami-paziente.js`/`-en.js` per l'anca adulta (tendinopatia glutei/borsite trocanterica, ileopsoas/adduttori, anca a scatto, sport, controllo protesi d'anca, limiti vs radiografia); aggiunte 4 FAQ specifiche per lingua in `faqExtra` (non ancora visibili: `verificata: false`, in attesa di approvazione). Rigenerato con `node scripts/genera-pagine-esami.js` (aggiornati anche `ecografie.html`/`ecografie-en.html`).
+
+### Da verificare per il medico
+- [ ] `js/esami-paziente.js`/`-en.js` sopra `anca.perche`: elenco di quadri clinici (tendinopatia dei glutei, borsite trocanterica, tendinopatia di ileopsoas e adduttori, anca a scatto, sport come corsa e calcio, controllo dei tessuti intorno a una protesi d'anca) e indicazione che per l'artrosi si preferisce la radiografia.
+- [ ] `js/esami-paziente.js`/`-en.js` sopra `anca.svolgimento`: descrizione della posizione (fianco o pancia in giù) e della manovra dinamica (muovere la gamba) per lo studio dell'anca a scatto.
+- [ ] `js/esami-paziente.js`/`-en.js` sopra `anca.cosaControlla`: elenco esplicito delle strutture valutate (glutei, ileopsoas, adduttori, eventuale liquido articolare, tessuti intorno a una protesi) e limite dell'ecografia rispetto a osso e cartilagine.
+- [ ] 4 nuove FAQ su `anca` (IT+EN) in `js/esami-paziente.js`/`-en.js`: differenza da anca neonatale, anca a scatto, ecografia con protesi d'anca, limiti su artrosi — impostare `verificata: true` dopo revisione e rigenerare con `node scripts/genera-pagine-esami.js`.
+- [ ] Correzioni non sicure proposte dall'auditor: nessuna in questa sessione oltre a quelle già aperte (certificato TLS `www.studiosusino.it`, fuori dal repo).
+- [ ] Proposte dello stratega da approvare o scartare:
+  1. FAQ generali "differenza ecografia/ecocolordoppler" sulla pagina hub `ecografie.html`/-en.
+  2. FAQ "devo sospendere gli anticoagulanti?" su tutte le pagine ecocolordoppler (+EN).
+  3. FAQ di sicurezza su `ecografia-scrotale-testicolare.html` (+EN): dolore acuto al testicolo, indirizzare al pronto soccorso e non alla prenotazione online.
+  4. FAQ pratica "cosa indossare/togliere prima dell'esame" su pagine muscolo-scheletriche, tiroide, collo e su `prenota.html` (+EN).
+  5. FAQ/sezione su `ecografia-parti-molli.html` (+EN) per la query "ecografia ernia inguinale" — verificare prima con il medico se l'esame è offerto in questa forma.
+  6. FAQ su `ecografia-anca-neonatale.html` (+EN): tempistica del controllo rispetto alla nascita e necessità della richiesta del pediatra.
+  7. Arricchire `ecografie-modica-ispica-scicli.html` con paragrafi dedicati a Rosolini e Pachino (oggi solo citati di sfuggita).
+  8. FAQ "come riconosco l'ingresso" su `contatti.html`/`studio.html` (+EN), essendo lo studio dentro Arcobaleno Dentisti.
+
+### Pagine lavorate
+- ecografia-anca.html, ecografia-anca-en.html
+
 ## 2026-09-27 — Sessione periodica
 
 **Fonte dati:** audit automatico (nessun testo Search Console in questa sessione)

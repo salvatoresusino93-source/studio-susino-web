@@ -286,13 +286,21 @@ window.ESAMI_PAZIENTE = {
     ],
   },
   anca: {
-    sintesi: 'A check of the tendons and soft-tissue structures around the hip.',
+    sintesi: 'A check of the tendons and soft-tissue structures around the hip, in adults.',
+    /* DA VERIFICARE: list of clinical scenarios (gluteal tendinopathy, trochanteric bursitis,
+       iliopsoas/adductor tendinopathy, snapping hip, sports such as running and football, checking
+       the tissue around a hip replacement) and the note that X-ray is preferred for arthritis. */
     perche:
-      'Useful for hip or groin pain, inflammation on the side (trochanter) or discomfort after trauma.',
+      'Your doctor requests it for pain on the side of the hip, often linked to the gluteal tendons or the trochanteric bursa, or for groin pain linked to the deeper tendons (iliopsoas or adductors). It is also useful if you feel a snap or click when walking, after a trauma, or for discomfort that started with sport, for example running or football. It is also used to check the soft tissue around a hip replacement already in place. It is not the right exam to study the bone or the cartilage of the joint: for hip arthritis your doctor will more often use an X-ray.',
+    /* DA VERIFICARE: description of the position (side or face down) and the dynamic manoeuvre
+       (moving the leg) used to study a snapping hip. */
     svolgimento:
-      'Gel on the groin, the side or both, depending on the pain. You move the hip if needed.',
+      'You lie on the couch. I apply gel to the groin, the side of the hip or both, depending on where it hurts: sometimes I ask you to turn on your side or lie face down, so I can see the back of the hip well too. If a snapping hip is suspected, I ask you to move your leg while I watch the screen, to see how the tendon behaves. The scan is painless and usually takes 15–20 minutes.',
+    /* DA VERIFICARE: explicit list of the structures assessed (gluteal, iliopsoas, adductor
+       tendons, any joint fluid, tissue around a hip replacement) and the limit of ultrasound
+       compared with bone and cartilage. */
     cosaControlla:
-      'We assess the hip tendons, trochanteric bursae and the soft-tissue structures around the hip.',
+      'We assess the gluteal tendons and the trochanteric bursa on the side, the iliopsoas and adductor tendons in the groin, and any fluid in the hip joint. If you have a hip replacement, we also check the soft tissue around the implant. We cannot see the bone in depth or the joint cartilage well: X-ray or MRI remain more suitable for those.',
     faqExtra: [
       {
         q: "I have pain on the side of my hip: is ultrasound useful?",
@@ -311,6 +319,24 @@ window.ESAMI_PAZIENTE = {
         a:
           "Sometimes, yes. As well as scans at rest, a dynamic assessment, during movement of the hip, may be needed to see how the tendons glide. The probe is placed on the groin, on the side of the hip or both, depending on where the pain is.",
         verificata: true,
+      },
+      {
+        q: 'I have pain that turns into a snap when I walk: can ultrasound see it?',
+        a:
+          'Often yes. What is called a "snapping hip" is often linked to a tendon, for example the iliopsoas or the band that passes over the trochanter, sliding abnormally over the bone. By having you move your leg during the scan, I can sometimes see the actual movement that causes the snap.',
+        verificata: false,
+      },
+      {
+        q: 'I have a hip replacement: can I still have an ultrasound?',
+        a:
+          'Yes. Ultrasound does not use radiation and can check the tendons and soft tissue around the prosthesis, for example if a fluid collection is suspected. The metal of the implant does prevent a deep view of the part in contact with the bone: that needs a different kind of check, as indicated by your orthopaedic surgeon.',
+        verificata: false,
+      },
+      {
+        q: 'Can ultrasound see hip arthritis?',
+        a:
+          'It is not the best exam for that. Arthritis mainly involves the bone and cartilage of the joint, which are better seen with an X-ray. Ultrasound is instead useful for the tendons and soft tissue around the hip, and for any fluid in the joint.',
+        verificata: false,
       },
     ],
   },
