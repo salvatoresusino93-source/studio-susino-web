@@ -6,6 +6,16 @@ Quando decidi su una proposta o un "Da verificare", spunta la casella e aggiungi
 
 <!-- NUOVE VOCI SOTTO QUESTA RIGA -->
 
+## 2026-09-30 — Ecografia renale a digiuno, approvazione testi rene e anca
+
+### Modifiche fatte
+- Ecografia renale **a digiuno** (indicazione del medico): sezione "Serve preparazione?" con testo proprio (digiuno 6-8 ore, niente vescica piena), FAQ "Devo essere a digiuno? Serve la vescica piena?" riscritta; Prenota e Chi sono (IT/EN) ora elencano tutti gli esami a digiuno (addome superiore/completo, renale, ecocolordoppler aorta e arterie renali).
+- Approvati dal medico: testi descrittivi di ecografia renale (#11) e anca (#13), commenti DA VERIFICARE rimossi; FAQ renale "differenza con l'ecocolordoppler delle arterie renali" e FAQ anca "artrosi" ora visibili.
+- Da ora si lavora nella copia `~/Projects/studiosusino-it` (la cartella in Documenti è sincronizzata con iCloud e aveva danneggiato `.git`).
+
+### Da verificare per il medico
+- [ ] Preparazione dell'ecografia renale anche nella prenotazione online (RefertEco, repository separato): se lì è indicato "nessuna preparazione", va aggiornata.
+
 ## 2026-09-29 — Domande pratiche per esame e durate per esame
 
 ### Modifiche fatte
