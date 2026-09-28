@@ -321,16 +321,10 @@ window.ESAMI_PAZIENTE = {
         verificata: true,
       },
       {
-        q: 'Ho un dolore che si trasforma in uno scatto quando cammino: l’ecografia lo vede?',
-        a:
-          'Spesso sì. Quella che si chiama “anca a scatto” è spesso legata a un tendine, per esempio l’ileopsoas o la banda che passa sul trocantere, che scorre in modo anomalo sull’osso. Facendoti muovere la gamba durante l’esame, a volte riesco a vedere proprio il movimento che provoca lo scatto.',
-        verificata: false,
-      },
-      {
         q: 'Ho una protesi d’anca: posso comunque fare l’ecografia?',
         a:
-          'Sì. L’ecografia non usa radiazioni e può controllare i tendini e i tessuti molli intorno alla protesi, per esempio se sospetti una raccolta di liquido. Il metallo della protesi impedisce però di vedere in profondità la parte a contatto con l’osso: per quella serve un altro tipo di controllo, indicato dal tuo ortopedico.',
-        verificata: false,
+          "Sì. L’ecografia non usa radiazioni e permette di valutare tutto ciò che si trova sopra la protesi: tendini, muscoli, borse ed eventuali raccolte di liquido. La superficie metallica della protesi, come quella dell’osso, riflette gli ultrasuoni: per questo non si può vedere cosa c’è oltre, ma tutto ciò che sta più in superficie è visibile.",
+        verificata: true,
       },
       {
         q: 'L’ecografia vede l’artrosi dell’anca?',

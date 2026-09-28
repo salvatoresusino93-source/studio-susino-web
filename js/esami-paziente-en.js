@@ -321,16 +321,10 @@ window.ESAMI_PAZIENTE = {
         verificata: true,
       },
       {
-        q: 'I have pain that turns into a snap when I walk: can ultrasound see it?',
-        a:
-          'Often yes. What is called a "snapping hip" is often linked to a tendon, for example the iliopsoas or the band that passes over the trochanter, sliding abnormally over the bone. By having you move your leg during the scan, I can sometimes see the actual movement that causes the snap.',
-        verificata: false,
-      },
-      {
         q: 'I have a hip replacement: can I still have an ultrasound?',
         a:
-          'Yes. Ultrasound does not use radiation and can check the tendons and soft tissue around the prosthesis, for example if a fluid collection is suspected. The metal of the implant does prevent a deep view of the part in contact with the bone: that needs a different kind of check, as indicated by your orthopaedic surgeon.',
-        verificata: false,
+          "Yes. Ultrasound uses no radiation and can assess everything lying over the prosthesis: tendons, muscles, bursae and any fluid collections. The metal surface of the prosthesis, like bone, reflects the ultrasound beam, so what lies beyond it cannot be seen, but everything more superficial is visible.",
+        verificata: true,
       },
       {
         q: 'Can ultrasound see hip arthritis?',
