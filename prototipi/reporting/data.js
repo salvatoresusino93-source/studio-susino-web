@@ -19,6 +19,7 @@
  *     introBilaterale: "..."         (facoltativo: prima riga se si sceglie "bilaterale")
  *     organi: [ organo ],
  *     conclusioneNegativa: "..."     (usata solo se si attivano le conclusioni)
+ *     contesto: "tc-addome"          (facoltativo: contesto per le regole del linter; predefinito "metodica-id")
  *   }
  *   organo = {
  *     id, nome,

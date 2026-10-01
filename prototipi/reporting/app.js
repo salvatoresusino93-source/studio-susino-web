@@ -447,9 +447,14 @@
       .then(aggiornaReferto);
   }
 
-  /** Contesto per le regole del linter, es. "eco-addome" o "tc-addome" (solo se il distretto è uno). */
+  /**
+   * Contesto per le regole del linter, es. "eco-addome" o "tc-addome" (solo se il distretto è uno).
+   * Un distretto può indicarlo esplicitamente con `contesto` (es. addome acuto → "tc-addome").
+   */
   function contestoStile() {
-    return stato.distretti.length === 1 ? stato.metodica + '-' + stato.distretti[0].id : '';
+    if (stato.distretti.length !== 1) return '';
+    const d = trovaDistretto(stato.metodica, stato.distretti[0].id);
+    return (d && d.contesto) || stato.metodica + '-' + stato.distretti[0].id;
   }
 
   function disegnaAvvisiStile(avvisi) {

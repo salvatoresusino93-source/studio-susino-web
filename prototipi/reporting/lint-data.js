@@ -45,7 +45,7 @@ function controlla(dove, campo, contestoLinter) {
   controlla('frasi comuni › ' + sez + '/' + f.id, f.testo);
 }));
 METODICHE.forEach((m) => m.distretti.forEach((d) => {
-  const ctx = m.id + '-' + d.id;
+  const ctx = d.contesto || m.id + '-' + d.id;
   const base = m.nome + ' › ' + d.nome;
   controlla(base + ' › tecnica', d.tecnica, ctx);
   controlla(base + ' › intro', d.intro, ctx);
@@ -67,7 +67,7 @@ METODICHE.forEach((m) => m.distretti.forEach((d) => {
   if (d.tecnica) righe.push(it(d.tecnica));
   if (d.intro) righe.push(it(d.intro).replace('{lato}', 'destra'));
   d.organi.forEach((o) => { if (o.negativo && !o.soloSeNegativo) righe.push(it(o.negativo)); });
-  stile.controlla(righe.join('\n'), regole, { contesto: m.id + '-' + d.id })
+  stile.controlla(righe.join('\n'), regole, { contesto: d.contesto || m.id + '-' + d.id })
     .filter((a) => a.tipo === 'formula' || (a.tipo === 'ripetizione' && a.messaggio.startsWith('Frase ripetuta')))
     .forEach((a) => risultati.push({
       dove: m.nome + ' › ' + d.nome + ' › REFERTO NEGATIVO COMPOSTO (riga ' + a.riga + ')',
