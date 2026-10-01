@@ -251,6 +251,16 @@ textarea { width: 100%; min-height: 70px; resize: vertical; line-height: 1.4; }
 .avviso { margin: 10px 0 0; font-size: .8rem; color: var(--tenue); }
 .avviso a { color: var(--accento-scuro); }
 
+/* Controllo di stile */
+.referto .stile-avviso { text-decoration: underline wavy var(--positivo); text-underline-offset: 3px; cursor: help; }
+.stile { margin-top: 10px; font-size: .85rem; }
+.stile p { margin: 0; }
+.stile__titolo { font-weight: 600; color: var(--ok, #15803d); }
+.stile__titolo.attivo { color: var(--positivo); }
+.stile__nota { color: var(--tenue); }
+.stile__elenco { margin: 6px 0 0; padding-left: 18px; max-height: 180px; overflow-y: auto; color: var(--testo); }
+.stile__elenco li { margin-bottom: 2px; }
+
 /* ---------- Mobile ---------- */
 @media (max-width: 860px) {
   .testata { padding: 10px 16px; }
@@ -265,10 +275,11 @@ textarea { width: 100%; min-height: 70px; resize: vertical; line-height: 1.4; }
 /* ---------- Stampa: solo il referto ---------- */
 @media print {
   body { background: #fff; color: #000; }
-  .testata, .colonna-controlli, .barra, .azioni, .avviso { display: none !important; }
+  .testata, .colonna-controlli, .barra, .azioni, .avviso, .stile { display: none !important; }
   .layout { display: block; padding: 0; }
   .pannello { border: 0; box-shadow: none; padding: 0; }
   .referto { border: 0; background: none; max-height: none; overflow: visible; padding: 0; }
   .referto .r-pos { color: inherit; }
   .referto mark { background: none; }
+  .referto .stile-avviso { text-decoration: none; }
 }

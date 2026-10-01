@@ -43,6 +43,8 @@ e vai su <http://localhost:8000>.
 | `data.js` | libreria: metodiche, distretti, organi, frasi negative e reperti positivi |
 | `review.html`, `review.css`, `review.js` | strumento di revisione dei testi (vedi sotto) |
 | `review_export.py` | esportazione CSV da riga di comando |
+| `style/` | regole di stile e linter (vedi sotto) |
+| `lint-data.js` | linter su tutto `data.js` |
 
 ## Modificare o aggiungere testi
 
@@ -50,6 +52,32 @@ Tutto è in `data.js` (struttura spiegata in testa al file). Un organo ha una fr
 e un elenco di `reperti`; ogni reperto ha `etichetta`, `testo`, eventuale `conclusione`,
 `modo: "aggiunge"` se non deve togliere il negativo, `nuovo: true` se non viene dall'archivio.
 Dopo una modifica, la revisione segnala le righe cambiate rispetto a quanto già validato.
+
+## Controllo di stile (cartella `style/`)
+
+Modulo **indipendente** (nessuna dipendenza dal Refertario), riusabile tale e quale in RefertEco:
+
+| File | Contenuto |
+|---|---|
+| `style/stile-referto.md` | **unica fonte** delle regole di stile: sintassi, negatività, lessico, RM rachide, esempi «prima → dopo», e le sezioni «(linter)» (verbi vietati, termini vietati, regole di contesto, soglie) |
+| `style/linter.js` | linter: **segnala, non corregge**. Funziona in Node (`require`) e nel browser (`window.StileReferto`) |
+| `style/linter.test.js` | test: ogni esempio «prima» del file `.md` deve essere segnalato, ogni «dopo» no, più casi limite |
+
+Per cambiare le regole basta modificare `stile-referto.md` (anche aggiungere termini vietati o verbi).
+
+Cosa segnala: forme verbali finite, costruzioni con «si», termini vietati (con la forma corretta),
+«Assenza di» oltre la soglia, parole con la stessa radice nella stessa frase («maggiori dimensioni… la maggiore»),
+frasi identiche ripetute, stessa formula all'inizio di troppe frasi consecutive («Non… Non… Non…»),
+regole di contesto (es. versamento pleurico in TC addome).
+
+Nel Refertario il linter gira sul **referto composto finale**: le parti segnalate sono sottolineate
+nell'anteprima e l'elenco degli avvisi compare sotto il referto. Serve il server locale
+(`python3 -m http.server 8000`): aperta con doppio clic la pagina non può leggere il file `.md`.
+
+```bash
+node --test style/linter.test.js     # test del linter
+node lint-data.js                    # linter su tutte le frasi di data.js e sui referti negativi composti
+```
 
 ## Revisione dei testi clinici
 
@@ -81,8 +109,8 @@ e vai su <http://localhost:8000/review.html>.
    Il salvataggio nel browser si perde se cancelli i dati di navigazione: esporta il backup ogni tanto.
 
 Righe della tabella: una per distretto (titolo, intro, conclusione negativa), una per organo (frase negativa),
-una per reperto (frase positiva) e una per ogni frase comune. *Solo frasi nuove* mostra le frasi non presenti
-nel tuo archivio, da verificare per prime.
+una per reperto (frase positiva) e una per ogni frase comune. *Solo frasi da verificare* mostra le frasi non presenti
+nel tuo archivio (`nuovo: true`) e quelle riscritte nel nuovo stile (`riscritta: true`), da verificare per prime.
 
 ### Controlli automatici
 
@@ -93,7 +121,7 @@ nel tuo archivio, da verificare per prime.
 | errore | id duplicati (distretto, organo, reperto, frase) o mancanti; organo senza negativo né reperti |
 | errore | testo positivo identico al negativo; `modo` non valido |
 | errore | **testo modificato dopo la revisione**: una riga segnata OK/Da correggere il cui testo è poi cambiato in `data.js` (va ricontrollata) |
-| avviso | **frase nuova** (non dal tuo archivio), graffe `{…}` rimaste (tranne `{lato}`), lingue non dichiarate in `LINGUE` |
+| avviso | **frase nuova** (non dal tuo archivio) o **riscritta** nel nuovo stile, graffe `{…}` rimaste (tranne `{lato}`), lingue non dichiarate in `LINGUE` |
 
 ### Esportazione da riga di comando (per Excel)
 

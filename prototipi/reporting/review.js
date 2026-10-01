@@ -175,10 +175,12 @@
     else if (conteggi.get(oggetto.id) > 1) problemi.push({ livello: 'errore', testo: 'id ' + cosa + ' duplicato: ' + oggetto.id });
   }
 
-  /** Avviso per le frasi scritte da Claude e non presenti nell'archivio del medico. */
+  /** Avviso per le frasi da verificare: nuove (scritte da Claude) o riscritte nello stile telegrafico. */
   function controllaNuovo(problemi, oggetto) {
     if (oggetto && oggetto.nuovo) problemi.push({ livello: 'avviso', testo: 'frase nuova (non dal tuo archivio): verificare' });
+    if (oggetto && oggetto.riscritta) problemi.push({ livello: 'avviso', testo: 'frase riscritta nel nuovo stile: verificare' });
   }
+  const daVerificare = (o) => !!(o && (o.nuovo || o.riscritta));
 
   /** Trasforma METODICHE e FRASI_COMUNI in righe piatte (una per voce e lingua). */
   function costruisciRighe(metodiche, frasi, lingue) {
@@ -200,7 +202,7 @@
           aggiungi({
             tipo: 'frase', gruppoId: 'frasi-comuni', esameNome: 'Frasi comuni', repertoId: sezione + '/' + id, lingua,
             etichetta: testoIn(f && f.etichetta, lingua), negativo: null, positivo: testoIn(f && f.testo, lingua), conclusione: null,
-            nuovo: !!(f && f.nuovo),
+            nuovo: daVerificare(f),
             riferimento: { etichetta: testoIn(f && f.etichetta, 'it'), positivo: testoIn(f && f.testo, 'it') },
             problemi
           });
@@ -232,10 +234,11 @@
             problemi.push({ livello: 'avviso', testo: 'distretto con lati ma intro senza {lato}' });
           }
           controllaCampo(problemi, d && d.conclusioneNegativa, lingua, 'conclusione negativa', false);
+          controllaNuovo(problemi, d);
           aggiungi({
             tipo: 'distretto', gruppoId, esameNome, repertoId: ID_RIGA_DISTRETTO, lingua,
             etichetta: testoIn(d && d.titolo, lingua), negativo: intro, positivo: null,
-            conclusione: testoIn(d && d.conclusioneNegativa, lingua), nuovo: false,
+            conclusione: testoIn(d && d.conclusioneNegativa, lingua), nuovo: daVerificare(d),
             riferimento: { etichetta: testoIn(d && d.titolo, 'it'), conclusione: testoIn(d && d.conclusioneNegativa, 'it') },
             problemi
           });
@@ -253,10 +256,11 @@
             controllaCampo(problemi, o && o.nome, lingua, 'nome organo', true);
             if (o && o.negativo) controllaCampo(problemi, o.negativo, lingua, 'negativo', true);
             else if (!reperti.length) problemi.push({ livello: 'errore', testo: 'organo senza frase negativa né reperti' });
+            controllaNuovo(problemi, o);
             aggiungi({
               tipo: 'organo', gruppoId, esameNome, repertoId: idO, lingua,
               etichetta: testoIn(o && o.nome, lingua), negativo: (o && o.negativo) ? testoIn(o.negativo, lingua) : '',
-              positivo: null, conclusione: null, nuovo: false,
+              positivo: null, conclusione: null, nuovo: daVerificare(o),
               riferimento: { etichetta: testoIn(o && o.nome, 'it'), negativo: testoIn(o && o.negativo, 'it') },
               problemi
             });
@@ -281,7 +285,7 @@
               aggiungi({
                 tipo: 'reperto', gruppoId, esameNome, repertoId: idO + '/' + idR, lingua,
                 etichetta: testoIn(r && r.etichetta, lingua), negativo: null, positivo: pos,
-                conclusione: testoIn(r && r.conclusione, lingua), nuovo: !!(r && r.nuovo),
+                conclusione: testoIn(r && r.conclusione, lingua), nuovo: daVerificare(r),
                 riferimento: { etichetta: testoIn(r && r.etichetta, 'it'), positivo: testoIn(r && r.testo, 'it'), conclusione: testoIn(r && r.conclusione, 'it') },
                 problemi
               });

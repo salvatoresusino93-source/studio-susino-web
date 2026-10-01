@@ -375,28 +375,92 @@
     return righe;
   }
 
-  function refertoComeTesto() {
-    return componiRighe().map((r, i) => {
+  /**
+   * Testo finale del referto (quello che si copia) e posizione di ogni riga al suo interno,
+   * così l'anteprima e il controllo di stile lavorano sullo stesso testo.
+   */
+  function componiTesto() {
+    const righe = componiRighe();
+    let testo = '';
+    righe.forEach((r, i) => {
       // Riga vuota prima di ogni titolo (tranne il primo) e prima delle conclusioni
-      const spazio = i > 0 && (r.tipo === 'titolo' || r.tipo === 'sezione') ? '\n' : '';
-      return spazio + r.testo;
-    }).join('\n');
+      if (i > 0) testo += (r.tipo === 'titolo' || r.tipo === 'sezione') ? '\n\n' : '\n';
+      r.inizio = testo.length;
+      testo += r.testo;
+    });
+    return { testo, righe };
   }
 
-  /** Scrive il testo evidenziando i segnaposto ___ */
-  function conSegnaposto(nodo, testo) {
-    let ultimo = 0;
-    testo.replace(SEGNAPOSTO, (m, pos) => {
-      if (pos > ultimo) nodo.append(document.createTextNode(testo.slice(ultimo, pos)));
-      nodo.append(el('mark', m));
-      ultimo = pos + m.length;
-      return m;
+  function refertoComeTesto() {
+    return componiTesto().testo;
+  }
+
+  // ---------- Controllo di stile (style/linter.js + style/stile-referto.md) ----------
+
+  let regoleStile = null;
+  let statoStile = 'caricamento'; // 'caricamento' | 'pronto' | 'non-disponibile'
+
+  function caricaRegoleStile() {
+    if (typeof StileReferto === 'undefined') { statoStile = 'non-disponibile'; return; }
+    fetch('style/stile-referto.md')
+      .then((r) => (r.ok ? r.text() : Promise.reject(new Error(r.status))))
+      .then((md) => { regoleStile = StileReferto.leggiRegole(md); statoStile = 'pronto'; })
+      .catch(() => { statoStile = 'non-disponibile'; }) // es. pagina aperta come file://
+      .then(aggiornaReferto);
+  }
+
+  /** Contesto per le regole del linter, es. "eco-addome" o "tc-addome" (solo se il distretto è uno). */
+  function contestoStile() {
+    return stato.distretti.length === 1 ? stato.metodica + '-' + stato.distretti[0].id : '';
+  }
+
+  function disegnaAvvisiStile(avvisi) {
+    const box = $('stile');
+    box.textContent = '';
+    if (!stato.distretti.length) return;
+    if (statoStile !== 'pronto') {
+      box.append(el('p', statoStile === 'caricamento'
+        ? 'Controllo di stile in caricamento…'
+        : 'Controllo di stile non disponibile: avvia con «python3 -m http.server 8000» e apri http://localhost:8000.', 'stile__nota'));
+      return;
+    }
+    const titolo = el('p', null, 'stile__titolo' + (avvisi.length ? ' attivo' : ''));
+    titolo.textContent = avvisi.length ? 'Stile: ' + avvisi.length + (avvisi.length === 1 ? ' avviso' : ' avvisi') : 'Stile: nessun avviso';
+    box.append(titolo);
+    if (!avvisi.length) return;
+    const ul = el('ul', null, 'stile__elenco');
+    avvisi.forEach((a) => ul.append(el('li', 'Riga ' + a.riga + ' — ' + a.messaggio)));
+    box.append(ul);
+  }
+
+  /** Scrive una riga evidenziando i segnaposto ___ e le parti segnalate dal linter. */
+  function scriviRiga(nodo, riga, avvisi) {
+    const fineRiga = riga.inizio + riga.testo.length;
+    const zone = [];
+    riga.testo.replace(SEGNAPOSTO, (m, pos) => { zone.push({ a: pos, b: pos + m.length, tag: 'mark' }); return m; });
+    avvisi.forEach((av) => {
+      if (av.fine <= riga.inizio || av.inizio >= fineRiga) return;
+      zone.push({ a: Math.max(av.inizio, riga.inizio) - riga.inizio, b: Math.min(av.fine, fineRiga) - riga.inizio,
+        tag: 'span', classe: 'stile-avviso', titolo: av.messaggio });
     });
-    if (ultimo < testo.length) nodo.append(document.createTextNode(testo.slice(ultimo)));
+    zone.sort((x, y) => x.a - y.a || y.b - x.b);
+    let pos = 0;
+    zone.forEach((z) => {
+      if (z.a < pos) return; // zone sovrapposte: tiene la prima
+      if (z.a > pos) nodo.append(document.createTextNode(riga.testo.slice(pos, z.a)));
+      const n = el(z.tag, riga.testo.slice(z.a, z.b), z.classe);
+      if (z.titolo) n.title = z.titolo;
+      nodo.append(n);
+      pos = z.b;
+    });
+    if (pos < riga.testo.length) nodo.append(document.createTextNode(riga.testo.slice(pos)));
   }
 
   function aggiornaReferto() {
-    const righe = componiRighe();
+    const { testo, righe } = componiTesto();
+    // Il linter gira sul referto composto finale: intercetta anche ripetizioni tra frasi diverse
+    const avvisi = (statoStile === 'pronto' && testo) ? StileReferto.controlla(testo, regoleStile, { contesto: contestoStile() }) : [];
+
     referto.textContent = '';
     if (!stato.distretti.length) {
       referto.append(el('p', 'Il referto comparirà qui man mano che scegli distretti e reperti.', 'referto__vuoto'));
@@ -404,12 +468,13 @@
     let segnaposto = 0;
     righe.forEach((r) => {
       const p = el('p', null, 'r-' + r.tipo);
-      conSegnaposto(p, r.testo);
+      scriviRiga(p, r, avvisi);
       segnaposto += (r.testo.match(SEGNAPOSTO) || []).length;
       referto.append(p);
     });
     contaSegnaposto.textContent = segnaposto ? segnaposto + ' campi ___ da completare' : (righe.length ? 'Nessun campo da completare' : '');
     contaSegnaposto.classList.toggle('attivo', segnaposto > 0);
+    disegnaAvvisiStile(avvisi);
     salvaStato();
   }
 
@@ -462,4 +527,5 @@
 
   // ---------- Avvio ----------
   aggiornaTutto();
+  caricaRegoleStile();
 })();

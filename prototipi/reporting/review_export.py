@@ -267,8 +267,11 @@ def controlla_id(problemi, oggetto, conteggi, cosa):
 
 
 def controlla_nuovo(problemi, oggetto):
+    """Frasi da verificare: nuove (scritte da Claude) o riscritte nello stile telegrafico."""
     if oggetto.get("nuovo"):
         problemi.append(("avviso", "frase nuova (non dal tuo archivio): verificare"))
+    if oggetto.get("riscritta"):
+        problemi.append(("avviso", "frase riscritta nel nuovo stile: verificare"))
 
 
 def riga(gruppo, id_, lingua, etichetta, negativo, positivo, conclusione, problemi):
@@ -323,6 +326,7 @@ def costruisci_righe(metodiche, frasi, lingue):
                 if d.get("lati") and "{lato}" not in (d.get("intro") or ""):
                     problemi.append(("avviso", "distretto con lati ma intro senza {lato}"))
                 controlla_campo(problemi, d.get("conclusioneNegativa"), lingua, "conclusione negativa", False)
+                controlla_nuovo(problemi, d)
                 righe.append(riga(gruppo, ID_RIGA_DISTRETTO, lingua, testo_in(d.get("titolo"), lingua), intro, None,
                                   testo_in(d.get("conclusioneNegativa"), lingua), problemi))
 
@@ -340,6 +344,7 @@ def costruisci_righe(metodiche, frasi, lingue):
                         controlla_campo(problemi, o.get("negativo"), lingua, "negativo", True)
                     elif not reperti:
                         problemi.append(("errore", "organo senza frase negativa né reperti"))
+                    controlla_nuovo(problemi, o)
                     negativo = testo_in(o.get("negativo"), lingua) if o.get("negativo") else ""
                     righe.append(riga(gruppo, id_o, lingua, testo_in(o.get("nome"), lingua), negativo, None, None, problemi))
 
