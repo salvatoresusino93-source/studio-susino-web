@@ -38,23 +38,25 @@
  * Le metodiche con attiva: false compaiono come "in arrivo".
  */
 
-const LINGUE = { it: "Italiano" };
+const LINGUE = { it: "Italiano", en: "English", es: "Español" };
 
 /* Frasi comuni a tutti i distretti: in testa e in coda al referto */
 const FRASI_COMUNI = {
+  lingue: ["it", "en", "es"],
+  traduzioniDaVerificare: true, /* DA VERIFICARE: traduzioni EN/ES */
   premessa: [
-    { id: "quesito", etichetta: "Quesito clinico", testo: "Quesito clinico: ___." },
-    { id: "precedente", etichetta: "Confronto con esame precedente", riscritta: true, testo: "Presa visione del precedente esame del ___, eseguito presso altra Sede." },
-    { id: "controlato", etichetta: "In comparazione con il controlato", testo: "Esame eseguito in comparazione con il controlato." },
-    { id: "urgenza", etichetta: "Regime d'urgenza", testo: "Esame eseguito in regime d'urgenza." }
+    { id: "quesito", etichetta: "Quesito clinico", testo: { it: "Quesito clinico: ___.", en: "Clinical question: ___.", es: "Indicación clínica: ___." } },
+    { id: "precedente", etichetta: "Confronto con esame precedente", riscritta: true, testo: { it: "Presa visione del precedente esame del ___, eseguito presso altra Sede.", en: "Previous examination of ___, performed at another facility, reviewed.", es: "Revisado el estudio previo del ___, realizado en otro centro." } },
+    { id: "controlato", etichetta: "In comparazione con il controlato", testo: { it: "Esame eseguito in comparazione con il controlato.", en: "Examination performed with comparison to the contralateral side.", es: "Estudio realizado en comparación con el lado contralateral." } },
+    { id: "urgenza", etichetta: "Regime d'urgenza", testo: { it: "Esame eseguito in regime d'urgenza.", en: "Examination performed as an emergency.", es: "Estudio realizado con carácter urgente." } }
   ],
   chiusura: [
-    { id: "controllo", etichetta: "Controllo a distanza", riscritta: true, testo: "Consigliato controllo ecografico a distanza di ___ mesi." },
-    { id: "specialistica", etichetta: "Valutazione specialistica", testo: "Utile valutazione specialistica." },
-    { id: "laboratorio", etichetta: "Esami di laboratorio", testo: "Utile integrazione con esami laboratoristici e valutazione clinico-specialistica." },
-    { id: "persistere", etichetta: "Rivalutazione se persiste", testo: "Al persistere della sintomatologia utile rivalutazione clinico-strumentale." },
-    { id: "followup", etichetta: "Follow-up", riscritta: true, testo: "Indicato follow-up clinico-strumentale." },
-    { id: "approfondimento", etichetta: "Approfondimento TC/RM/RX", testo: "Utile approfondimento diagnostico con esame ___ (TC/RM/RX)." }
+    { id: "controllo", etichetta: "Controllo a distanza", riscritta: true, testo: { it: "Consigliato controllo ecografico a distanza di ___ mesi.", en: "Follow-up ultrasound recommended in ___ months.", es: "Control ecográfico recomendado en ___ meses." } },
+    { id: "specialistica", etichetta: "Valutazione specialistica", testo: { it: "Utile valutazione specialistica.", en: "Specialist assessment advised.", es: "Aconsejable valoración especializada." } },
+    { id: "laboratorio", etichetta: "Esami di laboratorio", testo: { it: "Utile integrazione con esami laboratoristici e valutazione clinico-specialistica.", en: "Correlation with laboratory tests and clinical-specialist assessment advised.", es: "Aconsejable completar con pruebas de laboratorio y valoración clínica especializada." } },
+    { id: "persistere", etichetta: "Rivalutazione se persiste", testo: { it: "Al persistere della sintomatologia utile rivalutazione clinico-strumentale.", en: "If symptoms persist, clinical and imaging reassessment advised.", es: "Si persisten los síntomas, aconsejable revaloración clínica y por imagen." } },
+    { id: "followup", etichetta: "Follow-up", riscritta: true, testo: { it: "Indicato follow-up clinico-strumentale.", en: "Clinical and imaging follow-up indicated.", es: "Indicado seguimiento clínico y por imagen." } },
+    { id: "approfondimento", etichetta: "Approfondimento TC/RM/RX", testo: { it: "Utile approfondimento diagnostico con esame ___ (TC/RM/RX).", en: "Further assessment with ___ (CT/MRI/X-ray) advised.", es: "Aconsejable completar el estudio con ___ (TC/RM/RX)." } }
   ]
 };
 
@@ -281,71 +283,76 @@ const METODICHE = [
         id: "tiroide",
         nome: "Tiroide",
         gruppo: "Collo",
-        titolo: "ECOGRAFIA DELLA TIROIDE",
+        titolo: { it: "ECOGRAFIA DELLA TIROIDE", en: "THYROID ULTRASOUND", es: "ECOGRAFÍA TIROIDEA" },
+        lingue: ["it", "en", "es"],
+        traduzioniDaVerificare: true, /* DA VERIFICARE: traduzioni EN/ES */
+        /* DA VERIFICARE: tecnica nuova, non presente nell'archivio */
+        tecnicaNuova: true,
+        tecnica: { it: "Esame eseguito con sonda lineare ad alta frequenza, con integrazione color-Doppler.", en: "Examination performed with a high-frequency linear probe, with colour Doppler.", es: "Estudio realizado con sonda lineal de alta frecuencia, con Doppler color." },
         organi: [
           {
             id: "dimensioni", nome: "Dimensioni",
-            negativo: "Tiroide in sede, di dimensioni ai limiti della norma (diametro a-p del lobo destro di ___ mm; diametro a-p del lobo sinistro di ___ mm; istmo non ispessito).",
+            negativo: { it: "Tiroide in sede, di dimensioni ai limiti della norma (diametro a-p del lobo destro di ___ mm; diametro a-p del lobo sinistro di ___ mm; istmo non ispessito).", en: "Thyroid in normal position, of size within normal limits (AP diameter of the right lobe ___ mm; AP diameter of the left lobe ___ mm; isthmus not thickened).", es: "Tiroides en posición normal, de tamaño dentro de los límites normales (diámetro AP del lóbulo derecho ___ mm; diámetro AP del lóbulo izquierdo ___ mm; istmo no engrosado)." },
             reperti: [
-              { id: "ingrandita", etichetta: "Ingrandita", testo: "Ghiandola tiroide ingrandita, con diametro AP del lobo destro di ___ mm e del lobo sinistro di ___ mm; margini della tiroide bozzuti.", conclusione: "Tiroide aumentata di volume." },
-              { id: "limiti-superiori", etichetta: "Ai limiti superiori", testo: "Tiroide in sede, di dimensioni nei limiti superiori, con diametro AP del lobo destro di ___ mm e del sinistro di ___ mm, con istmo non ispessito." },
-              { id: "lobo-dx", etichetta: "Ingrandimento di un lobo", riscritta: true, testo: "Tiroide in sede, con ingrandimento del lobo ___ (diametro AP massimo di ___ mm) e normali spessore e dimensioni di istmo e lobo controlaterale." },
-              { id: "intratoracica", etichetta: "Impegno intratoracico", testo: "Tiroide in sede, di dimensioni diffusamente aumentate su tutto l'ambito, solo parzialmente esplorabile per impegno intratoracico caudalmente.", conclusione: "Gozzo con impegno intratoracico." },
-              { id: "ridotta", etichetta: "Ridotta", testo: "Tiroide in sede, di dimensioni ridotte con diametro AP massimo di ___ mm a destra e ___ mm a sinistra." },
-              { id: "tiroidectomia", etichetta: "Esiti di tiroidectomia", testo: "In esiti di tiroidectomia ___ (totale/parziale) non lesioni espansive nelle logge tiroidee." }
+              { id: "ingrandita", etichetta: "Ingrandita", testo: { it: "Ghiandola tiroide ingrandita, con diametro AP del lobo destro di ___ mm e del lobo sinistro di ___ mm; margini della tiroide bozzuti.", en: "Enlarged thyroid gland, AP diameter of the right lobe ___ mm and of the left lobe ___ mm; lobulated thyroid margins.", es: "Glándula tiroides aumentada de tamaño, con diámetro AP del lóbulo derecho de ___ mm y del lóbulo izquierdo de ___ mm; contornos tiroideos abollonados." }, conclusione: { it: "Tiroide aumentata di volume.", en: "Enlarged thyroid.", es: "Tiroides aumentada de volumen." } },
+              { id: "limiti-superiori", etichetta: "Ai limiti superiori", testo: { it: "Tiroide in sede, di dimensioni nei limiti superiori, con diametro AP del lobo destro di ___ mm e del sinistro di ___ mm, con istmo non ispessito.", en: "Thyroid in normal position, of size at the upper limits of normal, AP diameter of the right lobe ___ mm and of the left ___ mm, isthmus not thickened.", es: "Tiroides en posición normal, de tamaño en el límite superior de la normalidad, con diámetro AP del lóbulo derecho de ___ mm y del izquierdo de ___ mm, istmo no engrosado." } },
+              { id: "lobo-dx", etichetta: "Ingrandimento di un lobo", riscritta: true, testo: { it: "Tiroide in sede, con ingrandimento del lobo ___ (diametro AP massimo di ___ mm) e normali spessore e dimensioni di istmo e lobo controlaterale.", en: "Thyroid in normal position, with enlargement of the ___ lobe (maximum AP diameter ___ mm) and normal thickness and size of the isthmus and contralateral lobe.", es: "Tiroides en posición normal, con aumento de tamaño del lóbulo ___ (diámetro AP máximo de ___ mm) y grosor y tamaño normales del istmo y del lóbulo contralateral." } },
+              { id: "intratoracica", etichetta: "Impegno intratoracico", testo: { it: "Tiroide in sede, di dimensioni diffusamente aumentate su tutto l'ambito, solo parzialmente esplorabile per impegno intratoracico caudalmente.", en: "Thyroid in normal position, diffusely enlarged throughout, only partially assessable owing to caudal intrathoracic extension.", es: "Tiroides en posición normal, difusamente aumentada de tamaño, solo parcialmente valorable por extensión intratorácica caudal." }, conclusione: { it: "Gozzo con impegno intratoracico.", en: "Goitre with intrathoracic extension.", es: "Bocio con extensión intratorácica." } },
+              { id: "ridotta", etichetta: "Ridotta", testo: { it: "Tiroide in sede, di dimensioni ridotte con diametro AP massimo di ___ mm a destra e ___ mm a sinistra.", en: "Thyroid in normal position, of reduced size, maximum AP diameter ___ mm on the right and ___ mm on the left.", es: "Tiroides en posición normal, de tamaño reducido, con diámetro AP máximo de ___ mm a la derecha y ___ mm a la izquierda." } },
+              { id: "tiroidectomia", etichetta: "Esiti di tiroidectomia", testo: { it: "In esiti di tiroidectomia ___ (totale/parziale) non lesioni espansive nelle logge tiroidee.", en: "Status post ___ (total/partial) thyroidectomy; no space-occupying lesions in the thyroid beds.", es: "Tiroidectomía ___ (total/parcial) previa; sin lesiones expansivas en los lechos tiroideos." } }
             ]
           },
           {
             id: "trachea", nome: "Trachea",
-            negativo: "Trachea in asse.",
+            negativo: { it: "Trachea in asse.", en: "Trachea midline.", es: "Tráquea centrada." },
             reperti: [
-              { id: "deviata", etichetta: "Deviata", testo: "Trachea lievemente deviata verso ___." }
+              { id: "deviata", etichetta: "Deviata", testo: { it: "Trachea lievemente deviata verso ___.", en: "Trachea slightly deviated to the ___.", es: "Tráquea levemente desviada hacia la ___." } }
             ]
           },
           {
             id: "ecostruttura", nome: "Ecostruttura e noduli",
-            riscritta: true, negativo: "Ecostruttura ghiandolare omogenea, senza formazioni nodulari.",
+            riscritta: true, negativo: { it: "Ecostruttura ghiandolare omogenea, senza formazioni nodulari.", en: "Homogeneous glandular echotexture, without nodules.", es: "Ecoestructura glandular homogénea, sin formaciones nodulares." },
             reperti: [
-              { id: "tiroidite", etichetta: "Tiroidite cronica", riscritta: true, testo: "Ecostruttura ghiandolare disomogenea per la presenza di multiple formazioni ipoecogene confluenti, come nei quadri tiroiditici cronici.", conclusione: "Quadro ecografico di tiroidite cronica." },
-              { id: "tiroidite-esiti", etichetta: "Tiroidite in esiti (fibrotica)", testo: "Ecostruttura sovvertita completamente e diffusamente ipoecogena e con strie iperecogene fibrotiche contestuali, come nei casi di tiroidite in esiti.\nNon franche nodularità.", conclusione: "Tiroidite in esiti." },
-              { id: "nodulo", etichetta: "Nodulo singolo", riscritta: true, testo: "Nel contesto del lobo ___, nodulo ad ecostruttura ___ (iso/ipo/iperecogena), delle dimensioni massime di ___ x ___ mm, caratterizzato da vascolarizzazione ___ (perilesionale/intralesionale/mista) al color-Doppler.\nNon franche nodularità nel lobo controlaterale.", conclusione: "Nodulo tiroideo del lobo ___." },
-              { id: "nodulo-orletto", etichetta: "Noduli con orletto", riscritta: true, testo: "Presenza di noduli isoecogeni, con orletto ipoecogeno, del diametro massimo di ___ mm.\nAll'esame color-Doppler, vascolarizzazione prevalentemente periferica di tali formazioni." },
-              { id: "multinodulare", etichetta: "Multinodulare", riscritta: true, testo: "Ecostruttura sovvertita dalla presenza di numerose formazioni nodulari di differenti dimensioni ed ecostruttura prevalentemente mista, disomogeneamente ipo-isoecogena e con aree colloidocistiche contestuali, caratterizzate da vascolarizzazione mista, prevalentemente perilesionale.\nNodulo maggiore sito al terzo ___ del lobo ___, di ___ x ___ mm.", conclusione: "Tiroide multinodulare." },
-              { id: "calcifico", etichetta: "Nodulo calcifico", testo: "Grossolana formazione nodulare parzialmente calcifica del diametro massimo longitudinale di ___ mm, al terzo ___ di ___." },
-              { id: "conglomerato", etichetta: "Conglomerato pseudonodulare", riscritta: true, testo: "Nel contesto del lobo ___, multiple aree pseudonodulari confluenti, a margini mal delimitabili, ad ecostruttura disomogeneamente iso-ipoecogena, costituenti un simil conglomerato di ___ x ___ mm sul piano trasversale e ___ mm sul piano longitudinale, disomogeneamente vascolarizzati." },
-              { id: "lobo-occupato", etichetta: "Lobo occupato da nodulo", riscritta: true, testo: "Lobo ___ sostanzialmente occupato in toto da una grossolana formazione nodulare ovalare, ben circoscritta, prevalentemente isoecogena e con alcune piccole componenti anecogene liquide contestuali, delle dimensioni massime assiali di ___ x ___ mm, caratterizzata da vascolarizzazione mista." }
+              { id: "tiroidite", etichetta: "Tiroidite cronica", riscritta: true, testo: { it: "Ecostruttura ghiandolare disomogenea per la presenza di multiple formazioni ipoecogene confluenti, come nei quadri tiroiditici cronici.", en: "Heterogeneous glandular echotexture due to multiple confluent hypoechoic areas, as in chronic thyroiditis.", es: "Ecoestructura glandular heterogénea por múltiples formaciones hipoecoicas confluentes, como en los cuadros de tiroiditis crónica." }, conclusione: { it: "Quadro ecografico di tiroidite cronica.", en: "Ultrasound appearance of chronic thyroiditis.", es: "Cuadro ecográfico de tiroiditis crónica." } },
+              { id: "tiroidite-esiti", etichetta: "Tiroidite in esiti (fibrotica)", testo: { it: "Ecostruttura sovvertita completamente e diffusamente ipoecogena e con strie iperecogene fibrotiche contestuali, come nei casi di tiroidite in esiti.\nNon franche nodularità.", en: "Completely disrupted, diffusely hypoechoic echotexture with intervening hyperechoic fibrotic strands, as in burnt-out thyroiditis.\nNo definite nodules.", es: "Ecoestructura completamente alterada, difusamente hipoecoica, con tractos hiperecoicos fibróticos, como en las tiroiditis evolucionadas.\nSin nódulos definidos." }, conclusione: { it: "Tiroidite in esiti.", en: "Burnt-out thyroiditis.", es: "Tiroiditis evolucionada." } },
+              { id: "nodulo", etichetta: "Nodulo singolo", riscritta: true, testo: { it: "Nel contesto del lobo ___, nodulo ad ecostruttura ___ (iso/ipo/iperecogena), delle dimensioni massime di ___ x ___ mm, caratterizzato da vascolarizzazione ___ (perilesionale/intralesionale/mista) al color-Doppler.\nNon franche nodularità nel lobo controlaterale.", en: "In the ___ lobe, ___ (iso/hypo/hyperechoic) nodule measuring up to ___ x ___ mm, with ___ (perinodular/intranodular/mixed) vascularity on colour Doppler.\nNo definite nodules in the contralateral lobe.", es: "En el lóbulo ___, nódulo ___ (iso/hipo/hiperecoico), de dimensiones máximas de ___ x ___ mm, con vascularización ___ (perinodular/intranodular/mixta) en el Doppler color.\nSin nódulos definidos en el lóbulo contralateral." }, conclusione: { it: "Nodulo tiroideo del lobo ___.", en: "Thyroid nodule in the ___ lobe.", es: "Nódulo tiroideo en el lóbulo ___." } },
+              { id: "nodulo-orletto", etichetta: "Noduli con orletto", riscritta: true, testo: { it: "Presenza di noduli isoecogeni, con orletto ipoecogeno, del diametro massimo di ___ mm.\nAll'esame color-Doppler, vascolarizzazione prevalentemente periferica di tali formazioni.", en: "Isoechoic nodules with a hypoechoic halo, maximum diameter ___ mm.\nOn colour Doppler, predominantly peripheral vascularity of these nodules.", es: "Nódulos isoecoicos con halo hipoecoico, de diámetro máximo de ___ mm.\nEn el Doppler color, vascularización predominantemente periférica de dichas formaciones." } },
+              { id: "multinodulare", etichetta: "Multinodulare", riscritta: true, testo: { it: "Ecostruttura sovvertita dalla presenza di numerose formazioni nodulari di differenti dimensioni ed ecostruttura prevalentemente mista, disomogeneamente ipo-isoecogena e con aree colloidocistiche contestuali, caratterizzate da vascolarizzazione mista, prevalentemente perilesionale.\nNodulo maggiore sito al terzo ___ del lobo ___, di ___ x ___ mm.", en: "Echotexture disrupted by numerous nodules of different sizes and predominantly mixed, heterogeneously hypo-isoechoic echotexture with intervening colloid-cystic areas, with mixed, predominantly perinodular vascularity.\nLargest nodule in the ___ third of the ___ lobe, measuring ___ x ___ mm.", es: "Ecoestructura alterada por numerosos nódulos de distinto tamaño y ecoestructura predominantemente mixta, heterogéneamente hipo-isoecoica, con áreas coloidoquísticas, con vascularización mixta, predominantemente perinodular.\nNódulo mayor en el tercio ___ del lóbulo ___, de ___ x ___ mm." }, conclusione: { it: "Tiroide multinodulare.", en: "Multinodular thyroid.", es: "Tiroides multinodular." } },
+              { id: "calcifico", etichetta: "Nodulo calcifico", testo: { it: "Grossolana formazione nodulare parzialmente calcifica del diametro massimo longitudinale di ___ mm, al terzo ___ di ___.", en: "Large, partially calcified nodule, maximum longitudinal diameter ___ mm, in the ___ third of the ___.", es: "Nódulo grosero parcialmente calcificado, de diámetro máximo longitudinal de ___ mm, en el tercio ___ del ___." } },
+              { id: "conglomerato", etichetta: "Conglomerato pseudonodulare", riscritta: true, testo: { it: "Nel contesto del lobo ___, multiple aree pseudonodulari confluenti, a margini mal delimitabili, ad ecostruttura disomogeneamente iso-ipoecogena, costituenti un simil conglomerato di ___ x ___ mm sul piano trasversale e ___ mm sul piano longitudinale, disomogeneamente vascolarizzati.", en: "In the ___ lobe, multiple confluent pseudonodular areas with ill-defined margins and heterogeneously iso-hypoechoic echotexture, forming a conglomerate-like area of ___ x ___ mm in the transverse plane and ___ mm in the longitudinal plane, with heterogeneous vascularity.", es: "En el lóbulo ___, múltiples áreas pseudonodulares confluentes, de márgenes mal definidos y ecoestructura heterogéneamente iso-hipoecoica, que forman un pseudoconglomerado de ___ x ___ mm en el plano transversal y ___ mm en el longitudinal, con vascularización heterogénea." } },
+              { id: "lobo-occupato", etichetta: "Lobo occupato da nodulo", riscritta: true, testo: { it: "Lobo ___ sostanzialmente occupato in toto da una grossolana formazione nodulare ovalare, ben circoscritta, prevalentemente isoecogena e con alcune piccole componenti anecogene liquide contestuali, delle dimensioni massime assiali di ___ x ___ mm, caratterizzata da vascolarizzazione mista.", en: "___ lobe almost entirely occupied by a large, well-circumscribed oval nodule, predominantly isoechoic with a few small anechoic fluid components, maximum axial dimensions ___ x ___ mm, with mixed vascularity.", es: "Lóbulo ___ ocupado casi en su totalidad por un nódulo ovalado grosero, bien delimitado, predominantemente isoecoico, con algunos pequeños componentes anecoicos líquidos, de dimensiones axiales máximas de ___ x ___ mm, con vascularización mixta." } }
             ]
           },
           {
             id: "vascolarizzazione", nome: "Vascolarizzazione",
-            riscritta: true, negativo: "Vascolarizzazione ghiandolare non aumentata.",
+            riscritta: true, negativo: { it: "Vascolarizzazione ghiandolare non aumentata.", en: "Glandular vascularity not increased.", es: "Vascularización glandular no aumentada." },
             reperti: [
-              { id: "aumentata", etichetta: "Aumentata", nuovo: true, riscritta: true, testo: "Vascolarizzazione ghiandolare diffusamente aumentata all'integrazione con color-Doppler." }
+              { id: "aumentata", etichetta: "Aumentata", nuovo: true, riscritta: true, testo: { it: "Vascolarizzazione ghiandolare diffusamente aumentata all'integrazione con color-Doppler.", en: "Diffusely increased glandular vascularity on colour Doppler.", es: "Vascularización glandular difusamente aumentada en el Doppler color." } }
             ]
           },
           {
             id: "linfonodi", nome: "Linfonodi laterocervicali",
-            riscritta: true, negativo: "Assenti linfoadenopatie in sede laterocervicale bilaterale.",
+            riscritta: true, negativo: { it: "Assenti linfoadenopatie in sede laterocervicale bilaterale.", en: "No lymphadenopathy in either lateral cervical region.", es: "Sin adenopatías laterocervicales bilaterales." },
             reperti: [
-              { id: "reattivi", etichetta: "Linfonodi reattivi", riscritta: true, testo: "In sede latero-cervicale bilaterale, alcuni linfonodi di tipo reattivo, il maggiore a ___ del diametro massimo di ___ mm." }
+              { id: "reattivi", etichetta: "Linfonodi reattivi", riscritta: true, testo: { it: "In sede latero-cervicale bilaterale, alcuni linfonodi di tipo reattivo, il maggiore a ___ del diametro massimo di ___ mm.", en: "A few reactive-type lymph nodes in both lateral cervical regions, the largest on the ___, maximum diameter ___ mm.", es: "En región laterocervical bilateral, algunos ganglios de aspecto reactivo, el mayor en el lado ___, de diámetro máximo de ___ mm." } }
             ]
           },
           {
             id: "sottomandibolari", nome: "Ghiandole sottomandibolari",
-            negativo: "Regolare ecostruttura delle ghiandole sottomandibolari.",
+            negativo: { it: "Regolare ecostruttura delle ghiandole sottomandibolari.", en: "Normal echotexture of the submandibular glands.", es: "Ecoestructura normal de las glándulas submandibulares." },
             reperti: [
-              { id: "nodulo", etichetta: "Nodulo sottomandibolare", riscritta: true, testo: "In corrispondenza della ghiandola sottomandibolare ___, formazione nodulare ipoecogena a margini netti di ___ x ___ mm, priva di segnali vascolari intralesionali, meritevole di ulteriore approfondimento diagnostico mediante agobiopsia.", conclusione: "Nodulo della ghiandola sottomandibolare ___ meritevole di approfondimento." }
+              { id: "nodulo", etichetta: "Nodulo sottomandibolare", riscritta: true, testo: { it: "In corrispondenza della ghiandola sottomandibolare ___, formazione nodulare ipoecogena a margini netti di ___ x ___ mm, priva di segnali vascolari intralesionali, meritevole di ulteriore approfondimento diagnostico mediante agobiopsia.", en: "In the ___ submandibular gland, well-defined hypoechoic nodule of ___ x ___ mm, without intralesional vascular signals, warranting further assessment with needle biopsy.", es: "En la glándula submandibular ___, nódulo hipoecoico de márgenes nítidos de ___ x ___ mm, sin señal vascular intralesional, que requiere completar el estudio mediante biopsia con aguja." }, conclusione: { it: "Nodulo della ghiandola sottomandibolare ___ meritevole di approfondimento.", en: "Nodule of the ___ submandibular gland requiring further assessment.", es: "Nódulo de la glándula submandibular ___ que requiere estudio adicional." } }
             ]
           },
           {
             id: "consigli", nome: "Consigli", negativo: "",
             reperti: [
-              { id: "laboratorio", etichetta: "Esami e valutazione specialistica", testo: "Utile integrazione con esami laboratoristici e valutazione clinico-specialistica." },
-              { id: "endocrinologica", etichetta: "Valutazione endocrinologica", testo: "Utile valutazione specialistica endocrinologica." }
+              { id: "laboratorio", etichetta: "Esami e valutazione specialistica", testo: { it: "Utile integrazione con esami laboratoristici e valutazione clinico-specialistica.", en: "Correlation with laboratory tests and clinical-specialist assessment advised.", es: "Aconsejable completar con pruebas de laboratorio y valoración clínica especializada." } },
+              { id: "endocrinologica", etichetta: "Valutazione endocrinologica", testo: { it: "Utile valutazione specialistica endocrinologica.", en: "Endocrinology assessment advised.", es: "Aconsejable valoración endocrinológica." } }
             ]
           }
         ],
-        conclusioneNegativa: "Ecografia della tiroide nei limiti della norma."
+        conclusioneNegativa: { it: "Ecografia della tiroide nei limiti della norma.", en: "Normal thyroid ultrasound.", es: "Ecografía tiroidea dentro de la normalidad." }
       },
 
       {
@@ -877,87 +884,97 @@ const METODICHE = [
         id: "tsa",
         nome: "Doppler tronchi sovraortici",
         gruppo: "Doppler",
-        titolo: "ECOCOLORDOPPLER DEI TRONCHI SOVRAORTICI",
+        titolo: { it: "ECOCOLORDOPPLER DEI TRONCHI SOVRAORTICI", en: "COLOUR DOPPLER ULTRASOUND OF THE SUPRA-AORTIC TRUNKS", es: "ECO-DOPPLER COLOR DE TRONCOS SUPRAAÓRTICOS" },
+        lingue: ["it", "en", "es"],
+        traduzioniDaVerificare: true, /* DA VERIFICARE: traduzioni EN/ES */
+        /* DA VERIFICARE: tecnica nuova, non presente nell'archivio */
+        tecnicaNuova: true,
+        tecnica: { it: "Esame eseguito con sonda lineare, studio B-mode, color-Doppler e Doppler pulsato.", en: "Examination performed with a linear probe: B-mode, colour Doppler and pulsed-wave Doppler.", es: "Estudio realizado con sonda lineal: modo B, Doppler color y Doppler pulsado." },
         organi: [
           {
             id: "generale", nome: "Quadro generale", negativo: "",
             reperti: [
-              { id: "angiosclerosi", etichetta: "Angiosclerosi diffusa", riscritta: true, testo: "Diffusa angiosclerosi a carico del distretto esaminato." }
+              { id: "angiosclerosi", etichetta: "Angiosclerosi diffusa", riscritta: true, testo: { it: "Diffusa angiosclerosi a carico del distretto esaminato.", en: "Diffuse atherosclerotic changes in the examined territory.", es: "Angiosclerosis difusa del territorio examinado." } }
             ]
           },
           {
             id: "destra", nome: "Asse carotideo destro",
-            riscritta: true, negativo: "A destra: regolare pervietà della carotide comune, della carotide interna ed esterna, senza ateromi e/o stenosi.",
+            riscritta: true, negativo: { it: "A destra: regolare pervietà della carotide comune, della carotide interna ed esterna, senza ateromi e/o stenosi.", en: "Right: normal patency of the common, internal and external carotid arteries, without plaques and/or stenosis.", es: "Lado derecho: permeabilidad normal de las arterias carótida común, interna y externa, sin ateromas y/o estenosis." },
             reperti: [
-              { id: "minime", etichetta: "Ateromi, stenosi < 20%", riscritta: true, testo: "A destra: regolare pervietà della carotide comune e della carotide esterna.\nSottili ateromi fibrocalcifici alla biforcazione, coinvolgenti l'origine della carotide interna, non determinanti stenosi significative (<20%).", conclusione: "Ateromasia carotidea destra non emodinamicamente significativa." },
-              { id: "lievi", etichetta: "Stenosi lieve (~30%)", riscritta: true, testo: "A destra: regolare pervietà della carotide comune e della carotide esterna.\nAteromi fibrocalcifici alla biforcazione, coinvolgenti l'origine della carotide interna e determinanti stenosi di grado lieve (30% circa).", conclusione: "Stenosi carotidea interna destra di grado lieve." },
-              { id: "moderate", etichetta: "Stenosi moderata (<50%)", riscritta: true, testo: "A destra: regolare pervietà della carotide comune e della carotide esterna.\nAteromi fibrocalcifici alla biforcazione, coinvolgenti l'origine della carotide interna e determinanti stenosi di grado moderato (<50%).", conclusione: "Stenosi carotidea interna destra di grado moderato." },
-              { id: "significativa", etichetta: "Stenosi significativa", nuovo: true, testo: "A destra: regolare pervietà della carotide comune e della carotide esterna.\nPlacca ateromasica ___ alla biforcazione, coinvolgente l'origine della carotide interna e determinante stenosi emodinamicamente significativa, stimata del ___% (PSV ___ cm/s); utile valutazione specialistica chirurgo-vascolare.", conclusione: "Stenosi emodinamicamente significativa della carotide interna destra." },
-              { id: "tea", etichetta: "Esiti TEA", testo: "A destra: regolare pervietà dell'asse carotideo in esiti di rivascolarizzazione chirurgica senza evidenza di restenosi emodinamicamente significative.\nCarotide esterna pervia." }
+              { id: "minime", etichetta: "Ateromi, stenosi < 20%", riscritta: true, testo: { it: "A destra: regolare pervietà della carotide comune e della carotide esterna.\nSottili ateromi fibrocalcifici alla biforcazione, coinvolgenti l'origine della carotide interna, non determinanti stenosi significative (<20%).", en: "Right: normal patency of the common and external carotid arteries.\nThin fibrocalcific plaques at the bifurcation, involving the origin of the internal carotid artery, without significant stenosis (<20%).", es: "Lado derecho: permeabilidad normal de las arterias carótida común y externa.\nFinas placas fibrocalcificadas en la bifurcación, que afectan al origen de la carótida interna, sin estenosis significativa (<20%)." }, conclusione: { it: "Ateromasia carotidea destra non emodinamicamente significativa.", en: "Haemodynamically non-significant right carotid atheromatous disease.", es: "Ateromatosis carotídea derecha sin repercusión hemodinámica." } },
+              { id: "lievi", etichetta: "Stenosi lieve (~30%)", riscritta: true, testo: { it: "A destra: regolare pervietà della carotide comune e della carotide esterna.\nAteromi fibrocalcifici alla biforcazione, coinvolgenti l'origine della carotide interna e determinanti stenosi di grado lieve (30% circa).", en: "Right: normal patency of the common and external carotid arteries.\nFibrocalcific plaques at the bifurcation, involving the origin of the internal carotid artery and causing mild stenosis (approximately 30%).", es: "Lado derecho: permeabilidad normal de las arterias carótida común y externa.\nPlacas fibrocalcificadas en la bifurcación, que afectan al origen de la carótida interna y determinan estenosis leve (30% aproximadamente)." }, conclusione: { it: "Stenosi carotidea interna destra di grado lieve.", en: "Mild right internal carotid stenosis.", es: "Estenosis leve de la carótida interna derecha." } },
+              { id: "moderate", etichetta: "Stenosi moderata (<50%)", riscritta: true, testo: { it: "A destra: regolare pervietà della carotide comune e della carotide esterna.\nAteromi fibrocalcifici alla biforcazione, coinvolgenti l'origine della carotide interna e determinanti stenosi di grado moderato (<50%).", en: "Right: normal patency of the common and external carotid arteries.\nFibrocalcific plaques at the bifurcation, involving the origin of the internal carotid artery and causing moderate stenosis (<50%).", es: "Lado derecho: permeabilidad normal de las arterias carótida común y externa.\nPlacas fibrocalcificadas en la bifurcación, que afectan al origen de la carótida interna y determinan estenosis moderada (<50%)." }, conclusione: { it: "Stenosi carotidea interna destra di grado moderato.", en: "Moderate right internal carotid stenosis.", es: "Estenosis moderada de la carótida interna derecha." } },
+              { id: "significativa", etichetta: "Stenosi significativa", nuovo: true, testo: { it: "A destra: regolare pervietà della carotide comune e della carotide esterna.\nPlacca ateromasica ___ alla biforcazione, coinvolgente l'origine della carotide interna e determinante stenosi emodinamicamente significativa, stimata del ___% (PSV ___ cm/s); utile valutazione specialistica chirurgo-vascolare.", en: "Right: normal patency of the common and external carotid arteries.\n___ atheromatous plaque at the bifurcation, involving the origin of the internal carotid artery and causing haemodynamically significant stenosis, estimated at ___% (PSV ___ cm/s); vascular surgery assessment advised.", es: "Lado derecho: permeabilidad normal de las arterias carótida común y externa.\nPlaca ateromatosa ___ en la bifurcación, que afecta al origen de la carótida interna y determina estenosis hemodinámicamente significativa, estimada en ___% (VPS ___ cm/s); aconsejable valoración por cirugía vascular." }, conclusione: { it: "Stenosi emodinamicamente significativa della carotide interna destra.", en: "Haemodynamically significant stenosis of the right internal carotid artery.", es: "Estenosis hemodinámicamente significativa de la carótida interna derecha." } },
+              { id: "tea", etichetta: "Esiti TEA", testo: { it: "A destra: regolare pervietà dell'asse carotideo in esiti di rivascolarizzazione chirurgica senza evidenza di restenosi emodinamicamente significative.\nCarotide esterna pervia.", en: "Right: normal patency of the carotid axis after surgical revascularisation, without evidence of haemodynamically significant restenosis.\nExternal carotid artery patent.", es: "Lado derecho: permeabilidad normal del eje carotídeo tras revascularización quirúrgica, sin evidencia de reestenosis hemodinámicamente significativa.\nCarótida externa permeable." } }
             ]
           },
           {
             id: "sinistra", nome: "Asse carotideo sinistro",
-            riscritta: true, negativo: "A sinistra: regolare pervietà della carotide comune, della carotide interna ed esterna; assenti ateromi e/o stenosi.",
+            riscritta: true, negativo: { it: "A sinistra: regolare pervietà della carotide comune, della carotide interna ed esterna; assenti ateromi e/o stenosi.", en: "Left: normal patency of the common, internal and external carotid arteries; no plaques and/or stenosis.", es: "Lado izquierdo: permeabilidad normal de las arterias carótida común, interna y externa; ausencia de ateromas y/o estenosis." },
             reperti: [
-              { id: "minime", etichetta: "Ateromi, stenosi < 20%", riscritta: true, testo: "A sinistra: regolare pervietà della carotide comune e della carotide esterna.\nSottili ateromi fibrocalcifici alla biforcazione, coinvolgenti l'origine della carotide interna, non determinanti stenosi significative (<20%).", conclusione: "Ateromasia carotidea sinistra non emodinamicamente significativa." },
-              { id: "lievi", etichetta: "Stenosi lieve (~30%)", riscritta: true, testo: "A sinistra: regolare pervietà della carotide comune e della carotide esterna.\nAteromi fibrocalcifici alla biforcazione, coinvolgenti l'origine della carotide interna e determinanti stenosi di grado lieve (30% circa).", conclusione: "Stenosi carotidea interna sinistra di grado lieve." },
-              { id: "moderate", etichetta: "Stenosi moderata (<50%)", riscritta: true, testo: "A sinistra: regolare pervietà della carotide comune e della carotide esterna.\nAteromi fibrocalcifici alla biforcazione, coinvolgenti l'origine della carotide interna e determinanti stenosi di grado moderato (<50%).", conclusione: "Stenosi carotidea interna sinistra di grado moderato." },
-              { id: "significativa", etichetta: "Stenosi significativa", nuovo: true, testo: "A sinistra: regolare pervietà della carotide comune e della carotide esterna.\nPlacca ateromasica ___ alla biforcazione, coinvolgente l'origine della carotide interna e determinante stenosi emodinamicamente significativa, stimata del ___% (PSV ___ cm/s); utile valutazione specialistica chirurgo-vascolare.", conclusione: "Stenosi emodinamicamente significativa della carotide interna sinistra." },
-              { id: "tea", etichetta: "Esiti TEA", testo: "A sinistra: regolare pervietà dell'asse carotideo in esiti di rivascolarizzazione chirurgica senza evidenza di restenosi emodinamicamente significative.\nCarotide esterna pervia." }
+              { id: "minime", etichetta: "Ateromi, stenosi < 20%", riscritta: true, testo: { it: "A sinistra: regolare pervietà della carotide comune e della carotide esterna.\nSottili ateromi fibrocalcifici alla biforcazione, coinvolgenti l'origine della carotide interna, non determinanti stenosi significative (<20%).", en: "Left: normal patency of the common and external carotid arteries.\nThin fibrocalcific plaques at the bifurcation, involving the origin of the internal carotid artery, without significant stenosis (<20%).", es: "Lado izquierdo: permeabilidad normal de las arterias carótida común y externa.\nFinas placas fibrocalcificadas en la bifurcación, que afectan al origen de la carótida interna, sin estenosis significativa (<20%)." }, conclusione: { it: "Ateromasia carotidea sinistra non emodinamicamente significativa.", en: "Haemodynamically non-significant left carotid atheromatous disease.", es: "Ateromatosis carotídea izquierda sin repercusión hemodinámica." } },
+              { id: "lievi", etichetta: "Stenosi lieve (~30%)", riscritta: true, testo: { it: "A sinistra: regolare pervietà della carotide comune e della carotide esterna.\nAteromi fibrocalcifici alla biforcazione, coinvolgenti l'origine della carotide interna e determinanti stenosi di grado lieve (30% circa).", en: "Left: normal patency of the common and external carotid arteries.\nFibrocalcific plaques at the bifurcation, involving the origin of the internal carotid artery and causing mild stenosis (approximately 30%).", es: "Lado izquierdo: permeabilidad normal de las arterias carótida común y externa.\nPlacas fibrocalcificadas en la bifurcación, que afectan al origen de la carótida interna y determinan estenosis leve (30% aproximadamente)." }, conclusione: { it: "Stenosi carotidea interna sinistra di grado lieve.", en: "Mild left internal carotid stenosis.", es: "Estenosis leve de la carótida interna izquierda." } },
+              { id: "moderate", etichetta: "Stenosi moderata (<50%)", riscritta: true, testo: { it: "A sinistra: regolare pervietà della carotide comune e della carotide esterna.\nAteromi fibrocalcifici alla biforcazione, coinvolgenti l'origine della carotide interna e determinanti stenosi di grado moderato (<50%).", en: "Left: normal patency of the common and external carotid arteries.\nFibrocalcific plaques at the bifurcation, involving the origin of the internal carotid artery and causing moderate stenosis (<50%).", es: "Lado izquierdo: permeabilidad normal de las arterias carótida común y externa.\nPlacas fibrocalcificadas en la bifurcación, que afectan al origen de la carótida interna y determinan estenosis moderada (<50%)." }, conclusione: { it: "Stenosi carotidea interna sinistra di grado moderato.", en: "Moderate left internal carotid stenosis.", es: "Estenosis moderada de la carótida interna izquierda." } },
+              { id: "significativa", etichetta: "Stenosi significativa", nuovo: true, testo: { it: "A sinistra: regolare pervietà della carotide comune e della carotide esterna.\nPlacca ateromasica ___ alla biforcazione, coinvolgente l'origine della carotide interna e determinante stenosi emodinamicamente significativa, stimata del ___% (PSV ___ cm/s); utile valutazione specialistica chirurgo-vascolare.", en: "Left: normal patency of the common and external carotid arteries.\n___ atheromatous plaque at the bifurcation, involving the origin of the internal carotid artery and causing haemodynamically significant stenosis, estimated at ___% (PSV ___ cm/s); vascular surgery assessment advised.", es: "Lado izquierdo: permeabilidad normal de las arterias carótida común y externa.\nPlaca ateromatosa ___ en la bifurcación, que afecta al origen de la carótida interna y determina estenosis hemodinámicamente significativa, estimada en ___% (VPS ___ cm/s); aconsejable valoración por cirugía vascular." }, conclusione: { it: "Stenosi emodinamicamente significativa della carotide interna sinistra.", en: "Haemodynamically significant stenosis of the left internal carotid artery.", es: "Estenosis hemodinámicamente significativa de la carótida interna izquierda." } },
+              { id: "tea", etichetta: "Esiti TEA", testo: { it: "A sinistra: regolare pervietà dell'asse carotideo in esiti di rivascolarizzazione chirurgica senza evidenza di restenosi emodinamicamente significative.\nCarotide esterna pervia.", en: "Left: normal patency of the carotid axis after surgical revascularisation, without evidence of haemodynamically significant restenosis.\nExternal carotid artery patent.", es: "Lado izquierdo: permeabilidad normal del eje carotídeo tras revascularización quirúrgica, sin evidencia de reestenosis hemodinámicamente significativa.\nCarótida externa permeable." } }
             ]
           },
           {
             id: "vertebrali", nome: "Arterie vertebrali",
-            negativo: "Arterie vertebrali pervie con tracciati normodiretti.",
+            negativo: { it: "Arterie vertebrali pervie con tracciati normodiretti.", en: "Vertebral arteries patent, with antegrade flow.", es: "Arterias vertebrales permeables, con flujo anterógrado." },
             reperti: [
-              { id: "invertito", etichetta: "Flusso invertito / alternante", nuovo: true, testo: "Arteria vertebrale ___ con flusso ___ (invertito/alternante); utile studio delle arterie succlavie.", conclusione: "Alterazione del flusso vertebrale ___." },
-              { id: "ipoplasica", etichetta: "Vertebrale ipoplasica", nuovo: true, riscritta: true, testo: "Arterie vertebrali pervie con tracciati normodiretti; vertebrale ___ di calibro ridotto, come per ipoplasia." }
+              { id: "invertito", etichetta: "Flusso invertito / alternante", nuovo: true, testo: { it: "Arteria vertebrale ___ con flusso ___ (invertito/alternante); utile studio delle arterie succlavie.", en: "___ vertebral artery with ___ (reversed/alternating) flow; assessment of the subclavian arteries advised.", es: "Arteria vertebral ___ con flujo ___ (invertido/alternante); aconsejable estudio de las arterias subclavias." }, conclusione: { it: "Alterazione del flusso vertebrale ___.", en: "Abnormal ___ vertebral artery flow.", es: "Alteración del flujo vertebral ___." } },
+              { id: "ipoplasica", etichetta: "Vertebrale ipoplasica", nuovo: true, riscritta: true, testo: { it: "Arterie vertebrali pervie con tracciati normodiretti; vertebrale ___ di calibro ridotto, come per ipoplasia.", en: "Vertebral arteries patent, with antegrade flow; ___ vertebral artery of small calibre, consistent with hypoplasia.", es: "Arterias vertebrales permeables, con flujo anterógrado; vertebral ___ de calibre reducido, como por hipoplasia." } }
             ]
           }
         ],
-        conclusioneNegativa: "Ecocolordoppler dei tronchi sovraortici nei limiti della norma."
+        conclusioneNegativa: { it: "Ecocolordoppler dei tronchi sovraortici nei limiti della norma.", en: "Normal colour Doppler ultrasound of the supra-aortic trunks.", es: "Eco-Doppler color de troncos supraaórticos dentro de la normalidad." }
       },
 
       {
         id: "venoso-ai",
         nome: "Doppler venoso arti inferiori",
         gruppo: "Doppler",
-        titolo: "ECOCOLORDOPPLER VENOSO DEGLI ARTI INFERIORI",
+        titolo: { it: "ECOCOLORDOPPLER VENOSO DEGLI ARTI INFERIORI", en: "COLOUR DOPPLER ULTRASOUND OF THE LOWER LIMB VEINS", es: "ECO-DOPPLER COLOR VENOSO DE MIEMBROS INFERIORES" },
+        lingue: ["it", "en", "es"],
+        traduzioniDaVerificare: true, /* DA VERIFICARE: traduzioni EN/ES */
+        /* DA VERIFICARE: tecnica nuova, non presente nell'archivio */
+        tecnicaNuova: true,
+        tecnica: { it: "Esame eseguito con sonda lineare, in clinostatismo e ortostatismo, con manovre di compressione e di Valsalva.", en: "Examination performed with a linear probe, supine and standing, with compression and Valsalva manoeuvres.", es: "Estudio realizado con sonda lineal, en decúbito y en bipedestación, con maniobras de compresión y de Valsalva." },
         organi: [
           {
             id: "profondo", nome: "Sistema venoso profondo",
-            riscritta: true, negativo: "Regolare pervietà, calibro e continenza del sistema venoso profondo bilateralmente.\nIn particolare, non segni di TVP in atto bilateralmente.",
+            riscritta: true, negativo: { it: "Regolare pervietà, calibro e continenza del sistema venoso profondo bilateralmente.\nIn particolare, non segni di TVP in atto bilateralmente.", en: "Normal patency, calibre and competence of the deep venous system bilaterally.\nIn particular, no signs of ongoing DVT bilaterally.", es: "Permeabilidad, calibre y continencia normales del sistema venoso profundo bilateral.\nEn particular, sin signos de TVP en curso bilateral." },
             reperti: [
-              { id: "tvp", etichetta: "Trombosi venosa profonda", nuovo: true, riscritta: true, testo: "A ___ (destra/sinistra), vena ___ non comprimibile ed occupata da materiale ecogeno, senza segnale di flusso al color-Doppler, come da trombosi venosa profonda ___ (occlusiva/non occlusiva).\nControlateralmente regolare pervietà, calibro e continenza del sistema venoso profondo.", conclusione: "Trombosi venosa profonda ___: comunicato al paziente / al curante per valutazione urgente." },
-              { id: "esiti", etichetta: "Esiti di pregressa TVP", nuovo: true, riscritta: true, testo: "A ___, vena ___ ricanalizzata, con ispessimenti parietali e reflusso, come da esiti di pregressa trombosi.\nNon segni di TVP in atto.", conclusione: "Esiti di pregressa trombosi venosa profonda." }
+              { id: "tvp", etichetta: "Trombosi venosa profonda", nuovo: true, riscritta: true, testo: { it: "A ___ (destra/sinistra), vena ___ non comprimibile ed occupata da materiale ecogeno, senza segnale di flusso al color-Doppler, come da trombosi venosa profonda ___ (occlusiva/non occlusiva).\nControlateralmente regolare pervietà, calibro e continenza del sistema venoso profondo.", en: "On the ___ (right/left), ___ vein non-compressible and filled with echogenic material, without colour Doppler flow signal, consistent with ___ (occlusive/non-occlusive) deep vein thrombosis.\nContralateral deep venous system with normal patency, calibre and competence.", es: "En el lado ___ (derecho/izquierdo), vena ___ no compresible y ocupada por material ecogénico, sin señal de flujo en el Doppler color, compatible con trombosis venosa profunda ___ (oclusiva/no oclusiva).\nSistema venoso profundo contralateral con permeabilidad, calibre y continencia normales." }, conclusione: { it: "Trombosi venosa profonda ___: comunicato al paziente / al curante per valutazione urgente.", en: "___ deep vein thrombosis: patient / referring physician informed for urgent assessment.", es: "Trombosis venosa profunda ___: comunicado al paciente / al médico solicitante para valoración urgente." } },
+              { id: "esiti", etichetta: "Esiti di pregressa TVP", nuovo: true, riscritta: true, testo: { it: "A ___, vena ___ ricanalizzata, con ispessimenti parietali e reflusso, come da esiti di pregressa trombosi.\nNon segni di TVP in atto.", en: "On the ___, recanalised ___ vein with wall thickening and reflux, consistent with previous thrombosis.\nNo signs of ongoing DVT.", es: "En el lado ___, vena ___ recanalizada, con engrosamiento parietal y reflujo, como secuela de trombosis previa.\nSin signos de TVP en curso." }, conclusione: { it: "Esiti di pregressa trombosi venosa profonda.", en: "Sequelae of previous deep vein thrombosis.", es: "Secuelas de trombosis venosa profunda previa." } }
             ]
           },
           {
             id: "destra", nome: "Safene destra",
-            riscritta: true, negativo: "A destra: regolare pervietà, calibro e continenza della safena interna ed esterna.\nAssenti segni di tromboflebite in atto.",
+            riscritta: true, negativo: { it: "A destra: regolare pervietà, calibro e continenza della safena interna ed esterna.\nAssenti segni di tromboflebite in atto.", en: "Right: normal patency, calibre and competence of the great and small saphenous veins.\nNo signs of ongoing thrombophlebitis.", es: "Lado derecho: permeabilidad, calibre y continencia normales de las venas safena mayor y menor.\nSin signos de tromboflebitis en curso." },
             reperti: [
-              { id: "insufficienza", etichetta: "Insufficienza safena interna", nuovo: true, riscritta: true, testo: "A destra: giunzione safeno-femorale incontinente con reflusso della safena interna esteso fino ___, calibro massimo ___ mm; regolare la safena esterna.\nAssenti segni di tromboflebite in atto.", conclusione: "Insufficienza della safena interna destra." },
-              { id: "tromboflebite", etichetta: "Tromboflebite", nuovo: true, riscritta: true, testo: "A destra: safena ___ non comprimibile ed occupata da materiale ecogeno per un tratto di circa ___ cm a livello ___, a ___ mm dalla giunzione, come da tromboflebite.", conclusione: "Tromboflebite della safena ___ destra." }
+              { id: "insufficienza", etichetta: "Insufficienza safena interna", nuovo: true, riscritta: true, testo: { it: "A destra: giunzione safeno-femorale incontinente con reflusso della safena interna esteso fino ___, calibro massimo ___ mm; regolare la safena esterna.\nAssenti segni di tromboflebite in atto.", en: "Right: incompetent saphenofemoral junction with great saphenous vein reflux extending to ___, maximum diameter ___ mm; normal small saphenous vein.\nNo signs of ongoing thrombophlebitis.", es: "Lado derecho: unión safenofemoral incompetente con reflujo de la safena mayor que se extiende hasta ___, calibre máximo ___ mm; safena menor normal.\nSin signos de tromboflebitis en curso." }, conclusione: { it: "Insufficienza della safena interna destra.", en: "Right great saphenous vein incompetence.", es: "Insuficiencia de la vena safena mayor derecha." } },
+              { id: "tromboflebite", etichetta: "Tromboflebite", nuovo: true, riscritta: true, testo: { it: "A destra: safena ___ non comprimibile ed occupata da materiale ecogeno per un tratto di circa ___ cm a livello ___, a ___ mm dalla giunzione, come da tromboflebite.", en: "Right: ___ saphenous vein non-compressible and filled with echogenic material over a segment of about ___ cm at the level of ___, ___ mm from the junction, consistent with thrombophlebitis.", es: "Lado derecho: safena ___ no compresible y ocupada por material ecogénico en un tramo de unos ___ cm a nivel de ___, a ___ mm de la unión, compatible con tromboflebitis." }, conclusione: { it: "Tromboflebite della safena ___ destra.", en: "Thrombophlebitis of the right ___ saphenous vein.", es: "Tromboflebitis de la vena safena ___ derecha." } }
             ]
           },
           {
             id: "sinistra", nome: "Safene sinistra",
-            riscritta: true, negativo: "A sinistra: regolare pervietà, calibro e continenza della safena interna ed esterna.\nNon segni di tromboflebite in atto.",
+            riscritta: true, negativo: { it: "A sinistra: regolare pervietà, calibro e continenza della safena interna ed esterna.\nNon segni di tromboflebite in atto.", en: "Left: normal patency, calibre and competence of the great and small saphenous veins.\nNo signs of ongoing thrombophlebitis.", es: "Lado izquierdo: permeabilidad, calibre y continencia normales de las venas safena mayor y menor.\nSin signos de tromboflebitis en curso." },
             reperti: [
-              { id: "insufficienza", etichetta: "Insufficienza safena interna", nuovo: true, riscritta: true, testo: "A sinistra: giunzione safeno-femorale incontinente con reflusso della safena interna esteso fino ___, calibro massimo ___ mm; regolare la safena esterna.\nNon segni di tromboflebite in atto.", conclusione: "Insufficienza della safena interna sinistra." },
-              { id: "tromboflebite", etichetta: "Tromboflebite", nuovo: true, riscritta: true, testo: "A sinistra: safena ___ non comprimibile ed occupata da materiale ecogeno per un tratto di circa ___ cm a livello ___, a ___ mm dalla giunzione, come da tromboflebite.", conclusione: "Tromboflebite della safena ___ sinistra." }
+              { id: "insufficienza", etichetta: "Insufficienza safena interna", nuovo: true, riscritta: true, testo: { it: "A sinistra: giunzione safeno-femorale incontinente con reflusso della safena interna esteso fino ___, calibro massimo ___ mm; regolare la safena esterna.\nNon segni di tromboflebite in atto.", en: "Left: incompetent saphenofemoral junction with great saphenous vein reflux extending to ___, maximum diameter ___ mm; normal small saphenous vein.\nNo signs of ongoing thrombophlebitis.", es: "Lado izquierdo: unión safenofemoral incompetente con reflujo de la safena mayor que se extiende hasta ___, calibre máximo ___ mm; safena menor normal.\nSin signos de tromboflebitis en curso." }, conclusione: { it: "Insufficienza della safena interna sinistra.", en: "Left great saphenous vein incompetence.", es: "Insuficiencia de la vena safena mayor izquierda." } },
+              { id: "tromboflebite", etichetta: "Tromboflebite", nuovo: true, riscritta: true, testo: { it: "A sinistra: safena ___ non comprimibile ed occupata da materiale ecogeno per un tratto di circa ___ cm a livello ___, a ___ mm dalla giunzione, come da tromboflebite.", en: "Left: ___ saphenous vein non-compressible and filled with echogenic material over a segment of about ___ cm at the level of ___, ___ mm from the junction, consistent with thrombophlebitis.", es: "Lado izquierdo: safena ___ no compresible y ocupada por material ecogénico en un tramo de unos ___ cm a nivel de ___, a ___ mm de la unión, compatible con tromboflebitis." }, conclusione: { it: "Tromboflebite della safena ___ sinistra.", en: "Thrombophlebitis of the left ___ saphenous vein.", es: "Tromboflebitis de la vena safena ___ izquierda." } }
             ]
           },
           {
             id: "altro", nome: "Altri reperti", negativo: "",
             reperti: [
-              { id: "baker", etichetta: "Cisti di Baker", riscritta: true, testo: "Formazione cistica polilobata nel cavo popliteo di ___, attribuibile a cisti di Baker." },
-              { id: "edema", etichetta: "Edema sottocutaneo", testo: "Imbibizione fluida sottocutanea diffusa da edema." }
+              { id: "baker", etichetta: "Cisti di Baker", riscritta: true, testo: { it: "Formazione cistica polilobata nel cavo popliteo di ___, attribuibile a cisti di Baker.", en: "Polylobulated cystic lesion in the ___ popliteal fossa, consistent with a Baker's cyst.", es: "Formación quística polilobulada en el hueco poplíteo ___, atribuible a quiste de Baker." } },
+              { id: "edema", etichetta: "Edema sottocutaneo", testo: { it: "Imbibizione fluida sottocutanea diffusa da edema.", en: "Diffuse subcutaneous fluid infiltration due to oedema.", es: "Infiltración líquida subcutánea difusa por edema." } }
             ]
           }
         ],
-        conclusioneNegativa: "Non segni ecografici di trombosi venosa profonda né superficiale."
+        conclusioneNegativa: { it: "Non segni ecografici di trombosi venosa profonda né superficiale.", en: "No ultrasound signs of deep or superficial vein thrombosis.", es: "Sin signos ecográficos de trombosis venosa profunda ni superficial." }
       },
 
       {
@@ -1080,6 +1097,83 @@ const METODICHE = [
 
   /* Metodiche in preparazione: i testi verranno dai documenti "REFERTI TC" e "REFERTI RX" */
   { id: "tc", nome: "TC", attiva: false, distretti: [] },
-  { id: "rm", nome: "RM", attiva: false, distretti: [] },
+  {
+    id: "rm",
+    nome: "RM",
+    attiva: true,
+    distretti: [
+
+      /* ============================================================ RM SPALLA
+       * DA VERIFICARE: distretto interamente nuovo (non presente nell'archivio):
+       * titolo, tecnica, frasi negative, reperti, conclusioni e traduzioni EN/ES. */
+      {
+        id: "spalla",
+        nome: "Spalla",
+        gruppo: "Muscolo-scheletrico",
+        nuovo: true,
+        titolo: { it: "RM DELLA SPALLA", en: "MRI OF THE SHOULDER", es: "RM DE HOMBRO" },
+        lingue: ["it", "en", "es"],
+        traduzioniDaVerificare: true,
+        tecnicaNuova: true,
+        tecnica: { it: "Esame eseguito con sequenze T1 e DP/T2 con soppressione del grasso sui piani assiale, coronale obliquo e sagittale obliquo.", en: "Examination performed with T1-weighted and fat-suppressed PD/T2-weighted sequences in the axial, oblique coronal and oblique sagittal planes.", es: "Estudio realizado con secuencias T1 y DP/T2 con supresión grasa en los planos axial, coronal oblicuo y sagital oblicuo." },
+        lati: [
+          { it: "destra", en: "right", es: "derecho" },
+          { it: "sinistra", en: "left", es: "izquierdo" }
+        ],
+        intro: { it: "Esame mirato alla spalla {lato}.", en: "MRI of the {lato} shoulder.", es: "Estudio del hombro {lato}." },
+        organi: [
+          {
+            id: "cuffia", nome: "Cuffia dei rotatori", nuovo: true,
+            negativo: { it: "Tendini della cuffia dei rotatori di normale spessore e segnale, senza lesioni di continuità.", en: "Rotator cuff tendons of normal thickness and signal, without tears.", es: "Tendones del manguito rotador de grosor y señal normales, sin roturas." },
+            reperti: [
+              { id: "tendinosi", etichetta: "Tendinosi sovraspinato", nuovo: true, testo: { it: "Tendine sovraspinato ispessito, con iperintensità di segnale intratendinea nelle sequenze DP, senza lesioni di continuità, come per tendinosi.", en: "Thickened supraspinatus tendon with increased intratendinous signal on PD-weighted images, without tear, consistent with tendinosis.", es: "Tendón supraespinoso engrosado, con hiperintensidad de señal intratendinosa en las secuencias DP, sin roturas, compatible con tendinosis." }, conclusione: { it: "Tendinosi del sovraspinato.", en: "Supraspinatus tendinosis.", es: "Tendinosis del supraespinoso." } },
+              { id: "lesione-parziale", etichetta: "Lesione parziale sovraspinato", nuovo: true, testo: { it: "Lesione parziale del tendine sovraspinato sul versante ___ (articolare/bursale), di circa ___ mm.", en: "Partial-thickness tear of the supraspinatus tendon on the ___ (articular/bursal) side, about ___ mm.", es: "Rotura parcial del tendón supraespinoso en la vertiente ___ (articular/bursal), de unos ___ mm." }, conclusione: { it: "Lesione parziale del tendine sovraspinato.", en: "Partial-thickness supraspinatus tear.", es: "Rotura parcial del tendón supraespinoso." } },
+              { id: "lesione-completa", etichetta: "Lesione a tutto spessore sovraspinato", nuovo: true, testo: { it: "Lesione a tutto spessore del tendine sovraspinato, con retrazione del moncone di circa ___ mm; trofismo del ventre muscolare ___ (conservato/ridotto, con infiltrazione adiposa).", en: "Full-thickness tear of the supraspinatus tendon, with retraction of the tendon stump of about ___ mm; muscle belly trophism ___ (preserved/reduced, with fatty infiltration).", es: "Rotura de espesor completo del tendón supraespinoso, con retracción del muñón de unos ___ mm; trofismo del vientre muscular ___ (conservado/reducido, con infiltración grasa)." }, conclusione: { it: "Lesione a tutto spessore del tendine sovraspinato.", en: "Full-thickness supraspinatus tear.", es: "Rotura de espesor completo del tendón supraespinoso." } },
+              { id: "calcifica", etichetta: "Tendinopatia calcifica", nuovo: true, testo: { it: "Calcificazione di ___ mm nel contesto del tendine ___, ipointensa in tutte le sequenze, come per tendinopatia calcifica.", en: "Calcification of ___ mm within the ___ tendon, hypointense on all sequences, consistent with calcific tendinopathy.", es: "Calcificación de ___ mm en el tendón ___, hipointensa en todas las secuencias, compatible con tendinopatía calcificante." }, conclusione: { it: "Tendinopatia calcifica del ___.", en: "Calcific tendinopathy of the ___.", es: "Tendinopatía calcificante del ___." } }
+            ]
+          },
+          {
+            id: "clb", nome: "Capo lungo del bicipite", nuovo: true,
+            negativo: { it: "Tendine del capo lungo del bicipite in sede nella doccia bicipitale, di normale segnale.", en: "Long head of biceps tendon in the bicipital groove, of normal signal.", es: "Tendón de la porción larga del bíceps en la corredera bicipital, de señal normal." },
+            reperti: [
+              { id: "tenosinovite", etichetta: "Tenosinovite", nuovo: true, testo: { it: "Tendine del capo lungo del bicipite in sede, con distensione fluida della guaina, come per tenosinovite.", en: "Long head of biceps tendon in normal position, with fluid distension of the tendon sheath, consistent with tenosynovitis.", es: "Tendón de la porción larga del bíceps en su posición, con distensión líquida de la vaina, compatible con tenosinovitis." }, conclusione: { it: "Tenosinovite del capo lungo del bicipite.", en: "Long head of biceps tenosynovitis.", es: "Tenosinovitis de la porción larga del bíceps." } }
+            ]
+          },
+          {
+            id: "labbro", nome: "Labbro glenoideo", nuovo: true,
+            negativo: { it: "Labbro glenoideo di normale morfologia e segnale.", en: "Glenoid labrum of normal morphology and signal.", es: "Labrum glenoideo de morfología y señal normales." },
+            reperti: [
+              { id: "lesione", etichetta: "Lesione del labbro", nuovo: true, testo: { it: "Iperintensità lineare nel contesto del labbro glenoideo ___ (superiore/anteriore/posteriore), come per lesione.", en: "Linear hyperintensity within the ___ (superior/anterior/posterior) glenoid labrum, consistent with a tear.", es: "Hiperintensidad lineal en el labrum glenoideo ___ (superior/anterior/posterior), compatible con rotura." }, conclusione: { it: "Lesione del labbro glenoideo ___.", en: "Tear of the ___ glenoid labrum.", es: "Rotura del labrum glenoideo ___." } }
+            ]
+          },
+          {
+            id: "articolazione", nome: "Articolazione gleno-omerale", nuovo: true,
+            negativo: { it: "Non versamento articolare gleno-omerale. Cartilagine articolare di spessore conservato.", en: "No glenohumeral joint effusion. Articular cartilage of preserved thickness.", es: "Sin derrame articular glenohumeral. Cartílago articular de grosor conservado." },
+            reperti: []
+          },
+          {
+            id: "borsa", nome: "Borsa subacromion-deltoidea", nuovo: true,
+            negativo: { it: "Borsa subacromion-deltoidea non distesa.", en: "Subacromial-subdeltoid bursa not distended.", es: "Bursa subacromio-subdeltoidea no distendida." },
+            reperti: [
+              { id: "borsite", etichetta: "Borsite", nuovo: true, testo: { it: "Distensione fluida della borsa subacromion-deltoidea, come per borsite.", en: "Fluid distension of the subacromial-subdeltoid bursa, consistent with bursitis.", es: "Distensión líquida de la bursa subacromio-subdeltoidea, compatible con bursitis." }, conclusione: { it: "Borsite subacromion-deltoidea.", en: "Subacromial-subdeltoid bursitis.", es: "Bursitis subacromio-subdeltoidea." } }
+            ]
+          },
+          {
+            id: "acromion-claveare", nome: "Articolazione acromion-claveare", nuovo: true,
+            negativo: { it: "Articolazione acromion-claveare di morfologia regolare.", en: "Acromioclavicular joint of normal morphology.", es: "Articulación acromioclavicular de morfología normal." },
+            reperti: [
+              { id: "artrosi", etichetta: "Artrosi acromion-claveare", nuovo: true, testo: { it: "Articolazione acromion-claveare con ipertrofia capsulo-osteofitosica e improntamento del versante bursale del sovraspinato, come per artrosi.", en: "Acromioclavicular joint with capsular and osteophytic hypertrophy indenting the bursal side of the supraspinatus, consistent with osteoarthritis.", es: "Articulación acromioclavicular con hipertrofia capsular y osteofitaria que impronta la vertiente bursal del supraespinoso, compatible con artrosis." }, conclusione: { it: "Artrosi acromion-claveare.", en: "Acromioclavicular osteoarthritis.", es: "Artrosis acromioclavicular." } }
+            ]
+          },
+          {
+            id: "ossa", nome: "Strutture ossee", nuovo: true,
+            negativo: { it: "Assenti alterazioni del segnale della spongiosa ossea.", en: "No abnormal bone marrow signal.", es: "Sin alteraciones de la señal de la médula ósea." },
+            reperti: []
+          }
+        ],
+        conclusioneNegativa: { it: "Quadro RM della spalla nei limiti della norma.", en: "Normal MRI of the shoulder.", es: "RM de hombro dentro de la normalidad." }
+      }
+    ]
+  },
   { id: "rx", nome: "RX", attiva: false, distretti: [] }
 ];
