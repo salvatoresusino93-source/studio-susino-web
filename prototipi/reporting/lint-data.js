@@ -7,8 +7,9 @@
  *
  * Controlla:
  *   1. ogni frase singola (negativi degli organi, reperti, intro, conclusioni, frasi comuni);
- *   2. il referto NEGATIVO composto di ogni distretto (tutte le frasi negative una dopo l'altra),
+ *   2. il referto NEGATIVO composto di ogni distretto (tecnica, intro e frasi negative in fila),
  *      per intercettare formule ripetute e ripetizioni tra frasi diverse.
+ * Solo i testi italiani: le regole di stile valgono per l'italiano.
  * Non modifica nulla.
  */
 'use strict';
@@ -29,7 +30,10 @@ vm.runInContext(fs.readFileSync(path.join(cartella, 'data.js'), 'utf8')
 const { METODICHE, FRASI_COMUNI } = contesto.__dati;
 
 const risultati = [];
-function controlla(dove, testo, contestoLinter) {
+/** Testo italiano di un campo (stringa = italiano; oggetto = { it, en, es }). Il linter vale solo per l'italiano. */
+const it = (campo) => (campo == null ? null : typeof campo === 'string' ? campo : campo.it);
+function controlla(dove, campo, contestoLinter) {
+  const testo = it(campo);
   if (!testo) return;
   stile.controlla(testo, regole, { contesto: contestoLinter }).forEach((a) => {
     risultati.push({ dove, tipo: a.tipo, messaggio: a.messaggio, estratto: a.estratto });
@@ -43,6 +47,7 @@ function controlla(dove, testo, contestoLinter) {
 METODICHE.forEach((m) => m.distretti.forEach((d) => {
   const ctx = m.id + '-' + d.id;
   const base = m.nome + ' › ' + d.nome;
+  controlla(base + ' › tecnica', d.tecnica, ctx);
   controlla(base + ' › intro', d.intro, ctx);
   controlla(base + ' › intro bilaterale', d.introBilaterale, ctx);
   controlla(base + ' › conclusione negativa', d.conclusioneNegativa, ctx);
@@ -59,8 +64,9 @@ const singole = risultati.length;
 // 2. Referto negativo composto per distretto (solo avvisi che coinvolgono più frasi)
 METODICHE.forEach((m) => m.distretti.forEach((d) => {
   const righe = [];
-  if (d.intro) righe.push(d.intro.replace('{lato}', 'destra'));
-  d.organi.forEach((o) => { if (o.negativo) righe.push(o.negativo); });
+  if (d.tecnica) righe.push(it(d.tecnica));
+  if (d.intro) righe.push(it(d.intro).replace('{lato}', 'destra'));
+  d.organi.forEach((o) => { if (o.negativo && !o.soloSeNegativo) righe.push(it(o.negativo)); });
   stile.controlla(righe.join('\n'), regole, { contesto: m.id + '-' + d.id })
     .filter((a) => a.tipo === 'formula' || (a.tipo === 'ripetizione' && a.messaggio.startsWith('Frase ripetuta')))
     .forEach((a) => risultati.push({

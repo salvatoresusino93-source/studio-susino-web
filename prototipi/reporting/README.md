@@ -34,6 +34,9 @@ e vai su <http://localhost:8000>.
    **Copia** lo mette negli appunti in testo semplice, **Stampa** stampa solo il referto,
    **Nuovo referto** azzera. Le scelte restano salvate nel browser se ricarichi la pagina.
 7. **Conclusioni** (facoltative): elenco dei positivi, oppure la frase negativa del distretto.
+8. **Lingua** del referto (IT/EN/ES) e **Tecnica**: la lingua cambia solo il testo del referto, l'interfaccia resta in
+   italiano. I distretti non tradotti sono marcati «(solo IT)» e, in EN/ES, esclusi dal referto con un avviso.
+   Il controllo di stile vale solo per l'italiano.
 
 ## File
 
@@ -50,7 +53,13 @@ e vai su <http://localhost:8000>.
 
 Tutto è in `data.js` (struttura spiegata in testa al file). Un organo ha una frase `negativo`
 e un elenco di `reperti`; ogni reperto ha `etichetta`, `testo`, eventuale `conclusione`,
-`modo: "aggiunge"` se non deve togliere il negativo, `nuovo: true` se non viene dall'archivio.
+`modo: "aggiunge"` se non deve togliere il negativo, `nuovo: true` se non viene dall'archivio,
+`riscritta: true` se è stato riscritto nel nuovo stile.
+
+Lingue: ogni testo è una stringa (solo italiano) oppure `{ it, en, es }`. Un distretto tradotto dichiara
+`lingue: ["it", "en", "es"]`; con `traduzioniDaVerificare: true` la revisione segnala le righe EN/ES come da verificare.
+`tecnica` (facoltativa) è la riga della tecnica d'esame, con `tecnicaNuova: true` se non viene dall'archivio.
+Nomi di distretti/organi ed etichette dei reperti restano in italiano (sono l'interfaccia).
 Dopo una modifica, la revisione segnala le righe cambiate rispetto a quanto già validato.
 
 ## Controllo di stile (cartella `style/`)

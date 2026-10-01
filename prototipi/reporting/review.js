@@ -19,6 +19,7 @@
   const CHIAVE_REVISIONE = 'refertario-revisione-v2';
   const CHIAVE_REVISORE = 'refertario-revisore';
   const ID_RIGA_DISTRETTO = '(distretto)';
+  const ID_RIGA_TECNICA = '(tecnica)';
 
   const STATI = {
     rivedere: 'Da rivedere',
@@ -182,27 +183,49 @@
   }
   const daVerificare = (o) => !!(o && (o.nuovo || o.riscritta));
 
-  /** Trasforma METODICHE e FRASI_COMUNI in righe piatte (una per voce e lingua). */
+  /** Lingue di un elenco (es. distretto.lingue), limitate a quelle dichiarate in LINGUE. Predefinito: italiano. */
+  function lingueDi(oggetto, lingue) {
+    const proprie = (oggetto && Array.isArray(oggetto.lingue) && oggetto.lingue.length) ? oggetto.lingue : ['it'];
+    return proprie.filter((l) => lingue.includes(l));
+  }
+
+  /** Avviso per le traduzioni (EN/ES) non ancora verificate. */
+  function controllaTraduzione(problemi, contenitore, lingua) {
+    if (lingua !== 'it' && contenitore && contenitore.traduzioniDaVerificare) {
+      problemi.push({ livello: 'avviso', testo: 'traduzione nuova: verificare' });
+      return true;
+    }
+    return false;
+  }
+
+  /**
+   * Trasforma METODICHE e FRASI_COMUNI in righe piatte (una per voce e lingua).
+   * Le righe in EN/ES esistono solo per i distretti (e le frasi comuni) tradotti, cioè con `lingue`.
+   * Nomi ed etichette sono testi dell'interfaccia: si controllano solo in italiano.
+   */
   function costruisciRighe(metodiche, frasi, lingue) {
     const righe = [];
     const aggiungi = (riga) => righe.push(riga);
+    const etichettaIn = (campo, lingua) => testoIn(campo, lingua) || testoIn(campo, 'it');
 
     // --- Frasi comuni (in testa e in coda) ---
+    const lingueFrasi = lingueDi(frasi, lingue);
     ['premessa', 'chiusura'].forEach((sezione) => {
       const elenco = (frasi && Array.isArray(frasi[sezione])) ? frasi[sezione] : [];
       const conteggi = conta(elenco.map((f) => f && f.id));
       elenco.forEach((f, i) => {
         const id = (f && f.id) || '(senza id #' + (i + 1) + ')';
-        lingue.forEach((lingua) => {
+        lingueFrasi.forEach((lingua) => {
           const problemi = [];
           controllaId(problemi, f, conteggi, 'frase');
-          controllaCampo(problemi, f && f.etichetta, lingua, 'etichetta', true);
+          if (lingua === 'it') controllaCampo(problemi, f && f.etichetta, lingua, 'etichetta', true);
           controllaCampo(problemi, f && f.testo, lingua, 'testo', true);
           controllaNuovo(problemi, f);
+          const traduzione = controllaTraduzione(problemi, frasi, lingua);
           aggiungi({
             tipo: 'frase', gruppoId: 'frasi-comuni', esameNome: 'Frasi comuni', repertoId: sezione + '/' + id, lingua,
-            etichetta: testoIn(f && f.etichetta, lingua), negativo: null, positivo: testoIn(f && f.testo, lingua), conclusione: null,
-            nuovo: daVerificare(f),
+            etichetta: etichettaIn(f && f.etichetta, lingua), negativo: null, positivo: testoIn(f && f.testo, lingua), conclusione: null,
+            nuovo: daVerificare(f) || traduzione,
             riferimento: { etichetta: testoIn(f && f.etichetta, 'it'), positivo: testoIn(f && f.testo, 'it') },
             problemi
           });
@@ -217,31 +240,49 @@
       distretti.forEach((d, iD) => {
         const idD = (d && d.id) || '(senza id #' + (iD + 1) + ')';
         const gruppoId = m.id + '/' + idD;
-        const esameNome = m.nome + ' › ' + ((d && d.nome) || idD);
+        const esameNome = m.nome + ' › ' + (testoIn(d && d.nome, 'it') || idD);
         const organi = Array.isArray(d && d.organi) ? d.organi : [];
         const contaOrgani = conta(organi.map((o) => o && o.id));
-        const intro = [d && d.intro, d && d.introBilaterale].filter(Boolean).join(' / ') || null;
+        const lingueD = lingueDi(d, lingue);
+        const introIn = (lingua) => [testoIn(d && d.intro, lingua), testoIn(d && d.introBilaterale, lingua)].filter(Boolean).join(' / ') || null;
 
-        // Riga del distretto: titolo, intro, conclusione negativa
-        lingue.forEach((lingua) => {
+        lingueD.forEach((lingua) => {
+          // Riga del distretto: titolo, intro, conclusione negativa
           const problemi = [];
           controllaId(problemi, d, contaDistretti, 'distretto');
           if (!organi.length) problemi.push({ livello: 'errore', testo: 'distretto senza organi' });
-          controllaCampo(problemi, d && d.nome, lingua, 'nome', true);
+          if (lingua === 'it') controllaCampo(problemi, d && d.nome, lingua, 'nome', true);
           controllaCampo(problemi, d && d.titolo, lingua, 'titolo', true);
           if (d && d.intro) controllaCampo(problemi, d.intro, lingua, 'intro', true);
-          if (d && d.lati && !(d.intro || '').includes('{lato}')) {
+          if (d && d.introBilaterale) controllaCampo(problemi, d.introBilaterale, lingua, 'intro bilaterale', true);
+          if (d && d.lati && !(testoIn(d.intro, lingua) || '').includes('{lato}')) {
             problemi.push({ livello: 'avviso', testo: 'distretto con lati ma intro senza {lato}' });
           }
           controllaCampo(problemi, d && d.conclusioneNegativa, lingua, 'conclusione negativa', false);
           controllaNuovo(problemi, d);
+          const traduzione = controllaTraduzione(problemi, d, lingua);
           aggiungi({
             tipo: 'distretto', gruppoId, esameNome, repertoId: ID_RIGA_DISTRETTO, lingua,
-            etichetta: testoIn(d && d.titolo, lingua), negativo: intro, positivo: null,
-            conclusione: testoIn(d && d.conclusioneNegativa, lingua), nuovo: daVerificare(d),
-            riferimento: { etichetta: testoIn(d && d.titolo, 'it'), conclusione: testoIn(d && d.conclusioneNegativa, 'it') },
+            etichetta: testoIn(d && d.titolo, lingua), negativo: introIn(lingua), positivo: null,
+            conclusione: testoIn(d && d.conclusioneNegativa, lingua), nuovo: daVerificare(d) || traduzione,
+            riferimento: { etichetta: testoIn(d && d.titolo, 'it'), negativo: introIn('it'), conclusione: testoIn(d && d.conclusioneNegativa, 'it') },
             problemi
           });
+
+          // Riga della tecnica (se presente)
+          if (d && d.tecnica) {
+            const pt = [];
+            controllaCampo(pt, d.tecnica, lingua, 'tecnica', true);
+            if (d.tecnicaNuova) pt.push({ livello: 'avviso', testo: 'frase nuova (non dal tuo archivio): verificare' });
+            const trad = controllaTraduzione(pt, d, lingua);
+            aggiungi({
+              tipo: 'tecnica', gruppoId, esameNome, repertoId: ID_RIGA_TECNICA, lingua,
+              etichetta: 'Tecnica', negativo: testoIn(d.tecnica, lingua), positivo: null, conclusione: null,
+              nuovo: !!d.tecnicaNuova || trad,
+              riferimento: { negativo: testoIn(d.tecnica, 'it') },
+              problemi: pt
+            });
+          }
         });
 
         organi.forEach((o, iO) => {
@@ -250,17 +291,18 @@
           const contaReperti = conta(reperti.map((r) => r && r.id));
 
           // Riga dell'organo: frase negativa
-          lingue.forEach((lingua) => {
+          lingueD.forEach((lingua) => {
             const problemi = [];
             controllaId(problemi, o, contaOrgani, 'organo');
-            controllaCampo(problemi, o && o.nome, lingua, 'nome organo', true);
+            if (lingua === 'it') controllaCampo(problemi, o && o.nome, lingua, 'nome organo', true);
             if (o && o.negativo) controllaCampo(problemi, o.negativo, lingua, 'negativo', true);
             else if (!reperti.length) problemi.push({ livello: 'errore', testo: 'organo senza frase negativa né reperti' });
             controllaNuovo(problemi, o);
+            const traduzione = o && o.negativo ? controllaTraduzione(problemi, d, lingua) : false;
             aggiungi({
               tipo: 'organo', gruppoId, esameNome, repertoId: idO, lingua,
-              etichetta: testoIn(o && o.nome, lingua), negativo: (o && o.negativo) ? testoIn(o.negativo, lingua) : '',
-              positivo: null, conclusione: null, nuovo: daVerificare(o),
+              etichetta: etichettaIn(o && o.nome, lingua), negativo: (o && o.negativo) ? testoIn(o.negativo, lingua) : '',
+              positivo: null, conclusione: null, nuovo: daVerificare(o) || traduzione,
               riferimento: { etichetta: testoIn(o && o.nome, 'it'), negativo: testoIn(o && o.negativo, 'it') },
               problemi
             });
@@ -269,10 +311,10 @@
           // Righe dei reperti: frase positiva
           reperti.forEach((r, iR) => {
             const idR = (r && r.id) || '(senza id #' + (iR + 1) + ')';
-            lingue.forEach((lingua) => {
+            lingueD.forEach((lingua) => {
               const problemi = [];
               controllaId(problemi, r, contaReperti, 'reperto');
-              controllaCampo(problemi, r && r.etichetta, lingua, 'etichetta', true);
+              if (lingua === 'it') controllaCampo(problemi, r && r.etichetta, lingua, 'etichetta', true);
               controllaCampo(problemi, r && r.testo, lingua, 'testo positivo', true);
               controllaCampo(problemi, r && r.conclusione, lingua, 'conclusione', false);
               if (r && r.modo && !['sostituisce', 'aggiunge'].includes(r.modo)) {
@@ -282,10 +324,11 @@
               const pos = testoIn(r && r.testo, lingua);
               if (neg && pos && neg.trim() === pos.trim()) problemi.push({ livello: 'errore', testo: 'testo positivo identico al negativo' });
               controllaNuovo(problemi, r);
+              const traduzione = controllaTraduzione(problemi, d, lingua);
               aggiungi({
                 tipo: 'reperto', gruppoId, esameNome, repertoId: idO + '/' + idR, lingua,
-                etichetta: testoIn(r && r.etichetta, lingua), negativo: null, positivo: pos,
-                conclusione: testoIn(r && r.conclusione, lingua), nuovo: daVerificare(r),
+                etichetta: etichettaIn(r && r.etichetta, lingua), negativo: null, positivo: pos,
+                conclusione: testoIn(r && r.conclusione, lingua), nuovo: daVerificare(r) || traduzione,
                 riferimento: { etichetta: testoIn(r && r.etichetta, 'it'), positivo: testoIn(r && r.testo, 'it'), conclusione: testoIn(r && r.conclusione, 'it') },
                 problemi
               });
@@ -334,7 +377,8 @@
     const nonPrevisto = (riga.tipo === 'distretto' && campo === 'positivo')
       || (riga.tipo === 'organo' && (campo === 'positivo' || campo === 'conclusione'))
       || ((riga.tipo === 'reperto' || riga.tipo === 'frase') && campo === 'negativo')
-      || (riga.tipo === 'frase' && campo === 'conclusione');
+      || (riga.tipo === 'frase' && campo === 'conclusione')
+      || (riga.tipo === 'tecnica' && (campo === 'positivo' || campo === 'conclusione'));
     if (nonPrevisto || (valore === '' && riga.tipo === 'organo') || (valore === null && riga.tipo === 'distretto' && campo === 'negativo')) {
       td.append(el('span', '—', 'c-piccola'));
       return td;
@@ -374,7 +418,7 @@
     righe.forEach((riga) => {
       const tr = document.createElement('tr');
       riga.tr = tr;
-      if (riga.tipo === 'distretto') tr.classList.add('riga-esame');
+      if (riga.tipo === 'distretto' || riga.tipo === 'tecnica') tr.classList.add('riga-esame');
       if (riga.tipo === 'organo') tr.classList.add('riga-organo');
 
       const gruppo = riga.gruppoId + '|' + riga.repertoId.split('/')[0];

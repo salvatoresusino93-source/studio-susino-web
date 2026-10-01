@@ -49,10 +49,13 @@
     <section class="colonna-referto" aria-label="Referto">
       <div class="pannello pannello--referto">
         <div class="barra">
+          <label class="spunta">Lingua <select id="sel-lingua" aria-label="Lingua del referto"></select></label>
           <label class="spunta"><input type="checkbox" id="opt-titoli" checked> Titoli</label>
+          <label class="spunta"><input type="checkbox" id="opt-tecnica" checked> Tecnica</label>
           <label class="spunta"><input type="checkbox" id="opt-conclusioni"> Conclusioni</label>
           <span class="segnaposto-conta" id="conta-segnaposto"></span>
         </div>
+        <p class="avviso-lingua" id="avviso-lingua" hidden></p>
         <article class="referto" id="referto" aria-live="polite"></article>
         <div class="stile" id="stile" aria-live="polite"></div>
         <div class="azioni">

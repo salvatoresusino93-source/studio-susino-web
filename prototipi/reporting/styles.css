@@ -251,6 +251,10 @@ textarea { width: 100%; min-height: 70px; resize: vertical; line-height: 1.4; }
 .avviso { margin: 10px 0 0; font-size: .8rem; color: var(--tenue); }
 .avviso a { color: var(--accento-scuro); }
 
+/* Lingua del referto */
+.barra select { min-height: 34px; padding: 2px 8px; }
+.avviso-lingua { margin: 0 0 10px; padding: 6px 10px; border-radius: 8px; background: var(--positivo-tenue); color: var(--positivo); font-size: .85rem; }
+
 /* Controllo di stile */
 .referto .stile-avviso { text-decoration: underline wavy var(--positivo); text-underline-offset: 3px; cursor: help; }
 .stile { margin-top: 10px; font-size: .85rem; }
@@ -275,7 +279,7 @@ textarea { width: 100%; min-height: 70px; resize: vertical; line-height: 1.4; }
 /* ---------- Stampa: solo il referto ---------- */
 @media print {
   body { background: #fff; color: #000; }
-  .testata, .colonna-controlli, .barra, .azioni, .avviso, .stile { display: none !important; }
+  .testata, .colonna-controlli, .barra, .azioni, .avviso, .avviso-lingua, .stile { display: none !important; }
   .layout { display: block; padding: 0; }
   .pannello { border: 0; box-shadow: none; padding: 0; }
   .referto { border: 0; background: none; max-height: none; overflow: visible; padding: 0; }

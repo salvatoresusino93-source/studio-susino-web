@@ -30,6 +30,7 @@ from pathlib import Path
 
 CARTELLA = Path(__file__).resolve().parent
 ID_RIGA_DISTRETTO = "(distretto)"
+ID_RIGA_TECNICA = "(tecnica)"
 STATI = {"rivedere": "Da rivedere", "ok": "OK", "correggere": "Da correggere"}
 COLONNE = [
     "esame", "id_reperto", "etichetta", "lingua", "testo_negativo", "testo_positivo",
@@ -282,24 +283,44 @@ def riga(gruppo, id_, lingua, etichetta, negativo, positivo, conclusione, proble
     }
 
 
+def lingue_di(oggetto, lingue):
+    """Lingue di un distretto o delle frasi comuni (campo `lingue`), limitate a LINGUE. Predefinito: italiano."""
+    proprie = oggetto.get("lingue") if isinstance(oggetto, dict) and isinstance(oggetto.get("lingue"), list) and oggetto.get("lingue") else ["it"]
+    return [l for l in proprie if l in lingue]
+
+
+def controlla_traduzione(problemi, contenitore, lingua):
+    """Avviso per le traduzioni (EN/ES) non ancora verificate."""
+    if lingua != "it" and isinstance(contenitore, dict) and contenitore.get("traduzioniDaVerificare"):
+        problemi.append(("avviso", "traduzione nuova: verificare"))
+
+
+def etichetta_in(campo, lingua):
+    return testo_in(campo, lingua) or testo_in(campo, "it")
+
+
 def costruisci_righe(metodiche, frasi, lingue):
-    """Stesse righe di review.js: frasi comuni, poi distretto → organo → reperti."""
+    """Stesse righe di review.js: frasi comuni, poi distretto (+ tecnica) → organo → reperti.
+    Righe EN/ES solo per i distretti tradotti; nomi ed etichette controllati solo in italiano."""
     righe = []
 
     # Frasi comuni (in testa e in coda)
+    lingue_frasi = lingue_di(frasi, lingue)
     for sezione in ("premessa", "chiusura"):
         elenco = frasi.get(sezione) if isinstance(frasi, dict) and isinstance(frasi.get(sezione), list) else []
         conteggi = conta_id(elenco)
         for i, f in enumerate(elenco, 1):
             f = f if isinstance(f, dict) else {}
             id_ = f.get("id") or f"(senza id #{i})"
-            for lingua in lingue:
+            for lingua in lingue_frasi:
                 problemi = []
                 controlla_id(problemi, f, conteggi, "frase")
-                controlla_campo(problemi, f.get("etichetta"), lingua, "etichetta", True)
+                if lingua == "it":
+                    controlla_campo(problemi, f.get("etichetta"), lingua, "etichetta", True)
                 controlla_campo(problemi, f.get("testo"), lingua, "testo", True)
                 controlla_nuovo(problemi, f)
-                righe.append(riga("frasi-comuni", f"{sezione}/{id_}", lingua, testo_in(f.get("etichetta"), lingua),
+                controlla_traduzione(problemi, frasi, lingua)
+                righe.append(riga("frasi-comuni", f"{sezione}/{id_}", lingua, etichetta_in(f.get("etichetta"), lingua),
                                   None, testo_in(f.get("testo"), lingua), None, problemi))
 
     # Metodiche → distretti → organi → reperti
@@ -312,23 +333,40 @@ def costruisci_righe(metodiche, frasi, lingue):
             gruppo = f"{m.get('id')}/{d.get('id') or f'(senza id #{i_d})'}"
             organi = d.get("organi") if isinstance(d.get("organi"), list) else []
             conta_o = conta_id(organi)
-            intro = " / ".join(x for x in (d.get("intro"), d.get("introBilaterale")) if x) or None
+            lingue_d = lingue_di(d, lingue)
 
-            for lingua in lingue:
+            def intro_in(lingua):
+                parti = [testo_in(d.get("intro"), lingua), testo_in(d.get("introBilaterale"), lingua)]
+                return " / ".join(x for x in parti if x) or None
+
+            for lingua in lingue_d:
                 problemi = []
                 controlla_id(problemi, d, conta_d, "distretto")
                 if not organi:
                     problemi.append(("errore", "distretto senza organi"))
-                controlla_campo(problemi, d.get("nome"), lingua, "nome", True)
+                if lingua == "it":
+                    controlla_campo(problemi, d.get("nome"), lingua, "nome", True)
                 controlla_campo(problemi, d.get("titolo"), lingua, "titolo", True)
                 if d.get("intro"):
                     controlla_campo(problemi, d.get("intro"), lingua, "intro", True)
-                if d.get("lati") and "{lato}" not in (d.get("intro") or ""):
+                if d.get("introBilaterale"):
+                    controlla_campo(problemi, d.get("introBilaterale"), lingua, "intro bilaterale", True)
+                if d.get("lati") and "{lato}" not in (testo_in(d.get("intro"), lingua) or ""):
                     problemi.append(("avviso", "distretto con lati ma intro senza {lato}"))
                 controlla_campo(problemi, d.get("conclusioneNegativa"), lingua, "conclusione negativa", False)
                 controlla_nuovo(problemi, d)
-                righe.append(riga(gruppo, ID_RIGA_DISTRETTO, lingua, testo_in(d.get("titolo"), lingua), intro, None,
+                controlla_traduzione(problemi, d, lingua)
+                righe.append(riga(gruppo, ID_RIGA_DISTRETTO, lingua, testo_in(d.get("titolo"), lingua), intro_in(lingua), None,
                                   testo_in(d.get("conclusioneNegativa"), lingua), problemi))
+
+                if d.get("tecnica"):
+                    pt = []
+                    controlla_campo(pt, d.get("tecnica"), lingua, "tecnica", True)
+                    if d.get("tecnicaNuova"):
+                        pt.append(("avviso", "frase nuova (non dal tuo archivio): verificare"))
+                    controlla_traduzione(pt, d, lingua)
+                    righe.append(riga(gruppo, ID_RIGA_TECNICA, lingua, "Tecnica", testo_in(d.get("tecnica"), lingua),
+                                      None, None, pt))
 
             for i_o, o in enumerate(organi, 1):
                 o = o if isinstance(o, dict) else {}
@@ -336,25 +374,29 @@ def costruisci_righe(metodiche, frasi, lingue):
                 reperti = o.get("reperti") if isinstance(o.get("reperti"), list) else []
                 conta_r = conta_id(reperti)
 
-                for lingua in lingue:
+                for lingua in lingue_d:
                     problemi = []
                     controlla_id(problemi, o, conta_o, "organo")
-                    controlla_campo(problemi, o.get("nome"), lingua, "nome organo", True)
+                    if lingua == "it":
+                        controlla_campo(problemi, o.get("nome"), lingua, "nome organo", True)
                     if o.get("negativo"):
                         controlla_campo(problemi, o.get("negativo"), lingua, "negativo", True)
                     elif not reperti:
                         problemi.append(("errore", "organo senza frase negativa né reperti"))
                     controlla_nuovo(problemi, o)
+                    if o.get("negativo"):
+                        controlla_traduzione(problemi, d, lingua)
                     negativo = testo_in(o.get("negativo"), lingua) if o.get("negativo") else ""
-                    righe.append(riga(gruppo, id_o, lingua, testo_in(o.get("nome"), lingua), negativo, None, None, problemi))
+                    righe.append(riga(gruppo, id_o, lingua, etichetta_in(o.get("nome"), lingua), negativo, None, None, problemi))
 
                 for i_r, r in enumerate(reperti, 1):
                     r = r if isinstance(r, dict) else {}
                     id_r = r.get("id") or f"(senza id #{i_r})"
-                    for lingua in lingue:
+                    for lingua in lingue_d:
                         problemi = []
                         controlla_id(problemi, r, conta_r, "reperto")
-                        controlla_campo(problemi, r.get("etichetta"), lingua, "etichetta", True)
+                        if lingua == "it":
+                            controlla_campo(problemi, r.get("etichetta"), lingua, "etichetta", True)
                         controlla_campo(problemi, r.get("testo"), lingua, "testo positivo", True)
                         controlla_campo(problemi, r.get("conclusione"), lingua, "conclusione", False)
                         if r.get("modo") and r.get("modo") not in ("sostituisce", "aggiunge"):
@@ -364,7 +406,8 @@ def costruisci_righe(metodiche, frasi, lingue):
                         if neg and pos and neg.strip() == pos.strip():
                             problemi.append(("errore", "testo positivo identico al negativo"))
                         controlla_nuovo(problemi, r)
-                        righe.append(riga(gruppo, f"{id_o}/{id_r}", lingua, testo_in(r.get("etichetta"), lingua), None, pos,
+                        controlla_traduzione(problemi, d, lingua)
+                        righe.append(riga(gruppo, f"{id_o}/{id_r}", lingua, etichetta_in(r.get("etichetta"), lingua), None, pos,
                                           testo_in(r.get("conclusione"), lingua), problemi))
     return righe
 
