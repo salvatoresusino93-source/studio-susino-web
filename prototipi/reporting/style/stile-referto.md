@@ -82,8 +82,12 @@ usati come aggettivi (es. «distesa», «improntante») non vanno elencati.
 - consente, consentono, permette, permettono, potrebbe, potrebbero
 - consiglia, consigliano, indica, indicano, rimanda, procede, esegue
 
-Nota: «nota» è anche aggettivo/sostantivo («la nota formazione»): la segnalazione è un
-avviso da valutare, non un errore.
+## Eccezioni alle forme verbali (linter)
+Espressioni in cui la parola NON è un verbo (es. «nota» aggettivo, «misura» sostantivo).
+
+- la nota, della nota, alla nota, nella nota, dalla nota, sulla nota, una nota
+- le note, delle note, alle note, nelle note
+- in minor misura, in maggior misura, su misura
 
 ## Termini vietati (linter)
 | Vietato | Usare invece | Nota |

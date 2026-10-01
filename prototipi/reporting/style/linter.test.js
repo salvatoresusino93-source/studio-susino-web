@@ -63,13 +63,22 @@ test('«Assenza di» segnalato solo oltre la soglia', () => {
   assert.deepEqual(tipi('Assenza di versamento. Assenza di lesioni focali.'), ['assenza', 'assenza']);
 });
 
-test('ripetizione di parole con la stessa radice nella stessa frase', () => {
+test('ripetizione della stessa parola con desinenza diversa nella stessa frase', () => {
   const avvisi = stile.controlla('Linfonodi di maggiori dimensioni, il maggiore di 12 mm.', regole);
   assert.deepEqual(avvisi.map((a) => a.tipo), ['ripetizione']);
   // la stessa parola ripetuta (es. carotide … carotide) non è segnalata
   assert.deepEqual(tipi('Regolare pervietà della carotide comune, della carotide interna ed esterna.'), []);
   // parole esenti
   assert.deepEqual(tipi('Rene destro e rene sinistro in sede, a destra lieve ectasia.'), []);
+  // termini diversi con lo stesso inizio (tendine/tendinosi, bicipite/bicipitale) non sono ripetizioni
+  assert.deepEqual(tipi('Tendine sovraspinato ispessito, come per tendinosi.'), []);
+  assert.deepEqual(tipi('Capo lungo del bicipite nella doccia bicipitale.'), []);
+});
+
+test('eccezioni alle forme verbali (nota aggettivo, misura sostantivo)', () => {
+  assert.deepEqual(tipi('Conferma della nota formazione iperecogena.'), []);
+  assert.deepEqual(tipi('Rottura del sovraspinato e, in minor misura, del sottospinato.'), []);
+  assert.deepEqual(tipi('Il diametro misura 12 mm.'), ['verbo']);
 });
 
 test('referto composto: formule negative consecutive e frasi ripetute', () => {

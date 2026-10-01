@@ -7,7 +7,7 @@
  *   - costruzioni impersonali con «si»;
  *   - termini vietati (tabella nel file .md);
  *   - uso eccessivo di «Assenza di»;
- *   - ripetizioni di parole con la stessa radice nella stessa frase
+ *   - la stessa parola ripetuta con desinenza diversa nella stessa frase
  *     (es. «di maggiori dimensioni… la maggiore») e frasi identiche ripetute;
  *   - la stessa formula all'inizio di troppe frasi consecutive (es. «Non… Non… Non…»);
  *   - regole di contesto (es. versamento pleurico in TC addome).
@@ -78,6 +78,7 @@
     });
     return {
       verbi: vociElenco(sezione(testo, 'Forme verbali vietate (linter)')).map((v) => v.toLowerCase()),
+      eccezioniVerbi: vociElenco(sezione(testo, 'Eccezioni alle forme verbali (linter)')),
       vietati: righeTabella(sezione(testo, 'Termini vietati (linter)'))
         .filter((c) => c[0])
         .map((c) => ({ termine: c[0], invece: c[1] || '', nota: c[2] || '' })),
@@ -150,6 +151,11 @@
     return out;
   }
 
+  /** Parola senza la desinenza vocalica finale: «maggiori»/«maggiore» → «maggior». */
+  function tema(parola) {
+    return parola.replace(/[aeiouàèéìòù]+$/u, '');
+  }
+
   /** Formula iniziale di una frase: "non", "assente/i", "regolare/i", … (prima parola significativa). */
   function formulaIniziale(frase) {
     const p = paroleDi(frase).map((x) => x.parola.toLowerCase());
@@ -190,11 +196,18 @@
       posizioniSi.add(m.index + m[0].length - m[1].length); // il verbo dopo «si» è già segnalato
     }
 
-    // 2. Forme verbali finite
+    // 2. Forme verbali finite (tranne dentro le espressioni di eccezione, es. «in minor misura»)
     if (r.verbi.length) {
+      const zoneEccezione = [];
+      if (r.eccezioniVerbi && r.eccezioniVerbi.length) {
+        const reEcc = parole(r.eccezioniVerbi);
+        while ((m = reEcc.exec(t))) zoneEccezione.push([m.index, m.index + m[0].length]);
+      }
       const reVerbi = parole(r.verbi);
       while ((m = reVerbi.exec(t))) {
         if (posizioniSi.has(m.index)) continue;
+        const pos = m.index;
+        if (zoneEccezione.some(([a, b]) => pos >= a && pos < b)) continue;
         aggiungi('verbo', 'Forma verbale finita: «' + m[0] + '»', m.index, m.index + m[0].length);
       }
     }
@@ -221,13 +234,13 @@
 
     const elencoFrasi = frasi(t);
 
-    // 5. Ripetizioni nella stessa frase: parole diverse con la stessa radice
+    // 5. Ripetizioni nella stessa frase: stessa parola con desinenza diversa («maggiori… maggiore»)
     elencoFrasi.forEach((f) => {
       const viste = new Map();
       paroleDi(f).forEach((p) => {
         const parola = p.parola.toLowerCase();
         if (parola.length < r.soglie.radice_min || r.esenti.has(parola) || PAROLE_VUOTE.has(parola)) return;
-        const rad = parola.slice(0, r.soglie.radice_min);
+        const rad = tema(parola);
         const prec = viste.get(rad);
         if (prec && prec.parola.toLowerCase() !== parola) {
           aggiungi('ripetizione', 'Ripetizione nella stessa frase: «' + prec.parola + '» … «' + p.parola + '»',
