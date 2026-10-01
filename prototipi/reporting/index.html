@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Prototipo locale: non deve essere indicizzato se finisce online -->
+  <meta name="robots" content="noindex, nofollow">
+  <title>Refertario — referti standard</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="testata">
+    <div class="testata__marchio" aria-hidden="true">R</div>
+    <div>
+      <h1 class="testata__titolo">Refertario</h1>
+      <p class="testata__sottotitolo" id="ui-sottotitolo">Referti standard multilingua</p>
+    </div>
+  </header>
+
+  <main class="layout">
+    <!-- Pannello di sinistra: controlli -->
+    <section class="pannello controlli" aria-labelledby="ui-esame">
+      <div class="campo">
+        <label for="sel-esame" id="ui-esame">Esame</label>
+        <select id="sel-esame"></select>
+      </div>
+
+      <div class="campo">
+        <label for="sel-lingua" id="ui-lingua">Lingua del referto</label>
+        <select id="sel-lingua"></select>
+      </div>
+
+      <fieldset class="reperti">
+        <legend>
+          <span id="ui-reperti">Reperti positivi</span>
+          <span class="contatore" id="contatore">0</span>
+        </legend>
+        <p class="suggerimento" id="ui-suggerimento">Tutto ciò che non selezioni viene refertato come negativo.</p>
+        <div id="lista-reperti" class="lista-reperti"></div>
+      </fieldset>
+
+      <div class="azioni">
+        <button type="button" class="btn btn--primario" id="btn-genera">Genera</button>
+        <button type="button" class="btn" id="btn-copia">Copia</button>
+        <button type="button" class="btn" id="btn-stampa">Stampa</button>
+        <button type="button" class="btn btn--tenue" id="btn-reset">Reset</button>
+      </div>
+    </section>
+
+    <!-- Pannello di destra: referto generato -->
+    <section class="pannello output" aria-live="polite">
+      <p class="avviso" id="ui-avviso">Prototipo: testi standard da verificare prima dell'uso clinico.</p>
+      <article id="referto" class="referto">
+        <p class="referto__vuoto" id="ui-vuoto">Scegli un esame, seleziona gli eventuali reperti positivi e premi «Genera».</p>
+      </article>
+    </section>
+  </main>
+
+  <!-- I dati vanno caricati prima della logica -->
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

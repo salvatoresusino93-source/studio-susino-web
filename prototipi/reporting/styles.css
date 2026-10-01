@@ -1,0 +1,217 @@
+/* Refertario — stile del prototipo (nessuna dipendenza esterna) */
+
+/* ---------- Variabili di tema ---------- */
+:root {
+  --sfondo: #f3f5f8;
+  --superficie: #ffffff;
+  --testo: #18212b;
+  --testo-tenue: #5c6b7a;
+  --bordo: #dfe4ea;
+  --accento: #2b5fd9;
+  --accento-scuro: #1f4ab0;
+  --accento-tenue: #e8eefc;
+  --positivo: #c2410c;
+  --positivo-tenue: #fff1e8;
+  --raggio: 12px;
+  --ombra: 0 1px 2px rgba(20, 30, 50, .06), 0 8px 24px -12px rgba(20, 30, 50, .18);
+  --carattere: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --carattere-referto: Georgia, "Times New Roman", serif;
+}
+
+/* Tema scuro automatico */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --sfondo: #0f141a;
+    --superficie: #171e26;
+    --testo: #e6ebf0;
+    --testo-tenue: #95a3b2;
+    --bordo: #2a3440;
+    --accento: #6d94f2;
+    --accento-scuro: #8aa9f5;
+    --accento-tenue: #1d2a44;
+    --positivo: #fb923c;
+    --positivo-tenue: #3a2414;
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: var(--carattere);
+  background: var(--sfondo);
+  color: var(--testo);
+  line-height: 1.5;
+}
+
+/* ---------- Header ---------- */
+.testata {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 24px;
+  background: var(--superficie);
+  border-bottom: 1px solid var(--bordo);
+}
+.testata__marchio {
+  width: 40px; height: 40px;
+  display: grid; place-items: center;
+  border-radius: 10px;
+  background: var(--accento);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+.testata__titolo { margin: 0; font-size: 1.25rem; }
+.testata__sottotitolo { margin: 0; color: var(--testo-tenue); font-size: .9rem; }
+
+/* ---------- Layout a due colonne ---------- */
+.layout {
+  display: grid;
+  grid-template-columns: minmax(280px, 380px) 1fr;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 24px 40px;
+  align-items: start;
+}
+
+.pannello {
+  background: var(--superficie);
+  border: 1px solid var(--bordo);
+  border-radius: var(--raggio);
+  box-shadow: var(--ombra);
+  padding: 20px;
+}
+
+/* Il pannello controlli resta visibile scorrendo il referto (desktop) */
+.controlli { position: sticky; top: 20px; }
+
+/* ---------- Campi ---------- */
+.campo { margin-bottom: 16px; }
+.campo label,
+.reperti legend {
+  display: block;
+  font-weight: 600;
+  font-size: .9rem;
+  margin-bottom: 6px;
+}
+select {
+  width: 100%;
+  min-height: 44px;
+  padding: 8px 12px;
+  font: inherit;
+  color: var(--testo);
+  background: var(--superficie);
+  border: 1px solid var(--bordo);
+  border-radius: 8px;
+}
+select:focus-visible,
+.btn:focus-visible,
+.reperto input:focus-visible {
+  outline: 3px solid var(--accento-tenue);
+  outline-offset: 1px;
+  border-color: var(--accento);
+}
+
+/* ---------- Reperti ---------- */
+.reperti { border: 0; margin: 0 0 16px; padding: 0; }
+.reperti legend { display: flex; align-items: center; gap: 8px; width: 100%; }
+.contatore {
+  min-width: 24px;
+  padding: 0 8px;
+  border-radius: 999px;
+  background: var(--accento-tenue);
+  color: var(--accento-scuro);
+  font-size: .8rem;
+  text-align: center;
+}
+.contatore.attivo { background: var(--positivo-tenue); color: var(--positivo); }
+.suggerimento { margin: 0 0 10px; font-size: .85rem; color: var(--testo-tenue); }
+
+.lista-reperti { display: flex; flex-direction: column; gap: 6px; }
+.reperto {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 8px 12px;
+  border: 1px solid var(--bordo);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background .15s, border-color .15s;
+}
+.reperto:hover { border-color: var(--accento); }
+.reperto input { width: 18px; height: 18px; accent-color: var(--positivo); flex-shrink: 0; }
+.reperto:has(input:checked) {
+  background: var(--positivo-tenue);
+  border-color: var(--positivo);
+}
+
+/* ---------- Pulsanti ---------- */
+.azioni { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.btn {
+  min-height: 44px;
+  padding: 8px 14px;
+  font: inherit;
+  font-weight: 600;
+  color: var(--accento-scuro);
+  background: var(--accento-tenue);
+  border: 1px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.btn:hover { border-color: var(--accento); }
+.btn--primario { grid-column: 1 / -1; background: var(--accento); color: #fff; }
+.btn--primario:hover { background: var(--accento-scuro); }
+.btn--tenue { grid-column: 1 / -1; background: transparent; border-color: var(--bordo); color: var(--testo-tenue); }
+
+/* ---------- Referto ---------- */
+.avviso {
+  margin: 0 0 16px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: var(--positivo-tenue);
+  color: var(--positivo);
+  font-size: .85rem;
+}
+.referto {
+  font-family: var(--carattere-referto);
+  font-size: 1.02rem;
+  line-height: 1.65;
+}
+.referto__vuoto { color: var(--testo-tenue); font-family: var(--carattere); }
+.referto h2 {
+  margin: 0 0 18px;
+  font-size: 1.05rem;
+  letter-spacing: .04em;
+  text-align: center;
+}
+.referto h3 {
+  margin: 18px 0 6px;
+  font-family: var(--carattere);
+  font-size: .8rem;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--testo-tenue);
+}
+.referto p { margin: 0 0 6px; }
+.referto ul { margin: 0; padding-left: 20px; }
+.referto .pos { background: var(--positivo-tenue); border-radius: 3px; }
+
+/* ---------- Mobile ---------- */
+@media (max-width: 760px) {
+  .layout { grid-template-columns: 1fr; padding: 16px; gap: 16px; }
+  .controlli { position: static; }
+  .testata { padding: 12px 16px; }
+}
+
+/* ---------- Stampa: solo il referto ---------- */
+@media print {
+  body { background: #fff; color: #000; }
+  .testata, .controlli, .avviso { display: none; }
+  .layout { display: block; padding: 0; max-width: none; }
+  .pannello { border: 0; box-shadow: none; padding: 0; }
+  .referto .pos { background: none; }
+  .referto h3 { color: #000; }
+}
