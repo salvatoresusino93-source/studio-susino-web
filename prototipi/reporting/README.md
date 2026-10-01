@@ -1,70 +1,55 @@
 # Refertario — prototipo locale
 
-App statica e offline che genera **referti radiologici standard** in italiano, inglese e spagnolo.
-Ogni reperto è **negativo di default**; spuntando una casella diventa **positivo** e finisce nelle conclusioni.
+App statica e offline per comporre i referti **nello stile del Dr. Susino**.
+Si scelgono uno o più distretti, si spuntano i reperti positivi; per ogni organo non toccato
+viene scritta in automatico la frase negativa abituale.
 
-> Prototipo: i testi sono bozze originali e vanno **verificati dal medico** prima di qualsiasi uso clinico.
-> Nessun contenuto, codice, logo o immagine è preso da altri siti.
+> I testi vengono dal documento «Referti Dott. Susino» (Google Drive) e dai modelli di RefertEco,
+> senza nomi propri e con i valori dei singoli casi sostituiti da `___`.
+> Le frasi marcate **nuovo** sono state scritte da Claude nello stesso stile per coprire reperti
+> frequenti mancanti: **vanno verificate** (vedi «Revisione dei testi clinici»).
 
 ## Avvio
 
-**Opzione 1:** apri direttamente `index.html` con il browser (doppio clic).
-
-**Opzione 2:** server locale, dalla cartella del progetto:
+Apri `index.html` con il browser (doppio clic), oppure:
 
 ```bash
 cd prototipi/reporting
 python3 -m http.server 8000
 ```
 
-poi apri <http://localhost:8000>.
+e vai su <http://localhost:8000>.
 
 ## Uso
 
-1. Scegli l'**esame** e la **lingua** del referto.
-2. Spunta i **reperti positivi** (quelli non spuntati sono refertati come negativi).
-3. Premi **Genera**. Dopo la prima generazione il referto si aggiorna da solo a ogni modifica.
-4. **Copia** mette negli appunti il referto in testo semplice; **Stampa** stampa solo il referto; **Reset** azzera tutto.
-
-Conclusioni: se non c'è alcun positivo si usa la conclusione normale dell'esame, altrimenti un elenco dei reperti positivi.
+1. In alto la **metodica**: per ora Ecografia (TC, RM, RX in arrivo).
+2. Scegli uno o più **distretti** (es. Addome completo + Tiroide): vengono uniti in un unico referto.
+   Per i distretti con lato (spalla, ginocchio…) scegli destra/sinistra.
+3. Per ogni organo spunta i **reperti positivi**: il testo positivo prende il posto della frase negativa
+   (alcuni, come le cisti renali, si aggiungono alla frase negativa).
+4. **✎ Descrivi tu** su un organo: scrivi la tua descrizione, che sostituisce la frase negativa
+   (parte precompilata con il negativo, da modificare). **Altro** in fondo al distretto: testo libero in coda.
+5. **Frasi in testa / in coda**: quesito, confronto con esame precedente, controllo a distanza…
+6. Il referto si aggiorna mentre scegli. I campi `___` sono evidenziati in giallo e contati.
+   **Copia** lo mette negli appunti in testo semplice, **Stampa** stampa solo il referto,
+   **Nuovo referto** azzera. Le scelte restano salvate nel browser se ricarichi la pagina.
+7. **Conclusioni** (facoltative): elenco dei positivi, oppure la frase negativa del distretto.
 
 ## File
 
 | File | Contenuto |
 |---|---|
-| `index.html` | struttura della pagina (header, controlli a sinistra, referto a destra) |
-| `styles.css` | stile responsive, tema chiaro/scuro, stile di stampa |
-| `app.js` | logica: menu, checkbox, composizione del referto, copia/stampa/reset |
-| `data.js` | lingue, testi dell'interfaccia e libreria degli esami |
+| `index.html`, `styles.css`, `app.js` | composizione del referto |
+| `data.js` | libreria: metodiche, distretti, organi, frasi negative e reperti positivi |
 | `review.html`, `review.css`, `review.js` | strumento di revisione dei testi (vedi sotto) |
 | `review_export.py` | esportazione CSV da riga di comando |
 
-Esami inclusi: Rx torace, TC addome, RM encefalo, Ecografia addome.
+## Modificare o aggiungere testi
 
-## Aggiungere un esame
-
-In `data.js` aggiungi un oggetto all'array `ESAMI`:
-
-```js
-{
-  id: 'eco-tiroide',
-  nome:    { it: 'Ecografia tiroide', en: 'Thyroid ultrasound', es: 'Ecografía tiroidea' },
-  titolo:  { it: '…', en: '…', es: '…' },
-  tecnica: { it: '…', en: '…', es: '…' },
-  reperti: [
-    {
-      id: 'nodulo',
-      etichetta:   { it: '…', en: '…', es: '…' },
-      negativo:    { it: '…', en: '…', es: '…' },
-      positivo:    { it: '…', en: '…', es: '…' },
-      conclusione: { it: '…', en: '…', es: '…' } // facoltativa
-    }
-  ],
-  conclusioneNormale: { it: '…', en: '…', es: '…' }
-}
-```
-
-Per una nuova lingua aggiungi il codice in `LINGUE`, un blocco in `UI` e la chiave in ogni testo.
+Tutto è in `data.js` (struttura spiegata in testa al file). Un organo ha una frase `negativo`
+e un elenco di `reperti`; ogni reperto ha `etichetta`, `testo`, eventuale `conclusione`,
+`modo: "aggiunge"` se non deve togliere il negativo, `nuovo: true` se non viene dall'archivio.
+Dopo una modifica, la revisione segnala le righe cambiate rispetto a quanto già validato.
 
 ## Revisione dei testi clinici
 
@@ -95,8 +80,9 @@ e vai su <http://localhost:8000/review.html>.
    (utile per cambiare browser/computer o passare il lavoro a un collega).
    Il salvataggio nel browser si perde se cancelli i dati di navigazione: esporta il backup ogni tanto.
 
-Righe della tabella: una per ogni reperto e per ogni lingua, più una riga `(esame)` per lingua con
-titolo (colonna *Etichetta*), tecnica (colonna *Testo negativo*) e conclusione normale.
+Righe della tabella: una per distretto (titolo, intro, conclusione negativa), una per organo (frase negativa),
+una per reperto (frase positiva) e una per ogni frase comune. *Solo frasi nuove* mostra le frasi non presenti
+nel tuo archivio, da verificare per prime.
 
 ### Controlli automatici
 
@@ -104,10 +90,10 @@ titolo (colonna *Etichetta*), tecnica (colonna *Testo negativo*) e conclusione n
 |---|---|
 | errore | traduzione mancante in una lingua di `LINGUE`, testo vuoto, campo obbligatorio assente |
 | errore | segnaposto: `TODO`, `TBD`, `FIXME`, `XXX`, `da specificare`, `da definire`, `da completare`, `???`, `lorem ipsum` |
-| errore | id di esame duplicato, id di reperto duplicato nello stesso esame, id mancante |
-| errore | testo negativo e positivo identici |
+| errore | id duplicati (distretto, organo, reperto, frase) o mancanti; organo senza negativo né reperti |
+| errore | testo positivo identico al negativo; `modo` non valido |
 | errore | **testo modificato dopo la revisione**: una riga segnata OK/Da correggere il cui testo è poi cambiato in `data.js` (va ricontrollata) |
-| avviso | testo EN/ES identico all'italiano (non tradotto?), graffe `{…}` rimaste, conclusione assente, lingue non dichiarate in `LINGUE` |
+| avviso | **frase nuova** (non dal tuo archivio), graffe `{…}` rimaste (tranne `{lato}`), lingue non dichiarate in `LINGUE` |
 
 ### Esportazione da riga di comando (per Excel)
 

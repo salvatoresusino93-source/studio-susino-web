@@ -194,6 +194,9 @@ input:focus-visible, select:focus-visible, textarea:focus-visible, .btn:focus-vi
   color: var(--tenue);
 }
 
+/* Riga della frase negativa di un organo */
+.tabella tr.riga-organo { background: var(--ok-tenue); }
+
 /* Colore della riga secondo lo stato */
 .tabella tr.stato-ok td:first-child { box-shadow: inset 4px 0 var(--ok); }
 .tabella tr.stato-correggere td:first-child { box-shadow: inset 4px 0 var(--errore); }

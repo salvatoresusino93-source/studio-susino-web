@@ -1,9 +1,9 @@
 /*
  * review.js — strumento di revisione dei testi clinici di data.js.
  *
- * - Legge ESAMI e LINGUE caricati da data.js (sola lettura: i testi non si toccano).
- * - Crea una riga per ogni reperto e per ogni lingua, più una riga "(esame)"
- *   per lingua con titolo, tecnica e conclusione normale.
+ * - Legge METODICHE, FRASI_COMUNI e LINGUE da data.js (sola lettura: i testi non si toccano).
+ * - Crea, per ogni lingua, una riga per distretto (titolo, intro, conclusione negativa),
+ *   una per organo (frase negativa) e una per reperto (frase positiva), più le frasi comuni.
  * - Segnala automaticamente i problemi (traduzioni mancanti, segnaposto, id duplicati…).
  * - Salva stato, note, revisore e data in localStorage.
  * - Esporta tutto in CSV (separatore ";" per Excel in italiano) e in JSON di backup.
@@ -16,9 +16,9 @@
 
   // ---------- Costanti ----------
 
-  const CHIAVE_REVISIONE = 'refertario-revisione-v1';
+  const CHIAVE_REVISIONE = 'refertario-revisione-v2';
   const CHIAVE_REVISORE = 'refertario-revisore';
-  const ID_RIGA_ESAME = '(esame)';
+  const ID_RIGA_DISTRETTO = '(distretto)';
 
   const STATI = {
     rivedere: 'Da rivedere',
@@ -28,8 +28,8 @@
 
   // Parole che indicano un testo non finito
   const SEGNAPOSTO = /\b(TODO|TBD|FIXME|XXX+)\b|da specificare|da definire|da completare|\?\?\?|lorem ipsum/i;
-  // Graffe del tipo {campo} rimaste nel testo
-  const GRAFFE = /\{[^}]*\}/;
+  // Graffe del tipo {campo} rimaste nel testo ({lato} è previsto e viene sostituito)
+  const GRAFFE = /\{(?!lato\})[^}]*\}/;
   // Sotto questa lunghezza un testo uguale all'italiano non è sospetto (es. "TC", "Splenomegalia")
   const MIN_LUNGHEZZA_COPIA = 20;
 
@@ -50,6 +50,7 @@
     stato: $('f-stato'),
     testo: $('f-testo'),
     problemi: $('f-problemi'),
+    nuovi: $('f-nuovi'),
     riferimento: $('f-riferimento')
   };
 
@@ -80,6 +81,7 @@
 
   /** Testo in una lingua, oppure null se il campo o la lingua mancano. */
   function testoIn(campo, lingua) {
+    if (typeof campo === 'string') return lingua === 'it' ? campo : null;
     if (!campo || typeof campo !== 'object') return null;
     return Object.prototype.hasOwnProperty.call(campo, lingua) ? String(campo[lingua]) : null;
   }
@@ -128,6 +130,7 @@
       if (obbligatorio) problemi.push({ livello: 'errore', testo: nome + ': campo assente' });
       return;
     }
+    if (typeof campo === 'string') campo = { it: campo }; // stringa semplice = italiano
     if (typeof campo !== 'object' || Array.isArray(campo)) {
       problemi.push({ livello: 'errore', testo: nome + ': formato non valido' });
       return;
@@ -166,91 +169,123 @@
 
   // ---------- Costruzione delle righe ----------
 
-  /** Trasforma ESAMI in righe piatte (una per reperto e lingua). */
-  function costruisciRighe(esami, lingue) {
+  /** Controlla id mancanti o duplicati. */
+  function controllaId(problemi, oggetto, conteggi, cosa) {
+    if (!oggetto || !oggetto.id) problemi.push({ livello: 'errore', testo: cosa + ' senza id' });
+    else if (conteggi.get(oggetto.id) > 1) problemi.push({ livello: 'errore', testo: 'id ' + cosa + ' duplicato: ' + oggetto.id });
+  }
+
+  /** Avviso per le frasi scritte da Claude e non presenti nell'archivio del medico. */
+  function controllaNuovo(problemi, oggetto) {
+    if (oggetto && oggetto.nuovo) problemi.push({ livello: 'avviso', testo: 'frase nuova (non dal tuo archivio): verificare' });
+  }
+
+  /** Trasforma METODICHE e FRASI_COMUNI in righe piatte (una per voce e lingua). */
+  function costruisciRighe(metodiche, frasi, lingue) {
     const righe = [];
-    const contaEsami = conta(esami.map((e) => e && e.id));
+    const aggiungi = (riga) => righe.push(riga);
 
-    esami.forEach((esame, indiceEsame) => {
-      const esameId = (esame && esame.id) || '(senza id #' + (indiceEsame + 1) + ')';
-      const reperti = Array.isArray(esame && esame.reperti) ? esame.reperti : [];
-      const contaReperti = conta(reperti.map((r) => r && r.id));
-
-      // --- Riga "(esame)": titolo, tecnica, conclusione normale ---
-      lingue.forEach((lingua) => {
-        const problemi = [];
-        if (!esame || !esame.id) problemi.push({ livello: 'errore', testo: 'esame senza id' });
-        else if (contaEsami.get(esame.id) > 1) problemi.push({ livello: 'errore', testo: 'id esame duplicato: ' + esame.id });
-        if (!reperti.length) problemi.push({ livello: 'errore', testo: 'esame senza reperti' });
-        controllaCampo(problemi, esame && esame.nome, lingua, 'nome esame', true);
-        controllaCampo(problemi, esame && esame.titolo, lingua, 'titolo', true);
-        controllaCampo(problemi, esame && esame.tecnica, lingua, 'tecnica', true);
-        controllaCampo(problemi, esame && esame.conclusioneNormale, lingua, 'conclusione normale', true);
-        if (lingua === lingue[0] && esame) {
-          const extra = lingueNonDichiarate([esame.nome, esame.titolo, esame.tecnica, esame.conclusioneNormale], lingue);
-          if (extra.length) problemi.push({ livello: 'avviso', testo: 'lingue non dichiarate in LINGUE: ' + extra.join(', ') });
-        }
-
-        righe.push({
-          tipo: 'esame',
-          esameId,
-          esameNome: testoIn(esame && esame.nome, 'it') || esameId,
-          repertoId: ID_RIGA_ESAME,
-          lingua,
-          etichetta: testoIn(esame && esame.titolo, lingua),
-          negativo: testoIn(esame && esame.tecnica, lingua),
-          positivo: null,
-          conclusione: testoIn(esame && esame.conclusioneNormale, lingua),
-          riferimento: {
-            etichetta: testoIn(esame && esame.titolo, 'it'),
-            negativo: testoIn(esame && esame.tecnica, 'it'),
-            conclusione: testoIn(esame && esame.conclusioneNormale, 'it')
-          },
-          problemi
-        });
-      });
-
-      // --- Righe dei reperti ---
-      reperti.forEach((r, indiceReperto) => {
-        const repertoId = (r && r.id) || '(senza id #' + (indiceReperto + 1) + ')';
+    // --- Frasi comuni (in testa e in coda) ---
+    ['premessa', 'chiusura'].forEach((sezione) => {
+      const elenco = (frasi && Array.isArray(frasi[sezione])) ? frasi[sezione] : [];
+      const conteggi = conta(elenco.map((f) => f && f.id));
+      elenco.forEach((f, i) => {
+        const id = (f && f.id) || '(senza id #' + (i + 1) + ')';
         lingue.forEach((lingua) => {
           const problemi = [];
-          if (!r || !r.id) problemi.push({ livello: 'errore', testo: 'reperto senza id' });
-          else if (contaReperti.get(r.id) > 1) problemi.push({ livello: 'errore', testo: 'id reperto duplicato nell\'esame' });
-          controllaCampo(problemi, r && r.etichetta, lingua, 'etichetta', true);
-          controllaCampo(problemi, r && r.negativo, lingua, 'negativo', true);
-          controllaCampo(problemi, r && r.positivo, lingua, 'positivo', true);
-          controllaCampo(problemi, r && r.conclusione, lingua, 'conclusione', false);
-          if (r && r.conclusione == null) {
-            problemi.push({ livello: 'avviso', testo: 'conclusione assente: nel referto si usa l\'etichetta' });
-          }
-          const neg = testoIn(r && r.negativo, lingua);
-          const pos = testoIn(r && r.positivo, lingua);
-          if (neg && pos && neg.trim() === pos.trim()) {
-            problemi.push({ livello: 'errore', testo: 'testo negativo e positivo identici' });
-          }
-          if (lingua === lingue[0] && r) {
-            const extra = lingueNonDichiarate([r.etichetta, r.negativo, r.positivo, r.conclusione], lingue);
-            if (extra.length) problemi.push({ livello: 'avviso', testo: 'lingue non dichiarate in LINGUE: ' + extra.join(', ') });
-          }
-
-          righe.push({
-            tipo: 'reperto',
-            esameId,
-            esameNome: testoIn(esame && esame.nome, 'it') || esameId,
-            repertoId,
-            lingua,
-            etichetta: testoIn(r && r.etichetta, lingua),
-            negativo: neg,
-            positivo: pos,
-            conclusione: testoIn(r && r.conclusione, lingua),
-            riferimento: {
-              etichetta: testoIn(r && r.etichetta, 'it'),
-              negativo: testoIn(r && r.negativo, 'it'),
-              positivo: testoIn(r && r.positivo, 'it'),
-              conclusione: testoIn(r && r.conclusione, 'it')
-            },
+          controllaId(problemi, f, conteggi, 'frase');
+          controllaCampo(problemi, f && f.etichetta, lingua, 'etichetta', true);
+          controllaCampo(problemi, f && f.testo, lingua, 'testo', true);
+          controllaNuovo(problemi, f);
+          aggiungi({
+            tipo: 'frase', gruppoId: 'frasi-comuni', esameNome: 'Frasi comuni', repertoId: sezione + '/' + id, lingua,
+            etichetta: testoIn(f && f.etichetta, lingua), negativo: null, positivo: testoIn(f && f.testo, lingua), conclusione: null,
+            nuovo: !!(f && f.nuovo),
+            riferimento: { etichetta: testoIn(f && f.etichetta, 'it'), positivo: testoIn(f && f.testo, 'it') },
             problemi
+          });
+        });
+      });
+    });
+
+    // --- Metodiche → distretti → organi → reperti ---
+    (metodiche || []).forEach((m) => {
+      const distretti = Array.isArray(m && m.distretti) ? m.distretti : [];
+      const contaDistretti = conta(distretti.map((d) => d && d.id));
+      distretti.forEach((d, iD) => {
+        const idD = (d && d.id) || '(senza id #' + (iD + 1) + ')';
+        const gruppoId = m.id + '/' + idD;
+        const esameNome = m.nome + ' › ' + ((d && d.nome) || idD);
+        const organi = Array.isArray(d && d.organi) ? d.organi : [];
+        const contaOrgani = conta(organi.map((o) => o && o.id));
+        const intro = [d && d.intro, d && d.introBilaterale].filter(Boolean).join(' / ') || null;
+
+        // Riga del distretto: titolo, intro, conclusione negativa
+        lingue.forEach((lingua) => {
+          const problemi = [];
+          controllaId(problemi, d, contaDistretti, 'distretto');
+          if (!organi.length) problemi.push({ livello: 'errore', testo: 'distretto senza organi' });
+          controllaCampo(problemi, d && d.nome, lingua, 'nome', true);
+          controllaCampo(problemi, d && d.titolo, lingua, 'titolo', true);
+          if (d && d.intro) controllaCampo(problemi, d.intro, lingua, 'intro', true);
+          if (d && d.lati && !(d.intro || '').includes('{lato}')) {
+            problemi.push({ livello: 'avviso', testo: 'distretto con lati ma intro senza {lato}' });
+          }
+          controllaCampo(problemi, d && d.conclusioneNegativa, lingua, 'conclusione negativa', false);
+          aggiungi({
+            tipo: 'distretto', gruppoId, esameNome, repertoId: ID_RIGA_DISTRETTO, lingua,
+            etichetta: testoIn(d && d.titolo, lingua), negativo: intro, positivo: null,
+            conclusione: testoIn(d && d.conclusioneNegativa, lingua), nuovo: false,
+            riferimento: { etichetta: testoIn(d && d.titolo, 'it'), conclusione: testoIn(d && d.conclusioneNegativa, 'it') },
+            problemi
+          });
+        });
+
+        organi.forEach((o, iO) => {
+          const idO = (o && o.id) || '(senza id #' + (iO + 1) + ')';
+          const reperti = Array.isArray(o && o.reperti) ? o.reperti : [];
+          const contaReperti = conta(reperti.map((r) => r && r.id));
+
+          // Riga dell'organo: frase negativa
+          lingue.forEach((lingua) => {
+            const problemi = [];
+            controllaId(problemi, o, contaOrgani, 'organo');
+            controllaCampo(problemi, o && o.nome, lingua, 'nome organo', true);
+            if (o && o.negativo) controllaCampo(problemi, o.negativo, lingua, 'negativo', true);
+            else if (!reperti.length) problemi.push({ livello: 'errore', testo: 'organo senza frase negativa né reperti' });
+            aggiungi({
+              tipo: 'organo', gruppoId, esameNome, repertoId: idO, lingua,
+              etichetta: testoIn(o && o.nome, lingua), negativo: (o && o.negativo) ? testoIn(o.negativo, lingua) : '',
+              positivo: null, conclusione: null, nuovo: false,
+              riferimento: { etichetta: testoIn(o && o.nome, 'it'), negativo: testoIn(o && o.negativo, 'it') },
+              problemi
+            });
+          });
+
+          // Righe dei reperti: frase positiva
+          reperti.forEach((r, iR) => {
+            const idR = (r && r.id) || '(senza id #' + (iR + 1) + ')';
+            lingue.forEach((lingua) => {
+              const problemi = [];
+              controllaId(problemi, r, contaReperti, 'reperto');
+              controllaCampo(problemi, r && r.etichetta, lingua, 'etichetta', true);
+              controllaCampo(problemi, r && r.testo, lingua, 'testo positivo', true);
+              controllaCampo(problemi, r && r.conclusione, lingua, 'conclusione', false);
+              if (r && r.modo && !['sostituisce', 'aggiunge'].includes(r.modo)) {
+                problemi.push({ livello: 'errore', testo: 'modo non valido: ' + r.modo });
+              }
+              const neg = testoIn(o && o.negativo, lingua);
+              const pos = testoIn(r && r.testo, lingua);
+              if (neg && pos && neg.trim() === pos.trim()) problemi.push({ livello: 'errore', testo: 'testo positivo identico al negativo' });
+              controllaNuovo(problemi, r);
+              aggiungi({
+                tipo: 'reperto', gruppoId, esameNome, repertoId: idO + '/' + idR, lingua,
+                etichetta: testoIn(r && r.etichetta, lingua), negativo: null, positivo: pos,
+                conclusione: testoIn(r && r.conclusione, lingua), nuovo: !!(r && r.nuovo),
+                riferimento: { etichetta: testoIn(r && r.etichetta, 'it'), positivo: testoIn(r && r.testo, 'it'), conclusione: testoIn(r && r.conclusione, 'it') },
+                problemi
+              });
+            });
           });
         });
       });
@@ -258,7 +293,7 @@
 
     // Chiave univoca e impronta per ogni riga
     righe.forEach((riga) => {
-      riga.chiave = riga.esameId + '|' + riga.repertoId + '|' + riga.lingua;
+      riga.chiave = riga.gruppoId + '|' + riga.repertoId + '|' + riga.lingua;
       riga.impronta = impronta(riga);
     });
     return righe;
@@ -291,7 +326,12 @@
     if (etichettaCampo) td.append(el('span', etichettaCampo, 'etichetta-campo'));
 
     const valore = riga[campo];
-    if (riga.tipo === 'esame' && campo === 'positivo') {
+    // Celle che per quel tipo di riga non hanno contenuto
+    const nonPrevisto = (riga.tipo === 'distretto' && campo === 'positivo')
+      || (riga.tipo === 'organo' && (campo === 'positivo' || campo === 'conclusione'))
+      || ((riga.tipo === 'reperto' || riga.tipo === 'frase') && campo === 'negativo')
+      || (riga.tipo === 'frase' && campo === 'conclusione');
+    if (nonPrevisto || (valore === '' && riga.tipo === 'organo') || (valore === null && riga.tipo === 'distretto' && campo === 'negativo')) {
       td.append(el('span', '—', 'c-piccola'));
       return td;
     }
@@ -330,9 +370,10 @@
     righe.forEach((riga) => {
       const tr = document.createElement('tr');
       riga.tr = tr;
-      if (riga.tipo === 'esame') tr.classList.add('riga-esame');
+      if (riga.tipo === 'distretto') tr.classList.add('riga-esame');
+      if (riga.tipo === 'organo') tr.classList.add('riga-organo');
 
-      const gruppo = riga.esameId + '|' + riga.repertoId;
+      const gruppo = riga.gruppoId + '|' + riga.repertoId.split('/')[0];
       if (gruppo !== gruppoPrecedente) tr.classList.add('inizio-gruppo');
       gruppoPrecedente = gruppo;
 
@@ -344,15 +385,15 @@
       lingua.dataset.colonna = 'Lingua';
       lingua.append(el('span', riga.lingua, 'lingua'));
 
-      const isEsame = riga.tipo === 'esame';
+      const isDistretto = riga.tipo === 'distretto';
       const celle = [
         esame,
         id,
-        cellaTesto(riga, 'etichetta', 'Etichetta', isEsame ? 'Titolo' : ''),
+        cellaTesto(riga, 'etichetta', 'Etichetta', isDistretto ? 'Titolo' : (riga.tipo === 'organo' ? 'Organo' : '')),
         lingua,
-        cellaTesto(riga, 'negativo', 'Testo negativo', isEsame ? 'Tecnica' : ''),
+        cellaTesto(riga, 'negativo', 'Testo negativo', isDistretto ? 'Intro' : ''),
         cellaTesto(riga, 'positivo', 'Testo positivo', ''),
-        cellaTesto(riga, 'conclusione', 'Conclusione', isEsame ? 'Conclusione normale' : '')
+        cellaTesto(riga, 'conclusione', 'Conclusione', isDistretto ? 'Conclusione negativa' : '')
       ];
 
       // Controlli automatici
@@ -475,14 +516,15 @@
     let visibili = 0;
 
     RIGHE.forEach((riga) => {
-      let mostra = (!esame || riga.esameId === esame)
+      let mostra = (!esame || riga.gruppoId === esame)
+        && (!filtri.nuovi.checked || riga.nuovo)
         && (!lingua || riga.lingua === lingua)
         && (!stato || statoDi(riga) === stato)
         && (!soloProblemi || tuttiIProblemi(riga).length > 0);
 
       if (mostra && cerca) {
         const note = (revisione[riga.chiave] && revisione[riga.chiave].note) || '';
-        const pagliaio = [riga.esameNome, riga.esameId, riga.repertoId, riga.etichetta, riga.negativo,
+        const pagliaio = [riga.esameNome, riga.gruppoId, riga.repertoId, riga.etichetta, riga.negativo,
           riga.positivo, riga.conclusione, note].join(' ').toLowerCase();
         mostra = pagliaio.includes(cerca);
       }
@@ -530,7 +572,7 @@
   function valoriCsv(riga) {
     const r = revisione[riga.chiave] || {};
     return [
-      riga.esameId,
+      riga.gruppoId,
       riga.repertoId,
       riga.etichetta,
       riga.lingua,
@@ -597,24 +639,25 @@
 
   // ---------- Avvio ----------
 
-  // Se data.js manca o contiene un errore di sintassi, ESAMI non esiste
-  if (typeof ESAMI === 'undefined' || !Array.isArray(ESAMI)) {
+  // Se data.js manca o contiene un errore di sintassi, METODICHE non esiste
+  if (typeof METODICHE === 'undefined' || !Array.isArray(METODICHE)) {
     const box = $('errore-dati');
     box.hidden = false;
-    box.textContent = 'Impossibile leggere ESAMI da data.js.\n'
+    box.textContent = 'Impossibile leggere METODICHE da data.js.\n'
       + 'Controlla che il file esista nella stessa cartella e non contenga errori di sintassi '
       + '(apri la console del browser per il dettaglio, oppure esegui: node --check data.js).';
     return;
   }
 
   const LINGUE_ATTIVE = (typeof LINGUE === 'object' && LINGUE) ? Object.keys(LINGUE) : ['it'];
-  const RIGHE = costruisciRighe(ESAMI, LINGUE_ATTIVE);
+  const RIGHE = costruisciRighe(METODICHE, typeof FRASI_COMUNI === 'object' ? FRASI_COMUNI : null, LINGUE_ATTIVE);
 
-  // Menu dei filtri
-  ESAMI.forEach((e, i) => {
-    if (!e) return;
-    const id = e.id || '(senza id #' + (i + 1) + ')';
-    filtri.esame.add(new Option(testoIn(e.nome, 'it') || id, id));
+  // Menu dei filtri: un'opzione per distretto, nell'ordine di data.js
+  const gruppiVisti = new Set();
+  RIGHE.forEach((r) => {
+    if (gruppiVisti.has(r.gruppoId)) return;
+    gruppiVisti.add(r.gruppoId);
+    filtri.esame.add(new Option(r.esameNome, r.gruppoId));
   });
   LINGUE_ATTIVE.forEach((codice) => filtri.lingua.add(new Option(LINGUE[codice] + ' (' + codice + ')', codice)));
 
@@ -630,7 +673,7 @@
   applicaFiltri();
 
   // Eventi dei filtri
-  ['esame', 'lingua', 'stato', 'problemi'].forEach((k) => filtri[k].addEventListener('change', applicaFiltri));
+  ['esame', 'lingua', 'stato', 'problemi', 'nuovi'].forEach((k) => filtri[k].addEventListener('change', applicaFiltri));
   filtri.testo.addEventListener('input', applicaFiltri);
   filtri.riferimento.addEventListener('change', () => {
     document.querySelectorAll('.riferimento').forEach((n) => { n.hidden = !filtri.riferimento.checked; });

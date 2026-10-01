@@ -29,7 +29,7 @@ import sys
 from pathlib import Path
 
 CARTELLA = Path(__file__).resolve().parent
-ID_RIGA_ESAME = "(esame)"
+ID_RIGA_DISTRETTO = "(distretto)"
 STATI = {"rivedere": "Da rivedere", "ok": "OK", "correggere": "Da correggere"}
 COLONNE = [
     "esame", "id_reperto", "etichetta", "lingua", "testo_negativo", "testo_positivo",
@@ -39,7 +39,7 @@ SEGNAPOSTO = re.compile(
     r"\b(TODO|TBD|FIXME|XXX+)\b|da specificare|da definire|da completare|\?\?\?|lorem ipsum",
     re.IGNORECASE,
 )
-GRAFFE = re.compile(r"\{[^}]*\}")
+GRAFFE = re.compile(r"\{(?!lato\})[^}]*\}")  # {lato} è previsto
 MIN_LUNGHEZZA_COPIA = 20
 
 
@@ -207,7 +207,10 @@ def leggi_costante(testo, nome):
 # ---------------------------------------------------------------------------
 
 def testo_in(campo, lingua):
-    """Testo in una lingua, oppure None se il campo o la lingua mancano."""
+    """Testo in una lingua, oppure None se il campo o la lingua mancano.
+    Una stringa semplice vale come testo italiano."""
+    if isinstance(campo, str):
+        return campo if lingua == "it" else None
     if not isinstance(campo, dict) or lingua not in campo:
         return None
     valore = campo[lingua]
@@ -219,6 +222,8 @@ def controlla_campo(problemi, campo, lingua, nome, obbligatorio):
         if obbligatorio:
             problemi.append(("errore", f"{nome}: campo assente"))
         return
+    if isinstance(campo, str):
+        campo = {"it": campo}  # stringa semplice = italiano
     if not isinstance(campo, dict):
         problemi.append(("errore", f"{nome}: formato non valido"))
         return
@@ -246,87 +251,116 @@ def lingue_non_dichiarate(campi, lingue):
     return sorted(extra)
 
 
-def costruisci_righe(esami, lingue):
-    """Una riga '(esame)' e una riga per reperto, per ogni lingua."""
+def conta_id(elenco):
+    conteggi = {}
+    for x in elenco:
+        if isinstance(x, dict) and x.get("id"):
+            conteggi[x["id"]] = conteggi.get(x["id"], 0) + 1
+    return conteggi
+
+
+def controlla_id(problemi, oggetto, conteggi, cosa):
+    if not oggetto.get("id"):
+        problemi.append(("errore", f"{cosa} senza id"))
+    elif conteggi.get(oggetto["id"], 0) > 1:
+        problemi.append(("errore", f"id {cosa} duplicato: {oggetto['id']}"))
+
+
+def controlla_nuovo(problemi, oggetto):
+    if oggetto.get("nuovo"):
+        problemi.append(("avviso", "frase nuova (non dal tuo archivio): verificare"))
+
+
+def riga(gruppo, id_, lingua, etichetta, negativo, positivo, conclusione, problemi):
+    return {
+        "esame": gruppo, "id_reperto": id_, "lingua": lingua, "etichetta": etichetta,
+        "testo_negativo": negativo, "testo_positivo": positivo, "conclusione": conclusione,
+        "_problemi": problemi,
+    }
+
+
+def costruisci_righe(metodiche, frasi, lingue):
+    """Stesse righe di review.js: frasi comuni, poi distretto → organo → reperti."""
     righe = []
-    conta_esami = {}
-    for e in esami:
-        if isinstance(e, dict) and e.get("id"):
-            conta_esami[e["id"]] = conta_esami.get(e["id"], 0) + 1
 
-    for n_esame, esame in enumerate(esami, 1):
-        esame = esame if isinstance(esame, dict) else {}
-        esame_id = esame.get("id") or f"(senza id #{n_esame})"
-        reperti = esame.get("reperti") if isinstance(esame.get("reperti"), list) else []
-        conta_reperti = {}
-        for r in reperti:
-            if isinstance(r, dict) and r.get("id"):
-                conta_reperti[r["id"]] = conta_reperti.get(r["id"], 0) + 1
-
-        # Riga dell'esame: titolo, tecnica, conclusione normale
-        for lingua in lingue:
-            problemi = []
-            if not esame.get("id"):
-                problemi.append(("errore", "esame senza id"))
-            elif conta_esami.get(esame["id"], 0) > 1:
-                problemi.append(("errore", f"id esame duplicato: {esame['id']}"))
-            if not reperti:
-                problemi.append(("errore", "esame senza reperti"))
-            controlla_campo(problemi, esame.get("nome"), lingua, "nome esame", True)
-            controlla_campo(problemi, esame.get("titolo"), lingua, "titolo", True)
-            controlla_campo(problemi, esame.get("tecnica"), lingua, "tecnica", True)
-            controlla_campo(problemi, esame.get("conclusioneNormale"), lingua, "conclusione normale", True)
-            if lingua == lingue[0]:
-                extra = lingue_non_dichiarate(
-                    [esame.get(k) for k in ("nome", "titolo", "tecnica", "conclusioneNormale")], lingue)
-                if extra:
-                    problemi.append(("avviso", "lingue non dichiarate in LINGUE: " + ", ".join(extra)))
-            righe.append({
-                "esame": esame_id,
-                "id_reperto": ID_RIGA_ESAME,
-                "etichetta": testo_in(esame.get("titolo"), lingua),
-                "lingua": lingua,
-                "testo_negativo": testo_in(esame.get("tecnica"), lingua),
-                "testo_positivo": None,
-                "conclusione": testo_in(esame.get("conclusioneNormale"), lingua),
-                "_problemi": problemi,
-            })
-
-        # Righe dei reperti
-        for n_rep, r in enumerate(reperti, 1):
-            r = r if isinstance(r, dict) else {}
-            rep_id = r.get("id") or f"(senza id #{n_rep})"
+    # Frasi comuni (in testa e in coda)
+    for sezione in ("premessa", "chiusura"):
+        elenco = frasi.get(sezione) if isinstance(frasi, dict) and isinstance(frasi.get(sezione), list) else []
+        conteggi = conta_id(elenco)
+        for i, f in enumerate(elenco, 1):
+            f = f if isinstance(f, dict) else {}
+            id_ = f.get("id") or f"(senza id #{i})"
             for lingua in lingue:
                 problemi = []
-                if not r.get("id"):
-                    problemi.append(("errore", "reperto senza id"))
-                elif conta_reperti.get(r["id"], 0) > 1:
-                    problemi.append(("errore", "id reperto duplicato nell'esame"))
-                controlla_campo(problemi, r.get("etichetta"), lingua, "etichetta", True)
-                controlla_campo(problemi, r.get("negativo"), lingua, "negativo", True)
-                controlla_campo(problemi, r.get("positivo"), lingua, "positivo", True)
-                controlla_campo(problemi, r.get("conclusione"), lingua, "conclusione", False)
-                if r.get("conclusione") is None:
-                    problemi.append(("avviso", "conclusione assente: nel referto si usa l'etichetta"))
-                neg = testo_in(r.get("negativo"), lingua)
-                pos = testo_in(r.get("positivo"), lingua)
-                if neg and pos and neg.strip() == pos.strip():
-                    problemi.append(("errore", "testo negativo e positivo identici"))
-                if lingua == lingue[0]:
-                    extra = lingue_non_dichiarate(
-                        [r.get(k) for k in ("etichetta", "negativo", "positivo", "conclusione")], lingue)
-                    if extra:
-                        problemi.append(("avviso", "lingue non dichiarate in LINGUE: " + ", ".join(extra)))
-                righe.append({
-                    "esame": esame_id,
-                    "id_reperto": rep_id,
-                    "etichetta": testo_in(r.get("etichetta"), lingua),
-                    "lingua": lingua,
-                    "testo_negativo": neg,
-                    "testo_positivo": pos,
-                    "conclusione": testo_in(r.get("conclusione"), lingua),
-                    "_problemi": problemi,
-                })
+                controlla_id(problemi, f, conteggi, "frase")
+                controlla_campo(problemi, f.get("etichetta"), lingua, "etichetta", True)
+                controlla_campo(problemi, f.get("testo"), lingua, "testo", True)
+                controlla_nuovo(problemi, f)
+                righe.append(riga("frasi-comuni", f"{sezione}/{id_}", lingua, testo_in(f.get("etichetta"), lingua),
+                                  None, testo_in(f.get("testo"), lingua), None, problemi))
+
+    # Metodiche → distretti → organi → reperti
+    for m in metodiche if isinstance(metodiche, list) else []:
+        m = m if isinstance(m, dict) else {}
+        distretti = m.get("distretti") if isinstance(m.get("distretti"), list) else []
+        conta_d = conta_id(distretti)
+        for i_d, d in enumerate(distretti, 1):
+            d = d if isinstance(d, dict) else {}
+            gruppo = f"{m.get('id')}/{d.get('id') or f'(senza id #{i_d})'}"
+            organi = d.get("organi") if isinstance(d.get("organi"), list) else []
+            conta_o = conta_id(organi)
+            intro = " / ".join(x for x in (d.get("intro"), d.get("introBilaterale")) if x) or None
+
+            for lingua in lingue:
+                problemi = []
+                controlla_id(problemi, d, conta_d, "distretto")
+                if not organi:
+                    problemi.append(("errore", "distretto senza organi"))
+                controlla_campo(problemi, d.get("nome"), lingua, "nome", True)
+                controlla_campo(problemi, d.get("titolo"), lingua, "titolo", True)
+                if d.get("intro"):
+                    controlla_campo(problemi, d.get("intro"), lingua, "intro", True)
+                if d.get("lati") and "{lato}" not in (d.get("intro") or ""):
+                    problemi.append(("avviso", "distretto con lati ma intro senza {lato}"))
+                controlla_campo(problemi, d.get("conclusioneNegativa"), lingua, "conclusione negativa", False)
+                righe.append(riga(gruppo, ID_RIGA_DISTRETTO, lingua, testo_in(d.get("titolo"), lingua), intro, None,
+                                  testo_in(d.get("conclusioneNegativa"), lingua), problemi))
+
+            for i_o, o in enumerate(organi, 1):
+                o = o if isinstance(o, dict) else {}
+                id_o = o.get("id") or f"(senza id #{i_o})"
+                reperti = o.get("reperti") if isinstance(o.get("reperti"), list) else []
+                conta_r = conta_id(reperti)
+
+                for lingua in lingue:
+                    problemi = []
+                    controlla_id(problemi, o, conta_o, "organo")
+                    controlla_campo(problemi, o.get("nome"), lingua, "nome organo", True)
+                    if o.get("negativo"):
+                        controlla_campo(problemi, o.get("negativo"), lingua, "negativo", True)
+                    elif not reperti:
+                        problemi.append(("errore", "organo senza frase negativa né reperti"))
+                    negativo = testo_in(o.get("negativo"), lingua) if o.get("negativo") else ""
+                    righe.append(riga(gruppo, id_o, lingua, testo_in(o.get("nome"), lingua), negativo, None, None, problemi))
+
+                for i_r, r in enumerate(reperti, 1):
+                    r = r if isinstance(r, dict) else {}
+                    id_r = r.get("id") or f"(senza id #{i_r})"
+                    for lingua in lingue:
+                        problemi = []
+                        controlla_id(problemi, r, conta_r, "reperto")
+                        controlla_campo(problemi, r.get("etichetta"), lingua, "etichetta", True)
+                        controlla_campo(problemi, r.get("testo"), lingua, "testo positivo", True)
+                        controlla_campo(problemi, r.get("conclusione"), lingua, "conclusione", False)
+                        if r.get("modo") and r.get("modo") not in ("sostituisce", "aggiunge"):
+                            problemi.append(("errore", f"modo non valido: {r.get('modo')}"))
+                        neg = testo_in(o.get("negativo"), lingua)
+                        pos = testo_in(r.get("testo"), lingua)
+                        if neg and pos and neg.strip() == pos.strip():
+                            problemi.append(("errore", "testo positivo identico al negativo"))
+                        controlla_nuovo(problemi, r)
+                        righe.append(riga(gruppo, f"{id_o}/{id_r}", lingua, testo_in(r.get("etichetta"), lingua), None, pos,
+                                          testo_in(r.get("conclusione"), lingua), problemi))
     return righe
 
 
@@ -355,7 +389,11 @@ def main():
 
     try:
         testo = Path(args.data).read_text(encoding="utf-8")
-        esami = leggi_costante(testo, "ESAMI")
+        metodiche = leggi_costante(testo, "METODICHE")
+        try:
+            frasi = leggi_costante(testo, "FRASI_COMUNI")
+        except ErroreLettura:
+            frasi = {}
         try:
             lingue = list(leggi_costante(testo, "LINGUE").keys())
         except ErroreLettura:
@@ -363,8 +401,8 @@ def main():
     except (OSError, ErroreLettura) as e:
         sys.exit(f"Errore: {e}")
 
-    if not isinstance(esami, list):
-        sys.exit("Errore: ESAMI in data.js non è un array.")
+    if not isinstance(metodiche, list):
+        sys.exit("Errore: METODICHE in data.js non è un array.")
 
     revisione = {}
     if args.revisione:
@@ -373,7 +411,7 @@ def main():
         except (OSError, ValueError, AttributeError) as e:
             sys.exit(f"Errore nel file di revisione: {e}")
 
-    righe = costruisci_righe(esami, lingue)
+    righe = costruisci_righe(metodiche, frasi, lingue)
     n_problemi = 0
     with open(args.output, "w", encoding="utf-8-sig", newline="") as f:  # BOM per Excel
         scrittore = csv.writer(f, delimiter=args.sep, quoting=csv.QUOTE_MINIMAL)
@@ -394,7 +432,7 @@ def main():
                 STATI[stato], voce.get("note", ""), voce.get("revisore", ""), voce.get("data", ""),
             ])
 
-    print(f"Creato {args.output}: {len(righe)} righe ({len(esami)} esami, lingue: {', '.join(lingue)}), "
+    print(f"Creato {args.output}: {len(righe)} righe (lingue: {', '.join(lingue)}), "
           f"{n_problemi} con problemi automatici.")
 
 
