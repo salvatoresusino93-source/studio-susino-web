@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Strumento interno: non deve essere indicizzato se finisce online -->
+  <meta name="robots" content="noindex, nofollow">
+  <title>Revisione testi — Refertario</title>
+  <link rel="stylesheet" href="review.css">
+</head>
+<body>
+  <header class="testata">
+    <div>
+      <h1>Revisione testi clinici</h1>
+      <p class="testata__sotto">Refertario · lettura di <code>data.js</code> (i testi non vengono modificati)</p>
+    </div>
+    <div class="revisore">
+      <label for="nome-revisore">Revisore</label>
+      <input id="nome-revisore" type="text" autocomplete="name" placeholder="Nome e cognome">
+    </div>
+  </header>
+
+  <p class="avviso-clinico" role="note">Bozze cliniche da validare prima dell'uso con pazienti.</p>
+
+  <!-- Messaggio mostrato se data.js non si carica o ha errori -->
+  <p class="errore-dati" id="errore-dati" hidden></p>
+
+  <main class="contenitore">
+    <!-- Riepilogo numerico -->
+    <section class="riepilogo" id="riepilogo" aria-label="Riepilogo"></section>
+
+    <!-- Filtri -->
+    <section class="filtri" aria-label="Filtri">
+      <div class="filtro">
+        <label for="f-esame">Esame</label>
+        <select id="f-esame"><option value="">Tutti</option></select>
+      </div>
+      <div class="filtro">
+        <label for="f-lingua">Lingua</label>
+        <select id="f-lingua"><option value="">Tutte</option></select>
+      </div>
+      <div class="filtro">
+        <label for="f-stato">Stato</label>
+        <select id="f-stato">
+          <option value="">Tutti</option>
+          <option value="rivedere">Da rivedere</option>
+          <option value="ok">OK</option>
+          <option value="correggere">Da correggere</option>
+        </select>
+      </div>
+      <div class="filtro filtro--largo">
+        <label for="f-testo">Ricerca libera</label>
+        <input id="f-testo" type="search" placeholder="Cerca in testi, id, note…">
+      </div>
+      <label class="spunta">
+        <input type="checkbox" id="f-problemi"> Solo righe con problemi
+      </label>
+      <label class="spunta">
+        <input type="checkbox" id="f-riferimento"> Mostra testo IT di riferimento
+      </label>
+    </section>
+
+    <!-- Azioni -->
+    <section class="azioni" aria-label="Azioni">
+      <span class="conteggio" id="conteggio"></span>
+      <span class="salvataggio" id="salvataggio" aria-live="polite"></span>
+      <button type="button" class="btn btn--primario" id="btn-csv">Esporta CSV</button>
+      <button type="button" class="btn" id="btn-json">Backup revisione (JSON)</button>
+      <label class="btn" for="file-json">Importa backup</label>
+      <input type="file" id="file-json" accept="application/json,.json" hidden>
+    </section>
+
+    <!-- Tabella: una riga per reperto e per lingua -->
+    <div class="tabella-scorrevole">
+      <table class="tabella" id="tabella">
+        <thead>
+          <tr>
+            <th>Esame</th>
+            <th>ID reperto</th>
+            <th>Etichetta</th>
+            <th>Lingua</th>
+            <th>Testo negativo</th>
+            <th>Testo positivo</th>
+            <th>Conclusione</th>
+            <th>Controlli</th>
+            <th>Stato</th>
+            <th>Note</th>
+            <th>Revisore</th>
+            <th>Data</th>
+          </tr>
+        </thead>
+        <tbody id="corpo"></tbody>
+      </table>
+      <p class="nessuna-riga" id="nessuna-riga" hidden>Nessuna riga corrisponde ai filtri.</p>
+    </div>
+  </main>
+
+  <!-- Prima i dati, poi la logica di revisione -->
+  <script src="data.js"></script>
+  <script src="review.js"></script>
+</body>
+</html>

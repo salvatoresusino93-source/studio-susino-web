@@ -1,0 +1,269 @@
+/* Revisione testi — stile (nessuna dipendenza esterna) */
+
+/* ---------- Variabili di tema ---------- */
+:root {
+  --sfondo: #f3f5f8;
+  --superficie: #ffffff;
+  --testo: #18212b;
+  --tenue: #5c6b7a;
+  --bordo: #dfe4ea;
+  --accento: #2b5fd9;
+  --accento-tenue: #e8eefc;
+  --ok: #15803d;
+  --ok-tenue: #e7f6ec;
+  --errore: #b91c1c;
+  --errore-tenue: #fdecec;
+  --avviso: #a16207;
+  --avviso-tenue: #fdf6e3;
+  --raggio: 10px;
+  --carattere: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --sfondo: #0f141a;
+    --superficie: #171e26;
+    --testo: #e6ebf0;
+    --tenue: #95a3b2;
+    --bordo: #2a3440;
+    --accento: #6d94f2;
+    --accento-tenue: #1d2a44;
+    --ok: #4ade80;
+    --ok-tenue: #12301f;
+    --errore: #f87171;
+    --errore-tenue: #3a1717;
+    --avviso: #facc15;
+    --avviso-tenue: #33290f;
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: var(--carattere);
+  font-size: 15px;
+  line-height: 1.45;
+  background: var(--sfondo);
+  color: var(--testo);
+}
+
+input, select, textarea, button { font: inherit; color: inherit; }
+
+/* ---------- Testata ---------- */
+.testata {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px 24px;
+  padding: 16px 24px;
+  background: var(--superficie);
+  border-bottom: 1px solid var(--bordo);
+}
+.testata h1 { margin: 0; font-size: 1.3rem; }
+.testata__sotto { margin: 2px 0 0; color: var(--tenue); font-size: .9rem; }
+.revisore { display: flex; flex-direction: column; gap: 4px; min-width: 220px; }
+.revisore label { font-size: .8rem; font-weight: 600; color: var(--tenue); }
+.revisore input.manca { border-color: var(--errore); outline: 3px solid var(--errore-tenue); }
+
+/* ---------- Avvisi ---------- */
+.avviso-clinico {
+  margin: 0;
+  padding: 10px 24px;
+  background: var(--errore-tenue);
+  color: var(--errore);
+  font-weight: 700;
+  text-align: center;
+}
+.errore-dati {
+  margin: 16px 24px 0;
+  padding: 12px 16px;
+  border-radius: var(--raggio);
+  background: var(--errore-tenue);
+  color: var(--errore);
+  white-space: pre-wrap;
+}
+
+.contenitore { padding: 16px 24px 48px; }
+
+/* ---------- Riepilogo ---------- */
+.riepilogo {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 10px;
+  margin-bottom: 16px;
+}
+.cifra {
+  padding: 10px 14px;
+  background: var(--superficie);
+  border: 1px solid var(--bordo);
+  border-radius: var(--raggio);
+}
+.cifra strong { display: block; font-size: 1.4rem; line-height: 1.2; }
+.cifra span { color: var(--tenue); font-size: .85rem; }
+.cifra--ok strong { color: var(--ok); }
+.cifra--correggere strong, .cifra--problemi strong { color: var(--errore); }
+
+/* ---------- Filtri e azioni ---------- */
+.filtri, .azioni {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 10px 14px;
+  margin-bottom: 12px;
+}
+.filtro { display: flex; flex-direction: column; gap: 4px; min-width: 150px; }
+.filtro--largo { flex: 1 1 240px; }
+.filtro label { font-size: .8rem; font-weight: 600; color: var(--tenue); }
+
+input[type="text"], input[type="search"], select, textarea {
+  min-height: 40px;
+  padding: 6px 10px;
+  background: var(--superficie);
+  border: 1px solid var(--bordo);
+  border-radius: 8px;
+}
+input:focus-visible, select:focus-visible, textarea:focus-visible, .btn:focus-visible {
+  outline: 3px solid var(--accento-tenue);
+  border-color: var(--accento);
+}
+.spunta { display: flex; align-items: center; gap: 6px; min-height: 40px; cursor: pointer; }
+
+.azioni { align-items: center; }
+.conteggio { color: var(--tenue); font-size: .9rem; margin-right: auto; }
+.salvataggio { color: var(--ok); font-size: .85rem; }
+.salvataggio.errore { color: var(--errore); }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 6px 14px;
+  border: 1px solid var(--bordo);
+  border-radius: 8px;
+  background: var(--superficie);
+  font-weight: 600;
+  cursor: pointer;
+}
+.btn:hover { border-color: var(--accento); }
+.btn--primario { background: var(--accento); border-color: var(--accento); color: #fff; }
+
+/* ---------- Tabella ---------- */
+.tabella-scorrevole {
+  overflow-x: auto;
+  background: var(--superficie);
+  border: 1px solid var(--bordo);
+  border-radius: var(--raggio);
+}
+.tabella { width: 100%; min-width: 1500px; border-collapse: collapse; }
+.tabella th, .tabella td {
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--bordo);
+  text-align: left;
+  vertical-align: top;
+}
+.tabella th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: var(--superficie);
+  font-size: .78rem;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  color: var(--tenue);
+  white-space: nowrap;
+}
+/* Larghezze indicative delle colonne di testo */
+.tabella td.c-testo { width: 17%; min-width: 200px; }
+.tabella td.c-note { min-width: 200px; }
+.tabella td.c-id { font-family: ui-monospace, Consolas, monospace; font-size: .85rem; }
+.tabella td.c-piccola { white-space: nowrap; font-size: .85rem; color: var(--tenue); }
+
+/* Separatore visivo tra gruppi (primo rigo di ogni reperto) */
+.tabella tr.inizio-gruppo td { border-top: 2px solid var(--bordo); }
+
+/* Riga di intestazione dell'esame (titolo/tecnica/conclusione normale) */
+.tabella tr.riga-esame { background: var(--accento-tenue); }
+.etichetta-campo {
+  display: block;
+  font-size: .7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  color: var(--tenue);
+}
+
+/* Colore della riga secondo lo stato */
+.tabella tr.stato-ok td:first-child { box-shadow: inset 4px 0 var(--ok); }
+.tabella tr.stato-correggere td:first-child { box-shadow: inset 4px 0 var(--errore); }
+
+.lingua {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 999px;
+  background: var(--accento-tenue);
+  font-weight: 700;
+  font-size: .8rem;
+  text-transform: uppercase;
+}
+.vuoto { color: var(--errore); font-style: italic; }
+.riferimento {
+  display: block;
+  margin-top: 6px;
+  padding-top: 6px;
+  border-top: 1px dashed var(--bordo);
+  color: var(--tenue);
+  font-size: .85rem;
+  font-style: italic;
+}
+
+/* Elenco problemi */
+.problemi { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 4px; }
+.problema {
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-size: .8rem;
+}
+.problema--errore { background: var(--errore-tenue); color: var(--errore); }
+.problema--avviso { background: var(--avviso-tenue); color: var(--avviso); }
+.nessun-problema { color: var(--ok); font-size: .85rem; }
+
+/* Controlli di revisione nella riga */
+.tabella select { min-width: 140px; }
+.tabella textarea { width: 100%; min-height: 64px; resize: vertical; }
+
+.nessuna-riga { padding: 24px; text-align: center; color: var(--tenue); }
+
+/* ---------- Mobile: ogni riga diventa una scheda ---------- */
+@media (max-width: 900px) {
+  .testata, .contenitore { padding-left: 16px; padding-right: 16px; }
+  .revisore { width: 100%; }
+  .filtro { flex: 1 1 140px; }
+  .tabella-scorrevole { overflow: visible; background: none; border: 0; }
+  .tabella { min-width: 0; }
+  .tabella thead { display: none; }
+  .tabella, .tabella tbody, .tabella tr, .tabella td { display: block; width: 100%; }
+  .tabella tr {
+    margin-bottom: 12px;
+    padding: 8px 4px;
+    background: var(--superficie);
+    border: 1px solid var(--bordo);
+    border-radius: var(--raggio);
+  }
+  .tabella tr.inizio-gruppo td { border-top: 0; }
+  .tabella td { border-bottom: 0; padding: 6px 12px; min-width: 0 !important; }
+  .tabella td::before {
+    content: attr(data-colonna);
+    display: block;
+    font-size: .7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    color: var(--tenue);
+  }
+  .tabella tr.stato-ok { border-left: 4px solid var(--ok); }
+  .tabella tr.stato-correggere { border-left: 4px solid var(--errore); }
+  .tabella tr.stato-ok td:first-child,
+  .tabella tr.stato-correggere td:first-child { box-shadow: none; }
+}
