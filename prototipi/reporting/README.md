@@ -22,7 +22,7 @@ e vai su <http://localhost:8000>.
 
 ## Uso
 
-1. In alto la **metodica**: per ora Ecografia (TC, RM, RX in arrivo).
+1. In alto la **metodica**: Ecografia, TC, RM, RX (le frasi negative di TC, RM e RX vengono dai documenti «NEGATIVO STANDARD EL-DEA»).
 2. Scegli uno o più **distretti** (es. Addome completo + Tiroide): vengono uniti in un unico referto.
    Per i distretti con lato (spalla, ginocchio…) scegli destra/sinistra.
 3. Per ogni organo spunta i **reperti positivi**: il testo positivo prende il posto della frase negativa

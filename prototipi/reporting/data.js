@@ -6,6 +6,9 @@
  * Sono stati tolti i nomi propri e i valori numerici dei singoli casi,
  * sostituiti con ___ da completare.
  *
+ * TC, RX, RM: frasi negative dai documenti «TC/RX/RM NEGATIVO STANDARD EL-DEA» del medico,
+ * riscritte nello stile telegrafico (riscritta: true).
+ *
  * Le frasi marcate  nuovo: true  NON vengono dall'archivio del medico: le ha
  * scritte Claude nello stesso stile per coprire reperti frequenti mancanti.
  * DA VERIFICARE: tutte le frasi "nuovo: true" prima dell'uso con pazienti.
@@ -49,7 +52,9 @@ const FRASI_COMUNI = {
     { id: "quesito", etichetta: "Quesito clinico", testo: { it: "Quesito clinico: ___.", en: "Clinical question: ___.", es: "Indicación clínica: ___." } },
     { id: "precedente", etichetta: "Confronto con esame precedente", riscritta: true, testo: { it: "Presa visione del precedente esame del ___, eseguito presso altra Sede.", en: "Previous examination of ___, performed at another facility, reviewed.", es: "Revisado el estudio previo del ___, realizado en otro centro." } },
     { id: "controlato", etichetta: "In comparazione con il controlato", testo: { it: "Esame eseguito in comparazione con il controlato.", en: "Examination performed with comparison to the contralateral side.", es: "Estudio realizado en comparación con el lado contralateral." } },
-    { id: "urgenza", etichetta: "Regime d'urgenza", testo: { it: "Esame eseguito in regime d'urgenza.", en: "Examination performed as an emergency.", es: "Estudio realizado con carácter urgente." } }
+    { id: "urgenza", etichetta: "Regime d'urgenza", testo: { it: "Esame eseguito in regime d'urgenza.", en: "Examination performed as an emergency.", es: "Estudio realizado con carácter urgente." } },
+    { id: "precedente-analogo", etichetta: "Confronto con precedente analogo", riscritta: true, testo: { it: "Confronto con il precedente esame analogo del ___.", en: "Comparison with the previous similar examination of ___.", es: "Comparación con el estudio previo similar del ___." } },
+    { id: "dea", etichetta: "Lettura in urgenza-emergenza (DEA)", riscritta: true, testo: { it: "Esame eseguito e refertato in regime di urgenza ed emergenza, con valutazione mirata al quadro e al quesito clinico indicati.", en: "Examination performed and reported as an emergency, with assessment focused on the clinical picture and question provided.", es: "Estudio realizado e informado en régimen de urgencia y emergencia, con valoración dirigida al cuadro y a la indicación clínica señalados." } },
   ],
   chiusura: [
     { id: "controllo", etichetta: "Controllo a distanza", riscritta: true, testo: { it: "Consigliato controllo ecografico a distanza di ___ mesi.", en: "Follow-up ultrasound recommended in ___ months.", es: "Control ecográfico recomendado en ___ meses." } },
@@ -57,7 +62,9 @@ const FRASI_COMUNI = {
     { id: "laboratorio", etichetta: "Esami di laboratorio", testo: { it: "Utile integrazione con esami laboratoristici e valutazione clinico-specialistica.", en: "Correlation with laboratory tests and clinical-specialist assessment advised.", es: "Aconsejable completar con pruebas de laboratorio y valoración clínica especializada." } },
     { id: "persistere", etichetta: "Rivalutazione se persiste", testo: { it: "Al persistere della sintomatologia utile rivalutazione clinico-strumentale.", en: "If symptoms persist, clinical and imaging reassessment advised.", es: "Si persisten los síntomas, aconsejable revaloración clínica y por imagen." } },
     { id: "followup", etichetta: "Follow-up", riscritta: true, testo: { it: "Indicato follow-up clinico-strumentale.", en: "Clinical and imaging follow-up indicated.", es: "Indicado seguimiento clínico y por imagen." } },
-    { id: "approfondimento", etichetta: "Approfondimento TC/RM/RX", testo: { it: "Utile approfondimento diagnostico con esame ___ (TC/RM/RX).", en: "Further assessment with ___ (CT/MRI/X-ray) advised.", es: "Aconsejable completar el estudio con ___ (TC/RM/RX)." } }
+    { id: "approfondimento", etichetta: "Approfondimento TC/RM/RX", testo: { it: "Utile approfondimento diagnostico con esame ___ (TC/RM/RX).", en: "Further assessment with ___ (CT/MRI/X-ray) advised.", es: "Aconsejable completar el estudio con ___ (TC/RM/RX)." } },
+    { id: "addendum", etichetta: "Reperti collaterali in seguito (DEA)", riscritta: true, testo: { it: "Valutazione dei reperti collaterali in un secondo momento, con eventuale addendum.", en: "Incidental findings to be assessed at a later stage, with a possible addendum.", es: "Valoración de los hallazgos colaterales en un segundo momento, con eventual adenda." } },
+    { id: "null-altro", etichetta: "Null'altro in urgenza (DEA)", testo: { it: "Null'altro da segnalare in regime di urgenza ed emergenza.", en: "Nothing else to report in the emergency setting.", es: "Nada más que señalar en régimen de urgencia y emergencia." } },
   ]
 };
 
@@ -1096,8 +1103,638 @@ const METODICHE = [
     ]
   },
 
-  /* Metodiche in preparazione: i testi verranno dai documenti "REFERTI TC" e "REFERTI RX" */
-  { id: "tc", nome: "TC", attiva: false, distretti: [] },
+  /* ============================================================ TC
+   * Frasi negative: dal documento «TC NEGATIVO STANDARD EL-DEA», riscritte nello stile
+   * telegrafico (riscritta: true; senza flag se identiche all'originale).
+   * DA VERIFICARE: reperti positivi e conclusioni marcati nuovo: true (non presenti nel documento). */
+  {
+    id: "tc",
+    nome: "TC",
+    attiva: true,
+    distretti: [
+      {
+        id: "encefalo",
+        nome: "Encefalo senza mdc",
+        gruppo: "Neuro",
+        titolo: "TC DELL'ENCEFALO SENZA MDC",
+        riscritta: true,
+        tecnica: "Esame eseguito unicamente in condizioni di base.",
+        organi: [
+          {
+            id: "emorragia", nome: "Emorragie", riscritta: true,
+            negativo: "Non evidenti iperdensità di natura ematica in sede intracranica.",
+            reperti: [
+              { id: "ematoma", etichetta: "Ematoma intraparenchimale", nuovo: true, testo: "Iperdensità di natura ematica intraparenchimale in sede ___, di circa ___ x ___ mm, con edema perilesionale ___ ed effetto massa ___.", conclusione: "Ematoma intraparenchimale ___." },
+              { id: "esa", etichetta: "Emorragia subaracnoidea", nuovo: true, testo: "Iperdensità di natura ematica negli spazi liquorali ___ (solchi della convessità/cisterne della base/scissure), come da emorragia subaracnoidea.", conclusione: "Emorragia subaracnoidea." },
+              { id: "subdurale", etichetta: "Ematoma subdurale", nuovo: true, testo: "Falda iperdensa extra-assiale a semiluna lungo la convessità ___, dello spessore massimo di ___ mm, come da ematoma subdurale ___ (acuto/subacuto/cronico).", conclusione: "Ematoma subdurale ___." },
+              { id: "epidurale", etichetta: "Ematoma epidurale", nuovo: true, testo: "Raccolta iperdensa extra-assiale biconvessa in sede ___, dello spessore massimo di ___ mm, come da ematoma epidurale.", conclusione: "Ematoma epidurale ___." }
+            ]
+          },
+          {
+            id: "parenchima", nome: "Parenchima", riscritta: true,
+            negativo: "Non ulteriori alterazioni tomodensitometriche del tessuto nervoso in sede sovra e sottotentoriale.",
+            reperti: [
+              { id: "leucoaraiosi", etichetta: "Vasculopatia cronica (anziano)", riscritta: true, testo: "Diffusa ipodensità della sostanza bianca periventricolare in rapporto a vasculopatia cronica.", conclusione: "Segni di vasculopatia cronica della sostanza bianca." },
+              { id: "esiti-ischemici", etichetta: "Esiti ischemici non recenti", riscritta: true, testo: "In sede ___, lesione ipodensa rotondeggiante in verosimili esiti ischemici non recenti." },
+              { id: "ischemia", etichetta: "Lesione ischemica in evoluzione", nuovo: true, testo: "Area ipodensa ___ (corticale/cortico-sottocorticale) in sede ___, con perdita della differenziazione tra sostanza grigia e bianca, come per lesione ischemica in evoluzione nel territorio dell'arteria ___.", conclusione: "Lesione ischemica in evoluzione nel territorio dell'arteria ___." },
+              { id: "contusione", etichetta: "Focolai contusivi", nuovo: true, testo: "Focolai contusivi in sede ___, con componente emorragica ___.", conclusione: "Focolai contusivi ___." }
+            ]
+          },
+          {
+            id: "ventricoli", nome: "Sistema ventricolare", riscritta: true,
+            negativo: "Sistema ventricolare regolare per sede, dimensioni e morfologia.",
+            reperti: [
+              { id: "atrofia", etichetta: "Fenomeni regressivo-atrofici", riscritta: true, testo: "Lieve aumento delle dimensioni del sistema ventricolare e dell'ampiezza degli spazi subaracnoidei della volta, in rapporto a fenomeni regressivo-atrofici." },
+              { id: "idrocefalo", etichetta: "Idrocefalo", nuovo: true, testo: "Dilatazione del sistema ventricolare sovratentoriale ___, con ipodensità periventricolare da riassorbimento transependimale ___, come da idrocefalo ___.", conclusione: "Idrocefalo ___." },
+              { id: "emoventricolo", etichetta: "Emoventricolo", nuovo: true, testo: "Iperdensità ematica nel lume ventricolare ___, come da emoventricolo.", conclusione: "Emoventricolo." }
+            ]
+          },
+          {
+            id: "linea-mediana", nome: "Linea mediana", riscritta: true,
+            negativo: "Strutture della linea mediana in asse.",
+            reperti: [
+              { id: "shift", etichetta: "Deviazione della linea mediana", nuovo: true, testo: "Deviazione delle strutture della linea mediana verso ___ di circa ___ mm.", conclusione: "Deviazione della linea mediana di ___ mm." }
+            ]
+          },
+          {
+            id: "ossa", nome: "Teca e base cranica", riscritta: true,
+            negativo: "Allo studio con finestra per osso, non alterazioni ossee della teca e della base cranica.",
+            reperti: [
+              { id: "frattura", etichetta: "Frattura cranica", nuovo: true, testo: "Allo studio con finestra per osso, rima di frattura ___ (composta/scomposta) a carico di ___.", conclusione: "Frattura ___ di ___." }
+            ]
+          },
+          {
+            id: "tessuti-molli", nome: "Tessuti molli extracranici", negativo: "",
+            reperti: [
+              { id: "tumefazione", etichetta: "Tumefazione dei tessuti molli", riscritta: true, testo: "Tumefazione dei tessuti molli extracranici in sede ___." }
+            ]
+          }
+        ],
+        conclusioneNegativa: "Non alterazioni encefaliche di significato acuto."
+      },
+
+      {
+        id: "encefalo-angio",
+        nome: "Angio-TC encefalo (stroke)",
+        gruppo: "Neuro",
+        titolo: "TC DELL'ENCEFALO SENZA E CON MDC E ANGIO-TC",
+        riscritta: true,
+        tecnica: "Esame eseguito in regime d'urgenza, prima e dopo infusione ev di MdC iodato (___), con protocollo Angio-TC spirale per lo studio del circolo arterioso intracranico.",
+        organi: [
+          {
+            id: "basale", nome: "Esame basale", riscritta: true,
+            negativo: "All'esame basale, non evidenti alterazioni tomodensitometriche del tessuto nervoso di significato attuale, in particolare non evidenti ipodensità focali di significato ischemico recente.",
+            reperti: [
+              { id: "ischemia", etichetta: "Lesione ischemica recente", nuovo: true, testo: "All'esame basale, ipodensità ___ in sede ___, con perdita della differenziazione cortico-sottocorticale (ASPECTS ___), come per lesione ischemica recente nel territorio dell'arteria ___.", conclusione: "Lesione ischemica recente nel territorio dell'arteria ___ (ASPECTS ___)." }
+            ]
+          },
+          {
+            id: "emorragia", nome: "Emorragie", riscritta: true,
+            negativo: "Non franche iperdensità focali di natura emorragica attuale in sede intracranica.",
+            reperti: [
+              { id: "ematoma", etichetta: "Emorragia intracranica", nuovo: true, testo: "Iperdensità focale di natura emorragica in sede ___, di circa ___ x ___ mm.", conclusione: "Emorragia intracranica ___." }
+            ]
+          },
+          {
+            id: "ventricoli", nome: "Sistema ventricolare", riscritta: true,
+            negativo: "Sistema ventricolare regolare per sede, dimensioni e morfologia.",
+            reperti: []
+          },
+          {
+            id: "linea-mediana", nome: "Linea mediana", riscritta: true,
+            negativo: "Strutture della linea sagittale mediana in asse.",
+            reperti: []
+          },
+          {
+            id: "ossa", nome: "Teca e base cranica", riscritta: true,
+            negativo: "Allo studio con finestra per osso, non alterazioni ossee della teca e della base cranica.",
+            reperti: []
+          },
+          {
+            id: "tsa", nome: "Arco aortico e TSA", riscritta: true,
+            negativo: "Dopo iniezione ev di MdC, regolari calibro e pervietà dell'arco aortico e dei TSA (___, diffusamente ateromasici).",
+            reperti: [
+              { id: "stenosi", etichetta: "Stenosi carotidea", nuovo: true, testo: "Dopo iniezione ev di MdC, placca ateromasica ___ all'origine della carotide interna ___, con stenosi stimata del ___% (criteri NASCET); regolare pervietà dei restanti TSA.", conclusione: "Stenosi della carotide interna ___ del ___%." }
+            ]
+          },
+          {
+            id: "intracranici", nome: "Arterie intracraniche", riscritta: true,
+            negativo: "Principali vasi arteriosi intracranici pervi e di calibro nei limiti della norma; non malformazioni aneurismatiche e/o artero-venose.",
+            reperti: [
+              { id: "occlusione", etichetta: "Occlusione arteriosa", nuovo: true, testo: "Mancata opacizzazione del tratto ___ dell'arteria ___ (carotide interna/M1/M2/basilare), come per occlusione trombo-embolica.", conclusione: "Occlusione dell'arteria ___ (tratto ___)." },
+              { id: "aneurisma", etichetta: "Aneurisma", nuovo: true, testo: "Dilatazione aneurismatica sacciforme dell'arteria ___, con colletto di ___ mm e sacca di ___ x ___ mm.", conclusione: "Aneurisma dell'arteria ___." }
+            ]
+          },
+          {
+            id: "collaterali", nome: "Circoli collaterali", riscritta: true,
+            negativo: "Sistema collaterale leptomeningeo ben rappresentato, categorizzabile come buono.",
+            reperti: [
+              { id: "scarso", etichetta: "Collaterali ridotti", nuovo: true, testo: "Sistema collaterale leptomeningeo ridotto nel territorio ___, categorizzabile come ___ (moderato/scarso)." }
+            ]
+          },
+          {
+            id: "venoso", nome: "Deflusso venoso", riscritta: true,
+            negativo: "Deflusso venoso regolarmente rappresentato.",
+            reperti: []
+          }
+        ],
+        conclusioneNegativa: "Non segni TC di lesioni ischemiche o emorragiche acute; circolo arterioso intracranico pervio."
+      },
+
+      {
+        id: "massiccio-facciale",
+        nome: "Massiccio facciale",
+        gruppo: "Testa-collo",
+        titolo: "TC DEL MASSICCIO FACCIALE",
+        riscritta: true,
+        tecnica: "Esame eseguito in tecnica spirale senza somministrazione di mdc, con scansioni dal palato duro al seno frontale e successive ricostruzioni a strato sottile sui piani coronale e sagittale.",
+        organi: [
+          {
+            id: "turbinati", nome: "Turbinati", riscritta: true,
+            negativo: "Turbinati nasali di regolare aspetto, con spazi coanali di normali dimensioni.",
+            reperti: [
+              { id: "ipertrofia", etichetta: "Ipertrofia dei turbinati", riscritta: true, testo: "Ipertrofia dei turbinati medi e inferiori, con associata riduzione dei corrispettivi spazi coanali." }
+            ]
+          },
+          {
+            id: "seni", nome: "Seni paranasali",
+            negativo: "Regolare rappresentazione dei complessi ostio-meatali e pneumatizzazione dei seni paranasali.",
+            reperti: [
+              { id: "ispessimento", etichetta: "Ispessimento mucoso", riscritta: true, testo: "Ispessimento della mucosa dei seni mascellari ___, di verosimile significato flogistico, da correlare con la clinica e l'anamnesi.\nRegolare rappresentazione dei complessi ostio-meatali e pneumatizzazione dei restanti seni paranasali." },
+              { id: "sinusite", etichetta: "Sinusite acuta", nuovo: true, testo: "Livello idroaereo nel seno ___, come per sinusite acuta.", conclusione: "Sinusite acuta ___." },
+              { id: "ipoplasia", etichetta: "Ipoplasia/agenesia seno frontale", riscritta: true, modo: "aggiunge", testo: "Ipoplasia del seno frontale ___ ed agenesia del controlaterale." },
+              { id: "onodi", etichetta: "Cellette di Onodi", riscritta: true, modo: "aggiunge", testo: "Cellette sfeno-etmoidali (cellette di Onodi) bilateralmente." }
+            ]
+          },
+          {
+            id: "setto", nome: "Setto nasale",
+            negativo: "Setto nasale in asse.",
+            reperti: [
+              { id: "deviazione", etichetta: "Deviazione del setto", riscritta: true, testo: "Deviazione del setto nasale verso ___." },
+              { id: "sperone", etichetta: "Sperone osseo", riscritta: true, testo: "Setto nasale sostanzialmente in asse, con piccolo sperone osseo in sede mediana verso ___." }
+            ]
+          },
+          {
+            id: "ossa", nome: "Strutture ossee", nuovo: true,
+            negativo: "Non rime di frattura delle strutture ossee del massiccio facciale.",
+            reperti: [
+              { id: "frattura", etichetta: "Frattura", nuovo: true, testo: "Rima di frattura ___ (composta/scomposta) a carico di ___.", conclusione: "Frattura ___ di ___." }
+            ]
+          }
+        ],
+        conclusioneNegativa: "TC del massiccio facciale nei limiti della norma."
+      },
+
+      {
+        id: "collo",
+        nome: "Collo",
+        gruppo: "Testa-collo",
+        titolo: "TC DEL COLLO",
+        riscritta: true,
+        tecnica: "Esame eseguito ___ (senza/senza e con) somministrazione ev di mezzo di contrasto organoiodato.",
+        organi: [
+          {
+            id: "linfonodi", nome: "Linfonodi", riscritta: true,
+            negativo: "Non linfoadenopatie in corrispondenza dei livelli linfonodali.",
+            reperti: [
+              { id: "adenopatie", etichetta: "Linfoadenopatie", nuovo: true, testo: "Linfonodi di dimensioni aumentate al livello ___, il maggiore di ___ mm in asse corto, ___ (omogenei/con aree di necrosi colliquativa).", conclusione: "Linfoadenopatie laterocervicali ___." }
+            ]
+          },
+          {
+            id: "faringe", nome: "Rino e orofaringe", riscritta: true,
+            negativo: "Rinofaringe e orofaringe di regolare aspetto tomodensitometrico.",
+            reperti: [
+              { id: "ascesso", etichetta: "Ascesso", nuovo: true, testo: "Raccolta ipodensa a margini con enhancement in sede ___ (peritonsillare/retrofaringea/parafaringea), di ___ x ___ mm, come per ascesso.", conclusione: "Ascesso ___." }
+            ]
+          },
+          {
+            id: "parafaringei", nome: "Spazi parafaringei", riscritta: true,
+            negativo: "Conservati i piani adiposi parafaringei.",
+            reperti: []
+          },
+          {
+            id: "laringe", nome: "Laringe e trachea", riscritta: true,
+            negativo: "Regolare la colonna aerea laringo-tracheale.",
+            reperti: []
+          },
+          {
+            id: "tiroide", nome: "Tiroide", riscritta: true,
+            negativo: "Tiroide di normale aspetto TC.",
+            reperti: [
+              { id: "nodulo", etichetta: "Nodulo tiroideo", nuovo: true, testo: "Nodulo tiroideo ipodenso di ___ mm nel lobo ___, da caratterizzare con ecografia.", conclusione: "Nodulo tiroideo ___: utile ecografia." }
+            ]
+          },
+          {
+            id: "ossa", nome: "Strutture ossee", riscritta: true,
+            negativo: "Allo studio con finestra per osso, non alterazioni ossee compatibili con lesioni con caratteristiche di evolutività.",
+            reperti: []
+          }
+        ],
+        conclusioneNegativa: "TC del collo nei limiti della norma."
+      },
+
+      {
+        id: "torace",
+        nome: "Torace",
+        gruppo: "Torace",
+        titolo: "TC DEL TORACE",
+        riscritta: true,
+        tecnica: "Esame eseguito ___ (senza/senza e con) somministrazione ev di mezzo di contrasto organoiodato.",
+        organi: [
+          {
+            id: "polmoni", nome: "Polmoni", riscritta: true,
+            negativo: "Non alterazioni polmonari con caratteristiche evolutive.",
+            reperti: [
+              { id: "polmonite", etichetta: "Focolaio broncopneumonico", nuovo: true, testo: "Area di consolidazione parenchimale ___ (sede), con broncogramma aereo, di verosimile natura flogistica.", conclusione: "Focolaio broncopneumonico ___." },
+              { id: "interstiziale", etichetta: "Polmonite interstiziale", riscritta: true, testo: "Diffuse aree di iperdensità parenchimale con aspetto a vetro smerigliato, a chiazze in parte confluenti, prevalentemente in sede periferica, nei lobi ___ (superiori/inferiori/in entrambi i lobi).\nIspessimento dei setti intra- e interlobulari con quadro di «crazy paving».\nAree di consolidazione parenchimale ___ (con/senza) broncogramma aereo.", conclusione: "Reperti indicativi di polmonite interstiziale di possibile eziologia infettiva." },
+              { id: "scompenso", etichetta: "Edema interstiziale (scompenso)", riscritta: true, testo: "Diffuso ispessimento dell'interstizio cuffiale peribroncovascolare, prevalentemente a livello del grosso interstizio centrale in sede perilare, e diffuso ispessimento delle scissure e dei setti interlobulari, con maggiore evidenza a livello medio-basale.\nAlcune sfumate aree tenuemente iperdense, di aspetto simil vetro smerigliato, diffuse in entrambi i polmoni.\nCalibro vascolare diffusamente maggiore rispetto a quello bronchiale.", conclusione: "Reperti compatibili con scompenso cardiaco sinistro congestizio con iniziali segni di edema interstizio-alveolare; utile integrazione con i dati clinico-laboratoristici." },
+              { id: "nodulo", etichetta: "Nodulo polmonare", nuovo: true, testo: "Nodulo polmonare ___ (solido/subsolido/a vetro smerigliato) di ___ mm nel lobo ___.", conclusione: "Nodulo polmonare ___: follow-up secondo le linee guida." },
+              { id: "massa", etichetta: "Formazione espansiva", nuovo: true, testo: "Formazione espansiva solida del lobo ___, di ___ x ___ mm, a margini ___ (spiculati/lobulati/netti).", conclusione: "Formazione espansiva polmonare ___: utile approfondimento." },
+              { id: "enfisema", etichetta: "Enfisema", nuovo: true, testo: "Aree di enfisema ___ (centrolobulare/parasettale/panlobulare), prevalenti ___.", conclusione: "Enfisema polmonare ___." }
+            ]
+          },
+          {
+            id: "vie-aeree", nome: "Trachea e bronchi", riscritta: true,
+            negativo: "Trachea e grossi bronchi pervi.",
+            reperti: [
+              { id: "obliterazione", etichetta: "Obliterazione mucosa", nuovo: true, testo: "Obliterazione mucosa del bronco ___.", conclusione: "Bronco ___ obliterato." }
+            ]
+          },
+          {
+            id: "pleura", nome: "Cavità pleuriche", riscritta: true,
+            negativo: "Cavità pleuriche libere da versamento.",
+            reperti: [
+              { id: "versamento", etichetta: "Versamento pleurico", nuovo: true, testo: "Falda di versamento pleurico ___ (destro/sinistro/bilaterale), dello spessore massimo di ___ mm.", conclusione: "Versamento pleurico ___." },
+              { id: "pnx", etichetta: "Pneumotorace", nuovo: true, testo: "Pneumotorace ___, con falda aerea dello spessore massimo di ___ mm all'apice.", conclusione: "Pneumotorace ___." }
+            ]
+          },
+          {
+            id: "pericardio", nome: "Pericardio", riscritta: true,
+            negativo: "Non versamento pericardico.",
+            reperti: [
+              { id: "versamento", etichetta: "Versamento pericardico", nuovo: true, testo: "Falda di versamento pericardico dello spessore massimo di ___ mm.", conclusione: "Versamento pericardico." }
+            ]
+          },
+          {
+            id: "linfonodi", nome: "Linfonodi", riscritta: true,
+            negativo: "Non linfonodi di dimensioni aumentate in sede ilo-mediastinica e ascellare.",
+            reperti: [
+              { id: "limiti-smdc", etichetta: "Negativo con i limiti senza mdc", riscritta: true, testo: "Con i limiti dati dall'assenza di somministrazione contrastografica, non linfonodi di dimensioni aumentate in sede ilo-mediastinica e ascellare." },
+              { id: "adenopatie", etichetta: "Linfoadenopatie", nuovo: true, testo: "Linfonodi di dimensioni aumentate in sede ___, il maggiore di ___ mm in asse corto.", conclusione: "Linfoadenopatie ___." }
+            ]
+          },
+          {
+            id: "cuore", nome: "Cuore e grossi vasi", riscritta: true,
+            negativo: "Cuore e grossi vasi apparentemente di regolare aspetto tomodensitometrico.",
+            reperti: [
+              { id: "ateromasia", etichetta: "Ateromasia aorto-coronarica", riscritta: true, testo: "Diffusi segni di ateromasia parietale calcifica aorto-coronarica, con maggiore evidenza a carico ___." }
+            ]
+          },
+          {
+            id: "ossa", nome: "Strutture ossee", riscritta: true,
+            negativo: "Allo studio con finestra per osso, non alterazioni ossee compatibili con lesioni con caratteristiche di evolutività.",
+            reperti: [
+              { id: "frattura-costale", etichetta: "Frattura costale", nuovo: true, testo: "Allo studio con finestra per osso, rima di frattura ___ (composta/scomposta) dell'arco ___ della ___ costa ___.", conclusione: "Frattura costale ___." }
+            ]
+          }
+        ],
+        conclusioneNegativa: "TC del torace nei limiti della norma."
+      },
+
+      {
+        id: "torace-tepa",
+        nome: "Angio-TC torace (embolia polmonare)",
+        gruppo: "Torace",
+        titolo: "ANGIO-TC DEL TORACE PER EMBOLIA POLMONARE",
+        riscritta: true,
+        tecnica: "Esame eseguito in regime di urgenza senza e con somministrazione ev di MdC organoiodato (___), con protocollo di studio per embolia polmonare mirato alla valutazione del circolo arterioso polmonare.",
+        organi: [
+          {
+            id: "arterie-polmonari", nome: "Arterie polmonari", riscritta: true,
+            negativo: "Non difetti di riempimento endoluminali ipodensi delle arterie polmonari e delle principali diramazioni compatibili con fenomeni tromboembolici.",
+            reperti: [
+              { id: "tep", etichetta: "Tromboembolia polmonare", nuovo: true, testo: "Difetti di riempimento endoluminali ipodensi a carico ___ (tronco dell'arteria polmonare/rami lobari/segmentari/subsegmentari ___), come da tromboembolia polmonare.", conclusione: "Tromboembolia polmonare ___." },
+              { id: "sovraccarico", etichetta: "Sovraccarico ventricolare destro", nuovo: true, testo: "Rapporto tra ventricolo destro e ventricolo sinistro di ___, con reflusso di mdc in vena cava inferiore e nelle vene sovraepatiche, come per sovraccarico ventricolare destro.", conclusione: "Segni di sovraccarico ventricolare destro." },
+              { id: "infarto", etichetta: "Infarto polmonare", nuovo: true, modo: "aggiunge", testo: "Area di consolidazione periferica cuneiforme a base pleurica nel lobo ___, come per infarto polmonare.", conclusione: "Infarto polmonare ___." }
+            ]
+          },
+          {
+            id: "polmoni", nome: "Polmoni", riscritta: true,
+            negativo: "Non alterazioni polmonari con caratteristiche evolutive.",
+            reperti: []
+          },
+          {
+            id: "vie-aeree", nome: "Trachea e bronchi", riscritta: true,
+            negativo: "Trachea e grossi bronchi pervi.",
+            reperti: []
+          },
+          {
+            id: "pleura", nome: "Pleura e pericardio", riscritta: true,
+            negativo: "Non versamenti pleuro-pericardici.",
+            reperti: [
+              { id: "versamento", etichetta: "Versamento pleurico", nuovo: true, testo: "Falda di versamento pleurico ___, dello spessore massimo di ___ mm; non versamento pericardico.", conclusione: "Versamento pleurico ___." }
+            ]
+          },
+          {
+            id: "linfonodi", nome: "Linfonodi", riscritta: true,
+            negativo: "Assenti linfonodi di dimensioni aumentate in sede ilo-mediastinica e ascellare.",
+            reperti: []
+          }
+        ],
+        conclusioneNegativa: "Non segni TC di tromboembolia polmonare."
+      },
+
+      {
+        id: "addome",
+        nome: "Addome",
+        gruppo: "Addome",
+        titolo: "TC DELL'ADDOME",
+        riscritta: true,
+        tecnica: "Esame eseguito ___ (senza/senza e con) somministrazione ev di mezzo di contrasto organoiodato.",
+        organi: [
+          {
+            id: "fegato", nome: "Fegato", riscritta: true,
+            negativo: "Fegato di dimensioni nei limiti di norma, a profili regolari, indenne da lesioni focali.",
+            reperti: [
+              { id: "limiti-smdc", etichetta: "Senza mdc (con i limiti)", riscritta: true, testo: "Fegato di dimensioni nei limiti di norma, a profili regolari, di aspetto tomodensitometrico omogeneo con i limiti dati dall'assenza di somministrazione contrastografica." },
+              { id: "steatosi", etichetta: "Steatosi", nuovo: true, testo: "Fegato di dimensioni ___, con diffusa riduzione della densità parenchimale, come per steatosi.", conclusione: "Steatosi epatica." },
+              { id: "cisti", etichetta: "Cisti epatica", nuovo: true, testo: "Al ___ segmento, formazione ipodensa di ___ mm, a margini netti, priva di enhancement, di tipo cistico.", conclusione: "Cisti epatica." },
+              { id: "secondarismi", etichetta: "Secondarismi", nuovo: true, testo: "Plurime lesioni focali ipodense epatiche di diverse dimensioni, la maggiore di ___ mm al ___ segmento, compatibili con secondarismi.", conclusione: "Lesioni epatiche compatibili con secondarismi." }
+            ]
+          },
+          {
+            id: "colecisti", nome: "Colecisti", riscritta: true,
+            negativo: "Colecisti priva di calcoli calcifici endoluminali.",
+            reperti: [
+              { id: "calcoli", etichetta: "Calcoli", nuovo: true, testo: "Colecisti con ___ calcoli calcifici endoluminali, il maggiore di ___ mm.", conclusione: "Colelitiasi." },
+              { id: "colecistite", etichetta: "Colecistite", nuovo: true, testo: "Colecisti distesa, a pareti ispessite (___ mm), con addensamento dell'adipe pericolecistico, come per colecistite acuta.", conclusione: "Colecistite acuta." }
+            ]
+          },
+          {
+            id: "vie-biliari", nome: "Vie biliari", riscritta: true,
+            negativo: "Vie biliari non dilatate.",
+            reperti: [
+              { id: "dilatate", etichetta: "Vie biliari dilatate", nuovo: true, testo: "Dilatazione delle vie biliari intraepatiche e del coledoco (calibro ___ mm).", conclusione: "Dilatazione delle vie biliari." }
+            ]
+          },
+          {
+            id: "milza-pancreas", nome: "Milza, pancreas, surreni", riscritta: true,
+            negativo: "Milza, pancreas e surreni di normale aspetto tomodensitometrico.",
+            reperti: [
+              { id: "pancreatite", etichetta: "Pancreatite acuta", nuovo: true, testo: "Pancreas tumefatto, con addensamento dell'adipe peripancreatico ___ e raccolte fluide ___, come per pancreatite acuta ___ (edematosa/necrotico-emorragica).", conclusione: "Pancreatite acuta ___." },
+              { id: "splenomegalia", etichetta: "Splenomegalia", nuovo: true, testo: "Milza aumentata di volume (diametro bipolare ___ mm).", conclusione: "Splenomegalia." },
+              { id: "adenoma", etichetta: "Nodulo surrenalico", nuovo: true, testo: "Nodulo surrenalico ___ di ___ mm, ipodenso (densità basale ___ HU), come per adenoma.", conclusione: "Nodulo surrenalico ___ compatibile con adenoma." }
+            ]
+          },
+          {
+            id: "reni", nome: "Reni", riscritta: true,
+            negativo: "Reni in sede, di dimensioni nella norma, di regolare aspetto tomodensitometrico, con regolare spessore della corticale e conservata differenziazione corticomidollare.",
+            reperti: [
+              { id: "cisti", etichetta: "Cisti renale", nuovo: true, modo: "aggiunge", testo: "Cisti corticale semplice di ___ mm al polo ___ del rene ___." },
+              { id: "pielonefrite", etichetta: "Pielonefrite", nuovo: true, testo: "Aree cuneiformi ipoperfuse nel rene ___, come per focolai pielonefritici.", conclusione: "Pielonefrite ___." }
+            ]
+          },
+          {
+            id: "escrezione", nome: "Escrezione renale", riscritta: true,
+            negativo: "Escrezione renale di urina organoiodata in tempi fisiologici.",
+            reperti: []
+          },
+          {
+            id: "vie-urinarie", nome: "Vie urinarie", riscritta: true,
+            negativo: "Vie escretrici urinarie non dilatate.",
+            reperti: [
+              { id: "calcolo-ureterale", etichetta: "Calcolo ureterale", nuovo: true, testo: "Calcolo di ___ mm nell'uretere ___ (prossimale/medio/distale), con dilatazione delle vie escretrici a monte.", conclusione: "Calcolo ureterale ___ con idronefrosi." },
+              { id: "calcoli-renali", etichetta: "Calcoli renali", nuovo: true, testo: "Calcoli caliceali ___, il maggiore di ___ mm, senza dilatazione delle vie escretrici.", conclusione: "Nefrolitiasi ___." }
+            ]
+          },
+          {
+            id: "vescica", nome: "Vescica", riscritta: true,
+            negativo: "Vescica regolarmente distesa, priva di lesioni organiche.",
+            reperti: []
+          },
+          {
+            id: "utero-annessi", nome: "Utero e annessi", riscritta: true,
+            negativo: "Non tumefazioni utero-annessiali.",
+            reperti: []
+          },
+          {
+            id: "prostata", nome: "Prostata", riscritta: true,
+            negativo: "Prostata di dimensioni conservate.",
+            reperti: []
+          },
+          {
+            id: "aorta", nome: "Asse aorto-iliaco", riscritta: true,
+            negativo: "Asse aorto-iliaco femorale pervio, di regolare calibro.",
+            reperti: [
+              { id: "aneurisma", etichetta: "Aneurisma aortico", nuovo: true, testo: "Dilatazione aneurismatica dell'aorta addominale sottorenale, con diametro massimo di ___ mm ed estensione longitudinale di ___ mm, con trombosi parietale ___.", conclusione: "Aneurisma dell'aorta addominale sottorenale." }
+            ]
+          },
+          {
+            id: "linfonodi", nome: "Linfonodi", riscritta: true,
+            negativo: "Non linfonodi patologicamente ingranditi in sede retro e intraperitoneale.",
+            reperti: []
+          },
+          {
+            id: "peritoneo", nome: "Cavità peritoneale", riscritta: true,
+            negativo: "Cavità peritoneale libera da versamento.",
+            reperti: [
+              { id: "versamento", etichetta: "Versamento", nuovo: true, testo: "Falda di versamento libero ___ (periepatico/perisplenico/nello scavo pelvico/diffuso).", conclusione: "Versamento peritoneale." }
+            ]
+          },
+          {
+            id: "basi-polmonari", nome: "Basi polmonari", riscritta: true,
+            negativo: "Nelle scansioni craniali passanti per le basi polmonari, non alterazioni parenchimali in atto.",
+            reperti: [
+              { id: "versamento-pleurico", etichetta: "Versamento pleurico", nuovo: true, testo: "Nelle scansioni craniali passanti per le basi polmonari, falda di versamento pleurico ___ (destro/sinistro/bilaterale)." }
+            ]
+          },
+          {
+            id: "ossa", nome: "Strutture ossee", riscritta: true,
+            negativo: "Alla valutazione con finestra per osso, non immagini attribuibili a localizzazioni scheletriche di malattia.",
+            reperti: []
+          }
+        ],
+        conclusioneNegativa: "TC dell'addome nei limiti della norma."
+      },
+
+      {
+        id: "addome-acuto",
+        nome: "Addome acuto (DEA)",
+        gruppo: "Addome",
+        titolo: "TC DELL'ADDOME SENZA E CON MDC (ADDOME ACUTO)",
+        contesto: "tc-addome",
+        riscritta: true,
+        tecnica: "Esame eseguito in regime di urgenza senza e con somministrazione ev di mezzo di contrasto organoiodato.",
+        organi: [
+          {
+            id: "pneumoperitoneo", nome: "Pneumoperitoneo",
+            negativo: "Non segni di pneumoperitoneo da riferire a perforazione viscerale endoaddominale.",
+            reperti: [
+              { id: "perforazione", etichetta: "Perforazione", nuovo: true, testo: "Bolle aeree libere extraluminali ___ (sottodiaframmatiche/in sede ___), come per perforazione di viscere cavo ___.", conclusione: "Pneumoperitoneo da perforazione di viscere cavo ___." }
+            ]
+          },
+          {
+            id: "fegato", nome: "Fegato", riscritta: true,
+            negativo: "Fegato di dimensioni nei limiti di norma, a profili regolari e di normale aspetto tomodensitometrico, indenne da lesioni focali.",
+            reperti: []
+          },
+          {
+            id: "sovraepatiche", nome: "Vene sovraepatiche", riscritta: true,
+            negativo: "Vene sovraepatiche regolari per calibro e pervietà.",
+            reperti: []
+          },
+          {
+            id: "porta", nome: "Vena porta", riscritta: true,
+            negativo: "Vena porta e principali diramazioni intraepatiche regolari per calibro e pervietà, senza edema periportale.",
+            reperti: []
+          },
+          {
+            id: "colecisti", nome: "Colecisti", riscritta: true,
+            negativo: "Colecisti normodistesa, priva di calcoli calcifici endoluminali, a pareti non ispessite, senza falde fluide pericolecistiche da riferire a colecistite acuta.",
+            reperti: [
+              { id: "colecistite", etichetta: "Colecistite acuta", nuovo: true, testo: "Colecisti distesa, a pareti ispessite (___ mm), con addensamento dell'adipe pericolecistico e falda fluida perivescicolare, ___ (con calcoli endoluminali), come per colecistite acuta.", conclusione: "Colecistite acuta." }
+            ]
+          },
+          {
+            id: "vie-biliari", nome: "Vie biliari", riscritta: true,
+            negativo: "Vie biliari non dilatate, senza alterazioni tomodensitometriche riferibili a colangite acuta.",
+            reperti: []
+          },
+          {
+            id: "milza-surreni", nome: "Milza e surreni", riscritta: true,
+            negativo: "Milza e surreni di normale aspetto tomodensitometrico.",
+            reperti: []
+          },
+          {
+            id: "pancreas", nome: "Pancreas", riscritta: true,
+            negativo: "Pancreas non tumefatto, con adipe periviscerale regolarmente ipodenso, senza segni di infiltrazione flogistica o raccolte limitrofe riferibili a pancreatite acuta.",
+            reperti: [
+              { id: "pancreatite", etichetta: "Pancreatite acuta", nuovo: true, testo: "Pancreas tumefatto, con addensamento dell'adipe peripancreatico ___ e raccolte fluide ___, come per pancreatite acuta ___ (edematosa/necrotico-emorragica).", conclusione: "Pancreatite acuta ___." }
+            ]
+          },
+          {
+            id: "reni", nome: "Reni", riscritta: true,
+            negativo: "Reni in sede, di dimensioni nella norma, di regolare aspetto tomodensitometrico, con regolare spessore della corticale e conservata differenziazione corticomidollare; non aree ipoperfuse da riferire a focolai pielonefritici.",
+            reperti: [
+              { id: "pielonefrite", etichetta: "Pielonefrite", nuovo: true, testo: "Reni in sede, di dimensioni nella norma; aree cuneiformi ipoperfuse nel rene ___, come per focolai pielonefritici.", conclusione: "Pielonefrite ___." }
+            ]
+          },
+          {
+            id: "escrezione", nome: "Escrezione renale", riscritta: true,
+            negativo: "Escrezione renale di urina organoiodata in tempi fisiologici.",
+            reperti: []
+          },
+          {
+            id: "vie-urinarie", nome: "Vie urinarie", riscritta: true,
+            negativo: "Vie escretrici urinarie non dilatate.",
+            reperti: [
+              { id: "calcolo-ureterale", etichetta: "Calcolo ureterale", nuovo: true, testo: "Calcolo di ___ mm nell'uretere ___ (prossimale/medio/distale), con dilatazione delle vie escretrici a monte.", conclusione: "Calcolo ureterale ___ con idronefrosi." }
+            ]
+          },
+          {
+            id: "vescica", nome: "Vescica", riscritta: true,
+            negativo: "Vescica regolarmente distesa, priva di lesioni parietali aggettanti nel lume, di aspetto tomodensitometrico omogeneo.",
+            reperti: []
+          },
+          {
+            id: "calcoli", nome: "Calcolosi urinaria", riscritta: true,
+            negativo: "Non formazioni calcifiche da riferire a calcolosi urinaria.",
+            reperti: []
+          },
+          {
+            id: "utero-annessi", nome: "Utero e annessi", riscritta: true,
+            negativo: "Non tumefazioni utero-annessiali.",
+            reperti: []
+          },
+          {
+            id: "prostata", nome: "Prostata", riscritta: true,
+            negativo: "Prostata di dimensioni conservate.",
+            reperti: []
+          },
+          {
+            id: "appendice", nome: "Appendice", riscritta: true,
+            negativo: "Non grossolane tumefazioni, raccolte fluide o addensamento del grasso in regione appendicolare da riferire ad appendicite acuta.",
+            reperti: [
+              { id: "appendicite", etichetta: "Appendicite acuta", nuovo: true, testo: "Appendice ciecale ispessita (diametro ___ mm), con iperenhancement parietale e addensamento dell'adipe periappendicolare ___ (con appendicolita/raccolta/bolle aeree extraluminali), come per appendicite acuta ___.", conclusione: "Appendicite acuta ___." }
+            ]
+          },
+          {
+            id: "sigma", nome: "Sigma", riscritta: true,
+            negativo: "Sigma senza ispessimento parietale, addensamento dell'adipe circostante o raccolte essudative perisigmoidee da riferire a diverticolite acuta.",
+            reperti: [
+              { id: "diverticolite", etichetta: "Diverticolite acuta", nuovo: true, testo: "Diverticoli del sigma con ispessimento parietale segmentario e addensamento dell'adipe pericolico ___ (con raccolta/bolle aeree extraluminali), come per diverticolite acuta ___ (Hinchey ___).", conclusione: "Diverticolite acuta del sigma ___." }
+            ]
+          },
+          {
+            id: "anse", nome: "Anse intestinali", riscritta: true,
+            negativo: "Anse intestinali non significativamente dilatate, senza livelli idroaerei da riferire a fenomeni di subocclusione-occlusione.",
+            reperti: [
+              { id: "occlusione", etichetta: "Occlusione intestinale", nuovo: true, testo: "Distensione delle anse ___ (tenuali/coliche) fino a ___ mm, con livelli idroaerei e passaggio di calibro in sede ___, come per occlusione intestinale ___.", conclusione: "Occlusione intestinale ___." }
+            ]
+          },
+          {
+            id: "pareti", nome: "Pareti intestinali", riscritta: true,
+            negativo: "Anse del piccolo e grosso intestino senza significativi ispessimenti parietali focali o diffusi né variazioni dell'enhancement contrastografico.",
+            reperti: [
+              { id: "ischemia", etichetta: "Sofferenza ischemica", nuovo: true, testo: "Ispessimento parietale delle anse ___ con ridotto enhancement ___, come per sofferenza ischemica.", conclusione: "Sofferenza ischemica intestinale ___." }
+            ]
+          },
+          {
+            id: "pneumatosi", nome: "Pneumatosi", riscritta: true,
+            negativo: "Non segni riferibili a pneumatosi intraparietale intestinale né nel lume dell'asse venoso spleno-porto-mesenterico.",
+            reperti: []
+          },
+          {
+            id: "versamento", nome: "Versamento peritoneale", riscritta: true,
+            negativo: "Assenti falde libere di versamento peritoneale.",
+            reperti: [
+              { id: "versamento", etichetta: "Versamento", nuovo: true, testo: "Falda di versamento libero ___ (periepatico/perisplenico/nello scavo pelvico/diffuso).", conclusione: "Versamento peritoneale." }
+            ]
+          },
+          {
+            id: "mesentere", nome: "Mesentere", riscritta: true,
+            negativo: "Fodero adiposo mesenteriale normotrasparente, senza segni di infiltrazione e imbibizione edematoso-flogistica.",
+            reperti: []
+          },
+          {
+            id: "linfonodi", nome: "Linfonodi", riscritta: true,
+            negativo: "Non linfonodi patologicamente ingranditi in sede retro e intraperitoneale.",
+            reperti: []
+          },
+          {
+            id: "arterie", nome: "Arterie", riscritta: true,
+            negativo: "Asse arterioso aorto-iliaco femorale pervio, di regolare calibro, così come le principali derivazioni splancniche (tronco celiaco, mesenterica superiore e inferiore), senza evidenti segni dissecativi o occlusivi tromboembolici.",
+            reperti: [
+              { id: "ams", etichetta: "Occlusione mesenterica", nuovo: true, testo: "Difetto di opacizzazione dell'arteria mesenterica superiore ___ (a ___ mm dall'origine), come per occlusione trombo-embolica.", conclusione: "Occlusione dell'arteria mesenterica superiore." }
+            ]
+          },
+          {
+            id: "vene", nome: "Asse venoso portale", riscritta: true,
+            negativo: "Asse venoso porto-spleno-mesenterico regolarmente pervio, senza evidenti segni occlusivi tromboembolici.",
+            reperti: []
+          },
+          {
+            id: "perfusione", nome: "Perfusione e segni di shock", riscritta: true,
+            negativo: "Regolare perfusione degli organi parenchimatosi intraddominali, senza evidenti aree ischemiche o ipoperfuse; vasi venosi di regolare calibro, senza appiattimento della VCI né vene sovraepatiche filiformi; fisiologica escrezione renale di urina iodata bilateralmente: non evidenti segni riferibili a shock o ipoperfusione sistemica.",
+            reperti: []
+          },
+          {
+            id: "basi-polmonari", nome: "Basi polmonari", riscritta: true,
+            negativo: "Nelle scansioni craniali passanti per le basi polmonari, non alterazioni pleuro-parenchimali in atto.",
+            reperti: [
+              { id: "versamento-pleurico", etichetta: "Versamento pleurico", nuovo: true, testo: "Nelle scansioni craniali passanti per le basi polmonari, falda di versamento pleurico ___ (destro/sinistro/bilaterale)." }
+            ]
+          },
+          {
+            id: "ossa", nome: "Strutture ossee", riscritta: true,
+            negativo: "Alla valutazione con finestra per osso, non immagini attribuibili a localizzazioni scheletriche di malattia.",
+            reperti: []
+          }
+        ],
+        conclusioneNegativa: "Non segni TC di addome acuto."
+      }
+    ]
+  },
   {
     id: "rm",
     nome: "RM",
@@ -1105,8 +1742,9 @@ const METODICHE = [
     distretti: [
 
       /* ============================================================ RM SPALLA
-       * DA VERIFICARE: distretto interamente nuovo (non presente nell'archivio):
-       * titolo, tecnica, frasi negative, reperti, conclusioni e traduzioni EN/ES. */
+       * Frasi negative e tecnica: dal modello «RM SPALLA» del documento «RM NEGATIVO STANDARD EL-DEA»,
+       * riscritte nello stile telegrafico (riscritta: true).
+       * DA VERIFICARE: titolo, intro, reperti positivi, conclusioni (nuovo: true) e traduzioni EN/ES. */
       {
         id: "spalla",
         nome: "Spalla",
@@ -1115,8 +1753,7 @@ const METODICHE = [
         titolo: { it: "RM DELLA SPALLA", en: "MRI OF THE SHOULDER", es: "RM DE HOMBRO" },
         lingue: ["it", "en", "es"],
         traduzioniDaVerificare: true,
-        tecnicaNuova: true,
-        tecnica: { it: "Esame eseguito con sequenze T1 e DP/T2 con soppressione del grasso sui piani assiale, coronale obliquo e sagittale obliquo.", en: "Examination performed with T1-weighted and fat-suppressed PD/T2-weighted sequences in the axial, oblique coronal and oblique sagittal planes.", es: "Estudio realizado con secuencias T1 y DP/T2 con supresión grasa en los planos axial, coronal oblicuo y sagital oblicuo." },
+        tecnica: { it: "Esame eseguito in condizioni basali.", en: "Examination performed under baseline conditions (without contrast).", es: "Estudio realizado en condiciones basales." },
         lati: [
           { it: "destra", en: "right", es: "derecho" },
           { it: "sinistra", en: "left", es: "izquierdo" }
@@ -1124,8 +1761,8 @@ const METODICHE = [
         intro: { it: "Esame mirato alla spalla {lato}.", en: "MRI of the {lato} shoulder.", es: "Estudio del hombro {lato}." },
         organi: [
           {
-            id: "cuffia", nome: "Cuffia dei rotatori", nuovo: true,
-            negativo: { it: "Tendini della cuffia dei rotatori di normale spessore e segnale, senza lesioni di continuità.", en: "Rotator cuff tendons of normal thickness and signal, without tears.", es: "Tendones del manguito rotador de grosor y señal normales, sin roturas." },
+            id: "cuffia", nome: "Cuffia dei rotatori", riscritta: true,
+            negativo: { it: "Non alterazioni morfologiche e di segnale dei tendini sovraspinoso, sottospinoso e sottoscapolare.\nConservato il trofismo dei ventri muscolari.", en: "No morphological or signal abnormalities of the supraspinatus, infraspinatus and subscapularis tendons.\nPreserved muscle belly trophism.", es: "Sin alteraciones morfológicas ni de señal de los tendones supraespinoso, infraespinoso y subescapular.\nTrofismo conservado de los vientres musculares." },
             reperti: [
               { id: "tendinosi", etichetta: "Tendinosi sovraspinato", nuovo: true, testo: { it: "Tendine sovraspinato ispessito, con iperintensità di segnale intratendinea nelle sequenze DP, senza lesioni di continuità, come per tendinosi.", en: "Thickened supraspinatus tendon with increased intratendinous signal on PD-weighted images, without tear, consistent with tendinosis.", es: "Tendón supraespinoso engrosado, con hiperintensidad de señal intratendinosa en las secuencias DP, sin roturas, compatible con tendinosis." }, conclusione: { it: "Tendinosi del sovraspinato.", en: "Supraspinatus tendinosis.", es: "Tendinosis del supraespinoso." } },
               { id: "lesione-parziale", etichetta: "Lesione parziale sovraspinato", nuovo: true, testo: { it: "Lesione parziale del tendine sovraspinato sul versante ___ (articolare/bursale), di circa ___ mm.", en: "Partial-thickness tear of the supraspinatus tendon on the ___ (articular/bursal) side, about ___ mm.", es: "Rotura parcial del tendón supraespinoso en la vertiente ___ (articular/bursal), de unos ___ mm." }, conclusione: { it: "Lesione parziale del tendine sovraspinato.", en: "Partial-thickness supraspinatus tear.", es: "Rotura parcial del tendón supraespinoso." } },
@@ -1134,47 +1771,804 @@ const METODICHE = [
             ]
           },
           {
-            id: "clb", nome: "Capo lungo del bicipite", nuovo: true,
-            negativo: { it: "Tendine del capo lungo del bicipite in sede nella doccia bicipitale, di normale segnale.", en: "Long head of biceps tendon in the bicipital groove, of normal signal.", es: "Tendón de la porción larga del bíceps en la corredera bicipital, de señal normal." },
+            id: "clb", nome: "Capo lungo del bicipite", riscritta: true,
+            negativo: { it: "Tendine del capo lungo del bicipite continuo e in sede.", en: "Long head of biceps tendon continuous and in normal position.", es: "Tendón de la porción larga del bíceps continuo y en su posición." },
             reperti: [
               { id: "tenosinovite", etichetta: "Tenosinovite", nuovo: true, testo: { it: "Tendine del capo lungo del bicipite in sede, con distensione fluida della guaina, come per tenosinovite.", en: "Long head of biceps tendon in normal position, with fluid distension of the tendon sheath, consistent with tenosynovitis.", es: "Tendón de la porción larga del bíceps en su posición, con distensión líquida de la vaina, compatible con tenosinovitis." }, conclusione: { it: "Tenosinovite del capo lungo del bicipite.", en: "Long head of biceps tenosynovitis.", es: "Tenosinovitis de la porción larga del bíceps." } }
             ]
           },
           {
-            id: "labbro", nome: "Labbro glenoideo", nuovo: true,
-            negativo: { it: "Labbro glenoideo di normale morfologia e segnale.", en: "Glenoid labrum of normal morphology and signal.", es: "Labrum glenoideo de morfología y señal normales." },
+            id: "labbro", nome: "Cercine glenoideo", riscritta: true,
+            negativo: { it: "Cercine glenoideo regolarmente inserito.", en: "Glenoid labrum normally attached.", es: "Rodete glenoideo normalmente insertado." },
             reperti: [
-              { id: "lesione", etichetta: "Lesione del labbro", nuovo: true, testo: { it: "Iperintensità lineare nel contesto del labbro glenoideo ___ (superiore/anteriore/posteriore), come per lesione.", en: "Linear hyperintensity within the ___ (superior/anterior/posterior) glenoid labrum, consistent with a tear.", es: "Hiperintensidad lineal en el labrum glenoideo ___ (superior/anterior/posterior), compatible con rotura." }, conclusione: { it: "Lesione del labbro glenoideo ___.", en: "Tear of the ___ glenoid labrum.", es: "Rotura del labrum glenoideo ___." } }
+              { id: "lesione", etichetta: "Lesione del cercine", nuovo: true, testo: { it: "Iperintensità lineare nel contesto del cercine glenoideo ___ (superiore/anteriore/posteriore), come per lesione.", en: "Linear hyperintensity within the ___ (superior/anterior/posterior) glenoid labrum, consistent with a tear.", es: "Hiperintensidad lineal en el rodete glenoideo ___ (superior/anterior/posterior), compatible con rotura." }, conclusione: { it: "Lesione del cercine glenoideo ___.", en: "Tear of the ___ glenoid labrum.", es: "Rotura del rodete glenoideo ___." } }
             ]
           },
           {
-            id: "articolazione", nome: "Articolazione gleno-omerale", nuovo: true,
-            negativo: { it: "Non versamento articolare gleno-omerale. Cartilagine articolare di spessore conservato.", en: "No glenohumeral joint effusion. Articular cartilage of preserved thickness.", es: "Sin derrame articular glenohumeral. Cartílago articular de grosor conservado." },
-            reperti: []
-          },
-          {
-            id: "borsa", nome: "Borsa subacromion-deltoidea", nuovo: true,
-            negativo: { it: "Borsa subacromion-deltoidea non distesa.", en: "Subacromial-subdeltoid bursa not distended.", es: "Bursa subacromio-subdeltoidea no distendida." },
-            reperti: [
-              { id: "borsite", etichetta: "Borsite", nuovo: true, testo: { it: "Distensione fluida della borsa subacromion-deltoidea, come per borsite.", en: "Fluid distension of the subacromial-subdeltoid bursa, consistent with bursitis.", es: "Distensión líquida de la bursa subacromio-subdeltoidea, compatible con bursitis." }, conclusione: { it: "Borsite subacromion-deltoidea.", en: "Subacromial-subdeltoid bursitis.", es: "Bursitis subacromio-subdeltoidea." } }
-            ]
-          },
-          {
-            id: "acromion-claveare", nome: "Articolazione acromion-claveare", nuovo: true,
-            negativo: { it: "Articolazione acromion-claveare di morfologia regolare.", en: "Acromioclavicular joint of normal morphology.", es: "Articulación acromioclavicular de morfología normal." },
+            id: "acromion-claveare", nome: "Articolazione acromion-claveare", riscritta: true,
+            negativo: { it: "Regolare l'articolazione acromion-claveare.", en: "Normal acromioclavicular joint.", es: "Articulación acromioclavicular normal." },
             reperti: [
               { id: "artrosi", etichetta: "Artrosi acromion-claveare", nuovo: true, testo: { it: "Articolazione acromion-claveare con ipertrofia capsulo-osteofitosica e improntamento del versante bursale del sovraspinato, come per artrosi.", en: "Acromioclavicular joint with capsular and osteophytic hypertrophy indenting the bursal side of the supraspinatus, consistent with osteoarthritis.", es: "Articulación acromioclavicular con hipertrofia capsular y osteofitaria que impronta la vertiente bursal del supraespinoso, compatible con artrosis." }, conclusione: { it: "Artrosi acromion-claveare.", en: "Acromioclavicular osteoarthritis.", es: "Artrosis acromioclavicular." } }
             ]
           },
           {
-            id: "ossa", nome: "Strutture ossee", nuovo: true,
-            negativo: { it: "Assenti alterazioni del segnale della spongiosa ossea.", en: "No abnormal bone marrow signal.", es: "Sin alteraciones de la señal de la médula ósea." },
+            id: "articolazione", nome: "Versamento articolare", riscritta: true,
+            negativo: { it: "Non versamento articolare.", en: "No joint effusion.", es: "Sin derrame articular." },
             reperti: []
+          },
+          {
+            id: "borsa", nome: "Borsa subacromion-deltoidea", negativo: "",
+            reperti: [
+              { id: "minima-flogosi", etichetta: "Minima flogosi della borsa", testo: { it: "Minima flogosi della borsa subacromion-deltoidea.", en: "Minimal inflammation of the subacromial-subdeltoid bursa.", es: "Mínima inflamación de la bursa subacromio-subdeltoidea." } },
+              { id: "borsite", etichetta: "Borsite", nuovo: true, testo: { it: "Distensione fluida della borsa subacromion-deltoidea, come per borsite.", en: "Fluid distension of the subacromial-subdeltoid bursa, consistent with bursitis.", es: "Distensión líquida de la bursa subacromio-subdeltoidea, compatible con bursitis." }, conclusione: { it: "Borsite subacromion-deltoidea.", en: "Subacromial-subdeltoid bursitis.", es: "Bursitis subacromio-subdeltoidea." } }
+            ]
           }
         ],
         conclusioneNegativa: { it: "Quadro RM della spalla nei limiti della norma.", en: "Normal MRI of the shoulder.", es: "RM de hombro dentro de la normalidad." }
+      },
+      /* RM: frasi negative dal documento «RM NEGATIVO STANDARD EL-DEA», riscritte nello stile
+       * telegrafico (riscritta: true). DA VERIFICARE: reperti positivi marcati nuovo: true. */
+      {
+        id: "encefalo",
+        nome: "Encefalo",
+        gruppo: "Neuro",
+        titolo: "RM DELL'ENCEFALO",
+        riscritta: true,
+        tecnica: "Esame eseguito con sequenze T1 e T2 dipendenti su piani ortogonali dello spazio, integrato con sequenze in diffusione ___ (e completato con somministrazione ev di mdc paramagnetico).",
+        organi: [
+          {
+            id: "parenchima", nome: "Parenchima", riscritta: true,
+            negativo: "Non significative aree di alterato segnale del parenchima encefalico in sede sovra o sottotentoriale.",
+            reperti: [
+              { id: "gliosi", etichetta: "Gliosi vascolare aspecifica", riscritta: true, testo: "Multipli piccoli focolai di ipersegnale nelle sequenze T2 dipendenti nel contesto della sostanza bianca sovratentoriale di entrambi gli emisferi cerebrali, da riferire a gliosi da generica sofferenza vascolare aspecifica.", conclusione: "Gliosi da sofferenza vascolare aspecifica." },
+              { id: "sclerosi-multipla", etichetta: "Lesioni demielinizzanti (controllo)", riscritta: true, testo: "Multiple aree di iperintensità nelle sequenze a TR lungo nel contesto della sostanza bianca sotto e soprattutto sovratentoriale, a distribuzione prevalentemente profonda periventricolare, ___ (invariate per numero, dimensioni e comportamento del segnale) rispetto al precedente del ___.\nNella sequenza pesata in diffusione, non alterazioni in corrispondenza delle lesioni demielinizzanti da riferire a segni di «attività di placca».", conclusione: "Carico lesionale demielinizzante ___ rispetto al precedente." },
+              { id: "lesione-espansiva", etichetta: "Lesione espansiva", nuovo: true, testo: "Formazione espansiva ___ (intra/extra-assiale) in sede ___, di ___ x ___ mm, ___ (iperintensa/ipointensa) in T2, con enhancement ___ dopo mdc ed edema perilesionale ___.", conclusione: "Lesione espansiva ___: utile valutazione specialistica." }
+            ]
+          },
+          {
+            id: "grigia-bianca", nome: "Sostanza grigia e bianca", riscritta: true,
+            negativo: "Regolari i rapporti anatomo-topografici tra sostanza grigia e sostanza bianca sottocorticale.",
+            reperti: []
+          },
+          {
+            id: "diffusione", nome: "Diffusione", riscritta: true,
+            negativo: "Nella sequenza in diffusione, non alterazioni della diffusività molecolare dell'acqua riferibili a lesioni vascolari ischemiche «recenti».",
+            reperti: [
+              { id: "ischemia-acuta", etichetta: "Lesione ischemica acuta", nuovo: true, testo: "Nella sequenza in diffusione, area di restrizione della diffusività in sede ___, come per lesione ischemica acuta nel territorio dell'arteria ___.", conclusione: "Lesione ischemica acuta nel territorio dell'arteria ___." }
+            ]
+          },
+          {
+            id: "emosiderina", nome: "Depositi emosiderinici", riscritta: true,
+            negativo: "Nella sequenza T2 GE, non immagini ipointense riconducibili a depositi emosiderinici intraparenchimali.",
+            reperti: [
+              { id: "microsanguinamenti", etichetta: "Microsanguinamenti", nuovo: true, testo: "Nella sequenza T2 GE, piccoli foci ipointensi in sede ___, riconducibili a depositi emosiderinici da microsanguinamenti.", conclusione: "Microsanguinamenti ___." }
+            ]
+          },
+          {
+            id: "tronco", nome: "Tronco encefalico", riscritta: true,
+            negativo: "Tronco encefalico regolare per morfologia e intensità di segnale.",
+            reperti: []
+          },
+          {
+            id: "fossa-posteriore", nome: "Fossa cranica posteriore",
+            negativo: "Regolare aspetto della fossa cranica posteriore.",
+            reperti: []
+          },
+          {
+            id: "ipofisi", nome: "Ipofisi", riscritta: true,
+            negativo: "In esame non dedicato, ghiandola pituitaria apparentemente senza significative alterazioni volumetriche.",
+            reperti: []
+          },
+          {
+            id: "vasi", nome: "Vasi intracranici", riscritta: true,
+            negativo: "In esame non dedicato, grossi vasi arteriosi della base cranica e circolo venoso intracranico apparentemente pervi.",
+            reperti: []
+          },
+          {
+            id: "ventricoli", nome: "Sistema ventricolare", riscritta: true,
+            negativo: "Sistema ventricolare di forma e dimensioni regolari.",
+            reperti: []
+          },
+          {
+            id: "linea-mediana", nome: "Linea mediana", riscritta: true,
+            negativo: "Strutture della linea mediana in asse.",
+            reperti: []
+          },
+          {
+            id: "mdc", nome: "Dopo mdc", negativo: "",
+            reperti: [
+              { id: "negativo-mdc", etichetta: "Negativo dopo mdc", riscritta: true, testo: "Dopo somministrazione del mdc paramagnetico, non impregnazioni contrastografiche di significato patologico." },
+              { id: "enhancement", etichetta: "Enhancement patologico", nuovo: true, testo: "Dopo somministrazione del mdc paramagnetico, impregnazione contrastografica ___ (nodulare/anulare/leptomeningea) in sede ___.", conclusione: "Enhancement patologico ___." }
+            ]
+          }
+        ],
+        conclusioneNegativa: "RM dell'encefalo nei limiti della norma."
+      },
+
+      {
+        id: "rachide-lombosacrale",
+        nome: "Rachide lombosacrale",
+        gruppo: "Rachide",
+        titolo: "RM DEL RACHIDE LOMBOSACRALE",
+        riscritta: true,
+        tecnica: "Esame eseguito con sequenze T1, T2 e STIR sui piani sagittale e assiale.",
+        organi: [
+          {
+            id: "curvatura", nome: "Lordosi", riscritta: true,
+            negativo: "Nelle condizioni d'esame (decubito supino), conservata la fisiologica lordosi lombare.",
+            reperti: [
+              { id: "rettilineizzata", etichetta: "Lordosi rettilineizzata", riscritta: true, testo: "Nelle condizioni d'esame (decubito supino), rettilineizzata la fisiologica lordosi lombare." }
+            ]
+          },
+          {
+            id: "metameri", nome: "Metameri", riscritta: true,
+            negativo: "Metameri vertebrali allineati, di normale aspetto RM.",
+            reperti: [
+              { id: "spondiloartrosi", etichetta: "Spondiloartrosi", riscritta: true, testo: "Metameri vertebrali allineati, con segni di spondiloartrosi e appuntimenti osteofitari margino-somatici." },
+              { id: "transizione", etichetta: "Metamero di transizione", riscritta: true, modo: "aggiunge", testo: "Metamero di transizione al passaggio lombo-sacrale, per verosimile lombarizzazione di S1." },
+              { id: "crollo", etichetta: "Crollo somatico", riscritta: true, modo: "aggiunge", testo: "Soma di ___ ridotto in altezza, deformato «a cuneo anteriore», ___ (senza/con) edema della spongiosa ossea." },
+              { id: "emangioma", etichetta: "Emangioma vertebrale", riscritta: true, modo: "aggiunge", testo: "In ___, millimetrica e sfumata alterazione di segnale, iperintensa in T1 e T2, compatibile con emangioma." },
+              { id: "modic", etichetta: "Alterazioni tipo Modic", riscritta: true, modo: "aggiunge", testo: "Fenomeni degenerativi margino-somatici in ___ ___ (Modic I: ipointensi in T1 e iperintensi in T2 / Modic II: iperintensi in T1 e T2 / Modic III: ipointensi in T1 e T2)." }
+            ]
+          },
+          {
+            id: "dischi", nome: "Dischi intersomatici", riscritta: true,
+            negativo: "Dischi intersomatici di regolare morfologia e intensità di segnale.",
+            reperti: [
+              { id: "disidratazione", etichetta: "Disidratazione discale", riscritta: true, testo: "Dischi compresi tra ___ e ___ disomogeneamente ipointensi in T2, in rapporto a iniziali fenomeni disidratativo-degenerativi del nucleo polposo." }
+            ]
+          },
+          {
+            id: "protrusioni", nome: "Protrusioni ed ernie", riscritta: true,
+            negativo: "Non protrusioni discali né segni di conflitto disco-radicolare o anomale compressioni sul sacco durale.",
+            reperti: [
+              { id: "bulging", etichetta: "Bulging (>50%)", riscritta: true, testo: "In ___, bulging discale improntante il sacco durale, con estensione in sede intraforaminale ___ e improntamento della radice emergente ___." },
+              { id: "larga-base", etichetta: "Protrusione a larga base (25-50%)", riscritta: true, testo: "In ___, protrusione discale a larga base con estrinsecazione intraforaminale ___, ___ (senza/con) segni di conflitto disco-radicolare." },
+              { id: "focale", etichetta: "Protrusione focale (<25%)", nuovo: true, testo: "In ___, protrusione discale focale ___ (mediana/paramediana ___/foraminale ___), improntante il sacco durale, con obliterazione del piano di clivaggio adiposo disco-radicolare ___.", conclusione: "Protrusione discale focale ___ in ___." },
+              { id: "ernia", etichetta: "Ernia discale", nuovo: true, testo: "In ___, ernia discale ___ (contenuta/espulsa/migrata ___), con cancellazione del piano adiposo periradicolare e compressione della radice ___.", conclusione: "Ernia discale ___ in ___ con conflitto radicolare ___." },
+              { id: "fissurazione", etichetta: "Fissurazione dell'anulus", nuovo: true, modo: "aggiunge", testo: "In ___, fissurazione dell'anulus fibroso posteriore." },
+              { id: "osteofita", etichetta: "Osteofita foraminale", riscritta: true, modo: "aggiunge", testo: "In ___, concomitante osteofita postero-laterale ___, con riduzione in ampiezza del forame di coniugazione omolaterale." }
+            ]
+          },
+          {
+            id: "canale", nome: "Canale vertebrale", riscritta: true,
+            negativo: "Diametro antero-posteriore del canale vertebrale conservato.",
+            reperti: [
+              { id: "stenosi", etichetta: "Stenosi del canale", riscritta: true, testo: "Stenosi marcata del canale vertebrale all'altezza di ___, con aspetto «a trifoglio», sostenuta da componente disco-legamentosa ipertrofica, soprattutto dei legamenti gialli.", conclusione: "Stenosi del canale vertebrale in ___." }
+            ]
+          },
+          {
+            id: "cono", nome: "Cono midollare", riscritta: true,
+            negativo: "Cono midollare normalmente rappresentato a livello di D12-L1.",
+            reperti: []
+          },
+          {
+            id: "cauda", nome: "Cauda", riscritta: true,
+            negativo: "Assenti alterazioni della regione della cauda.",
+            reperti: []
+          }
+        ],
+        conclusioneNegativa: "RM del rachide lombosacrale nei limiti della norma."
+      },
+
+      {
+        id: "rachide-cervicale",
+        nome: "Rachide cervicale",
+        gruppo: "Rachide",
+        titolo: "RM DEL RACHIDE CERVICALE",
+        riscritta: true,
+        tecnica: "Esame eseguito con sequenze T1, T2 e STIR sui piani sagittale e assiale.",
+        organi: [
+          {
+            id: "curvatura", nome: "Lordosi", riscritta: true,
+            negativo: "Nelle condizioni d'esame (decubito supino), conservata la fisiologica lordosi cervicale.",
+            reperti: [
+              { id: "rettilineizzata", etichetta: "Lordosi ridotta", riscritta: true, testo: "Nelle condizioni d'esame (decubito supino), ___ (ridotta/rettilineizzata) la fisiologica lordosi cervicale." }
+            ]
+          },
+          {
+            id: "metameri", nome: "Metameri", riscritta: true,
+            negativo: "Metameri vertebrali allineati, di normale aspetto RM.",
+            reperti: [
+              { id: "spondiloartrosi", etichetta: "Spondiloartrosi", riscritta: true, testo: "Metameri vertebrali allineati, con discrete alterazioni spondilo-artrosiche." }
+            ]
+          },
+          {
+            id: "dischi", nome: "Dischi intersomatici", riscritta: true,
+            negativo: "Dischi intersomatici di regolare morfologia e intensità di segnale.",
+            reperti: []
+          },
+          {
+            id: "protrusioni", nome: "Protrusioni ed ernie", riscritta: true,
+            negativo: "Non protrusioni discali né segni di conflitto disco-radicolare o anomale compressioni sul sacco durale.",
+            reperti: [
+              { id: "debordo", etichetta: "Debordo discale trascurabile", riscritta: true, testo: "In ___, trascurabile debordo discale posteriore mediano, senza segni di conflitto disco-radicolare." },
+              { id: "protrusione", etichetta: "Protrusione discale", riscritta: true, testo: "In ___, protrusione discale ___ (mediana/paramediana ___) improntante lo spazio perimidollare in sede antero-laterale, senza segni di conflitto disco-radicolare né compressione sulla superficie del midollo." },
+              { id: "ernia", etichetta: "Ernia con conflitto", nuovo: true, testo: "In ___, ernia discale ___ (paramediana/foraminale ___), con estrinsecazione intraforaminale e conflitto con la radice emergente ___.", conclusione: "Ernia discale ___ in ___ con conflitto radicolare." }
+            ]
+          },
+          {
+            id: "canale", nome: "Canale vertebrale", riscritta: true,
+            negativo: "Diametro antero-posteriore del canale vertebrale regolare.",
+            reperti: []
+          },
+          {
+            id: "midollo", nome: "Midollo spinale", riscritta: true,
+            negativo: "Midollo spinale senza alterazioni di segnale focali né diffuse.",
+            reperti: [
+              { id: "mielopatia", etichetta: "Mielopatia compressiva", nuovo: true, testo: "Area di iperintensità di segnale in T2 nel midollo spinale a livello di ___, in corrispondenza della compressione discale, come per mielopatia compressiva.", conclusione: "Mielopatia compressiva a livello di ___." }
+            ]
+          },
+          {
+            id: "fossa-posteriore", nome: "Fossa cranica posteriore", riscritta: true,
+            negativo: "Strutture della fossa cranica posteriore regolarmente rappresentate.",
+            reperti: []
+          }
+        ],
+        conclusioneNegativa: "RM del rachide cervicale nei limiti della norma."
+      },
+
+      {
+        id: "ginocchio",
+        nome: "Ginocchio",
+        gruppo: "Muscolo-scheletrico",
+        titolo: "RM DEL GINOCCHIO",
+        nuovo: true,
+        lati: ["destro", "sinistro"],
+        intro: "Esame mirato al ginocchio {lato}.",
+        tecnica: "Esame eseguito con sequenze SE T1, FSE T2, GRE T1 e STIR sui tre piani obliqui dello spazio, con apparecchiatura ___ (___ Tesla).",
+        organi: [
+          {
+            id: "menischi", nome: "Menischi", riscritta: true,
+            negativo: "Non alterazioni morfostrutturali e di segnale di entrambe le fibrocartilagini meniscali.",
+            reperti: [
+              { id: "lesione", etichetta: "Lesione meniscale", nuovo: true, testo: "Iperintensità lineare nel corno ___ del menisco ___, raggiungente la superficie articolare ___, come per lesione ___ (orizzontale/verticale/complessa).", conclusione: "Lesione del corno ___ del menisco ___." },
+              { id: "degenerazione", etichetta: "Degenerazione meniscale", nuovo: true, testo: "Iperintensità intrameniscale globulare del corno ___ del menisco ___, senza estensione alla superficie articolare, come per degenerazione mucoide." }
+            ]
+          },
+          {
+            id: "legamenti", nome: "Legamenti e popliteo", riscritta: true,
+            negativo: "Legamenti crociati, collaterali e tendine del popliteo senza alterazioni morfostrutturali e di segnale.",
+            reperti: [
+              { id: "lca", etichetta: "Lesione LCA", nuovo: true, testo: "Discontinuità delle fibre del legamento crociato anteriore, con iperintensità di segnale, come per lesione ___ (completa/parziale).", conclusione: "Lesione ___ del legamento crociato anteriore." },
+              { id: "lcm", etichetta: "Distrazione LCM", nuovo: true, testo: "Ispessimento e iperintensità del legamento collaterale mediale, con edema dei tessuti periligamentosi, come per distrazione di grado ___.", conclusione: "Distrazione del legamento collaterale mediale." }
+            ]
+          },
+          {
+            id: "cartilagine", nome: "Cartilagine", riscritta: true,
+            negativo: "Cartilagine di rivestimento articolare femoro-tibiale di spessore regolare.",
+            reperti: [
+              { id: "condropatia", etichetta: "Condropatia", nuovo: true, testo: "Assottigliamento della cartilagine di rivestimento articolare ___ (femoro-tibiale mediale/laterale/femoro-rotulea), con alterazioni di segnale dell'osso subcondrale ___.", conclusione: "Condropatia ___." }
+            ]
+          },
+          {
+            id: "osso", nome: "Osso", riscritta: true,
+            negativo: "Nei livelli esaminati, non alterazioni del trofismo scheletrico.",
+            reperti: [
+              { id: "edema", etichetta: "Edema osseo (bone bruise)", nuovo: true, testo: "Area di edema della spongiosa ossea ___ (condilo femorale/piatto tibiale ___), iperintensa in STIR, come per contusione ossea.", conclusione: "Contusione ossea ___." }
+            ]
+          },
+          {
+            id: "rotula", nome: "Rotula",
+            negativo: "Rotula in asse, con spessore cartilagineo regolare.",
+            reperti: []
+          },
+          {
+            id: "hoffa", nome: "Corpo di Hoffa",
+            negativo: "Regolare aspetto RM del corpo di Hoffa.",
+            reperti: []
+          },
+          {
+            id: "versamento", nome: "Versamento", riscritta: true,
+            negativo: "Non significativo versamento intrarticolare.",
+            reperti: [
+              { id: "versamento", etichetta: "Versamento", nuovo: true, testo: "Versamento intrarticolare ___ (modesto/abbondante), con distensione del recesso sovrapatellare.", conclusione: "Versamento articolare." },
+              { id: "baker", etichetta: "Cisti di Baker", nuovo: true, modo: "aggiunge", testo: "Distensione fluida della borsa gastrocnemio-semimembranosa (cisti di Baker), di ___ x ___ mm.", conclusione: "Cisti di Baker." }
+            ]
+          }
+        ],
+        conclusioneNegativa: "RM del ginocchio nei limiti della norma."
+      },
+
+      {
+        id: "caviglia",
+        nome: "Caviglia",
+        gruppo: "Muscolo-scheletrico",
+        titolo: "RM DELLA CAVIGLIA",
+        nuovo: true,
+        lati: ["destra", "sinistra"],
+        intro: "Esame mirato alla caviglia {lato}.",
+        tecnica: "Esame eseguito con sequenze T1, T2 e STIR sui tre piani dello spazio, con protocollo dedicato allo studio della caviglia.",
+        organi: [
+          {
+            id: "achille", nome: "Tendine d'Achille", riscritta: true,
+            negativo: "Regolare il tendine achilleo e la sua inserzione sulla porzione calcaneare superiore.",
+            reperti: [
+              { id: "tendinopatia", etichetta: "Tendinopatia achillea", nuovo: true, testo: "Tendine achilleo ispessito, con iperintensità intratendinea ___ (preinserzionale/inserzionale), come per tendinopatia.", conclusione: "Tendinopatia achillea." }
+            ]
+          },
+          {
+            id: "fascia", nome: "Aponeurosi plantare", riscritta: true,
+            negativo: "Regolare l'aponeurosi plantare e la sua inserzione calcaneare.",
+            reperti: [
+              { id: "fascite", etichetta: "Fascite plantare", nuovo: true, testo: "Aponeurosi plantare ispessita all'inserzione calcaneare, con edema dei tessuti perifasciali, come per fascite plantare.", conclusione: "Fascite plantare." }
+            ]
+          },
+          {
+            id: "legamenti", nome: "Legamenti", riscritta: true,
+            negativo: "Non franche alterazioni delle strutture legamentose esaminate, in particolare dei comparti laterale e mediale di caviglia.",
+            reperti: [
+              { id: "paa", etichetta: "Lesione PAA", nuovo: true, testo: "Discontinuità delle fibre del legamento peroneo-astragalico anteriore, con edema periligamentoso, come per lesione ___ (parziale/completa).", conclusione: "Lesione del legamento peroneo-astragalico anteriore." }
+            ]
+          },
+          {
+            id: "versamento", nome: "Versamento", riscritta: true,
+            negativo: "Assenti falde fluide intrarticolari, in particolare non significativo versamento tibio-astragalico.",
+            reperti: [
+              { id: "versamento", etichetta: "Versamento", nuovo: true, testo: "Versamento articolare tibio-astragalico ___." }
+            ]
+          },
+          {
+            id: "ossa", nome: "Segmenti scheletrici", riscritta: true,
+            negativo: "Segmenti scheletrici compresi nel volume d'esame senza alterazioni di morfologia e di segnale, con regolari rapporti articolari.",
+            reperti: [
+              { id: "edema", etichetta: "Edema osseo", nuovo: true, testo: "Area di edema della spongiosa ossea ___ (astragalo/calcagno/malleolo ___), iperintensa in STIR, come per contusione ossea.", conclusione: "Contusione ossea ___." }
+            ]
+          }
+        ],
+        conclusioneNegativa: "RM della caviglia nei limiti della norma."
+      },
+
+      {
+        id: "sacroiliache",
+        nome: "Bacino (sacro-iliache)",
+        gruppo: "Muscolo-scheletrico",
+        titolo: "RM DEL BACINO (ARTICOLAZIONI SACRO-ILIACHE)",
+        riscritta: true,
+        tecnica: "Esame del bacino eseguito in condizioni basali, mirato alla valutazione delle articolazioni sacro-iliache.",
+        organi: [
+          {
+            id: "sacroiliache", nome: "Articolazioni sacro-iliache", riscritta: true,
+            negativo: "Non aree di ipersegnale nelle sequenze STIR da riferire a fenomeni flogistici in atto di entrambe le articolazioni sacro-iliache.",
+            reperti: [
+              { id: "sacroileite", etichetta: "Sacroileite attiva", nuovo: true, testo: "Edema della spongiosa ossea subcondrale ___ (iliaca/sacrale) dell'articolazione sacro-iliaca ___, iperintenso in STIR, come per sacroileite attiva.", conclusione: "Sacroileite attiva ___." }
+            ]
+          },
+          {
+            id: "coxofemorali", nome: "Coxo-femorali", riscritta: true,
+            negativo: "Regolari i rapporti articolari coxo-femorali bilateralmente, con teste femorali normoconformate.",
+            reperti: []
+          },
+          {
+            id: "versamento", nome: "Versamento", riscritta: true,
+            negativo: "Non versamento articolare coxo-femorale bilateralmente.",
+            reperti: []
+          },
+          {
+            id: "muscoli", nome: "Strutture muscolari",
+            negativo: "Regolari le strutture muscolari perischeletriche incluse nel campo di vista.",
+            reperti: []
+          }
+        ],
+        conclusioneNegativa: "Non segni RM di sacroileite attiva."
+      },
+
+      {
+        id: "colangio",
+        nome: "Colangio-RM",
+        gruppo: "Addome",
+        titolo: "COLANGIO-RM",
+        riscritta: true,
+        tecnica: "Esame eseguito con sequenze SSh e B-TFE T2 pesate sul piano assiale e sequenze SSh e MRCP 2D e 3D T2 Fat Sat per lo studio delle vie biliari.",
+        organi: [
+          {
+            id: "colecisti", nome: "Colecisti", riscritta: true,
+            negativo: "Colecisti distesa, alitiasica.",
+            reperti: [
+              { id: "colecistectomia", etichetta: "Colecistectomia", riscritta: true, testo: "Esiti di colecistectomia." },
+              { id: "calcoli", etichetta: "Calcoli della colecisti", nuovo: true, testo: "Colecisti distesa, con ___ difetti di segnale endoluminali di natura litiasica, il maggiore di ___ mm.", conclusione: "Colelitiasi." }
+            ]
+          },
+          {
+            id: "vie-biliari", nome: "Vie biliari", riscritta: true,
+            negativo: "Vie biliari intra ed extraepatiche non dilatate; epatocoledoco di circa ___ mm.",
+            reperti: [
+              { id: "dilatazione", etichetta: "Dilatazione", nuovo: true, testo: "Dilatazione delle vie biliari intra ed extraepatiche; epatocoledoco di circa ___ mm.", conclusione: "Dilatazione delle vie biliari." }
+            ]
+          },
+          {
+            id: "litiasi", nome: "Difetti litiasici", riscritta: true,
+            negativo: "Non difetti di segnale di natura litiasica delle vie biliari.",
+            reperti: [
+              { id: "coledocolitiasi", etichetta: "Coledocolitiasi", nuovo: true, testo: "Difetti di segnale endoluminali nel coledoco ___ (prossimale/medio/distale), il maggiore di ___ mm, come da coledocolitiasi.", conclusione: "Coledocolitiasi." }
+            ]
+          },
+          {
+            id: "fegato", nome: "Fegato",
+            negativo: "Non alterazioni focali del parenchima epatico.",
+            reperti: []
+          },
+          {
+            id: "addome", nome: "Pancreas, milza, surreni, reni", riscritta: true,
+            negativo: "Regolare morfologia e aspetto RM di pancreas, milza, surreni e reni nei segmenti esplorabili.",
+            reperti: [
+              { id: "ectasia-dotti", etichetta: "Ectasia dei dotti secondari", riscritta: true, modo: "aggiunge", testo: "Nel ___ del pancreas, millimetrica iperintensità di segnale di ___ mm, compatibile con ectasia dei dotti secondari." }
+            ]
+          },
+          {
+            id: "liquido", nome: "Liquido libero",
+            negativo: "Non liquido libero nei recessi peritoneali esplorati.",
+            reperti: []
+          }
+        ],
+        conclusioneNegativa: "Colangio-RM nei limiti della norma."
       }
     ]
   },
-  { id: "rx", nome: "RX", attiva: false, distretti: [] }
+  /* ============================================================ RX
+   * Frasi negative: dal documento «RX NEGATIVO STANDARD EL-DEA», riscritte nello stile
+   * telegrafico (riscritta: true; senza flag se identiche all'originale).
+   * DA VERIFICARE: reperti positivi e conclusioni marcati nuovo: true. */
+  {
+    id: "rx",
+    nome: "RX",
+    attiva: true,
+    distretti: [
+      {
+        id: "torace",
+        nome: "Torace (PA e LL)",
+        gruppo: "Torace",
+        titolo: "RX DEL TORACE IN DUE PROIEZIONI",
+        riscritta: true,
+        tecnica: "Esame eseguito nelle due proiezioni ortogonali in ortostatismo.",
+        organi: [
+          {
+            id: "parenchima", nome: "Parenchima polmonare",
+            negativo: "Non addensamenti parenchimali in atto.",
+            reperti: [
+              { id: "addensamento", etichetta: "Addensamento", nuovo: true, testo: "Addensamento parenchimale ___ (sede), di verosimile natura flogistica.", conclusione: "Addensamento parenchimale ___." },
+              { id: "nodulo", etichetta: "Opacità nodulare", nuovo: true, testo: "Opacità nodulare di ___ mm al campo polmonare ___, meritevole di approfondimento con TC.", conclusione: "Opacità nodulare ___: utile TC." },
+              { id: "stasi", etichetta: "Stasi del piccolo circolo", nuovo: true, testo: "Accentuazione della trama interstiziale e ridistribuzione del circolo verso i campi superiori, come per stasi del piccolo circolo.", conclusione: "Segni di stasi del piccolo circolo." },
+              { id: "pnx", etichetta: "Pneumotorace", nuovo: true, testo: "Linea pleurica viscerale all'apice ___, senza trama polmonare periferica, come per pneumotorace.", conclusione: "Pneumotorace ___." }
+            ]
+          },
+          {
+            id: "pleura", nome: "Cavità pleuriche",
+            negativo: "Cavità pleuriche libere da versamento.",
+            reperti: [
+              { id: "versamento", etichetta: "Versamento pleurico", nuovo: true, testo: "Obliterazione del seno costofrenico ___, come per falda di versamento pleurico.", conclusione: "Versamento pleurico ___." }
+            ]
+          },
+          {
+            id: "cuore", nome: "Immagine cardiaca",
+            negativo: "Immagine cardiaca nei limiti di norma.",
+            reperti: [
+              { id: "ingrandita", etichetta: "Immagine cardiaca ingrandita", nuovo: true, testo: "Immagine cardiaca ingrandita (indice cardio-toracico ___).", conclusione: "Aumento dell'immagine cardiaca." }
+            ]
+          }
+        ],
+        conclusioneNegativa: "Non alterazioni pleuro-parenchimali in atto."
+      },
+
+      {
+        id: "torace-letto",
+        nome: "Torace al letto (AP)",
+        gruppo: "Torace",
+        titolo: "RX DEL TORACE AL LETTO",
+        tecnica: "Esame eseguito in un'unica proiezione AP a paziente supino.",
+        organi: [
+          {
+            id: "parenchima", nome: "Parenchima e PNX",
+            negativo: "Non addensamenti parenchimali né evidenti falde di PNX.",
+            reperti: [
+              { id: "addensamento", etichetta: "Addensamento", nuovo: true, testo: "Addensamento parenchimale ___ (sede); non evidenti falde di PNX.", conclusione: "Addensamento parenchimale ___." },
+              { id: "pnx", etichetta: "Pneumotorace", nuovo: true, testo: "Non addensamenti parenchimali; falda di PNX ___ (sede).", conclusione: "Pneumotorace ___." }
+            ]
+          },
+          {
+            id: "pleura", nome: "Versamento pleurico",
+            negativo: "Non versamenti pleurici.",
+            reperti: [
+              { id: "versamento", etichetta: "Versamento pleurico", nuovo: true, testo: "Velatura ___ dell'emitorace ___, come per versamento pleurico in decubito supino.", conclusione: "Versamento pleurico ___." }
+            ]
+          },
+          {
+            id: "circolo", nome: "Circolo polmonare",
+            negativo: "Regolare la distribuzione del circolo polmonare.",
+            reperti: []
+          },
+          {
+            id: "cuore", nome: "Ombra cardiaca", riscritta: true,
+            negativo: "Compatibilmente con il decubito supino, ombra cardiaca apparentemente ingrandita.",
+            reperti: []
+          },
+          {
+            id: "presidi", nome: "Presidi ed esiti chirurgici", negativo: "",
+            reperti: [
+              { id: "sternotomia", etichetta: "Sternotomia e plastica mitralica", testo: "Esiti di sternotomia e di plastica valvolare mitralica." },
+              { id: "clips", etichetta: "Clips mediastiniche", testo: "Presenza di clips chirurgiche mediastiniche." },
+              { id: "tubo", etichetta: "Tubo endotracheale", riscritta: true, testo: "Presenza di tubo endotracheale con apice localizzato a circa ___ cm dalla carena." },
+              { id: "drenaggi", etichetta: "Drenaggi toraco-mediastinici", testo: "Presenza di drenaggi toraco-mediastinici." },
+              { id: "cvc", etichetta: "CVC giugulare", riscritta: true, testo: "Presenza di CVC giugulare ___ con apice localizzato proiettivamente alla giunzione cavo-atriale." },
+              { id: "swan-ganz", etichetta: "Catetere di Swan-Ganz", riscritta: true, testo: "Presenza di catetere di Swan-Ganz con accesso giugulare ___ ed estremo localizzato proiettivamente a livello ___." },
+              { id: "contropulsatore", etichetta: "Contropulsatore aortico", testo: "Presenza di contropulsatore aortico con estremo distale proiettivamente al II arco cardiaco di sinistra." },
+              { id: "sng", etichetta: "Sondino naso-gastrico", testo: "Presenza di SNG con estremo distale in epigastrio." }
+            ]
+          }
+        ],
+        conclusioneNegativa: "Non addensamenti parenchimali né falde di PNX."
+      },
+
+      {
+        id: "addome",
+        nome: "Addome diretto",
+        gruppo: "Addome",
+        titolo: "RX DIRETTA DELL'ADDOME",
+        riscritta: true,
+        tecnica: "Esame eseguito in proiezione frontale ___ (in ortostatismo/e tangenziale/a paziente supino).",
+        organi: [
+          {
+            id: "livelli", nome: "Livelli idroaerei",
+            negativo: "Non significativi livelli idroaerei.",
+            reperti: [
+              { id: "occlusione", etichetta: "Quadro occlusivo", nuovo: true, testo: "Multipli livelli idroaerei ___ (tenuali/colici), con distensione delle anse fino a ___ mm, come per quadro ___ (occlusivo/subocclusivo).", conclusione: "Quadro radiologico ___ (occlusivo/subocclusivo)." }
+            ]
+          },
+          {
+            id: "aria-libera", nome: "Aria libera",
+            negativo: "Non evidenti falde aeree libere sottodiaframmatiche.",
+            reperti: [
+              { id: "pneumoperitoneo", etichetta: "Pneumoperitoneo", nuovo: true, testo: "Falda aerea libera sottodiaframmatica ___, come da pneumoperitoneo.", conclusione: "Pneumoperitoneo." }
+            ]
+          },
+          {
+            id: "anse", nome: "Distensione delle anse",
+            negativo: "Normale distensione delle anse intestinali.",
+            reperti: []
+          },
+          {
+            id: "vie-urinarie", nome: "Vie urinarie (quesito litiasi)", negativo: "",
+            reperti: [
+              { id: "negativo-litiasi", etichetta: "Negativo per litiasi", riscritta: true, testo: "Non evidenti radiopacità lungo il decorso delle vie urinarie da riferire a sicuri segni di litiasi calcifica." },
+              { id: "litiasi", etichetta: "Radiopacità sospetta", nuovo: true, testo: "Radiopacità di ___ mm proiettivamente ___ (all'area renale/al decorso ureterale ___), sospetta per litiasi calcifica.", conclusione: "Radiopacità sospetta per litiasi ___." }
+            ]
+          }
+        ],
+        conclusioneNegativa: "Non segni radiologici di occlusione né di pneumoperitoneo."
+      },
+
+      {
+        id: "rachide-cervicale",
+        nome: "Rachide cervicale",
+        gruppo: "Rachide",
+        titolo: "RX DEL RACHIDE CERVICALE",
+        riscritta: true,
+        tecnica: "Esame eseguito nelle proiezioni standard A-P e L-L ___ (integrate da oblique/transorale).",
+        organi: [
+          {
+            id: "visualizzazione", nome: "Visualizzazione",
+            negativo: "Rachide cervicale indagabile in proiezione L-L sino al soma di C7.",
+            reperti: []
+          },
+          {
+            id: "lordosi", nome: "Lordosi",
+            negativo: "Conservata la fisiologica lordosi cervicale.",
+            reperti: [
+              { id: "rettilineizzazione", etichetta: "Rettilineizzazione", nuovo: true, testo: "Rettilineizzazione della fisiologica lordosi cervicale." }
+            ]
+          },
+          {
+            id: "muri", nome: "Muri somatici posteriori",
+            negativo: "Muri somatici posteriori in asse.",
+            reperti: []
+          },
+          {
+            id: "spazi", nome: "Spazi intersomatici",
+            negativo: "Spazi intersomatici di regolare ampiezza.",
+            reperti: [
+              { id: "spondiloartrosi", etichetta: "Spondiloartrosi", nuovo: true, testo: "Riduzione in ampiezza degli spazi intersomatici ___, con osteofitosi margino-somatica, come per spondiloartrosi.", conclusione: "Spondiloartrosi cervicale." }
+            ]
+          },
+          {
+            id: "altezza", nome: "Altezza dei somi",
+            negativo: "Regolare l'altezza dei muri somatici.",
+            reperti: []
+          },
+          {
+            id: "forami", nome: "Forami di coniugazione",
+            negativo: "Pervi i forami di coniugazione cervicali bilateralmente.",
+            reperti: []
+          },
+          {
+            id: "fratture", nome: "Fratture",
+            negativo: "Non evidenti segni radiologici da riferire a rime fratturative ossee.",
+            reperti: [
+              { id: "frattura", etichetta: "Frattura", nuovo: true, testo: "Rima di frattura ___ (composta/scomposta) a carico di ___.", conclusione: "Frattura ___ di ___: utile TC." }
+            ]
+          },
+          {
+            id: "consiglio", nome: "Consiglio TC", negativo: "",
+            reperti: [
+              { id: "tc", etichetta: "Consiglio TC (trauma maggiore)", riscritta: true, testo: "In caso di trauma «maggiore», clinica significativa o fattori di rischio rilevanti, consigliato approfondimento con TC del rachide cervicale." }
+            ]
+          }
+        ],
+        conclusioneNegativa: "Non segni radiologici di lesioni traumatiche del rachide cervicale."
+      },
+
+      {
+        id: "rachide-dorsale",
+        nome: "Rachide dorsale",
+        gruppo: "Rachide",
+        titolo: "RX DEL RACHIDE DORSALE",
+        tecnica: "Esame eseguito nelle proiezioni standard A-P e L-L.",
+        organi: [
+          {
+            id: "visualizzazione", nome: "Visualizzazione", negativo: "",
+            reperti: [
+              { id: "somi-prossimali", etichetta: "Somi prossimali mal visualizzabili", testo: "Mal visualizzabili i somi dorsali prossimali per la sovrapposizione con gli altri segmenti ossei." }
+            ]
+          },
+          {
+            id: "cifosi", nome: "Cifosi",
+            negativo: "Conservata la fisiologica cifosi dorsale.",
+            reperti: [
+              { id: "accentuata", etichetta: "Cifosi accentuata", nuovo: true, testo: "Accentuazione della fisiologica cifosi dorsale." }
+            ]
+          },
+          {
+            id: "muri", nome: "Muri somatici posteriori",
+            negativo: "Muri somatici posteriori in asse.",
+            reperti: []
+          },
+          {
+            id: "fratture", nome: "Fratture",
+            negativo: "Non evidenti segni radiologici da riferire a rime fratturative ossee.",
+            reperti: [
+              { id: "crollo", etichetta: "Crollo vertebrale", nuovo: true, testo: "Riduzione in altezza del soma di ___ con deformazione a cuneo anteriore, di verosimile natura ___ (osteoporotica/post-traumatica).", conclusione: "Crollo vertebrale di ___." }
+            ]
+          }
+        ],
+        conclusioneNegativa: "Non segni radiologici di lesioni traumatiche del rachide dorsale."
+      },
+
+      {
+        id: "rachide-lombosacrale",
+        nome: "Rachide lombosacrale",
+        gruppo: "Rachide",
+        titolo: "RX DEL RACHIDE LOMBOSACRALE",
+        tecnica: "Esame eseguito nelle proiezioni standard A-P e L-L.",
+        organi: [
+          {
+            id: "lordosi", nome: "Lordosi",
+            negativo: "Conservata la fisiologica lordosi lombosacrale.",
+            reperti: [
+              { id: "rettilineizzazione", etichetta: "Rettilineizzazione", nuovo: true, testo: "Rettilineizzazione della fisiologica lordosi lombosacrale." }
+            ]
+          },
+          {
+            id: "muri", nome: "Muri somatici posteriori",
+            negativo: "Muri somatici posteriori in asse.",
+            reperti: [
+              { id: "listesi", etichetta: "Listesi", nuovo: true, testo: "___ (Antero/Retro)listesi di ___ su ___ di grado ___ secondo Meyerding.", conclusione: "Listesi di ___ su ___." }
+            ]
+          },
+          {
+            id: "artrosi", nome: "Spondiloartrosi", negativo: "",
+            reperti: [
+              { id: "spondiloartrosi", etichetta: "Spondiloartrosi", nuovo: true, testo: "Segni di spondiloartrosi, con osteofitosi margino-somatica e riduzione in ampiezza degli spazi intersomatici ___.", conclusione: "Spondiloartrosi lombare." }
+            ]
+          },
+          {
+            id: "fratture", nome: "Fratture",
+            negativo: "Non evidenti segni radiologici da riferire a rime fratturative ossee.",
+            reperti: [
+              { id: "crollo", etichetta: "Crollo vertebrale", nuovo: true, testo: "Riduzione in altezza del soma di ___ con deformazione a cuneo anteriore, di verosimile natura ___ (osteoporotica/post-traumatica).", conclusione: "Crollo vertebrale di ___." }
+            ]
+          }
+        ],
+        conclusioneNegativa: "Non segni radiologici di lesioni traumatiche del rachide lombosacrale."
+      },
+
+      {
+        id: "bacino",
+        nome: "Bacino",
+        gruppo: "Scheletro",
+        titolo: "RX DEL BACINO",
+        tecnica: "Esame eseguito in unica proiezione A-P.",
+        organi: [
+          {
+            id: "teste-femorali", nome: "Teste femorali",
+            negativo: "Normoconformate le teste femorali.",
+            reperti: [
+              { id: "geodi", etichetta: "Ovalizzazione con geodi", riscritta: true, testo: "Ovalizzazione delle teste femorali, con alcune areole radiotrasparenti di verosimile natura geodica." }
+            ]
+          },
+          {
+            id: "acetaboli", nome: "Tetti acetabolari",
+            negativo: "Regolari i tetti acetabolari.",
+            reperti: [
+              { id: "sclerosi", etichetta: "Sclerosi acetabolare", riscritta: true, testo: "Sclerosi dei tetti acetabolari con appuntimento dei cigli cotiloidei." }
+            ]
+          },
+          {
+            id: "interlinea", nome: "Interlinea coxo-femorale", riscritta: true,
+            negativo: "Conservata l'interlinea articolare coxo-femorale.",
+            reperti: [
+              { id: "ridotta", etichetta: "Interlinea ridotta", riscritta: true, testo: "Ridotta l'interlinea articolare coxo-femorale ___." }
+            ]
+          },
+          {
+            id: "sacroiliache", nome: "Sacro-iliache e sinfisi",
+            negativo: "Regolari le sincondrosi sacro-iliache e la sinfisi pubica.",
+            reperti: []
+          },
+          {
+            id: "fratture", nome: "Fratture", riscritta: true,
+            negativo: "Non evidenti rime di frattura.",
+            reperti: [
+              { id: "femore-prossimale", etichetta: "Frattura femore prossimale", nuovo: true, testo: "Rima di frattura ___ (sottocapitata/mediocervicale/basicervicale/pertrocanterica) del femore ___, ___ (composta/scomposta).", conclusione: "Frattura ___ del femore ___." },
+              { id: "branche", etichetta: "Frattura branche pubiche", nuovo: true, testo: "Rima di frattura della branca ___ (ileo/ischio)-pubica ___.", conclusione: "Frattura della branca ___ pubica ___." }
+            ]
+          },
+          {
+            id: "tessuti-molli", nome: "Tessuti molli", negativo: "",
+            reperti: [
+              { id: "calcificazioni", etichetta: "Calcificazioni dei tessuti molli", riscritta: true, testo: "Calcificazioni dei tessuti molli in corrispondenza di ___." }
+            ]
+          }
+        ],
+        conclusioneNegativa: "Non segni radiologici di lesioni traumatiche del bacino."
+      },
+
+      {
+        id: "segmento-osseo",
+        nome: "Segmento osseo (trauma)",
+        gruppo: "Scheletro",
+        titolo: "RX DEL SEGMENTO ___",
+        riscritta: true,
+        intro: "Esame eseguito in regime di urgenza.",
+        organi: [
+          {
+            id: "fratture", nome: "Fratture", riscritta: true,
+            negativo: "Nei radiogrammi eseguiti, non evidenti rime fratturative ossee apprezzabili con la metodica.",
+            reperti: [
+              { id: "frattura", etichetta: "Frattura", nuovo: true, testo: "Rima di frattura ___ (composta/scomposta) a carico di ___.", conclusione: "Frattura ___ di ___." },
+              { id: "controllo", etichetta: "Controllo frattura trattata", riscritta: true, testo: "Rispetto al precedente esame RX analogo del ___, buona composizione del focolaio di frattura trattato con mezzi di sintesi metallica e sotto tutela gessata.\nIniziale reazione osteoriparativa." }
+            ]
+          },
+          {
+            id: "articolazioni", nome: "Rapporti articolari", riscritta: true,
+            negativo: "Conservati i rapporti articolari.",
+            reperti: [
+              { id: "lussazione", etichetta: "Lussazione", nuovo: true, testo: "Perdita dei rapporti articolari ___, come per lussazione ___.", conclusione: "Lussazione ___." }
+            ]
+          }
+        ],
+        conclusioneNegativa: "Non segni radiologici di fratture."
+      },
+
+      {
+        id: "emicostato",
+        nome: "Emicostato",
+        gruppo: "Torace",
+        titolo: "RX DELL'EMICOSTATO",
+        organi: [
+          {
+            id: "fratture", nome: "Fratture costali", riscritta: true,
+            negativo: "Nei radiogrammi eseguiti, non evidenti segni radiologici da riferire a fratture costali scomposte in atto.",
+            reperti: [
+              { id: "frattura", etichetta: "Frattura costale", nuovo: true, testo: "Rima di frattura ___ (composta/scomposta) dell'arco ___ della ___ costa ___.", conclusione: "Frattura costale ___." }
+            ]
+          },
+          {
+            id: "consiglio", nome: "Consiglio",
+            negativo: "Al persistere della sintomatologia algica utile riesecuzione dell'indagine.",
+            reperti: []
+          }
+        ],
+        conclusioneNegativa: "Non segni radiologici di fratture costali scomposte."
+      }
+    ]
+  }
 ];
