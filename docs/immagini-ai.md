@@ -30,4 +30,4 @@ Riserva non usata: https://unsplash.com/photos/a-person-writing-on-a-piece-of-pa
 
 | File | Uso | Origine | Data |
 |------|-----|---------|------|
-| `images/og-studio-susino.jpg` | `og:image` / `twitter:image` delle pagine generali (le pagine esame generate usano la propria immagine), `image` del JSON-LD MedicalClinic | Composizione: monogramma da `images/logo-google.png` in bianco, testo "Studio Susino – Ecografie a Pozzallo" (Avenir Next), fondo #0e7c8b, 1200×630 | 2026-10-19 |
+| `images/og-studio-susino.jpg` | `og:image` / `twitter:image` di tutte le pagine, comprese le 38 pagine esame generate, `image` del JSON-LD MedicalClinic | Composizione: monogramma da `images/logo-google.png` in bianco, testo "Studio Susino – Ecografie a Pozzallo" (Avenir Next), fondo #0e7c8b, 1200×630 | 2026-10-19 |
