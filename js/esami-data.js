@@ -2,6 +2,9 @@
 window.ESAMI = [
   {
     id: 'addome-completo',
+    /* TEMP: icona provvisoria Health Icons, da sostituire con icona commissionata */
+    icona: 'images/icone/addome-completo.svg',
+    iconaAlt: 'Illustrazione: organi dell\'addome',
     nome: 'Ecografia addome completo',
     categoria: 'Addome',
     descrizione:
@@ -33,6 +36,9 @@ window.ESAMI = [
   },
   {
     id: 'apparato-urinario',
+    /* TEMP: icona provvisoria Health Icons, da sostituire con icona commissionata */
+    icona: 'images/icone/apparato-urinario.svg',
+    iconaAlt: 'Illustrazione: reni, vie urinarie e vescica',
     nome: 'Ecografia apparato urinario',
     categoria: 'Apparato urinario e urologia',
     descrizione:
@@ -86,6 +92,9 @@ window.ESAMI = [
   },
   {
     id: 'collo',
+    /* TEMP: icona provvisoria Health Icons, da sostituire con icona commissionata */
+    icona: 'images/icone/collo.svg',
+    iconaAlt: 'Illustrazione: collo e ghiandole salivari',
     nome: 'Ecografia del collo',
     categoria: 'Tiroide e collo',
     descrizione:
@@ -106,6 +115,9 @@ window.ESAMI = [
   },
   {
     id: 'spalla',
+    /* TEMP: icona provvisoria Health Icons, da sostituire con icona commissionata */
+    icona: 'images/icone/spalla.svg',
+    iconaAlt: 'Illustrazione: articolazione della spalla',
     nome: 'Ecografia spalla',
     categoria: 'Muscolo-scheletrico',
     descrizione:
@@ -115,6 +127,9 @@ window.ESAMI = [
   },
   {
     id: 'ginocchio',
+    /* TEMP: icona provvisoria Health Icons, da sostituire con icona commissionata */
+    icona: 'images/icone/ginocchio.svg',
+    iconaAlt: 'Illustrazione: articolazione del ginocchio',
     nome: 'Ecografia ginocchio',
     categoria: 'Muscolo-scheletrico',
     descrizione:
@@ -124,6 +139,9 @@ window.ESAMI = [
   },
   {
     id: 'anca',
+    /* TEMP: icona provvisoria Health Icons, da sostituire con icona commissionata */
+    icona: 'images/icone/anca.svg',
+    iconaAlt: 'Illustrazione: articolazione dell\'anca',
     nome: 'Ecografia anca',
     categoria: 'Muscolo-scheletrico',
     descrizione:
@@ -133,6 +151,9 @@ window.ESAMI = [
   },
   {
     id: 'anca-neonatale',
+    /* TEMP: icona provvisoria Health Icons, da sostituire con icona commissionata */
+    icona: 'images/icone/anca-neonatale.svg',
+    iconaAlt: 'Illustrazione: anca del neonato',
     nome: 'Ecografia anca neonatale',
     categoria: 'Pediatrica',
     descrizione:
@@ -142,6 +163,9 @@ window.ESAMI = [
   },
   {
     id: 'gomito',
+    /* TEMP: icona provvisoria Health Icons, da sostituire con icona commissionata */
+    icona: 'images/icone/gomito.svg',
+    iconaAlt: 'Illustrazione: articolazione del gomito',
     nome: 'Ecografia gomito',
     categoria: 'Muscolo-scheletrico',
     descrizione:
@@ -151,6 +175,9 @@ window.ESAMI = [
   },
   {
     id: 'polso-mano',
+    /* TEMP: icona provvisoria Health Icons, da sostituire con icona commissionata */
+    icona: 'images/icone/polso-mano.svg',
+    iconaAlt: 'Illustrazione: polso e mano',
     nome: 'Ecografia polso e mano',
     categoria: 'Muscolo-scheletrico',
     descrizione:
@@ -171,6 +198,9 @@ window.ESAMI = [
   },
   {
     id: 'parti-molli',
+    /* TEMP: icona provvisoria Health Icons, da sostituire con icona commissionata */
+    icona: 'images/icone/parti-molli.svg',
+    iconaAlt: 'Illustrazione: pelle e tessuti sotto la pelle',
     nome: 'Ecografia parti molli',
     categoria: 'Muscolo-scheletrico',
     descrizione:
@@ -180,6 +210,9 @@ window.ESAMI = [
   },
   {
     id: 'doppler-tsa',
+    /* TEMP: icona provvisoria Health Icons, da sostituire con icona commissionata */
+    icona: 'images/icone/doppler-tsa.svg',
+    iconaAlt: 'Illustrazione: arterie carotidi e vertebrali del collo',
     nome: 'Ecocolordoppler carotidi',
     categoria: 'Vascolare (Doppler)',
     descrizione:
@@ -189,6 +222,9 @@ window.ESAMI = [
   },
   {
     id: 'doppler-aorta',
+    /* TEMP: icona provvisoria Health Icons, da sostituire con icona commissionata */
+    icona: 'images/icone/doppler-aorta.svg',
+    iconaAlt: 'Illustrazione: aorta nell\'addome',
     nome: 'Ecocolordoppler aorta addominale',
     categoria: 'Vascolare (Doppler)',
     descrizione:
@@ -198,6 +234,9 @@ window.ESAMI = [
   },
   {
     id: 'doppler-arterie-renali',
+    /* TEMP: icona provvisoria Health Icons, da sostituire con icona commissionata */
+    icona: 'images/icone/doppler-arterie-renali.svg',
+    iconaAlt: 'Illustrazione: arterie che portano il sangue ai reni',
     nome: 'Ecocolordoppler arterie renali',
     categoria: 'Vascolare (Doppler)',
     descrizione:
@@ -218,6 +257,9 @@ window.ESAMI = [
   },
   {
     id: 'doppler-arti-superiori',
+    /* TEMP: icona provvisoria Health Icons, da sostituire con icona commissionata */
+    icona: 'images/icone/doppler-arti-superiori.svg',
+    iconaAlt: 'Illustrazione: vene e arterie del braccio',
     nome: 'Ecocolordoppler arti superiori',
     categoria: 'Vascolare (Doppler)',
     descrizione:

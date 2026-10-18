@@ -2,6 +2,9 @@
 window.ESAMI = [
   {
     id: 'addome-completo',
+    /* TEMP: icona provvisoria Health Icons, da sostituire con icona commissionata */
+    icona: 'images/icone/addome-completo.svg',
+    iconaAlt: 'Illustration: abdominal organs',
     nome: 'Complete abdominal ultrasound',
     categoria: 'Abdomen',
     descrizione:
@@ -33,6 +36,9 @@ window.ESAMI = [
   },
   {
     id: 'apparato-urinario',
+    /* TEMP: icona provvisoria Health Icons, da sostituire con icona commissionata */
+    icona: 'images/icone/apparato-urinario.svg',
+    iconaAlt: 'Illustration: kidneys, urinary tract and bladder',
     nome: 'Urinary tract ultrasound',
     categoria: 'Urinary tract and urology',
     descrizione:
@@ -86,6 +92,9 @@ window.ESAMI = [
   },
   {
     id: 'collo',
+    /* TEMP: icona provvisoria Health Icons, da sostituire con icona commissionata */
+    icona: 'images/icone/collo.svg',
+    iconaAlt: 'Illustration: neck and salivary glands',
     nome: 'Neck ultrasound',
     categoria: 'Thyroid and neck',
     descrizione:
@@ -106,6 +115,9 @@ window.ESAMI = [
   },
   {
     id: 'spalla',
+    /* TEMP: icona provvisoria Health Icons, da sostituire con icona commissionata */
+    icona: 'images/icone/spalla.svg',
+    iconaAlt: 'Illustration: shoulder joint',
     nome: 'Shoulder ultrasound',
     categoria: 'Musculoskeletal',
     descrizione:
@@ -115,6 +127,9 @@ window.ESAMI = [
   },
   {
     id: 'ginocchio',
+    /* TEMP: icona provvisoria Health Icons, da sostituire con icona commissionata */
+    icona: 'images/icone/ginocchio.svg',
+    iconaAlt: 'Illustration: knee joint',
     nome: 'Knee ultrasound',
     categoria: 'Musculoskeletal',
     descrizione:
@@ -124,6 +139,9 @@ window.ESAMI = [
   },
   {
     id: 'anca',
+    /* TEMP: icona provvisoria Health Icons, da sostituire con icona commissionata */
+    icona: 'images/icone/anca.svg',
+    iconaAlt: 'Illustration: hip joint',
     nome: 'Hip ultrasound',
     categoria: 'Musculoskeletal',
     descrizione:
@@ -133,6 +151,9 @@ window.ESAMI = [
   },
   {
     id: 'anca-neonatale',
+    /* TEMP: icona provvisoria Health Icons, da sostituire con icona commissionata */
+    icona: 'images/icone/anca-neonatale.svg',
+    iconaAlt: 'Illustration: a newborn\'s hip',
     nome: 'Newborn hip ultrasound',
     categoria: 'Paediatric',
     descrizione:
@@ -142,6 +163,9 @@ window.ESAMI = [
   },
   {
     id: 'gomito',
+    /* TEMP: icona provvisoria Health Icons, da sostituire con icona commissionata */
+    icona: 'images/icone/gomito.svg',
+    iconaAlt: 'Illustration: elbow joint',
     nome: 'Elbow ultrasound',
     categoria: 'Musculoskeletal',
     descrizione:
@@ -151,6 +175,9 @@ window.ESAMI = [
   },
   {
     id: 'polso-mano',
+    /* TEMP: icona provvisoria Health Icons, da sostituire con icona commissionata */
+    icona: 'images/icone/polso-mano.svg',
+    iconaAlt: 'Illustration: wrist and hand',
     nome: 'Wrist and hand ultrasound',
     categoria: 'Musculoskeletal',
     descrizione:
@@ -171,6 +198,9 @@ window.ESAMI = [
   },
   {
     id: 'parti-molli',
+    /* TEMP: icona provvisoria Health Icons, da sostituire con icona commissionata */
+    icona: 'images/icone/parti-molli.svg',
+    iconaAlt: 'Illustration: skin and the tissues beneath it',
     nome: 'Soft-tissue ultrasound',
     categoria: 'Musculoskeletal',
     descrizione:
@@ -180,6 +210,9 @@ window.ESAMI = [
   },
   {
     id: 'doppler-tsa',
+    /* TEMP: icona provvisoria Health Icons, da sostituire con icona commissionata */
+    icona: 'images/icone/doppler-tsa.svg',
+    iconaAlt: 'Illustration: carotid and vertebral arteries in the neck',
     nome: 'Carotid (supra-aortic) Doppler ultrasound',
     categoria: 'Vascular (Doppler)',
     descrizione:
@@ -189,6 +222,9 @@ window.ESAMI = [
   },
   {
     id: 'doppler-aorta',
+    /* TEMP: icona provvisoria Health Icons, da sostituire con icona commissionata */
+    icona: 'images/icone/doppler-aorta.svg',
+    iconaAlt: 'Illustration: the aorta in the abdomen',
     nome: 'Abdominal aorta Doppler ultrasound',
     categoria: 'Vascular (Doppler)',
     descrizione:
@@ -198,6 +234,9 @@ window.ESAMI = [
   },
   {
     id: 'doppler-arterie-renali',
+    /* TEMP: icona provvisoria Health Icons, da sostituire con icona commissionata */
+    icona: 'images/icone/doppler-arterie-renali.svg',
+    iconaAlt: 'Illustration: the arteries that carry blood to the kidneys',
     nome: 'Renal artery Doppler ultrasound',
     categoria: 'Vascular (Doppler)',
     descrizione:
@@ -218,6 +257,9 @@ window.ESAMI = [
   },
   {
     id: 'doppler-arti-superiori',
+    /* TEMP: icona provvisoria Health Icons, da sostituire con icona commissionata */
+    icona: 'images/icone/doppler-arti-superiori.svg',
+    iconaAlt: 'Illustration: veins and arteries of the arm',
     nome: 'Upper-limb Doppler ultrasound',
     categoria: 'Vascular (Doppler)',
     descrizione:
