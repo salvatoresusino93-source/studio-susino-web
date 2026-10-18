@@ -1732,18 +1732,6 @@ button {
   font-size: 0.9rem;
 }
 
-/* Movimento sobrio per dare ritmo alla pagina senza distrarre. */
-.reveal-item {
-  opacity: 0;
-  transform: translateY(14px);
-  transition: opacity 480ms ease, transform 480ms ease;
-  transition-delay: var(--reveal-delay, 0ms);
-}
-.reveal-item.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 @media (max-width: 560px) {
   .exam-finder-heading {
     display: block;
@@ -1820,4 +1808,149 @@ html.lenis body {
   transition-property: overflow;
   transition-duration: 1ms;
   transition-behavior: allow-discrete;
+}
+
+/* ─── Movimento sobrio (js/motion.js per Lenis e comparsa delle sezioni) ────
+   Qui solo micro-interazioni e ingresso del titolo: nessuna regola nasconde
+   contenuti, tutto funziona anche senza JavaScript. */
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+/* Focus da tastiera sempre visibile */
+:where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.cta-band :focus-visible,
+.review-invite :focus-visible {
+  outline-color: #fff;
+}
+
+/* Dentro le schede con overflow nascosto il contorno va all'interno */
+.service-card-media:focus-visible {
+  outline-offset: -3px;
+}
+
+/* Pulsanti: leggero sollevamento al passaggio, "pressione" al clic */
+.btn:focus-visible {
+  transform: translateY(-1px);
+}
+
+.btn:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.btn-outline {
+  transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+}
+
+.btn-outline:hover,
+.btn-outline:focus-visible {
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+
+/* Pulsante di prenotazione: stesso gesto, ombra un po' più marcata */
+.btn-primary:focus-visible,
+.booking-primary:hover {
+  box-shadow: 0 14px 28px -10px rgba(14, 124, 139, 0.75);
+}
+
+/* Schede degli esami */
+.service-card:focus-within {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: transparent;
+}
+
+.exam-item {
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.exam-item:hover,
+.exam-item:focus-within {
+  transform: translateY(-2px);
+  border-color: rgba(14, 124, 139, 0.35);
+  box-shadow: var(--shadow-md);
+}
+
+.related-list a {
+  transition: border-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
+}
+
+.related-list a:hover,
+.related-list a:focus-visible {
+  transform: translateY(-1px);
+}
+
+/* Link "Scopri di più →": sottolineatura che compare con dolcezza */
+.link-arrow,
+.service-card-link,
+.exam-item-more {
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.35em;
+  transition: text-decoration-color 0.2s ease, text-underline-offset 0.2s ease;
+}
+
+.link-arrow:hover,
+.link-arrow:focus-visible,
+.service-card-link:hover,
+.service-card-link:focus-visible,
+.exam-item-more:hover,
+.exam-item-more:focus-visible {
+  text-decoration-color: currentColor;
+  text-underline-offset: 0.2em;
+}
+
+.wa-float {
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+
+.wa-float:hover,
+.wa-float:focus-visible {
+  transform: translateY(-2px);
+}
+
+/* Titolo della home: già visibile al primo disegno, si assesta in mezzo secondo */
+@media (prefers-reduced-motion: no-preference) {
+  .hero h1 {
+    animation: hero-title-in 0.5s ease-out both;
+  }
+}
+
+@keyframes hero-title-in {
+  from {
+    opacity: 0.6;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Movimento ridotto: restano i cambi di colore, niente spostamenti */
+@media (prefers-reduced-motion: reduce) {
+  .btn:hover,
+  .btn:focus-visible,
+  .btn:active,
+  .service-card:hover,
+  .service-card:focus-within,
+  .exam-item:hover,
+  .exam-item:focus-within,
+  .exam-block:hover,
+  .related-list a:hover,
+  .related-list a:focus-visible,
+  .wa-float:hover,
+  .wa-float:focus-visible {
+    transform: none !important;
+  }
+
+  .service-card:hover .service-card-media img {
+    transform: none;
+  }
 }
