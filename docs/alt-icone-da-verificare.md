@@ -33,3 +33,7 @@ Colonna **Icona**: *definitiva* (Health Icons) o *provvisoria* (in attesa dell'i
 | Ecocolordoppler arti inferiori (`doppler-arti-inferiori`) | Illustrazione: vene e arterie della gamba | Illustration: veins and arteries of the leg | provvisoria |
 | Ecocolordoppler arti superiori (`doppler-arti-superiori`) | Illustrazione: vene e arterie del braccio | Illustration: veins and arteries of the arm | provvisoria |
 | Ecografia linfonodi (`linfonodi`) | Illustrazione: linfonodi | Illustration: lymph nodes | definitiva |
+
+## Specifiche per l'illustratore
+
+Specifiche per l'illustratore: SVG con viewBox 48×48, colore #0e7c8b. Lo stile va replicato dalle 9 icone definitive in images/icone/: sono forme piene con contorno, non linee da 2px. L'illustratore deve guardare i file esistenti e matcharne il peso visivo, lo spessore del contorno e il livello di dettaglio. Nessuna patologia, niente ostetricia, ogni icona diversa dalle 9 definitive.
