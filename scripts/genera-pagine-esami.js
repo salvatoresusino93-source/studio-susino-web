@@ -279,9 +279,10 @@ function paginaEsame(esame, info, t, tuttiEsami, isEN) {
     .slice(0, 6);
 
   // Icona dell'esame (images/icone/, vedi LEGGIMI.md). Per le anteprime social serve un JPG:
-  // gli SVG non vengono mostrati da WhatsApp e Facebook, quindi si usa la foto dello studio.
+  // gli SVG non vengono mostrati da WhatsApp e Facebook, quindi si usa l'immagine col logo.
+  // Non una foto: finché non ci sono foto vere dello studio, nessuna immagine lo rappresenta.
   const icona = esame.icona;
-  const imgSocial = 'images/hero-studio-v2.jpg';
+  const imgSocial = 'images/og-studio-susino.jpg';
 
   // Link diretto alla prenotazione con l'esame gia' selezionato: un passaggio in meno.
   const prenotaUrl =
@@ -344,7 +345,7 @@ ${correlati
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=20261018b">
+  <link rel="stylesheet" href="css/style.css?v=20261019b">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",

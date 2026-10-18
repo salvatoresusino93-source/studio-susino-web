@@ -19,21 +19,23 @@
   <meta property="og:title" content="Studio Ecografico Dr. Salvatore Susino — Ecografie a Pozzallo">
   <meta property="og:description" content="Ecografie a Pozzallo con medico radiologo, referto consegnato al termine e prenotazione online.">
   <meta property="og:url" content="https://studiosusino.it/">
-  <meta property="og:image" content="https://studiosusino.it/images/hero-studio-v2.jpg">
-  <meta property="og:image:width" content="1350">
-  <meta property="og:image:height" content="900">
-  <meta property="og:image:alt" content="Ambulatorio per ecografie diagnostiche dello Studio Susino a Pozzallo">
+  <meta property="og:image" content="https://studiosusino.it/images/og-studio-susino.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Logo dello Studio Susino, Ecografie a Pozzallo, su fondo verde acqua">
   <meta property="og:site_name" content="Studio Ecografico Dr. Salvatore Susino">
   <meta property="og:locale" content="it_IT">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Studio Ecografico Dr. Salvatore Susino — Ecografie a Pozzallo">
   <meta name="twitter:description" content="Ecografie a Pozzallo con medico radiologo, referto consegnato al termine e prenotazione online.">
-  <meta name="twitter:image" content="https://studiosusino.it/images/hero-studio-v2.jpg">
+  <meta name="twitter:image" content="https://studiosusino.it/images/og-studio-susino.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" href="images/hero-studio-v2.jpg" as="image" fetchpriority="high">
+  <link rel="preload" as="image" type="image/webp" fetchpriority="high"
+    imagesrcset="images/home/hero-ecografia-480.webp 480w, images/home/hero-ecografia-960.webp 960w, images/home/hero-ecografia-1600.webp 1600w"
+    imagesizes="(min-width: 768px) 40vw, 100vw">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=20261018b">
+  <link rel="stylesheet" href="css/style.css?v=20261019b">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -57,7 +59,7 @@
         "description": "Studio ecografico privato a Pozzallo (RG), presso Arcobaleno Dentisti. Su appuntamento.",
         "url": "https://studiosusino.it/",
         "logo": "https://studiosusino.it/images/logo-mark.png",
-        "image": "https://studiosusino.it/images/hero-studio-v2.jpg",
+        "image": "https://studiosusino.it/images/og-studio-susino.jpg",
         "telephone": [
           "+39-0932-954441",
           "+39-351-3746102"
@@ -272,13 +274,22 @@
           </ul>
         </div>
         <figure class="hero-visual">
-          <img
-            src="images/hero-studio-v2.jpg"
-            alt="Ambulatorio per ecografie diagnostiche dello Studio Susino a Pozzallo"
-            width="1350"
-            height="900"
-            fetchpriority="high"
-          >
+          <!-- Foto stock Unsplash (Green Country Ultrasound LLC), ritagliata: vedi docs/immagini-ai.md -->
+          <picture>
+            <source
+              type="image/webp"
+              srcset="images/home/hero-ecografia-480.webp 480w, images/home/hero-ecografia-960.webp 960w, images/home/hero-ecografia-1600.webp 1600w"
+              sizes="(min-width: 768px) 40vw, 100vw"
+            >
+            <img
+              src="images/home/hero-ecografia.jpg"
+              alt="Sonda ecografica lineare in uso durante un esame"
+              width="1200"
+              height="900"
+              fetchpriority="high"
+            >
+          </picture>
+          <figcaption class="foto-didascalia">Foto illustrativa</figcaption>
         </figure>
       </div>
     </section>
@@ -286,6 +297,24 @@
     <section class="section intro-panel">
       <div class="container">
         <div class="intro-panel-inner">
+          <!-- Foto stock Unsplash (Vitaly Gariev), ritagliata: vedi docs/immagini-ai.md -->
+          <figure class="intro-panel-foto">
+            <picture>
+              <source
+                type="image/webp"
+                srcset="images/home/referto-mani-400.webp 400w, images/home/referto-mani-800.webp 800w"
+                sizes="(min-width: 720px) 38rem, calc(100vw - 4rem)"
+              >
+              <img
+                src="images/home/referto-mani.jpg"
+                alt="Mani di un medico che compila un referto"
+                width="800"
+                height="600"
+                loading="lazy"
+              >
+            </picture>
+            <figcaption class="foto-didascalia">Foto illustrativa</figcaption>
+          </figure>
           <h2>Un esame chiaro, dall’accoglienza al referto</h2>
           <p>
             Ogni ecografia viene eseguita personalmente dal Dott. Salvatore Susino.

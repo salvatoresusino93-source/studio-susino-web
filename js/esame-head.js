@@ -2,7 +2,7 @@
   var cfg = window.SEO_CONFIG || {
     siteUrl: 'https://studiosusino.it',
     siteName: 'Studio Ecografico Dr. Salvatore Susino',
-    defaultImage: 'https://studiosusino.it/images/hero-studio-v2.jpg',
+    defaultImage: 'https://studiosusino.it/images/og-studio-susino.jpg',
   };
 
   var EN = document.documentElement.lang === 'en';

@@ -47,7 +47,7 @@ function grafo(isEN) {
           : 'Studio ecografico privato a Pozzallo (RG), presso Arcobaleno Dentisti. Su appuntamento.',
         url: BASE + '/',
         logo: BASE + '/images/logo-mark.png',
-        image: BASE + '/images/hero-studio-v2.jpg',
+        image: BASE + '/images/og-studio-susino.jpg',
         telephone: telefoni,
         email: 'salvatoresusino.md@gmail.com',
         address: indirizzo,
