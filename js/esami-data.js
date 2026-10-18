@@ -1,3 +1,4 @@
+/* DA VERIFICARE: iconaAlt = testo alternativo delle illustrazioni nelle pagine esame (descrizione anatomica). */
 window.ESAMI = [
   {
     id: 'addome-completo',
@@ -10,6 +11,8 @@ window.ESAMI = [
   },
   {
     id: 'addome-superiore',
+    icona: 'images/icone/addome-superiore.svg',
+    iconaAlt: 'Illustrazione: fegato e colecisti, nella parte alta dell\'addome',
     nome: 'Ecografia addome superiore',
     categoria: 'Addome',
     descrizione:
@@ -19,6 +22,8 @@ window.ESAMI = [
   },
   {
     id: 'addome-inferiore',
+    icona: 'images/icone/addome-inferiore.svg',
+    iconaAlt: 'Illustrazione: vescica, nella parte bassa dell\'addome',
     nome: 'Ecografia addome inferiore',
     categoria: 'Addome',
     descrizione:
@@ -37,6 +42,8 @@ window.ESAMI = [
   },
   {
     id: 'renale',
+    icona: 'images/icone/renale.svg',
+    iconaAlt: 'Illustrazione: i due reni',
     nome: 'Ecografia renale',
     categoria: 'Apparato urinario e urologia',
     descrizione:
@@ -46,6 +53,8 @@ window.ESAMI = [
   },
   {
     id: 'vescico-prostatica',
+    icona: 'images/icone/vescico-prostatica.svg',
+    iconaAlt: 'Illustrazione: vescica e prostata',
     nome: 'Ecografia vescico-prostatica',
     categoria: 'Apparato urinario e urologia',
     descrizione:
@@ -55,6 +64,8 @@ window.ESAMI = [
   },
   {
     id: 'scrotale-testicolare',
+    icona: 'images/icone/scrotale-testicolare.svg',
+    iconaAlt: 'Illustrazione: testicoli',
     nome: 'Ecografia scrotale e testicolare',
     categoria: 'Apparato urinario e urologia',
     descrizione:
@@ -64,6 +75,8 @@ window.ESAMI = [
   },
   {
     id: 'tiroide',
+    icona: 'images/icone/tiroide.svg',
+    iconaAlt: 'Illustrazione: tiroide, ghiandola alla base del collo',
     nome: 'Ecografia tiroide',
     categoria: 'Tiroide e collo',
     descrizione:
@@ -82,6 +95,8 @@ window.ESAMI = [
   },
   {
     id: 'muscolo-scheletrica',
+    icona: 'images/icone/muscolo-scheletrica.svg',
+    iconaAlt: 'Illustrazione: articolazione con muscoli e tendini',
     nome: 'Ecografia muscolo-scheletrica',
     categoria: 'Muscolo-scheletrico',
     descrizione:
@@ -145,6 +160,8 @@ window.ESAMI = [
   },
   {
     id: 'caviglia-piede',
+    icona: 'images/icone/caviglia-piede.svg',
+    iconaAlt: 'Illustrazione: caviglia e piede',
     nome: 'Ecografia caviglia e piede',
     categoria: 'Muscolo-scheletrico',
     descrizione:
@@ -190,6 +207,8 @@ window.ESAMI = [
   },
   {
     id: 'doppler-arti-inferiori',
+    icona: 'images/icone/doppler-arti-inferiori.svg',
+    iconaAlt: 'Illustrazione: vene e arterie della gamba',
     nome: 'Ecocolordoppler arti inferiori',
     categoria: 'Vascolare (Doppler)',
     descrizione:
@@ -208,6 +227,8 @@ window.ESAMI = [
   },
   {
     id: 'linfonodi',
+    icona: 'images/icone/linfonodi.svg',
+    iconaAlt: 'Illustrazione: linfonodi',
     nome: 'Ecografia linfonodi',
     categoria: 'Altro',
     descrizione:

@@ -1,3 +1,4 @@
+/* DA VERIFICARE: iconaAlt = testo alternativo delle illustrazioni nelle pagine esame (descrizione anatomica). */
 window.ESAMI = [
   {
     id: 'addome-completo',
@@ -10,6 +11,8 @@ window.ESAMI = [
   },
   {
     id: 'addome-superiore',
+    icona: 'images/icone/addome-superiore.svg',
+    iconaAlt: 'Illustration: liver and gallbladder, in the upper abdomen',
     nome: 'Upper abdominal ultrasound',
     categoria: 'Abdomen',
     descrizione:
@@ -19,6 +22,8 @@ window.ESAMI = [
   },
   {
     id: 'addome-inferiore',
+    icona: 'images/icone/addome-inferiore.svg',
+    iconaAlt: 'Illustration: bladder, in the lower abdomen',
     nome: 'Lower abdominal ultrasound',
     categoria: 'Abdomen',
     descrizione:
@@ -37,6 +42,8 @@ window.ESAMI = [
   },
   {
     id: 'renale',
+    icona: 'images/icone/renale.svg',
+    iconaAlt: 'Illustration: the two kidneys',
     nome: 'Kidney ultrasound',
     categoria: 'Urinary tract and urology',
     descrizione:
@@ -46,6 +53,8 @@ window.ESAMI = [
   },
   {
     id: 'vescico-prostatica',
+    icona: 'images/icone/vescico-prostatica.svg',
+    iconaAlt: 'Illustration: bladder and prostate',
     nome: 'Bladder and prostate ultrasound',
     categoria: 'Urinary tract and urology',
     descrizione:
@@ -55,6 +64,8 @@ window.ESAMI = [
   },
   {
     id: 'scrotale-testicolare',
+    icona: 'images/icone/scrotale-testicolare.svg',
+    iconaAlt: 'Illustration: testicles',
     nome: 'Scrotal and testicular ultrasound',
     categoria: 'Urinary tract and urology',
     descrizione:
@@ -64,6 +75,8 @@ window.ESAMI = [
   },
   {
     id: 'tiroide',
+    icona: 'images/icone/tiroide.svg',
+    iconaAlt: 'Illustration: thyroid, the gland at the base of the neck',
     nome: 'Thyroid ultrasound',
     categoria: 'Thyroid and neck',
     descrizione:
@@ -82,6 +95,8 @@ window.ESAMI = [
   },
   {
     id: 'muscolo-scheletrica',
+    icona: 'images/icone/muscolo-scheletrica.svg',
+    iconaAlt: 'Illustration: a joint with muscles and tendons',
     nome: 'Musculoskeletal ultrasound',
     categoria: 'Musculoskeletal',
     descrizione:
@@ -145,6 +160,8 @@ window.ESAMI = [
   },
   {
     id: 'caviglia-piede',
+    icona: 'images/icone/caviglia-piede.svg',
+    iconaAlt: 'Illustration: ankle and foot',
     nome: 'Ankle and foot ultrasound',
     categoria: 'Musculoskeletal',
     descrizione:
@@ -190,6 +207,8 @@ window.ESAMI = [
   },
   {
     id: 'doppler-arti-inferiori',
+    icona: 'images/icone/doppler-arti-inferiori.svg',
+    iconaAlt: 'Illustration: veins and arteries of the leg',
     nome: 'Lower-limb Doppler ultrasound',
     categoria: 'Vascular (Doppler)',
     descrizione:
@@ -208,6 +227,8 @@ window.ESAMI = [
   },
   {
     id: 'linfonodi',
+    icona: 'images/icone/linfonodi.svg',
+    iconaAlt: 'Illustration: lymph nodes',
     nome: 'Lymph node ultrasound',
     categoria: 'Other',
     descrizione:
