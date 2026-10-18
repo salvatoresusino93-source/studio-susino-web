@@ -14,13 +14,13 @@
   document.body.appendChild(a);
 })();
 
-// Entrate leggere per elenchi che i filtri mostrano e nascondono (il resto lo anima js/motion.js).
+// Entrate leggere durante lo scorrimento, disattivate se l'utente riduce le animazioni.
 (function () {
   if (!('IntersectionObserver' in window)) return;
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
   const targets = document.querySelectorAll(
-    '.exam-item, .booking-card, .faq details'
+    '.service-card, .info-strip-item, .intro-panel-inner, .exam-item, .booking-card, .faq details'
   );
   if (!targets.length) return;
 
@@ -54,7 +54,6 @@
       ? (isEnglish ? 'Close menu' : 'Chiudi menu')
       : (isEnglish ? 'Open menu' : 'Apri menu'));
     body.classList.toggle('menu-open', open);
-    if (window.lenis) open ? window.lenis.stop() : window.lenis.start();
   }
 
   toggle.addEventListener('click', () => {

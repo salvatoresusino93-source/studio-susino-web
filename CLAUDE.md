@@ -18,7 +18,6 @@ Pazienti comuni della provincia di Ragusa (Pozzallo, Ispica, Modica, Scicli, Rag
 - `sitemap.xml` si rigenera con `node scripts/generate-sitemap.js` (dopo il generatore delle pagine).
 - `esame.html`, `esame-en.html`, `privacy.html`, `privacy-en.html` sono `noindex` e fuori sitemap: devono restare così.
 - CSS e JS sono richiamati con `?v=AAAAMMGG`: dopo averli modificati aggiorna il parametro ovunque (anche nel generatore).
-- **Animazioni**: `js/motion.js` (GSAP + ScrollTrigger e Lenis in `js/vendor/`, vedi `js/vendor/LEGGIMI.md`) e la sezione "Movimento" in fondo a `css/style.css`. Ogni pagina ha nel `<head>` il piccolo script che aggiunge la classe `motion` e, prima di Cloudflare, i tre `<script defer>` (anche nel generatore). Rispettare sempre `prefers-reduced-motion`; scorrimento fluido solo su computer; niente animazioni che nascondano a lungo testi, telefono o pulsanti.
 - Validazione HTML: `npx --yes html-validate "*.html"` (config `.htmlvalidate.json`).
 
 ## Regole sui contenuti sanitari (vincolanti)
