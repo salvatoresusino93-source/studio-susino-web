@@ -493,6 +493,23 @@ button {
   pointer-events: none;
 }
 
+.intro-panel-foto {
+  margin: 0 0 1.5rem;
+}
+
+.intro-panel-foto picture {
+  display: block;
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.intro-panel-foto img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
 .intro-panel-inner h2 {
   font-size: clamp(1.25rem, 3vw, 1.5rem);
   margin-bottom: 0.75rem;

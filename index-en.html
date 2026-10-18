@@ -34,7 +34,7 @@
     imagesrcset="images/home/hero-ecografia-480.webp 480w, images/home/hero-ecografia-960.webp 960w, images/home/hero-ecografia-1600.webp 1600w"
     imagesizes="(min-width: 768px) 40vw, 100vw">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=20261019">
+  <link rel="stylesheet" href="css/style.css?v=20261019b">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -292,6 +292,24 @@
     <section class="section intro-panel">
       <div class="container">
         <div class="intro-panel-inner">
+          <!-- Foto stock Unsplash (Vitaly Gariev), ritagliata: vedi docs/immagini-ai.md -->
+          <figure class="intro-panel-foto">
+            <picture>
+              <source
+                type="image/webp"
+                srcset="images/home/referto-mani-400.webp 400w, images/home/referto-mani-800.webp 800w"
+                sizes="(min-width: 720px) 38rem, calc(100vw - 4rem)"
+              >
+              <img
+                src="images/home/referto-mani.jpg"
+                alt="Doctor’s hands filling in a report"
+                width="800"
+                height="600"
+                loading="lazy"
+              >
+            </picture>
+            <figcaption class="foto-didascalia">Illustrative photo</figcaption>
+          </figure>
           <h2>Clear care, from welcome to report</h2>
           <p>
             Every ultrasound is performed personally by Dr Salvatore Susino.
