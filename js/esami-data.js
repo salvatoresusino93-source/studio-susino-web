@@ -246,6 +246,7 @@ window.ESAMI = [
   },
   {
     id: 'doppler-arti-inferiori',
+    /* TEMP: icona provvisoria Health Icons, da sostituire con icona commissionata */
     icona: 'images/icone/doppler-arti-inferiori.svg',
     iconaAlt: 'Illustrazione: vene e arterie della gamba',
     nome: 'Ecocolordoppler arti inferiori',

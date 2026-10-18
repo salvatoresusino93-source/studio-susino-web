@@ -278,7 +278,10 @@ function paginaEsame(esame, info, t, tuttiEsami, isEN) {
     .filter((e) => e && e.id !== esame.id && SLUG[e.id])
     .slice(0, 6);
 
-  const img = `images/esami/${esame.id}.jpg`;
+  // Icona dell'esame (images/icone/, vedi LEGGIMI.md). Per le anteprime social serve un JPG:
+  // gli SVG non vengono mostrati da WhatsApp e Facebook, quindi si usa la foto dello studio.
+  const icona = esame.icona;
+  const imgSocial = 'images/hero-studio-v2.jpg';
 
   // Link diretto alla prenotazione con l'esame gia' selezionato: un passaggio in meno.
   const prenotaUrl =
@@ -331,13 +334,13 @@ ${correlati
   <meta property="og:title" content="${esc(title)}">
   <meta property="og:description" content="${esc(description)}">
   <meta property="og:url" content="${url}">
-  <meta property="og:image" content="${BASE}/${img}">
+  <meta property="og:image" content="${BASE}/${imgSocial}">
   <meta property="og:site_name" content="Studio Ecografico Dr. Salvatore Susino">
   <meta property="og:locale" content="${t.locale}">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${esc(title)}">
   <meta name="twitter:description" content="${esc(description)}">
-  <meta name="twitter:image" content="${BASE}/${img}">
+  <meta name="twitter:image" content="${BASE}/${imgSocial}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -439,8 +442,8 @@ ${faq
           <h1>${esc(esame.nome)} ${isEN ? 'in Pozzallo' : 'a Pozzallo'}</h1>
           <p>${esc(t.lead(esame.nome))}</p>
         </div>
-        <figure class="hero-figure">
-          <img src="${img}?v=20260803" alt="${esc(esame.nome)}" loading="lazy" width="700" height="603">
+        <figure class="hero-figure hero-figure-icona">
+          <img src="${icona}?v=20261018" alt="${esc(esame.iconaAlt)}" width="240" height="240">
         </figure>
       </div>
     </section>
@@ -596,7 +599,7 @@ function elencoStatico(lista, paziente, isEN) {
         `<h3 class="exam-item-title"><a href="${href}">${esc(e.nome)}</a></h3>` +
         `<p class="exam-item-sintesi">${esc(sintesi)}</p>` +
         `<a class="exam-item-more link-arrow" href="${href}">${more}</a></div>` +
-        `<div class="exam-item-thumb"><img src="images/esami/${e.id}.jpg?v=20260803" alt="${esc(e.nome)}" width="88" height="88" loading="lazy"></div></li>\n`;
+        `<div class="exam-item-thumb"><img src="${e.icona}?v=20261018" alt="" width="56" height="56" loading="lazy"></div></li>\n`;
     }
     html += '          </ul>\n';
   }

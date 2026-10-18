@@ -9,4 +9,5 @@ Colore #0e7c8b già nel file, perché un SVG in `<img>` non eredita il colore da
 - **Provvisorie** (`TEMP` nel commento in testa e in `js/esami-data.js`): icone Health Icons generiche,
   da sostituire con le icone commissionate a un illustratore. Per sostituirle basta sovrascrivere
   il file con lo stesso nome (48×48, stesso stile) e togliere il commento TEMP nei dati.
+- Gli URL hanno `?v=AAAAMMGG` (generatore e `js/esami-list.js`): quando si sostituisce un file, aggiornarlo.
 - Mai icone o illustrazioni generate con AI per l'anatomia (vedi CLAUDE.md, regole sulle immagini).

@@ -246,6 +246,7 @@ window.ESAMI = [
   },
   {
     id: 'doppler-arti-inferiori',
+    /* TEMP: icona provvisoria Health Icons, da sostituire con icona commissionata */
     icona: 'images/icone/doppler-arti-inferiori.svg',
     iconaAlt: 'Illustration: veins and arteries of the leg',
     nome: 'Lower-limb Doppler ultrasound',

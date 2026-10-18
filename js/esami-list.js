@@ -78,8 +78,8 @@
           const href = slug[e.id]
             ? slug[e.id] + (EN ? '-en' : '') + '.html'
             : examPage + '?id=' + encodeURIComponent(e.id);
-          const imgSrc = 'images/esami/' + e.id + '.jpg?v=20260601rp';
-          const imgAlt = e.nome;
+          // Icona decorativa: il titolo accanto nomina gia' l'esame, quindi alt vuoto.
+          const imgSrc = e.icona + '?v=20261018';
           return (
             '<li class="exam-item">' +
             '<div class="exam-item-body">' +
@@ -96,9 +96,7 @@
             '<div class="exam-item-thumb">' +
             '<img src="' +
             imgSrc +
-            '" alt="' +
-            imgAlt +
-            '" width="88" height="88" loading="lazy">' +
+            '" alt="" width="56" height="56" loading="lazy">' +
             '</div>' +
             '</li>'
           );
