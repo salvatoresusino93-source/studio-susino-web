@@ -6,6 +6,15 @@ Solo illustrazioni generiche: mai lo studio reale, il medico, pazienti o ecograf
 | File | Pagina/e | Strumento | Prompt (sintesi) | Data |
 |------|----------|-----------|------------------|------|
 
+### Immagini AI non dichiarate, rimosse
+
+Trovate nel repo senza registrazione (aggiunte il 2026-05-30 e il 2026-09-02, origine e prompt sconosciuti). Violavano le regole: ambulatorio generato al posto dello studio reale e un'ecografia finta sullo schermo.
+
+| File | Cosa mostrava | Dove era usata | Esito |
+|------|---------------|----------------|-------|
+| `images/hero-studio.jpg` | Ambulatorio generato con AI; sullo schermo dell'ecografo un'immagine che sembra **un feto di profilo** (contenuto ostetrico, esame non offerto dallo studio) | Nessuna pagina (sostituita in precedenza da `hero-studio-v2.jpg`) | Rimossa il 2026-10-19 |
+| `images/hero-studio-v2.jpg` | Ambulatorio generato con AI; sullo schermo un'**ecografia addominale finta** | Hero della home, `og:image` / `twitter:image` di tutte le pagine, `image` del JSON-LD | Sostituita da foto stock dichiarata (hero) e da `og-studio-susino.jpg` (social, JSON-LD); rimossa il 2026-10-19 |
+
 ## Foto stock
 
 Foto da banche immagini usate come illustrazioni generiche (regole in `CLAUDE.md`): didascalia visibile "Foto illustrativa", alt neutro, mai per rappresentare lo studio, il medico o pazienti reali. Licenza Unsplash: uso libero anche commerciale, credito non obbligatorio; **non** include il consenso delle persone ritratte, quindi niente volti riconoscibili.
