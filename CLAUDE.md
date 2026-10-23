@@ -5,7 +5,8 @@ Sito vetrina statico (HTML/CSS/JS, nessun framework né build) dello **Studio Ec
 - Pubblicazione: GitHub Pages dal branch `main` (1–2 minuti dopo il push), dominio `https://studiosusino.it` (file `CNAME`).
 - Prenotazioni online: app esterna RefertEco su `https://referteco-production.up.railway.app/prenota` (repo separato). Il sito rimanda lì.
 - Lo studio fa solo ecografie ed ecocolordoppler, su appuntamento; referto consegnato al termine dell'esame.
-- Anteprima locale: `python3 -m http.server 8099` (configurazione `static` in `.claude/launch.json`).
+- Anteprima locale: `python3 -m http.server 8099` (`.claude/launch.json` non è versionato: se manca, basta il comando).
+- Nessun `package.json`: gli script sono Node puro (`node scripts/...`), nessuna dipendenza da installare.
 
 ## Pubblico
 Pazienti comuni della provincia di Ragusa (Pozzallo, Ispica, Modica, Scicli, Ragusa, Rosolini, Pachino), spesso anziani o familiari che cercano per loro, quasi sempre da smartphone. D'estate anche turisti e stranieri residenti (versione EN). Testi semplici, pulsanti grandi, telefono sempre a portata.
@@ -19,6 +20,8 @@ Pazienti comuni della provincia di Ragusa (Pozzallo, Ispica, Modica, Scicli, Rag
 - `esame.html`, `esame-en.html`, `privacy.html`, `privacy-en.html` sono `noindex` e fuori sitemap: devono restare così.
 - CSS e JS sono richiamati con `?v=AAAAMMGG`: dopo averli modificati aggiorna il parametro ovunque (anche nel generatore).
 - Validazione HTML: `npx --yes html-validate "*.html"` (config `.htmlvalidate.json`).
+- Controllo finale prima della PR, nell'ordine: `node scripts/genera-pagine-esami.js` → `node scripts/generate-sitemap.js` → `node scripts/verifica-seo.js` (esce con errore se hreflang, canonical, sitemap, JSON-LD o link in entrata sono sbagliati; oggi "OK: 67 pagine, 63 URL in sitemap").
+- `RIPRENDI_QUI.md` e `PUBBLICA.md` sono fermi a maggio 2026 (URL `github.io`, dominio "da attivare", 25 esami): per lo stato attuale fa fede questo file e `docs/seo-log.md`.
 
 ## Regole sui contenuti sanitari (vincolanti)
 Il sito è **informazione sanitaria, non pubblicità** (Codice di deontologia medica artt. 55–57; L. 145/2018 comma 525; indicazioni FNOMCeO).
@@ -64,5 +67,6 @@ Si possono usare anche da soli, ad esempio: "usa content-editor su ecografia-spa
 - Secret (Settings → Secrets and variables → Actions), **uno** dei due: `CLAUDE_CODE_OAUTH_TOKEN` (da `claude setup-token`, usa l'abbonamento) oppure `ANTHROPIC_API_KEY`. In Settings → Actions → General: "Read and write permissions" e "Allow GitHub Actions to create and approve pull requests".
 
 ## Git
-- Lavorare su un branch e aprire una PR; `main` è il sito pubblico.
+- Lavorare su un branch e aprire una PR; `main` è il sito pubblico. Branch usati: `seo/…`, `claude/…`; le PR le unisce il medico.
+- Commit in italiano, brevi, con prefisso a parole (`home:`, `icone:`, `docs:`, `social:`, `SEO:`), non Conventional Commits.
 - Non committare `.claude/settings.local.json` (già escluso da `.gitignore`).
