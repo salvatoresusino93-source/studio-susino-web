@@ -400,32 +400,23 @@ window.ESAMI_PAZIENTE = {
           "Sì. Si valuta il nervo mediano all’ingresso del tunnel carpale, al polso, misurandone l’area di sezione: un nervo ingrossato è uno dei segni della sindrome. L’ecografia completa, non sostituisce, l’elettroneurografia (l’esame che misura la conduzione del nervo), che il medico può richiedere.",
         verificata: true,
       },
-      /* DA VERIFICARE: nuova FAQ sulla cisti tendinea (ganglio) del polso,
-         approvato dal medico il 25/10/2026 con questo testo; resta nascosta finché
-         non si imposta verificata: true e si rigenerano le pagine. */
       {
         q: "Ho un rigonfiamento sul dorso del polso: cos’è?",
         a:
           "Un rigonfiamento sul dorso del polso ha spesso cause benigne, come una cisti tendinea. L’ecografia serve a capire di cosa si tratta e a misurarlo.",
-        verificata: false,
+        verificata: true,
       },
-      /* DA VERIFICARE: nuova FAQ sul dito a scatto,
-         approvato dal medico il 25/10/2026 con questo testo; resta nascosta finché
-         non si imposta verificata: true e si rigenerano le pagine. */
       {
         q: "Un dito mi si blocca piegato: può essere un dito a scatto?",
         a:
           "Può essere. Nel dito a scatto il tendine flessore fatica a scorrere nella sua guaina, spesso per un ispessimento vicino alla base del dito. L’ecografia mostra il tendine e la puleggia (l’anello che lo tiene aderente all’osso) in quel punto. Il medico curante deciderà la cura.",
-        verificata: false,
+        verificata: true,
       },
-      /* DA VERIFICARE: nuova FAQ sulla tendinite di de Quervain,
-         approvato dal medico il 25/10/2026 con questo testo; resta nascosta finché
-         non si imposta verificata: true e si rigenerano le pagine. */
       {
         q: "Ho dolore alla base del pollice, vicino al polso: può essere tendinite di de Quervain?",
         a:
           "È una delle cause possibili. Nella tendinite di de Quervain si infiammano i tendini che muovono il pollice, nel punto in cui passano sul lato del polso vicino al pollice. L’ecografia valuta lo spessore della guaina e la presenza di liquido intorno ai tendini. Lo stesso dolore può dipendere anche dall’articolazione alla base del pollice (artrosi): l’ecografia aiuta a distinguere le due cose.",
-        verificata: false,
+        verificata: true,
       },
     ],
   },
