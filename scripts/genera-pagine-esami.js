@@ -85,6 +85,7 @@ const T = {
     navComeArrivare: 'Come arrivare',
     navContatti: 'Contatti',
     navPrenota: 'Prenota',
+    navRecensione: 'Lascia una recensione',
     navPrenotaLong: 'Prenota online',
     altLang: 'EN',
     altLangLabel: 'English version',
@@ -143,6 +144,7 @@ const T = {
     navComeArrivare: 'How to get here',
     navContatti: 'Contact',
     navPrenota: 'Book',
+    navRecensione: 'Leave a review',
     navPrenotaLong: 'Book online',
     altLang: 'IT',
     altLangLabel: 'Versione italiana',
@@ -513,7 +515,7 @@ ${faq
     <div class="container footer-grid">
       <div><strong>Studio Ecografico Dr. Salvatore Susino</strong> Via dell'Arno, 34 — Pozzallo (RG)<br>${isEN ? 'Mon–Fri' : 'Lun–Ven'} 9:00–12:30 · 15:00–19:00</div>
       <div>Tel. <a href="tel:+390932954441">${TEL1}</a> · <a href="tel:+393513746102">${TEL2}</a></div>
-      <div class="footer-links"><a href="${t.bookPage}">${t.navPrenota}</a></div>
+      <div class="footer-links"><a href="${t.bookPage}">${t.navPrenota}</a> <a href="https://g.page/r/CQUbXzXQvvzqEBM/review" target="_blank" rel="noopener">${t.navRecensione}</a></div>
     </div>
   </footer>
   <script src="js/main.js?v=20261018" defer></script>
