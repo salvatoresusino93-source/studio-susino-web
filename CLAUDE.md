@@ -63,6 +63,13 @@ Si possono usare anche da soli, ad esempio: "usa content-editor su ecografia-spa
 - Si può lanciare a mano da GitHub → Actions → "SEO settimanale" → Run workflow, incollando facoltativamente il testo di Search Console.
 - Secret (Settings → Secrets and variables → Actions), **uno** dei due: `CLAUDE_CODE_OAUTH_TOKEN` (da `claude setup-token`, usa l'abbonamento) oppure `ANTHROPIC_API_KEY`. In Settings → Actions → General: "Read and write permissions" e "Allow GitHub Actions to create and approve pull requests".
 
+## Search Console (server MCP, sola lettura)
+- `.mcp.json` avvia `scripts/mcp-search-console.sh`, che lancia il server `mcp-search-console` (AminForou/mcp-gsc) con un **service account** Google (`claude-gsc-reader`, progetto Cloud `studio-susino-gsc`), aggiunto in Search Console con permesso "Completo" sulla proprietà `studiosusino.it`.
+- La chiave JSON **non è nel repository** e non va mai committata né incollata in chat. Si passa in uno di due modi: sul Mac, variabile `GSC_CREDENTIALS_PATH` con il percorso del file (consigliato `~/.config/studio-susino/gsc-key.json`); nella sessione cloud, segreto dell'ambiente `GSC_SERVICE_ACCOUNT_JSON` con il contenuto del file. Il `.gitignore` esclude i nomi tipici delle chiavi e il workflow "Verifica sito" fallisce se un file committato contiene `private_key`.
+- Serve `uv` (o `pipx`) installato; in cloud l'ambiente deve consentire `www.googleapis.com`, `oauth2.googleapis.com` e `searchconsole.googleapis.com`.
+- Uso: lettura di proprietà, sitemap, Controllo URL (quota 2.000 al giorno, 600 al minuto: ispezionare le pagine a gruppi, con pause) e rendimento. Gli strumenti che modificano (aggiunta o rimozione di siti e sitemap) sono disattivati e restano così.
+- Se la chiave si perde o finisce in un commit: revocarla subito in Cloud Console → Credenziali e crearne un'altra.
+
 ## Git
 - Lavorare su un branch e aprire una PR; `main` è il sito pubblico.
 - Eccezione: il medico può autorizzare esplicitamente il merge da parte dell'assistente in una sessione; in tal caso l'autorizzazione va citata nel messaggio di merge e la PR deve essere verde e senza conflitti.

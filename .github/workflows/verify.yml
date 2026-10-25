@@ -32,6 +32,14 @@ jobs:
             exit 1
           fi
           echo "CNAME corretto: $dominio"
+      - name: Nessuna credenziale Google nel repository
+        run: |
+          if git grep -l -e '"private_key"' -e '"client_secret"' -- ':!*.md' ':!.github/workflows/verify.yml' >/dev/null 2>&1; then
+            echo "::error::Trovato un file con private_key o client_secret: le credenziali Google non vanno committate. Revocare la chiave in Cloud Console e rimuoverla dalla storia."
+            git grep -l -e '"private_key"' -e '"client_secret"' -- ':!*.md' ':!.github/workflows/verify.yml'
+            exit 1
+          fi
+          echo "Nessuna credenziale nel repository."
       - name: Test Node
         run: node --test tests/*.test.js
       - name: Controllo SEO (canonical, hreflang, sitemap, JSON-LD, link interni)

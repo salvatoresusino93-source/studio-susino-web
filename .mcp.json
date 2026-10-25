@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "search-console": {
+      "command": "sh",
+      "args": ["scripts/mcp-search-console.sh"],
+      "env": {
+        "GSC_SKIP_OAUTH": "true",
+        "GSC_ALLOW_DESTRUCTIVE": "false"
+      }
+    }
+  }
+}

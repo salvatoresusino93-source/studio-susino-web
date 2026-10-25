@@ -4,3 +4,12 @@
 .claude/*
 !.claude/agents/
 !.claude/commands/
+
+# Credenziali Google (service account, token OAuth): mai nel repository
+*service-account*.json
+*service_account*.json
+*gsc-key*.json
+*credentials*.json
+*client_secret*.json
+token.json
+.gsc/
