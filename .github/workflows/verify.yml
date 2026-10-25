@@ -20,6 +20,18 @@ jobs:
       - uses: actions/setup-node@v7
         with:
           node-version: 22
+      - name: CNAME del dominio (studiosusino.it)
+        run: |
+          if [ ! -f CNAME ]; then
+            echo "::error file=CNAME::File CNAME mancante: senza di esso GitHub Pages abbandona il dominio studiosusino.it e il sito torna su github.io. Ripristinarlo con il solo contenuto 'studiosusino.it'."
+            exit 1
+          fi
+          dominio=$(tr -d '[:space:]' < CNAME)
+          if [ "$dominio" != "studiosusino.it" ]; then
+            echo "::error file=CNAME::CNAME contiene '$dominio' invece di 'studiosusino.it' (senza www, senza https://, senza barra finale)."
+            exit 1
+          fi
+          echo "CNAME corretto: $dominio"
       - name: Test Node
         run: node --test tests/*.test.js
       - name: Controllo SEO (canonical, hreflang, sitemap, JSON-LD, link interni)

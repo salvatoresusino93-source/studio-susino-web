@@ -1,41 +1,26 @@
 # Pubblicare il sito — guida rapida
 
-## Problema attuale
-L'URL lungo `.../studio-susino-web/` dà problemi. La soluzione è rinominare il repository.
+Ultimo aggiornamento: 2026-10-25.
 
-## Passi (5 minuti, una volta sola)
+## Come è pubblicato oggi
+- **Hosting:** GitHub Pages, repository `salvatoresusino93-source/studio-susino-web`, branch `main`, cartella `/ (root)`.
+- **Dominio:** `https://studiosusino.it`, dichiarato nel file `CNAME` alla radice del repository (contenuto: `studiosusino.it`, senza `www`, senza `https://`, senza barra finale).
+- **DNS (Aruba):** record `A` dell'apex verso gli indirizzi di GitHub Pages elencati nel `README.md`; record `CNAME` dell'host `www` verso `salvatoresusino93-source.github.io`.
+- Ogni push su `main` va online in 1–2 minuti. Le modifiche passano da una Pull Request, mai direttamente su `main`.
 
-### 1. Rinomina il repository su GitHub
-1. Vai su **github.com/salvatoresusino93-source/studio-susino-web**
-2. **Settings** → **General**
-3. In **Repository name** scrivi esattamente:
-   ```
-   salvatoresusino93-source.github.io
-   ```
-4. Clicca **Rename**
+## Il file CNAME non si tocca
+Il 28/09/2026 il file è stato cancellato e ricreato nello stesso giorno dalla UI di GitHub: succede quando in **Settings → Pages → Custom domain** si svuota o si riscrive il campo. Ogni volta che il file manca, il sito torna a rispondere solo su `salvatoresusino93-source.github.io`, Google trova un duplicato e il certificato HTTPS del dominio va rigenerato.
+- Non modificare il campo *Custom domain* nelle impostazioni di GitHub Pages: il file nel repository è la fonte di verità.
+- Il workflow **Verifica sito** fallisce su ogni PR e su ogni push se `CNAME` manca o contiene un valore diverso da `studiosusino.it`.
+- Se il file sparisce, si ripristina con un commit che lo ricrea con il solo contenuto `studiosusino.it`.
 
-### 2. Configura GitHub Pages
-1. Sempre in **Settings** → **Pages**
-2. **Source** → **Deploy from a branch** (NON GitHub Actions)
-3. Branch: **main** | Cartella: **/ (root)**
-4. **Save**
-5. **Custom domain** → lascia **VUOTO**
+## Controlli dopo una pubblicazione
+1. `https://studiosusino.it/` risponde con il sito e il lucchetto HTTPS.
+2. `https://studiosusino.it/sitemap.xml` elenca le pagine (63 URL).
+3. In **Settings → Pages** compare "Your site is live at https://studiosusino.it" con *Enforce HTTPS* attivo.
 
-### 3. Aggiorna il collegamento sul tuo Mac (Terminale)
+## Anteprima in locale
 ```bash
-cd ~/Projects/studio-susino-web
-git remote set-url origin https://github.com/salvatoresusino93-source/salvatoresusino93-source.github.io.git
-git push
+python3 -m http.server 8099
 ```
-
-### 4. Apri il sito (dopo 2-5 minuti)
-```
-https://salvatoresusino93-source.github.io/
-```
-
-### 5. Se ancora non va
-- Prova **finestra in incognito** (Chrome: Cmd+Shift+N)
-- Non aprire `studiosusino.it` — non è ancora attivo
-
-## Quando Aruba attiva il dominio
-Aggiungeremo `studiosusino.it` su GitHub Pages + DNS.
+Poi aprire `http://localhost:8099/`.
