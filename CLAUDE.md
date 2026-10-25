@@ -65,4 +65,5 @@ Si possono usare anche da soli, ad esempio: "usa content-editor su ecografia-spa
 
 ## Git
 - Lavorare su un branch e aprire una PR; `main` è il sito pubblico.
+- Eccezione: il medico può autorizzare esplicitamente il merge da parte dell'assistente in una sessione; in tal caso l'autorizzazione va citata nel messaggio di merge e la PR deve essere verde e senza conflitti.
 - Non committare `.claude/settings.local.json` (già escluso da `.gitignore`).
