@@ -21,6 +21,7 @@ const pages = [
   { loc: '/chi-sono.html', priority: '0.8', changefreq: 'monthly' },
   { loc: '/studio.html', priority: '0.8', changefreq: 'monthly' },
   { loc: '/contatti.html', priority: '0.75', changefreq: 'monthly' },
+  { loc: '/come-arrivare.html', priority: '0.7', changefreq: 'monthly' },
 ];
 
 /* Una riga per ogni pagina-esame presente sul disco */
@@ -38,6 +39,7 @@ for (const en of [
   '/chi-sono-en.html',
   '/studio-en.html',
   '/contatti-en.html',
+  '/come-arrivare-en.html',
 ]) {
   pages.push({ loc: en, priority: '0.6', changefreq: 'monthly' });
 }

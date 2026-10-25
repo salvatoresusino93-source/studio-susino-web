@@ -76,11 +76,13 @@ const T = {
     listPage: 'ecografie.html',
     aboutPage: 'chi-sono.html',
     studioPage: 'studio.html',
+    directionsPage: 'come-arrivare.html',
     contactPage: 'contatti.html',
     bookPage: 'prenota.html',
     navChiSono: 'Chi sono',
     navEcografie: 'Ecografie',
     navStudio: 'Lo studio',
+    navComeArrivare: 'Come arrivare',
     navContatti: 'Contatti',
     navPrenota: 'Prenota',
     navPrenotaLong: 'Prenota online',
@@ -132,11 +134,13 @@ const T = {
     listPage: 'ecografie-en.html',
     aboutPage: 'chi-sono-en.html',
     studioPage: 'studio-en.html',
+    directionsPage: 'come-arrivare-en.html',
     contactPage: 'contatti-en.html',
     bookPage: 'prenota-en.html',
     navChiSono: 'About me',
     navEcografie: 'Scans',
     navStudio: 'The practice',
+    navComeArrivare: 'How to get here',
     navContatti: 'Contact',
     navPrenota: 'Book',
     navPrenotaLong: 'Book online',
@@ -417,6 +421,7 @@ ${faq
         <a href="${t.aboutPage}">${t.navChiSono}</a>
         <a href="${t.listPage}" aria-current="page">${t.navEcografie}</a>
         <a href="${t.studioPage}">${t.navStudio}</a>
+        <a href="${t.directionsPage}">${t.navComeArrivare}</a>
         <a href="${t.contactPage}">${t.navContatti}</a>
         <a class="lang-switch" href="${fileAlt}" hreflang="${isEN ? 'it' : 'en'}" aria-label="${t.altLangLabel}">${t.altLang}</a>
         <a class="btn btn-primary" href="${t.bookPage}">${t.navPrenota}</a>
@@ -429,6 +434,7 @@ ${faq
       <a href="${t.aboutPage}">${t.navChiSono}</a>
       <a href="${t.listPage}">${t.navEcografie}</a>
       <a href="${t.studioPage}">${t.navStudio}</a>
+      <a href="${t.directionsPage}">${t.navComeArrivare}</a>
       <a href="${t.contactPage}">${t.navContatti}</a>
       <a class="lang-switch" href="${fileAlt}" hreflang="${isEN ? 'it' : 'en'}" aria-label="${t.altLangLabel}">${t.altLang}</a>
       <a class="btn btn-primary" href="${t.bookPage}">${t.navPrenotaLong}</a>
