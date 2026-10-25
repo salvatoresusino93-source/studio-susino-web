@@ -116,11 +116,22 @@ const T = {
     studioWord: 'lo studio',
     andWord: 'e i',
     contactWord: 'contatti',
-    titleForms: (nome) => [
-      `${nome} a Pozzallo (RG) | Dr. Susino`,
-      `${nome} a Pozzallo | Dr. Susino`,
-      `${nome} a Pozzallo (RG)`,
-      `${nome} a Pozzallo`,
+    // Title entro 60 caratteri col suffisso 'Studio Dr. Susino' sempre intero:
+    // se non ci sta, si accorcia prima la localita', poi il nome dell'esame (titoliBrevi).
+    titoliBrevi: {
+      'Ecografia scrotale e testicolare': 'Ecografia testicolare',
+      'Ecocolordoppler aorta addominale': 'Doppler aorta addominale',
+      'Ecocolordoppler arti superiori': 'Doppler arti superiori',
+      'Ecocolordoppler arti inferiori': 'Doppler arti inferiori',
+      'Ecocolordoppler arterie renali': 'Doppler arterie renali',
+      'Ecocolordoppler carotidi': 'Doppler carotidi'
+},
+    titleForms: (nome, breve) => [
+      `${nome} a Pozzallo (RG) | Studio Dr. Susino`,
+      `${nome} a Pozzallo | Studio Dr. Susino`,
+      `${breve} a Pozzallo | Studio Dr. Susino`,
+      `${nome} | Studio Dr. Susino`,
+      `${breve} | Studio Dr. Susino`,
     ],
     descTail: ' Studio a Pozzallo (RG): prenota online o al telefono.',
     lead: (nome) => `${nome} eseguita personalmente dal medico radiologo, su appuntamento, nello studio di Pozzallo (RG). Referto e spiegazione al termine dell’esame.`,
@@ -173,11 +184,23 @@ const T = {
     studioWord: 'the practice',
     andWord: 'and',
     contactWord: 'contact details',
-    titleForms: (nome) => [
-      `${nome} in Pozzallo (RG), Italy | Dr. Susino`,
-      `${nome} in Pozzallo, Italy | Dr. Susino`,
-      `${nome} in Pozzallo | Dr. Susino`,
-      `${nome} in Pozzallo, Italy`,
+    titoliBrevi: {
+      'Carotid (supra-aortic) Doppler ultrasound': 'Carotid Doppler ultrasound',
+      'Abdominal aorta Doppler ultrasound': 'Aorta Doppler ultrasound',
+      'Scrotal and testicular ultrasound': 'Testicular ultrasound',
+      'Renal artery Doppler ultrasound': 'Renal Doppler ultrasound',
+      'Bladder and prostate ultrasound': 'Bladder-prostate ultrasound',
+      'Upper-limb Doppler ultrasound': 'Arm Doppler ultrasound',
+      'Lower-limb Doppler ultrasound': 'Leg Doppler ultrasound',
+      'Complete abdominal ultrasound': 'Abdominal ultrasound'
+},
+    titleForms: (nome, breve) => [
+      `${nome} in Pozzallo (RG), Italy | Studio Dr. Susino`,
+      `${nome} in Pozzallo, Italy | Studio Dr. Susino`,
+      `${nome} in Pozzallo | Studio Dr. Susino`,
+      `${breve} in Pozzallo | Studio Dr. Susino`,
+      `${nome} | Studio Dr. Susino`,
+      `${breve} | Studio Dr. Susino`,
     ],
     descTail: ' Practice in Pozzallo (RG), Italy: book online or by phone.',
     lead: (nome) => `${nome} performed personally by the radiologist, by appointment, at the practice in Pozzallo (RG), Italy. Report and explanation at the end of the scan.`,
@@ -239,8 +262,8 @@ function paginaEsame(esame, info, t, tuttiEsami, isEN) {
   const sintesi = (info && info.sintesi) || esame.descrizione.split('.')[0] + '.';
 
   // Title entro 60 caratteri: si prova dalla forma piu' completa alla piu' corta.
-  const title =
-    t.titleForms(esame.nome).find((x) => x.length <= 60) || t.titleForms(esame.nome).pop();
+  const forme = t.titleForms(esame.nome, t.titoliBrevi[esame.nome] || esame.nome);
+  const title = forme.find((x) => x.length <= 60) || forme.pop();
 
   const description = tagliaParola(sintesi + t.descTail, 158);
   const prep = preparazione(esame.id, t);

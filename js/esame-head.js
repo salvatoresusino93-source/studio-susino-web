@@ -76,10 +76,10 @@
   var sintesi =
     info.sintesi || esame.descrizione.split('.')[0].trim() + '.';
   var title = EN
-    ? esame.nome + ' in Pozzallo (RG), Italy | Dr. Susino'
-    : esame.nome + ' a Pozzallo (RG) | Dr. Susino';
+    ? esame.nome + ' in Pozzallo | Studio Dr. Susino'
+    : esame.nome + ' a Pozzallo | Studio Dr. Susino';
   if (title.length > 60) {
-    title = EN ? esame.nome + ' | Pozzallo (RG)' : esame.nome + ' | Pozzallo (RG)';
+    title = esame.nome + ' | Studio Dr. Susino';
   }
   var description = (
     sintesi +
