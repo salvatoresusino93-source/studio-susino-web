@@ -379,10 +379,6 @@ window.ESAMI_PAZIENTE = {
   },
   'polso-mano': {
     sintesi: 'Controllo di tendini, nervi e articolazioni di polso e mano.',
-    /* DA VERIFICARE: nuove indicazioni aggiunte rispetto al testo precedente —
-       tendinite di de Quervain, cisti tendinea (ganglio), dito a scatto, dolore
-       alle piccole articolazioni di polso e dita — da confermare come indicazioni
-       appropriate per l’ecografia di polso e mano in questo studio. */
     perche:
       'Utile per formicolii o intorpidimento delle dita, quando si sospetta una sindrome del tunnel carpale. ' +
       'Si fa anche per dolore o gonfiore lungo i tendini, per esempio nella tendinite di de Quervain, sul lato del pollice. ' +

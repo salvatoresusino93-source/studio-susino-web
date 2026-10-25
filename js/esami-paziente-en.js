@@ -379,10 +379,6 @@ window.ESAMI_PAZIENTE = {
   },
   'polso-mano': {
     sintesi: 'A check of the tendons, nerves and joints of the wrist and hand.',
-    /* DA VERIFICARE: nuove indicazioni aggiunte rispetto al testo precedente —
-       tendinite di de Quervain, cisti tendinea (ganglio), dito a scatto, dolore
-       alle piccole articolazioni di polso e dita — da confermare come indicazioni
-       appropriate per l’ecografia di polso e mano in questo studio. */
     perche:
       'Useful for tingling or numbness in the fingers, when carpal tunnel syndrome is suspected. ' +
       'It is also useful for pain or swelling along the tendons of the wrist and hand, for example in De Quervain’s tenosynovitis, on the thumb side of the wrist. ' +
