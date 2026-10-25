@@ -1,4 +1,4 @@
-/* DA VERIFICARE: iconaAlt = testo alternativo delle illustrazioni nelle pagine esame (descrizione anatomica). */
+/* iconaAlt: non usato nelle pagine dal 25/10/2026 (icone decorative, alt vuoto); resta come riserva se il medico decide che le icone sono informative. */
 window.ESAMI = [
   {
     id: 'addome-completo',
