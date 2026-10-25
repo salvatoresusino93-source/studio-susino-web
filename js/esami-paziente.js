@@ -380,17 +380,52 @@ window.ESAMI_PAZIENTE = {
   'polso-mano': {
     sintesi: 'Controllo di tendini, nervi e articolazioni di polso e mano.',
     perche:
-      'Utile se formicolii e intorpidimento di dita (sospetto tunnel carpale), dolore ai tendini o dopo un trauma.',
+      'Utile per formicolii o intorpidimento delle dita, quando si sospetta una sindrome del tunnel carpale. ' +
+      'Si fa anche per dolore o gonfiore lungo i tendini, per esempio nella tendinite di de Quervain, sul lato del pollice. ' +
+      'Altre indicazioni sono un nodulo sul dorso del polso, spesso una cisti tendinea (detta ganglio), e un dito che resta bloccato piegato (dito a scatto). ' +
+      'Si esegue anche per dolore alle piccole articolazioni delle dita o dolore persistente dopo un trauma al polso.',
     svolgimento:
-      'Mano e polso appoggiati, gel sulla pelle. A volte pieghi o estendi le dita.',
+      'Appoggi la mano e il polso sul lettino, con un piccolo cuscino di sostegno. Metto il gel sulla pelle e passo la sonda sulla zona indicata dal dolore. ' +
+      'A volte ti chiedo di piegare o distendere le dita, oppure di muovere il pollice: vedere i tendini in movimento aiuta a valutarli meglio. ' +
+      'Se sospetto una sindrome del tunnel carpale, esamino spesso entrambi i polsi.',
     cosaControlla:
-      'Guardiamo tendini, nervo mediano al tunnel carpale, borse e articolazioni di polso e mano.',
+      'Guardiamo i tendini flessori, sul palmo, e i tendini estensori, sul dorso della mano: la loro struttura e la guaina che li avvolge (la membrana che li fa scorrere). ' +
+      'Controlliamo il nervo mediano nel punto in cui entra nel tunnel carpale, al polso. ' +
+      'Valutiamo le piccole articolazioni di polso e dita, le borse (piccole sacche che riducono l’attrito) ed eventuali cisti tendinee. ' +
+      'Dopo un trauma osserviamo anche i tendini e i legamenti vicini al punto dolente.',
     faqExtra: [
       {
         q: "Serve per la sindrome del tunnel carpale?",
         a:
           "Sì. Si valuta il nervo mediano all’ingresso del tunnel carpale, al polso, misurandone l’area di sezione: un nervo ingrossato è uno dei segni della sindrome. L’ecografia completa, non sostituisce, l’elettroneurografia (l’esame che misura la conduzione del nervo), che il medico può richiedere.",
         verificata: true,
+      },
+      /* DA VERIFICARE: nuova FAQ sulla cisti tendinea (ganglio) del polso,
+         approvato dal medico il 25/10/2026 con questo testo; resta nascosta finché
+         non si imposta verificata: true e si rigenerano le pagine. */
+      {
+        q: "Ho un rigonfiamento sul dorso del polso: cos’è?",
+        a:
+          "Un rigonfiamento sul dorso del polso ha spesso cause benigne, come una cisti tendinea. L’ecografia serve a capire di cosa si tratta e a misurarlo.",
+        verificata: false,
+      },
+      /* DA VERIFICARE: nuova FAQ sul dito a scatto,
+         approvato dal medico il 25/10/2026 con questo testo; resta nascosta finché
+         non si imposta verificata: true e si rigenerano le pagine. */
+      {
+        q: "Un dito mi si blocca piegato: può essere un dito a scatto?",
+        a:
+          "Può essere. Nel dito a scatto il tendine flessore fatica a scorrere nella sua guaina, spesso per un ispessimento vicino alla base del dito. L’ecografia mostra il tendine e la puleggia (l’anello che lo tiene aderente all’osso) in quel punto. Il medico curante deciderà la cura.",
+        verificata: false,
+      },
+      /* DA VERIFICARE: nuova FAQ sulla tendinite di de Quervain,
+         approvato dal medico il 25/10/2026 con questo testo; resta nascosta finché
+         non si imposta verificata: true e si rigenerano le pagine. */
+      {
+        q: "Ho dolore alla base del pollice, vicino al polso: può essere tendinite di de Quervain?",
+        a:
+          "È una delle cause possibili. Nella tendinite di de Quervain si infiammano i tendini che muovono il pollice, nel punto in cui passano sul lato del polso vicino al pollice. L’ecografia valuta lo spessore della guaina e la presenza di liquido intorno ai tendini. Lo stesso dolore può dipendere anche dall’articolazione alla base del pollice (artrosi): l’ecografia aiuta a distinguere le due cose.",
+        verificata: false,
       },
     ],
   },
