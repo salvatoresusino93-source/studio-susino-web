@@ -42,6 +42,7 @@ function grafo(isEN) {
         '@type': 'MedicalClinic',
         '@id': BASE + '/#business',
         name: 'Studio Ecografico Dr. Salvatore Susino',
+        alternateName: 'Dr. Salvatore Susino Ultrasound Practice',
         description: isEN
           ? 'Private ultrasound practice in Pozzallo (RG), Italy, at Arcobaleno Dentisti. By appointment.'
           : 'Studio ecografico privato a Pozzallo (RG), presso Arcobaleno Dentisti. Su appuntamento.',
@@ -64,7 +65,7 @@ function grafo(isEN) {
       {
         '@type': 'Physician',
         '@id': BASE + '/#physician',
-        name: 'Dott. Salvatore Susino',
+        name: 'Dr. Salvatore Susino',
         description: isEN ? 'Radiologist' : 'Medico radiologo',
         url: BASE + '/chi-sono.html',
         medicalSpecialty: 'Radiology',
