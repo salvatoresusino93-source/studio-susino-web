@@ -21,8 +21,8 @@ Quando decidi su una proposta o un "Da verificare", spunta la casella e aggiungi
 
 ### Da verificare per il medico
 - [ ] `js/esami-paziente.js`/`-en.js` sopra `polso-mano.perche`: nuove indicazioni aggiunte al testo precedente — tendinite di de Quervain, cisti tendinea (ganglio), dito a scatto, dolore alle piccole articolazioni di polso e dita — da confermare come indicazioni appropriate per l'ecografia di polso e mano in questo studio.
-- [ ] `js/esami-paziente.js`/`-en.js` sopra `polso-mano.cosaControlla`: aggiunta tra le strutture controllate la ricerca di eventuali cisti tendinee (gangli); confermare che rientra nell'esame di routine.
-- [ ] 3 nuove FAQ su `polso-mano` (IT+EN) in `js/esami-paziente.js`/`-en.js`: cisti tendinea/ganglio del polso, dito a scatto, tendinite di de Quervain — impostare `verificata: true` dopo revisione e rigenerare con `node scripts/genera-pagine-esami.js`.
+- [x] `js/esami-paziente.js`/`-en.js` sopra `polso-mano.cosaControlla`: aggiunta tra le strutture controllate la ricerca di eventuali cisti tendinee (gangli) — approvato dal medico il 25/10/2026.
+- [ ] 3 nuove FAQ su `polso-mano` (IT+EN) in `js/esami-paziente.js`/`-en.js`: cisti tendinea/ganglio del polso, dito a scatto, tendinite di de Quervain — testi approvati dal medico il 25/10/2026 (ganglio in forma neutra senza borsite; dito a scatto con rinvio al curante; de Quervain con la distinzione dall'artrosi della base del pollice). Restano `verificata: false`: pubblicare impostando `verificata: true` e rigenerando con `node scripts/genera-pagine-esami.js`.
 - [ ] Correzioni non sicure proposte dall'auditor: nessuna in questa sessione oltre a quelle già aperte (certificato TLS `www.studiosusino.it`, fuori dal repo); file immagine orfano `images/hero-studio.jpg` (eventuale pulizia, nessun impatto SEO).
 - [ ] Proposte dello stratega da approvare o scartare (nuove, 2026-09-28; le 8 proposte del 27/09 restano aperte a parte):
   1. FAQ "il medico mi ha chiesto l'ecografia prima della visita specialistica (urologica, vascolare): quando la prenoto e cosa porto?" su `ecografia-vescico-prostatica.html`/`ecografia-apparato-urinario.html` (+EN).

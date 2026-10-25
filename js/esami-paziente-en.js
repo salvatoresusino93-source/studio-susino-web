@@ -392,8 +392,6 @@ window.ESAMI_PAZIENTE = {
       'You rest your hand and wrist on the couch, on a small support cushion. I put gel on the skin and move the probe over the area that hurts. ' +
       'Sometimes I ask you to bend or straighten your fingers, or move your thumb: seeing the tendons move helps assess them better. ' +
       'If carpal tunnel syndrome is suspected, I often examine both wrists.',
-    /* DA VERIFICARE: aggiunta tra le strutture controllate la ricerca di eventuali
-       cisti tendinee (gangli); confermare che rientra nell’esame di routine. */
     cosaControlla:
       'We look at the flexor tendons, on the palm side, and the extensor tendons, on the back of the hand: their structure and the sheath that surrounds them (the lining that lets them glide). ' +
       'We check the median nerve where it enters the carpal tunnel, at the wrist. ' +
@@ -406,28 +404,31 @@ window.ESAMI_PAZIENTE = {
           "Yes. The median nerve is assessed at the entrance of the carpal tunnel, at the wrist, by measuring its cross-sectional area: an enlarged nerve is one of the signs of the syndrome. Ultrasound complements, but does not replace, nerve conduction studies, which your doctor may request.",
         verificata: true,
       },
-      /* DA VERIFICARE: nuova FAQ sulla cisti tendinea (ganglio) del polso, da
-         confermare nei contenuti clinici prima della pubblicazione. */
+      /* DA VERIFICARE: nuova FAQ sulla cisti tendinea (ganglio) del polso,
+         approvato dal medico il 25/10/2026 con questo testo; resta nascosta finché
+         non si imposta verificata: true e si rigenerano le pagine. */
       {
         q: "I have a lump on the back of my wrist: what is it?",
         a:
-          "It is often a tendon cyst, also called a ganglion: a small fluid-filled sac that forms near a tendon or a joint. Ultrasound tells it apart from other causes of swelling, such as bursitis, and measures its size.",
+          "A lump on the back of the wrist often has a benign cause, such as a tendon cyst (ganglion). Ultrasound helps work out what it is and measures it.",
         verificata: false,
       },
-      /* DA VERIFICARE: nuova FAQ sul dito a scatto, da confermare nei contenuti
-         clinici prima della pubblicazione. */
+      /* DA VERIFICARE: nuova FAQ sul dito a scatto,
+         approvato dal medico il 25/10/2026 con questo testo; resta nascosta finché
+         non si imposta verificata: true e si rigenerano le pagine. */
       {
         q: "One of my fingers gets stuck bent: could it be trigger finger?",
         a:
-          "It could be. In trigger finger, the flexor tendon has trouble gliding through its sheath, often because of thickening near the base of the finger. Ultrasound shows the tendon and the pulley (the ring that holds it close to the bone) at that point.",
+          "It could be. In trigger finger, the flexor tendon has trouble gliding through its sheath, often because of thickening near the base of the finger. Ultrasound shows the tendon and the pulley (the ring that holds it close to the bone) at that point. Your doctor will decide on the treatment.",
         verificata: false,
       },
-      /* DA VERIFICARE: nuova FAQ sulla tendinite di de Quervain, da confermare
-         nei contenuti clinici prima della pubblicazione. */
+      /* DA VERIFICARE: nuova FAQ sulla tendinite di de Quervain,
+         approvato dal medico il 25/10/2026 con questo testo; resta nascosta finché
+         non si imposta verificata: true e si rigenerano le pagine. */
       {
         q: "I have pain at the base of my thumb, near the wrist: could it be De Quervain’s tenosynovitis?",
         a:
-          "It is one of the possible causes. In De Quervain’s tenosynovitis, the tendons that move the thumb become inflamed, where they pass on the thumb side of the wrist. Ultrasound assesses the thickness of the sheath and whether there is fluid around the tendons.",
+          "It is one of the possible causes. In De Quervain’s tenosynovitis, the tendons that move the thumb become inflamed, where they pass on the thumb side of the wrist. Ultrasound assesses the thickness of the sheath and whether there is fluid around the tendons. The same pain can also come from the joint at the base of the thumb (osteoarthritis): ultrasound helps tell the two apart.",
         verificata: false,
       },
     ],
