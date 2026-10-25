@@ -10,7 +10,7 @@ Finché la quota è 0, la scheda si gestisce a mano su business.google.com. La d
 ## Cosa serve prima di compilare il modulo
 1. Un **progetto Google Cloud** creato con l'account che possiede la scheda (salvatoresusino.md@gmail.com): console.cloud.google.com → "Nuovo progetto", nome a piacere (es. "Studio Susino GBP"). Annotare il **numero del progetto** (card "Informazioni sul progetto" nella Dashboard).
 2. La scheda deve essere **verificata** e il richiedente deve essere **proprietario** della scheda, non solo gestore.
-3. Il **sito web** della scheda deve corrispondere a quello indicato nel modulo: https://studiosusino.it/. Google chiede che il dominio dell'email usata nel modulo corrisponda al sito: con una Gmail la corrispondenza non c'è. Le guide di terzi dicono che le richieste da Gmail vengono spesso respinte o rallentate; una casella del tipo `info@studiosusino.it` (Aruba la offre con il dominio) alza le probabilità. Da valutare prima di inviare.
+3. Il **sito web** della scheda deve corrispondere a quello indicato nel modulo: https://studiosusino.it/. **Rischio probabile, non requisito ufficiale:** la corrispondenza tra il dominio dell'email usata nel modulo e il dominio del sito non è una regola documentata da Google, ma un pattern riportato da molti utenti: le richieste inviate da una Gmail vengono spesso respinte o rallentate. Una casella del tipo `info@studiosusino.it` (Aruba la offre con il dominio) riduce il rischio. Da valutare prima di inviare.
 4. Una **privacy policy** raggiungibile sul sito: c'è, `https://studiosusino.it/privacy.html`.
 
 ## Come si invia
@@ -29,7 +29,7 @@ Single-location medical ultrasound practice in Pozzallo (RG), Italy, managing it
 ## Cosa aspettarsi
 - Tempi: le fonti non concordano; le guide citano da alcuni giorni a qualche settimana, con un riferimento a 14 giorni nelle FAQ di Google. Nessuna garanzia.
 - Esito: si vede in Cloud Console → "API e servizi" → "Quote" cercando "Business Profile": quota 0 = non approvato, 300 = approvato. Solo dopo l'approvazione compaiono le API nella Libreria per essere abilitate.
-- Il processo è pensato per agenzie e catene con molte sedi: una richiesta da un singolo studio con Gmail può essere respinta senza motivazione. In quel caso la scheda resta a mano, come adesso, senza alcuna perdita.
+- Il processo è pensato per agenzie e catene con molte sedi: una richiesta da un singolo studio, soprattutto con una Gmail, può essere respinta senza motivazione (rischio riportato dagli utenti, non regola di Google). In quel caso la scheda resta a mano, come adesso, senza alcuna perdita.
 - Anche dopo l'approvazione: le API usano solo OAuth 2.0 (niente chiavi API), e le Domande e risposte restano fuori.
 
 ## Decisione per il medico
