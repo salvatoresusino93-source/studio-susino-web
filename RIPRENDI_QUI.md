@@ -1,6 +1,6 @@
 # RIPRENDI QUI — Sito Studio Susino
 
-Ultimo aggiornamento: **2026-05-29**
+Ultimo aggiornamento: **2026-10-25**
 
 ## Repository e URL
 
@@ -9,8 +9,7 @@ Ultimo aggiornamento: **2026-05-29**
 | **Codice** | https://github.com/salvatoresusino93-source/studio-susino-web |
 | **Locale Mac** | `~/Projects/studio-susino-web` |
 | **Google Drive** | `Il mio Drive/studio-susino-web` |
-| **Sito live** | https://salvatoresusino93-source.github.io/studio-susino-web/index.html |
-| **Dominio (da attivare)** | https://studiosusino.it |
+| **Sito live** | https://studiosusino.it (GitHub Pages dal branch `main`, dominio nel file `CNAME`; vedi `PUBBLICA.md`) |
 | **Prenotazione** | https://referteco-production.up.railway.app/prenota |
 
 ## Cosa contiene
