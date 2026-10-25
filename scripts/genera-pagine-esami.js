@@ -278,7 +278,11 @@ function paginaEsame(esame, info, t, tuttiEsami, isEN) {
     .filter((e) => e && e.id !== esame.id && SLUG[e.id])
     .slice(0, 6);
 
-  const img = `images/esami/${esame.id}.jpg`;
+  // Icona dell'esame (images/icone/, vedi LEGGIMI.md). Per le anteprime social serve un JPG:
+  // gli SVG non vengono mostrati da WhatsApp e Facebook, quindi si usa l'immagine col logo.
+  // Non una foto: finché non ci sono foto vere dello studio, nessuna immagine lo rappresenta.
+  const icona = esame.icona;
+  const imgSocial = 'images/og-studio-susino.jpg';
 
   // Link diretto alla prenotazione con l'esame gia' selezionato: un passaggio in meno.
   const prenotaUrl =
@@ -331,17 +335,17 @@ ${correlati
   <meta property="og:title" content="${esc(title)}">
   <meta property="og:description" content="${esc(description)}">
   <meta property="og:url" content="${url}">
-  <meta property="og:image" content="${BASE}/${img}">
+  <meta property="og:image" content="${BASE}/${imgSocial}">
   <meta property="og:site_name" content="Studio Ecografico Dr. Salvatore Susino">
   <meta property="og:locale" content="${t.locale}">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${esc(title)}">
   <meta name="twitter:description" content="${esc(description)}">
-  <meta name="twitter:image" content="${BASE}/${img}">
+  <meta name="twitter:image" content="${BASE}/${imgSocial}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=20260803">
+  <link rel="stylesheet" href="css/style.css?v=20261019b">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -439,8 +443,8 @@ ${faq
           <h1>${esc(esame.nome)} ${isEN ? 'in Pozzallo' : 'a Pozzallo'}</h1>
           <p>${esc(t.lead(esame.nome))}</p>
         </div>
-        <figure class="hero-figure">
-          <img src="${img}?v=20260803" alt="${esc(esame.nome)}" loading="lazy" width="700" height="603">
+        <figure class="hero-figure hero-figure-icona">
+          <img src="${icona}?v=20261018" alt="${esc(esame.iconaAlt)}" width="240" height="240">
         </figure>
       </div>
     </section>
@@ -506,7 +510,12 @@ ${faq
       <div class="footer-links"><a href="${t.bookPage}">${t.navPrenota}</a></div>
     </div>
   </footer>
-  <script src="js/main.js?v=20260601" defer></script>
+  <script src="js/main.js?v=20261018" defer></script>
+  <!-- Librerie di animazione (usate da js/motion.js); integrity = sha384 dei file del pacchetto npm -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js" integrity="sha384-XmJ9SoHtVOHoQUcKvFAzVXwdkKo1Ie3bhmSoIAkcdsHGaIrVJIkmozyq0FJeb/Ly" crossorigin="anonymous" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js" integrity="sha384-wl5TeDVvOWt30Pbf8aSo2ZrzsOjddu3avOBvHe+p+OhJt9gP6w9YXmDkN5DK2/dF" crossorigin="anonymous" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.min.js" integrity="sha384-jqpi9VmOdhyLoLURgjCn7EpnG9BbnHW57ibIZoeaIU+erWDH3k8fQQg0xH2ySjnw" crossorigin="anonymous" defer></script>
+  <script src="js/motion.js?v=20261018" defer></script>
 <!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "0510c857500244ef9115f66be08e0432"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>
@@ -591,7 +600,7 @@ function elencoStatico(lista, paziente, isEN) {
         `<h3 class="exam-item-title"><a href="${href}">${esc(e.nome)}</a></h3>` +
         `<p class="exam-item-sintesi">${esc(sintesi)}</p>` +
         `<a class="exam-item-more link-arrow" href="${href}">${more}</a></div>` +
-        `<div class="exam-item-thumb"><img src="images/esami/${e.id}.jpg?v=20260803" alt="${esc(e.nome)}" width="88" height="88" loading="lazy"></div></li>\n`;
+        `<div class="exam-item-thumb"><img src="${e.icona}?v=20261018" alt="" width="56" height="56" loading="lazy"></div></li>\n`;
     }
     html += '          </ul>\n';
   }
