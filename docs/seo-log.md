@@ -6,6 +6,33 @@ Quando decidi su una proposta o un "Da verificare", spunta la casella e aggiungi
 
 <!-- NUOVE VOCI SOTTO QUESTA RIGA -->
 
+## 2026-10-26 — Sessione periodica
+
+**Fonte dati:** audit automatico (nessun testo Search Console; il server MCP search-console non si è connesso)
+
+### Problemi trovati
+- Nessun problema nuovo né regressione (canonical, hreflang, sitemap 65 URL, robots, noindex, link, title/description, JSON-LD, immagini, html-validate, redirect live: tutto pulito).
+- Ancora aperti: certificato TLS `www.studiosusino.it` (fuori dal repo); file orfano `images/hero-studio.jpg`; preparazione renale da controllare su RefertEco; 16 proposte stratega precedenti; commento `DA FOTOGRAFARE` (foto ingresso) in `come-arrivare.html`/`-en.html`.
+
+### Modifiche fatte
+- Correzioni tecniche: nessuna necessaria.
+- Contenuti: `ecografia-anca-neonatale` (+ EN) — estesi `perche`, `svolgimento`, `cosaControlla` (cos'è la displasia, posizione del neonato, abbigliamento, cosa portare, pianto, metodo di Graf, controllo di entrambe le anche); 5 nuove FAQ in `faqExtra` non visibili (`verificata: false`). Pagina rigenerata, `html-validate` pulito.
+
+### Da verificare per il medico
+- [ ] `js/esami-paziente.js`/`-en.js`, `DA VERIFICARE` sopra `anca-neonatale.perche`, `.svolgimento`, `.cosaControlla`: definizione di displasia, assenza di sintomi iniziali, esempi di reperti alla visita, esame possibile senza fattori di rischio; neonato su un fianco tenuto dal genitore (conferma che è la prassi del medico: il testo dice "di solito lo metto su un fianco"), abiti apribili, nessun digiuno, cosa portare, pausa se piange; metodo di Graf, controllo di entrambe le anche, ripetizione del controllo dopo qualche settimana. **Questi testi sono già visibili nella pagina.**
+- [ ] 5 nuove FAQ nascoste su `anca-neonatale` (richiesta del pediatra, pianto, digiuno, abbigliamento, anca immatura): approvare e impostare `verificata: true`, poi `node scripts/genera-pagine-esami.js`.
+- [ ] Correzioni non sicure: nessuna nuova (TLS `www`, `hero-studio.jpg` orfano).
+- [ ] Proposte dello stratega da approvare o scartare (nuove, 2026-10-26):
+  1. Nuova pagina glossario "Come leggere il referto di un'ecografia: le parole più comuni" (+EN), con link dalle pagine addome/tiroide/muscolo-scheletrica.
+  2. Sezione "Quando non aspettare l'appuntamento" (gamba gonfia improvvisa, sintomi neurologici → medico/118) su `ecocolordoppler-arti-inferiori` e `-carotidi` (+EN, anche JSON-LD).
+  3. FAQ su `ecografia-addome-superiore`: steatosi epatica, calcoli alla colecisti, ogni quanto ripetere.
+  4. Sezione su `ecografie.html` (+EN) "Ecografia, radiografia o altro esame: chi decide?" (unibile alla proposta del 27/09).
+  5. FAQ su caviglia/piede, ginocchio, spalla: quanto aspettare dopo una distorsione, portare la radiografia.
+  6. FAQ su `ecografia-collo`: gonfiore sotto la mandibola, tiroide o ghiandole salivari.
+
+### Pagine lavorate
+- ecografia-anca-neonatale.html, ecografia-anca-neonatale-en.html
+
 ## 2026-09-28 — Sessione periodica (3)
 
 **Fonte dati:** audit automatico (nessun testo Search Console in questa sessione)

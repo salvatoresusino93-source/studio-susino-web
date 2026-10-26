@@ -324,12 +324,15 @@ window.ESAMI_PAZIENTE = {
   },
   'anca-neonatale': {
     sintesi: 'A check of the hips of a newborn or young infant.',
+    /* DA VERIFICARE: spiegazione di displasia (testa del femore non ben inserita nella cavità del bacino), assenza di sintomi iniziali, esempi di reperti alla visita del pediatra (anca che “scatta”, gambe che non si aprono allo stesso modo, pieghe diverse), possibilità di fare l’esame anche senza fattori di rischio */
     perche:
-      'Done in the first weeks of life to rule out a hip that has not formed well or that comes out of place, especially if there are risk factors or the paediatrician requests it.',
+      'Done in the first weeks of life to rule out a hip that has not formed well or that comes out of place, especially if there are risk factors or the paediatrician requests it. Hip dysplasia means that the ball of the hip (the round top of the thigh bone) does not sit well in its socket in the pelvis. At first it often causes no symptoms and the baby looks well. That is why we check with ultrasound. The paediatrician may ask for the scan after a check-up, for example if a hip clicks, if the legs do not open the same way or if the skin folds look different. It can also be done when there is no risk factor.',
+    /* DA VERIFICARE: posizione del neonato (disteso su un fianco, tenuto dal genitore), movimenti delicati dell’anca durante l’esame, cosa fare se il bambino piange (pausa), abbigliamento (scoprire anche e gambe), nessun digiuno e possibilità di allattare prima, cosa portare (richiesta del pediatra se c’è, libretto, pannolino di ricambio, ciuccio o biberon) */
     svolgimento:
-      'The baby stays lying down or in the parent\'s arms. A small probe is passed over the hips, with gel.',
+      'The baby stays lying down or in the parent\'s arms. A small probe is passed over the hips, with gel. I usually lay the baby on one side, with you close by holding him or her. I need to see the hips, so dress the baby in clothes that are easy to open and take off. I check one hip, then the other. No fasting is needed: you can feed the baby before or during the scan if that keeps the baby calm. Bring the paediatrician\'s request if you have one, the baby\'s health booklet or any earlier scans, a spare nappy and a dummy. If the baby cries, that is fine: I pause and wait until the baby settles, because the pictures are better when the baby is still.',
+    /* DA VERIFICARE: cosa si misura con il metodo di Graf (forma della cavità del bacino e copertura della testa del femore, classificazione in tipi), valutazione di entrambe le anche, spiegazione dei possibili esiti e del controllo ripetuto nel tempo */
     cosaControlla:
-      'We check whether the baby\'s hip is mature and stable, using the method used in paediatrics (Graf).',
+      'We check whether the baby\'s hip is mature and stable, using the method used in paediatrics (Graf). The Graf method measures the shape of the hip socket and how much of the ball sits inside it. From these measurements the hip is sorted into types. Both hips are always checked, even if the doubt concerns only one. If a hip is still immature, repeating the check after a few weeks may be enough. I explain the result in person and give you the written report at the end of the visit. The paediatrician then decides how to follow the baby.',
     faqExtra: [
       {
         q: "At what age is the newborn hip ultrasound done?",
@@ -345,6 +348,41 @@ window.ESAMI_PAZIENTE = {
         q: "Why is it important to do it at the right time?",
         a:
           "Because dysplasia recognised in the first weeks can almost always be corrected with a simple abduction brace, whereas if it is discovered late it may require much more demanding treatment. That is why this check is done even when the baby is perfectly well.",
+      },
+      /* DA VERIFICARE: esame possibile anche senza fattori di rischio e senza richiesta (prestazione privata, come da pagina Prenota); utilità della richiesta del pediatra */
+      {
+        q: "Do I need a request from the paediatrician?",
+        a:
+          "For a private exam it is not compulsory. If the paediatrician wrote you a request, bring it: it tells me what was noticed and helps me focus the scan. Also bring the baby's health booklet and any earlier scans.",
+        verificata: false,
+      },
+      /* DA VERIFICARE: se il bambino piange l’esame prosegue con pause; consigli per calmarlo (poppata, ciuccio, genitore vicino); eventuale riprogrammazione se non si calma */
+      {
+        q: "What if the baby cries during the scan?",
+        a:
+          "That is normal and not a problem. I stop and wait until the baby settles: you can pick the baby up, offer a dummy or feed. A calm baby is easier to scan and the visit is quicker. If the baby really will not settle, we talk it over and decide what to do.",
+        verificata: false,
+      },
+      /* DA VERIFICARE: nessun digiuno necessario; consigli su orario rispetto alla poppata (non a digiuno, non subito dopo una poppata abbondante) */
+      {
+        q: "Does the baby need to fast?",
+        a:
+          "No, no fasting is needed. A hungry baby cries more. Book a time that fits the baby's feeding routine, so the baby is calmer.",
+        verificata: false,
+      },
+      /* DA VERIFICARE: abbigliamento (body o abiti apribili), tempo di posa, pannolino sbottonato, uso di polvere o creme sulla pelle prima dell’esame da evitare */
+      {
+        q: "How should I dress the baby and what should I bring?",
+        a:
+          "Dress the baby in a bodysuit or sleepsuit that opens easily: I need to uncover the hips and legs. Bring a spare nappy, a change of clothes, and a dummy or bottle. Avoid creams and powders on the hip area before the scan.",
+        verificata: false,
+      },
+      /* DA VERIFICARE: un’anca immatura nelle prime settimane è abbastanza comune; se un’anca risulta immatura il controllo si ripete dopo qualche settimana; il trattamento è deciso dal pediatra o dall’ortopedico infantile */
+      {
+        q: "What if the hip is not fully mature?",
+        a:
+          "A hip that is still immature in the first weeks is fairly common, and it is often checked again a few weeks later. I explain what I see and give you the report. Then the paediatrician, sometimes with a children's orthopaedic doctor, decides how to follow the baby.",
+        verificata: false,
       },
     ],
   },
