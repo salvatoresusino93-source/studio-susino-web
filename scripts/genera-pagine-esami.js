@@ -164,7 +164,7 @@ const T = {
       `${breve} | Studio Dr. Susino`,
     ],
     descTail: ' Studio a Pozzallo (RG): prenota online o al telefono.',
-    lead: (nome) => `${nome} eseguita personalmente dal medico radiologo, su appuntamento. Referto e spiegazione al termine dell’esame.`,
+    lead: () => 'Esame eseguito personalmente dal medico radiologo, su appuntamento. Referto e spiegazione al termine dell’esame.',
   },
   en: {
     lang: 'en',
@@ -257,7 +257,7 @@ const T = {
       `${breve} | Studio Dr. Susino`,
     ],
     descTail: ' Practice in Pozzallo (RG), Italy: book online or by phone.',
-    lead: (nome) => `${nome} performed personally by the radiologist, by appointment. Report and explanation at the end of the scan.`,
+    lead: () => 'Performed personally by the radiologist, by appointment. Report and explanation at the end of the scan.',
   },
 };
 
