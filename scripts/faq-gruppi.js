@@ -107,7 +107,7 @@ const FAQ_GRUPPI = {
       solo: ['collo'],
       it: {
         q: 'Che differenza c’è con l’ecografia della tiroide?',
-        a: 'L’ecografia della tiroide si concentra sulla ghiandola; l’ecografia del collo allarga lo sguardo a ghiandole salivari, linfonodi e vasi. Nel dubbio su quale prenotare, è possibile chiamarmi: la scelta dipende dalla richiesta del medico.',
+        a: 'L’ecografia della tiroide si concentra sulla ghiandola; l’ecografia del collo allarga lo sguardo a ghiandole salivari, linfonodi e vasi. Nel dubbio su quale prenotare, è possibile chiamare lo studio: la scelta dipende dalla richiesta del medico.',
       },
       en: {
         q: 'How does it differ from a thyroid ultrasound?',
@@ -173,7 +173,7 @@ const FAQ_GRUPPI = {
       verificata: true,
       it: {
         q: 'Perché a volte si guarda anche il lato che non fa male?',
-        a: 'Perché il confronto con il lato sano aiuta a capire se una differenza è significativa. Se serve lo faccio durante lo stesso appuntamento.',
+        a: 'Perché il confronto con il lato sano aiuta a capire se una differenza è significativa. Se serve, si esegue durante lo stesso appuntamento.',
       },
       en: {
         q: 'Why is the side that does not hurt sometimes checked too?',
@@ -295,7 +295,7 @@ const FAQ_GRUPPI = {
       solo: ['linfonodi'],
       it: {
         q: 'Quando conviene fare l’ecografia di un linfonodo?',
-        a: 'Quando un linfonodo resta palpabile nel tempo, oppure su indicazione del medico per seguire una condizione già nota. Per dubbi sull’esame da prenotare, è possibile chiamarmi.',
+        a: 'Quando un linfonodo resta palpabile nel tempo, oppure su indicazione del medico per seguire una condizione già nota. Per dubbi sull’esame da prenotare, è possibile chiamare lo studio.',
       },
       en: {
         q: 'When is a lymph node ultrasound worth doing?',
