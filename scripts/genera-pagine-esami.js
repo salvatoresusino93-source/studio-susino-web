@@ -16,10 +16,10 @@ const BASE = 'https://studiosusino.it';
 
 /* ------------------------------------------------------------------ */
 /* Onorario                                                            */
-/* Metti MOSTRA: true quando la pagina tariffe.html e' online.          */
+/* MOSTRA: false nasconde l’onorario nelle pagine esame (decisione del medico del 31/10/2026). */
 /* ------------------------------------------------------------------ */
 const ONORARIO = {
-  MOSTRA: true,
+  MOSTRA: false, // 31/10/2026: il medico preferisce non mostrare l’onorario nelle pagine esame (resta in tariffe e prenota)
   IMPORTO: '80 €',
   IMPORTO_EN: '€80',
   IT: 'Onorario unico di 80 €, uguale per ogni esame: comprende l’esame, il referto scritto consegnato subito e la spiegazione a voce.',
@@ -28,8 +28,8 @@ const ONORARIO = {
   PAGINA_EN: 'tariffe-en.html',
 };
 
-/* Data di revisione mostrata in fondo a ogni pagina esame ("Review date" del
-   design system NHS.UK). Si aggiorna a mano quando il medico rivede i testi. */
+/* Data di revisione: non più mostrata in pagina (decisione del medico del 31/10/2026).
+   Resta come promemoria della data dell’ultima revisione dei testi. */
 const REVISIONE = { iso: '2026-10-31', it: '31 ottobre 2026', en: '31 October 2026' };
 
 /* Mappa id -> nome file, condivisa con generate-sitemap.js */
@@ -647,7 +647,6 @@ ${faq
         <div class="inset">
           <p>${t.disclaimer}</p>
         </div>
-        <p class="review-date">${t.reviewText(REVISIONE[t.lang])}</p>
       </div>
     </section>
 
