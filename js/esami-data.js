@@ -1,4 +1,3 @@
-/* DA VERIFICARE: iconaAlt = testo alternativo delle illustrazioni nelle pagine esame (descrizione anatomica). */
 window.ESAMI = [
   {
     id: 'addome-completo',
@@ -252,7 +251,6 @@ window.ESAMI = [
     nome: 'Ecocolordoppler arti inferiori',
     categoria: 'Vascolare (Doppler)',
     descrizione:
-      /* DA VERIFICARE: glosse di arteriopatia periferica e trombosi venosa profonda (31/10/2026) */
       'Studia la circolazione delle arterie e/o delle vene di gambe e piedi. ' +
       'Arterie: claudicatio intermittente (dolore alle gambe camminando, che passa con il riposo), sospetta arteriopatia periferica (restringimento delle arterie delle gambe), ferite che guariscono male. Vene: gambe pesanti, varici, sospetta trombosi venosa profonda (coagulo in una vena della gamba) o insufficienza venosa.',
     prenotaNome: 'Ecocolordoppler arti inferiori',
