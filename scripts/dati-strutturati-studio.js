@@ -33,8 +33,8 @@ const mappa = 'https://www.google.com/maps/place/?q=place_id:ChIJkV7oUY2NERMRBRt
 
 function grafo(isEN) {
   const servizi = isEN
-    ? ['Abdominal ultrasound', 'Thyroid and neck ultrasound', 'Musculoskeletal ultrasound', 'Vascular Doppler ultrasound']
-    : ["Ecografia dell'addome", 'Ecografia della tiroide e del collo', 'Ecografia muscolo-scheletrica', 'Ecocolordoppler vascolare'];
+    ? ['Abdominal ultrasound', 'Thyroid and neck ultrasound', 'Musculoskeletal ultrasound', 'Vascular Doppler ultrasound', 'Home ultrasound scan']
+    : ["Ecografia dell'addome", 'Ecografia della tiroide e del collo', 'Ecografia muscolo-scheletrica', 'Ecocolordoppler vascolare', 'Ecografia a domicilio'];
   return {
     '@context': 'https://schema.org',
     '@graph': [
