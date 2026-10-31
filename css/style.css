@@ -2056,3 +2056,202 @@ html.lenis body {
     padding: 32px;
   }
 }
+
+/* ------------------------------------------------------------------ */
+/* Componenti per le pagine esame, ispirati al design system NHS.UK     */
+/* (nhsuk-frontend, licenza MIT): "Contents list", "Summary list",      */
+/* "Do and Don't list", "Warning callout", "Inset text", "Review date". */
+/* Riscritti qui con la palette del sito, senza JavaScript.             */
+/* ------------------------------------------------------------------ */
+
+/* Indice della pagina: salta subito alla sezione che interessa */
+.page-contents {
+  margin: 0 0 1.5rem;
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+.page-contents-title {
+  display: block;
+  margin: 0 0 0.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+.page-contents ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.6rem;
+}
+.page-contents li {
+  margin: 0;
+}
+.page-contents a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--touch-min);
+  padding: 0.35rem 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--bg);
+  color: var(--accent-ink);
+  font-weight: 500;
+  text-decoration: none;
+}
+.page-contents a:hover,
+.page-contents a:focus-visible {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+/* In breve: dati essenziali dell'esame in due colonne */
+.in-breve {
+  margin: 0 0 1.75rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  overflow: hidden;
+}
+.content-block .in-breve-title {
+  margin: 0;
+  padding: 0.85rem 1.1rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--accent-ink);
+  background: var(--accent-soft);
+}
+.content-block .in-breve-title::before {
+  display: none;
+}
+.in-breve dl {
+  margin: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+}
+.in-breve div {
+  display: grid;
+  grid-template-columns: 7.5rem minmax(0, 1fr);
+  gap: 0.5rem 1rem;
+  padding: 0.8rem 1.1rem;
+  border-top: 1px solid var(--border);
+}
+.in-breve dt {
+  font-weight: 600;
+  color: var(--text-muted);
+}
+.in-breve dd {
+  margin: 0;
+}
+.in-breve dd a {
+  color: var(--accent-ink);
+}
+
+/* Cosa fare e cosa non fare: liste con segno di spunta e croce */
+.do-dont {
+  display: grid;
+  gap: 1rem;
+  margin: 1rem 0 1.5rem;
+}
+.do-dont-box {
+  padding: 1rem 1.1rem 1.1rem;
+  border: 1px solid var(--border);
+  border-top: 4px solid var(--accent);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+.do-dont-box.dont {
+  border-top-color: #b3261e;
+}
+.do-dont-box h3 {
+  margin: 0 0 0.6rem;
+  font-size: 1.05rem;
+}
+.do-dont-box ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.do-dont-box li {
+  position: relative;
+  padding-left: 2rem;
+  margin-bottom: 0.55rem;
+}
+.do-dont-box li:last-child {
+  margin-bottom: 0;
+}
+.do-dont-box li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.15em;
+  width: 1.3em;
+  height: 1.3em;
+  border-radius: 50%;
+  background-color: var(--accent);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 70%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E");
+}
+.do-dont-box.dont li::before {
+  background-color: #b3261e;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='3.5' stroke-linecap='round'%3E%3Cpath d='M6.5 6.5l11 11M17.5 6.5l-11 11'/%3E%3C/svg%3E");
+}
+
+/* Avviso importante: sfondo ambra, titolo in evidenza */
+.callout {
+  margin: 1.25rem 0 1.5rem;
+  padding: 1rem 1.1rem 1.1rem;
+  border: 2px solid #c47f00;
+  border-radius: var(--radius);
+  background: #fff6e0;
+}
+.callout h3 {
+  display: inline-block;
+  margin: -1.65rem 0 0.6rem -0.35rem;
+  padding: 0.2rem 0.6rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  background: #c47f00;
+  color: #fff;
+}
+.callout p {
+  margin: 0;
+}
+
+/* Testo in evidenza: nota che non sostituisce il parere del medico */
+.inset {
+  margin: 1.5rem 0;
+  padding: 0.85rem 1.1rem;
+  border-left: 6px solid var(--accent);
+  background: var(--surface);
+  color: var(--text);
+}
+.inset p {
+  margin: 0;
+}
+
+/* Data di revisione del contenuto medico, in fondo alla pagina */
+.review-date {
+  margin-top: 1.5rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+@media (min-width: 640px) {
+  .do-dont {
+    grid-template-columns: 1fr 1fr;
+  }
+  .in-breve dl {
+    grid-template-columns: 1fr 1fr;
+  }
+  .in-breve div:nth-child(odd) {
+    border-right: 1px solid var(--border);
+  }
+}
