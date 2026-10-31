@@ -30,8 +30,9 @@ window.ESAMI = [
     nome: 'Ecografia addome inferiore',
     categoria: 'Addome',
     descrizione:
-      'Esplora reni, vescica, prostata (sovrapubica), grossi vasi pelvici e intestino pelvico. ' +
-      'Utile per dolore ipogastrico, microematuria, infezioni urinarie ricorrenti, ritenzione urinaria o sospetta patologia renale e vescicale.',
+      /* DA VERIFICARE: reni spostati nell’addome superiore, come indicato dal medico il 31/10/2026 */
+      'Esplora vescica, prostata (sovrapubica), grossi vasi pelvici e, nei casi indicati, intestino pelvico. ' +
+      'Utile per dolore ipogastrico, microematuria, infezioni urinarie ricorrenti, ritenzione urinaria o sospetta patologia vescicale.',
     prenotaNome: 'Ecografia addome inferiore',
   },
   {

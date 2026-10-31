@@ -171,11 +171,11 @@ const FAQ_PRATICHE = [
         esclusi: HANNO_GIA_DURATA,
         it: {
           q: "Quanto dura l’ecografia dell’addome inferiore?",
-          a: "Circa 15–20 minuti a vescica piena; qualche minuto in più se serve controllare la vescica dopo la minzione.",
+          a: "Circa 15–20 minuti a vescica piena; qualche minuto in più se il medico ha chiesto anche il controllo della vescica dopo la minzione.",
         },
         en: {
           q: "How long does a lower abdominal ultrasound take?",
-          a: "About 15–20 minutes with a full bladder; a few minutes more if the bladder needs checking after urinating.",
+          a: "About 15–20 minutes with a full bladder; a few minutes more if your doctor has also asked for the bladder to be checked after urinating.",
         },
       },
       {
@@ -185,11 +185,11 @@ const FAQ_PRATICHE = [
         esclusi: HANNO_GIA_DURATA,
         it: {
           q: "Quanto dura l’ecografia dell’apparato urinario?",
-          a: "Circa 15–20 minuti, compreso il controllo della vescica dopo la minzione (residuo post-minzionale).",
+          a: "Circa 15–20 minuti; qualche minuto in più se il medico ha chiesto anche il controllo della vescica dopo la minzione (residuo post-minzionale).",
         },
         en: {
           q: "How long does a urinary tract ultrasound take?",
-          a: "About 15–20 minutes, including the bladder check after urinating (post-void residual).",
+          a: "About 15–20 minutes; a few minutes more if your doctor has also asked for the bladder check after urinating (post-void residual).",
         },
       },
       {
@@ -213,11 +213,11 @@ const FAQ_PRATICHE = [
         esclusi: HANNO_GIA_DURATA,
         it: {
           q: "Quanto dura l’ecografia vescico-prostatica?",
-          a: "Circa 10–15 minuti, compresa la misura del residuo post-minzionale dopo che hai urinato.",
+          a: "Circa 10–15 minuti; qualche minuto in più se il medico ha chiesto anche la misura del residuo post-minzionale dopo che hai urinato.",
         },
         en: {
           q: "How long does a bladder and prostate ultrasound take?",
-          a: "About 10–15 minutes, including the post-void residual measurement after you have urinated.",
+          a: "About 10–15 minutes; a few minutes more if your doctor has also asked for the post-void residual measurement after you have urinated.",
         },
       },
       {

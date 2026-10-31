@@ -1,26 +1,26 @@
 window.ESAMI_PAZIENTE = {
   'addome-completo': {
-    sintesi: 'Controllo dell’addome: fegato, cistifellea, pancreas, milza, reni, vescica e altri organi.',
+    sintesi: 'Controllo dell’addome: fegato, colecisti (cistifellea), pancreas, milza, reni, vescica e altri organi.',
     perche:
       'Il medico te la prescrive se hai dolore o fastidi all’addome, analisi del sangue alterate, sospetta calcolosi o se serve un controllo di una patologia già nota.',
     svolgimento:
-      'Ti sdrai sul lettino. Si applica del gel sull’addome e si muove la sonda. A volte ti chiederanno di trattenere un po’ il respiro. Dura in genere 15–30 minuti, di solito circa 20.',
+      'Ti sdrai sul lettino. Metto il gel sull’addome e muovo la sonda. A volte ti chiedo di trattenere un po’ il respiro. Dura in genere 15–30 minuti, di solito circa 20.',
     cosaControlla:
-      'Guardiamo fegato, cistifellea e vie biliari, pancreas, milza, reni, vescica e l’aorta addominale. Negli uomini valutiamo anche la prostata.',
+      'Guardo fegato, colecisti e vie biliari, pancreas, milza, reni, vescica e l’aorta addominale. Negli uomini valuto anche la prostata.',
   },
   'addome-superiore': {
-    sintesi: 'Controllo della parte alta dell’addome: fegato, cistifellea, pancreas, milza e reni.',
+    sintesi: 'Controllo della parte alta dell’addome: fegato, colecisti (cistifellea), pancreas, milza e reni.',
     perche:
-      'Serve se hai dolore sotto le costole, sospetta colica della cistifellea, febbre senza causa chiara o analisi del fegato o del pancreas fuori norma.',
+      'Serve se hai dolore sotto le costole, sospetta colica della colecisti, febbre senza causa chiara o analisi del fegato o del pancreas fuori norma.',
     svolgimento:
       'Sei disteso supino. Gel sulla pelle e sonda che scorre sulla parte alta dell’addome. A volte serve trattenere il respiro qualche secondo.',
     cosaControlla:
-      'Controlliamo fegato, cistifellea, vie biliari, pancreas, milza e la parte alta dei reni.',
+      'Controllo fegato, colecisti, vie biliari, pancreas, milza e i due reni.',
     faqExtra: [
       {
-        q: "Si vedono i calcoli della colecisti?",
+        q: "Si vedono i calcoli della colecisti (cistifellea)?",
         a:
-          "Sì. Per la colelitiasi (calcoli nella colecisti) l’ecografia è l’esame di prima scelta. I calcoli nella via biliare principale (il coledoco) sono invece più difficili da vedere: se il sospetto rimane, il medico può indicare altri esami.",
+          "Sì: per i calcoli nella colecisti (colelitiasi) l’ecografia è l’esame di prima scelta. I calcoli nella via biliare principale (il coledoco) sono invece più difficili da vedere: se il sospetto rimane, il medico può indicare altri esami.",
         verificata: true,
       },
       {
@@ -32,19 +32,22 @@ window.ESAMI_PAZIENTE = {
       {
         q: "Che differenza c’è con l’ecografia dell’addome completo?",
         a:
-          "L’addome superiore comprende fegato, colecisti, vie biliari, pancreas, milza e reni. L’addome completo aggiunge la vescica e, negli uomini, la prostata con approccio sovrapubico.",
+          /* DA VERIFICARE: perimetro dell’addome completo (aorta, prostata) e vescica piena, come indicato dal medico il 31/10/2026 */
+          "L’addome superiore comprende fegato, colecisti, vie biliari, pancreas, milza e reni, e richiede il digiuno. L’addome completo aggiunge la vescica, l’aorta addominale e, negli uomini, la prostata: per questo richiede, oltre al digiuno, anche la vescica piena.",
         verificata: true,
       },
     ],
   },
   'addome-inferiore': {
-    sintesi: 'Controllo della parte bassa dell’addome: reni, vescica, prostata e organi pelvici.',
+    /* DA VERIFICARE: perimetro dell’addome inferiore come indicato dal medico il 31/10/2026 (reni nell’addome superiore) */
+    sintesi: 'Controllo della parte bassa dell’addome: vescica, prostata (negli uomini) e strutture del bacino visibili da sopra il pube.',
     perche:
       'Utile per dolore in basso ventre, bruciore o infezioni urinarie di ripetizione, difficoltà a urinare o sangue nelle urine.',
     svolgimento:
-      'Ti sdrai e si applica il gel sul basso ventre. La sonda passa sopra la vescica e la zona pelvica.',
+      'Serve arrivare con la vescica piena. Ti sdrai sulla schiena, metto il gel sul basso ventre e passo la sonda sopra la vescica e sul bacino, da un lato e dall’altro. Negli uomini, da questa posizione vedo anche la prostata.',
     cosaControlla:
-      'Guardiamo reni, vescica, prostata (negli uomini, da sopra il pube) e le strutture del bacino in quella zona.',
+      /* DA VERIFICARE: casi particolari (sospetta appendicite o diverticolite) indicati dal medico il 31/10/2026 */
+      'Guardo vescica, prostata (negli uomini, da sopra il pube) e le strutture del bacino visibili da lì. Nei casi indicati dal medico, per esempio se si sospetta un’appendicite o una diverticolite, guardo anche la parte bassa dell’intestino.',
     faqExtra: [
       {
         q: "Ho infezioni urinarie ricorrenti: l’ecografia serve?",
@@ -55,29 +58,30 @@ window.ESAMI_PAZIENTE = {
       {
         q: "Che differenza c’è con l’ecografia dell’addome superiore?",
         a:
-          "L’addome inferiore studia reni, vescica, prostata negli uomini e organi pelvici, e richiede la vescica piena. L’addome superiore studia fegato, colecisti, vie biliari, pancreas e milza, e richiede il digiuno.",
+          "L’addome inferiore studia vescica, prostata negli uomini e strutture del bacino, e richiede la vescica piena. L’addome superiore studia fegato, colecisti, vie biliari, pancreas, milza e reni, e richiede il digiuno.",
         verificata: true,
       },
     ],
   },
   'apparato-urinario': {
-    sintesi: 'Controllo di reni, vie urinarie e vescica, anche dopo aver urinato.',
+    sintesi: 'Controllo di reni, vie urinarie e vescica; se richiesto, anche dopo aver urinato.',
     perche:
       'La fai se hai colica renale, sangue nelle urine, infezioni urinarie frequenti o il medico sospetta un ostacolo al passaggio dell’urina.',
     svolgimento:
-      'Prima si guarda con la vescica piena; poi, se serve, ti chiederemo di urinare e si controlla quanta urina resta in vescica. Metto il gel sull’addome e sui fianchi, dove si trovano i reni.',
+      'Prima guardo con la vescica piena. Poi, solo se il medico che ti ha prescritto l’esame lo richiede, ti chiedo di urinare e controllo quanta urina resta in vescica. Metto il gel sull’addome e sui fianchi, dove si trovano i reni.',
     cosaControlla:
-      'Valutiamo reni, ureteri e vescica, e misuriamo l’eventuale residuo di urina dopo la minzione.',
+      /* DA VERIFICARE: residuo post-minzionale solo su richiesta del medico curante (indicazione del 31/10/2026) */
+      'Valuto reni, ureteri e vescica e, se richiesto dal medico, misuro l’urina che resta dopo aver urinato.',
     faqExtra: [
       {
         q: 'Quanto devo bere e da che ora non devo urinare?',
         a:
-          'Bevi circa un litro d’acqua nell’ora prima dell’esame e poi trattieni. La vescica piena fa da finestra: senza, la parte bassa non si valuta bene. Non serve invece il digiuno.',
+          'Finisci di bere circa un litro d’acqua un’ora prima dell’appuntamento e da quel momento non urinare. La vescica piena fa da finestra: senza, la parte bassa dell’apparato urinario non si valuta bene. Non serve il digiuno: puoi mangiare normalmente.',
       },
       {
         q: 'E se proprio non riesco a trattenere?',
         a:
-          'Dimmelo appena arrivi, non è un problema. Iniziamo studiando reni e alta via urinaria, che non dipendono dalla vescica, e recuperiamo il resto appena possibile. Una parte dell’esame si fa comunque dopo aver urinato, per misurare quanta urina resta.',
+          'Dimmelo appena arrivi, non è un problema. Inizio studiando reni e alta via urinaria, che non dipendono dalla vescica, e recupero il resto appena possibile. Se il medico ha chiesto anche la misura dell’urina che resta dopo aver urinato, quella parte si fa comunque.',
       },
       {
         q: 'L’ecografia vede i calcoli?',
@@ -98,7 +102,7 @@ window.ESAMI_PAZIENTE = {
       {
         q: "Che differenza c’è con l’ecografia dell’apparato urinario?",
         a:
-          "L’ecografia renale studia i reni, le pelvi renali (le cavità che raccolgono l’urina nel rene) e il tratto iniziale degli ureteri. L’ecografia dell’apparato urinario comprende anche la vescica e la misura del residuo post-minzionale, e per questo richiede la vescica piena.",
+          "L’ecografia renale studia i reni, le pelvi renali (le cavità che raccolgono l’urina nel rene) e il tratto iniziale degli ureteri. L’ecografia dell’apparato urinario comprende anche la vescica, e per questo richiede la vescica piena; se il medico lo chiede, misura anche l’urina che resta dopo aver urinato.",
         verificata: true,
       },
       {
@@ -128,7 +132,7 @@ window.ESAMI_PAZIENTE = {
     svolgimento:
       'È importante arrivare con la vescica abbastanza piena. Ti sdrai, gel sul basso ventre, sonda sopra il pube.',
     cosaControlla:
-      'Valutiamo vescica e prostata e, se serve, quanta urina resta dopo aver urinato.',
+      'Valuto vescica e prostata e, se il medico lo richiede, quanta urina resta dopo aver urinato.',
     faqExtra: [
       {
         q: "La prostata si vede con la sonda sull’addome?",
