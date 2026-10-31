@@ -218,13 +218,12 @@ window.ESAMI_PAZIENTE = {
     svolgimento:
       'Con la spalla scoperta, si applica il gel e si passa la sonda davanti, di lato e dietro la spalla. Viene chiesto di alzare, ruotare e portare dietro la schiena il braccio: i tendini si vedono meglio in movimento.',
     cosaControlla:
-      /* DA VERIFICARE: glossa anatomica (acromion) */
-      'Si valutano i tendini della cuffia dei rotatori, la borsa sotto l’acromion (la sporgenza ossea in cima alla spalla) e il tendine del bicipite.',
+      'Si valutano i tendini della cuffia dei rotatori, la borsa subacromiale (per esempio nei casi di sospetta borsite) e il tendine del bicipite.',
     faqExtra: [
       {
         q: 'L’ecografia della spalla vede la cuffia dei rotatori?',
         a:
-          'Sì, ed è proprio il suo punto di forza. I tendini della cuffia, la borsa sotto l’acromion e il capo lungo del bicipite si studiano molto bene con gli ultrasuoni, sia per le infiammazioni sia per le lesioni.',
+          'Sì, ed è proprio il suo punto di forza. I tendini della cuffia, la borsa subacromiale e il capo lungo del bicipite si studiano molto bene con gli ultrasuoni, sia per le infiammazioni sia per le lesioni.',
       },
       {
         q: 'Meglio l’ecografia o la risonanza per la spalla?',
@@ -328,8 +327,7 @@ window.ESAMI_PAZIENTE = {
     perche:
       'Si fa nelle prime settimane di vita per escludere l’anca che non è formata bene o che esce dalla sede, soprattutto se ci sono fattori di rischio o se il pediatra lo chiede.',
     svolgimento:
-      /* DA VERIFICARE: posizione del neonato e modalità dell’esame da confermare con il medico */
-      'Il bambino viene sdraiato su un fianco, con il pannolino aperto, mentre il genitore gli sta accanto e lo tiene tranquillo. Si appoggia una sonda piccola sull’anca con un po’ di gel tiepido, prima da un lato e poi dall’altro. Si può fare anche mentre poppa o dorme.',
+      'Il bambino viene sdraiato su un fianco, con il pannolino aperto, mentre il genitore gli sta accanto e lo tiene tranquillo. Si appoggia una sonda piccola sull’anca con un po’ di gel tiepido, prima da un lato e poi dall’altro. Si può fare anche mentre dorme.',
     cosaControlla:
       'Si valuta se l’anca è ben formata e stabile, misurandone gli angoli secondo il metodo di Graf, quello usato di norma per i neonati.',
     faqExtra: [
@@ -341,12 +339,11 @@ window.ESAMI_PAZIENTE = {
       {
         q: 'Il bambino sente dolore durante l’esame?',
         a:
-          'No, è del tutto indolore e non usa radiazioni. Si appoggia solo la sonda con un po’ di gel tiepido sull’anca. Dura in genere 10–15 minuti e si può fare anche mentre dorme o poppa: si può portare il ciuccio o il biberon, aiuta a tenerlo tranquillo.',
+          'No, è del tutto indolore e non usa radiazioni. Si appoggia solo la sonda con un po’ di gel tiepido sull’anca. Dura in genere 10–15 minuti e si può fare anche mentre dorme; il ciuccio può aiutare a tenerlo tranquillo.',
       },
       {
         q: 'Perché è importante farla nei tempi giusti?',
         a:
-          /* DA VERIFICARE: riformulazione prudente (tutore indicato e seguito dall’ortopedico pediatrico) */
           'Perché, se l’anca ha bisogno di aiuto per formarsi bene, intervenire nei primi mesi è più semplice: spesso basta un tutore (divaricatore) che l’ortopedico pediatrico indica e segue nel tempo. Per questo il controllo si fa anche quando il bambino sta benissimo.',
       },
     ],
@@ -356,8 +353,7 @@ window.ESAMI_PAZIENTE = {
     perche:
       'Si fa in caso di “gomito del tennista” o del golfista, dolore dopo movimenti ripetuti, gonfiore sul gomito o dopo un colpo.',
     svolgimento:
-      /* DA VERIFICARE: posizione e manovre descritte da confermare con il modo di lavorare del medico */
-      'Il paziente si siede o si sdraia con il gomito appoggiato, un po’ piegato. Si applica il gel e si passa la sonda sul lato esterno, su quello interno e sulla piega del gomito. A volte viene chiesto di stringere il pugno o ruotare l’avambraccio.',
+      'Si applica il gel e si passa la sonda sul lato esterno, su quello interno e sulla piega del gomito. A volte viene chiesto di stringere il pugno o ruotare l’avambraccio.',
     cosaControlla:
       'Si valutano i tendini interni ed esterni del gomito, quello del bicipite e la borsa sulla punta del gomito.',
     faqExtra: [
@@ -429,7 +425,6 @@ window.ESAMI_PAZIENTE = {
     perche:
       'Serve dopo una distorsione di caviglia, dolore al tallone o alla pianta del piede, o sospetta lesione ai legamenti.',
     svolgimento:
-      /* DA VERIFICARE: posizione e manovre descritte da confermare con il modo di lavorare del medico */
       'Il paziente si sdraia sul lettino con il piede scoperto. Si applica il gel sulla caviglia o sulla pianta del piede, dove si avverte dolore, e si passa la sonda. A volte viene chiesto di muovere il piede o di indicare il punto esatto che fa male, per vedere tendini e legamenti in movimento.',
     cosaControlla:
       'Si valutano legamenti della caviglia, tendine di Achille, fascia plantare e borse del piede.',
@@ -437,7 +432,6 @@ window.ESAMI_PAZIENTE = {
       {
         q: 'Serve per il dolore al tallone?',
         a:
-          /* DA VERIFICARE: «spesso sì» e rimando alla radiografia se il dolore viene dall’osso */
           'Spesso sì. La causa più frequente è la fascite plantare (infiammazione della fascia che sostiene la pianta del piede): si misura lo spessore della fascia dove si attacca al calcagno e lo si confronta con l’altro lato. Si valutano anche il tendine d’Achille e le borse vicine. Se il dolore viene dall’osso, il medico può indicare una radiografia.',
       },
       {

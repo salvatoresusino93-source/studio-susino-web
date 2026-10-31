@@ -13,7 +13,6 @@ window.ESAMI_PAZIENTE = {
     perche:
       'Useful if you have pain below the ribs, suspected gallbladder colic, fever with no clear cause, or abnormal liver or pancreas blood tests.',
     svolgimento:
-      /* DA VERIFICARE: come nella versione italiana */
       'You lie on your back. I put gel on the upper abdomen and move the probe over the subcostal region, on the right and on the left. Sometimes I ask you to hold your breath for a few seconds or turn on your side.',
     cosaControlla:
       'I check the liver, gallbladder, bile ducts, pancreas, spleen and both kidneys.',
@@ -33,21 +32,18 @@ window.ESAMI_PAZIENTE = {
       {
         q: "How does it differ from a complete abdominal ultrasound?",
         a:
-          /* DA VERIFICARE: come nella versione italiana */
           "The upper abdomen covers the liver, gallbladder, bile ducts, pancreas, spleen and kidneys, and needs fasting. The complete abdomen adds the bladder, the abdominal aorta and, in men, the prostate: this is why it needs a full bladder as well as fasting.",
         verificata: true,
       },
     ],
   },
   'addome-inferiore': {
-    /* DA VERIFICARE: come nella versione italiana */
     sintesi: 'A check of the lower abdomen: bladder, prostate (in men), uterus and ovaries (in women) and other pelvic structures seen from above the pubic bone.',
     perche:
       'Useful for lower abdominal pain, burning or recurrent urinary infections, difficulty urinating or blood in the urine.',
     svolgimento:
       'You need to arrive with a full bladder. You lie on your back, I put gel on the lower abdomen and move the probe over the bladder and the pelvis, on both sides. From this position I can also see the prostate in men, and the uterus and ovaries in women.',
     cosaControlla:
-      /* DA VERIFICARE: come nella versione italiana */
       'I look at the bladder, the prostate (in men), the uterus and ovaries (in women) and the other pelvic structures seen from above the pubic bone. When your doctor asks for it, for example if appendicitis or diverticulitis is suspected, I also look at the lower bowel.',
     faqExtra: [
       {
@@ -71,7 +67,6 @@ window.ESAMI_PAZIENTE = {
     svolgimento:
       'First I look with a full bladder. Then, only if the doctor who prescribed the scan asks for it, I ask you to urinate and check how much urine remains in the bladder. I put gel on the abdomen and flanks, where the kidneys are.',
     cosaControlla:
-      /* DA VERIFICARE: come nella versione italiana */
       'I assess the kidneys, ureters and bladder and, if your doctor requests it, measure the urine left after you have urinated.',
     faqExtra: [
       {
@@ -221,15 +216,14 @@ window.ESAMI_PAZIENTE = {
     perche:
       'You have it if it hurts to raise your arm, after trauma, or if you suspect inflammation or an injury to the shoulder.',
     svolgimento:
-      /* DA VERIFICARE: come nella versione italiana */
       'With your shoulder uncovered, I apply gel and move the probe over the front, side and back of the shoulder. I will ask you to raise, rotate and put your arm behind your back: the tendons are seen better in motion.',
     cosaControlla:
-      'I assess the rotator cuff tendons, the bursa under the acromion (the bony tip at the top of the shoulder) and the biceps tendon.',
+      'I assess the rotator cuff tendons, the subacromial bursa (for example when bursitis is suspected) and the biceps tendon.',
     faqExtra: [
       {
         q: "Can shoulder ultrasound see the rotator cuff?",
         a:
-          "Yes, and that is its strong point. The cuff tendons, the bursa under the acromion and the long head of the biceps are studied very well with ultrasound, both for inflammation and for tears.",
+          "Yes, and that is its strong point. The cuff tendons, the subacromial bursa and the long head of the biceps are studied very well with ultrasound, both for inflammation and for tears.",
       },
       {
         q: "Is ultrasound or MRI better for the shoulder?",
@@ -333,8 +327,7 @@ window.ESAMI_PAZIENTE = {
     perche:
       'Done in the first weeks of life to rule out a hip that has not formed well or that comes out of place, especially if there are risk factors or the paediatrician requests it.',
     svolgimento:
-      /* DA VERIFICARE: come nella versione italiana */
-      'The baby lies on one side, with the nappy open, while you stay beside them and keep them calm. I place a small probe on the hip with a little warm gel, first on one side and then on the other. It can be done while the baby feeds or sleeps.',
+      'The baby lies on one side, with the nappy open, while you stay beside them and keep them calm. I place a small probe on the hip with a little warm gel, first on one side and then on the other. It can be done while the baby sleeps.',
     cosaControlla:
       'I check whether the hip is well formed and stable, measuring its angles with the Graf method, the one normally used for newborns.',
     faqExtra: [
@@ -346,12 +339,11 @@ window.ESAMI_PAZIENTE = {
       {
         q: "Does the baby feel any pain during the scan?",
         a:
-          "No, it is completely painless and uses no radiation. The probe is simply placed on the hip with a little warm gel. It usually takes 10–15 minutes and can even be done while the baby sleeps or feeds: feel free to bring a dummy or bottle, it helps keep the baby calm.",
+          "No, it is completely painless and uses no radiation. The probe is simply placed on the hip with a little warm gel. It usually takes 10–15 minutes and can even be done while the baby sleeps; a dummy can help keep the baby calm.",
       },
       {
         q: "Why is it important to do it at the right time?",
         a:
-          /* DA VERIFICARE: come nella versione italiana */
           "Because, if the hip needs help to develop properly, acting in the first months is simpler: often a brace (abduction splint), prescribed and followed up by the paediatric orthopaedic specialist, is enough. That is why this check is done even when the baby is perfectly well.",
       },
     ],
@@ -361,8 +353,7 @@ window.ESAMI_PAZIENTE = {
     perche:
       'You have it if you have tennis or golfer\'s elbow, pain after repeated movements, swelling on the elbow or after a knock.',
     svolgimento:
-      /* DA VERIFICARE: come nella versione italiana */
-      'You sit or lie down with your elbow resting, slightly bent. I put gel on the skin and move the probe over the outer side, the inner side and the crease of the elbow. Sometimes I ask you to clench your fist or turn your forearm.',
+      'I put gel on the skin and move the probe over the outer side, the inner side and the crease of the elbow. Sometimes I ask you to clench your fist or turn your forearm.',
     cosaControlla:
       'I assess the inner and outer tendons of the elbow, the biceps tendon and the bursa on the tip of the elbow.',
     faqExtra: [
@@ -434,7 +425,6 @@ window.ESAMI_PAZIENTE = {
     perche:
       'Useful after an ankle sprain, heel or sole pain, or suspected ligament injury.',
     svolgimento:
-      /* DA VERIFICARE: come nella versione italiana */
       'You lie on the couch with your foot uncovered. I put gel on the ankle or the sole of the foot, where it hurts, and move the probe. Sometimes I ask you to move your foot or point to the exact spot that hurts, to see the tendons and ligaments in motion.',
     cosaControlla:
       'I assess the ankle ligaments, the Achilles tendon, the plantar fascia and the bursae of the foot.',
@@ -442,7 +432,6 @@ window.ESAMI_PAZIENTE = {
       {
         q: "Is it useful for heel pain?",
         a:
-          /* DA VERIFICARE: come nella versione italiana */
           "Often, yes. The most common cause is plantar fasciitis (inflammation of the band of tissue supporting the sole): I measure the thickness of the fascia where it attaches to the heel bone and compare it with the other side. I also look at the Achilles tendon and nearby bursae. If the pain comes from the bone, your doctor may suggest an X-ray.",
       },
       {
@@ -488,7 +477,6 @@ window.ESAMI_PAZIENTE = {
     perche:
       'You have it to monitor an aneurysm, that is a widening of the aorta, that has already been found, or if your doctor suspects the aorta is enlarged or there is a problem with the large vessels of the abdomen.',
     svolgimento:
-      /* DA VERIFICARE: come nella versione italiana */
       'You lie on your back with your abdomen uncovered. I apply gel and follow the aorta with the probe from the stomach down to the lower abdomen, measuring its diameter at several points. Sometimes I ask you to hold your breath for a few seconds; you may hear the sound of the flow.',
     cosaControlla:
       'I measure the diameter of the abdominal aorta at several points and of the iliac arteries, the two branches it divides into in the lower abdomen, and look at how the blood flows.',
