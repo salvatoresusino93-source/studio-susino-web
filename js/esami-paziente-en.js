@@ -4,9 +4,9 @@ window.ESAMI_PAZIENTE = {
     perche:
       'Your doctor requests it if you have abdominal pain or discomfort, abnormal blood tests, suspected stones, or to check a condition that is already known.',
     svolgimento:
-      'You lie down on the couch. Gel is applied to the abdomen and the probe is moved over it. Sometimes you will be asked to hold your breath briefly. It usually takes 15–30 minutes, typically about 20.',
+      'You lie down on the couch. I apply gel to the abdomen and move the probe over it. Sometimes I ask you to hold your breath briefly. It usually takes 15–30 minutes, typically about 20.',
     cosaControlla:
-      'We look at the liver, gallbladder and biliary tract, pancreas, spleen, kidneys, bladder and the abdominal aorta. In men we also assess the prostate.',
+      'I look at the liver, gallbladder and biliary tract, pancreas, spleen, kidneys, bladder and the abdominal aorta. In men I also assess the prostate.',
   },
   'addome-superiore': {
     sintesi: 'A check of the upper abdomen: liver, gallbladder, pancreas, spleen and kidneys.',
@@ -38,13 +38,15 @@ window.ESAMI_PAZIENTE = {
     ],
   },
   'addome-inferiore': {
-    sintesi: 'A check of the lower abdomen: kidneys, bladder, prostate and pelvic organs.',
+    /* DA VERIFICARE: come nella versione italiana */
+    sintesi: 'A check of the lower abdomen: bladder, prostate (in men) and the pelvic structures seen from above the pubic bone.',
     perche:
       'Useful for lower abdominal pain, burning or recurrent urinary infections, difficulty urinating or blood in the urine.',
     svolgimento:
-      'You lie down and gel is applied to the lower abdomen. The probe passes over the bladder and pelvic area.',
+      'You need to arrive with a full bladder. You lie on your back, I put gel on the lower abdomen and move the probe over the bladder and the pelvis, on both sides. In men, from this position I can also see the prostate.',
     cosaControlla:
-      'We look at the kidneys, bladder, prostate (in men, from above the pubic bone) and the pelvic structures in that area.',
+      /* DA VERIFICARE: come nella versione italiana */
+      'I look at the bladder, the prostate (in men, from above the pubic bone) and the pelvic structures seen from there. When your doctor asks for it, for example if appendicitis or diverticulitis is suspected, I also look at the lower bowel.',
     faqExtra: [
       {
         q: "I have recurrent urinary infections: is the ultrasound useful?",
@@ -55,29 +57,30 @@ window.ESAMI_PAZIENTE = {
       {
         q: "How does it differ from an upper abdominal ultrasound?",
         a:
-          "The lower abdomen covers the kidneys, bladder, prostate in men and pelvic organs, and needs a full bladder. The upper abdomen covers the liver, gallbladder, bile ducts, pancreas and spleen, and needs fasting.",
+          "The lower abdomen covers the bladder, the prostate in men and the pelvic structures, and needs a full bladder. The upper abdomen covers the liver, gallbladder, bile ducts, pancreas, spleen and kidneys, and needs fasting.",
         verificata: true,
       },
     ],
   },
   'apparato-urinario': {
-    sintesi: 'A check of the kidneys, urinary tract and bladder, including after urinating.',
+    sintesi: 'A check of the kidneys, urinary tract and bladder; if requested, also after urinating.',
     perche:
       'You have it if you have renal colic, blood in the urine, frequent urinary infections, or your doctor suspects an obstruction to the flow of urine.',
     svolgimento:
-      'First we look with a full bladder; then, if needed, we ask you to urinate and check how much urine remains in the bladder. Gel on the abdomen or flank.',
+      'First I look with a full bladder. Then, only if the doctor who prescribed the scan asks for it, I ask you to urinate and check how much urine remains in the bladder. I put gel on the abdomen and flanks, where the kidneys are.',
     cosaControlla:
-      'We assess the kidneys, ureters and bladder, and measure any urine left after voiding.',
+      /* DA VERIFICARE: come nella versione italiana */
+      'I assess the kidneys, ureters and bladder and, if your doctor requests it, measure the urine left after you have urinated.',
     faqExtra: [
       {
         q: "How much should I drink, and from when should I stop urinating?",
         a:
-          "Drink about a litre of water in the hour before the scan and then hold on. A full bladder acts as a window: without it the lower part cannot be assessed properly. Fasting, on the other hand, is not needed.",
+          "Finish drinking about a litre of water an hour before your appointment and do not urinate after that. A full bladder acts as a window: without it the lower urinary tract cannot be assessed properly. No fasting is needed: you can eat normally.",
       },
       {
         q: "What if I really can't hold on?",
         a:
-          "Tell me as soon as you arrive, it is not a problem. We start with the kidneys and upper urinary tract, which do not depend on the bladder, and complete the rest as soon as possible. Part of the scan is done after you have urinated anyway, to measure how much urine is left.",
+          "Tell me as soon as you arrive, it is not a problem. I start with the kidneys and upper urinary tract, which do not depend on the bladder, and complete the rest as soon as possible. If your doctor has also asked for the measurement of the urine left after you urinate, that part is done anyway.",
       },
       {
         q: "Can the ultrasound see stones?",
@@ -128,7 +131,7 @@ window.ESAMI_PAZIENTE = {
     svolgimento:
       'It is important to arrive with a reasonably full bladder. You lie down, gel on the lower abdomen, the probe above the pubic bone.',
     cosaControlla:
-      'We assess the bladder and prostate and, if needed, how much urine remains after voiding.',
+      'I assess the bladder and prostate and, if your doctor requests it, how much urine remains after you have urinated.',
     faqExtra: [
       {
         q: "Can the prostate be seen with the probe on the abdomen?",

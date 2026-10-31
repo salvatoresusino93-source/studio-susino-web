@@ -77,12 +77,12 @@ const FAQ_GRUPPI = {
       verificata: true,
       solo: ['vescico-prostatica'],
       it: {
-        q: 'Perché si controlla la vescica anche dopo aver urinato?',
-        a: 'Per misurare quanta urina resta in vescica dopo la minzione, il cosiddetto residuo post-minzionale. Un residuo elevato può indicare che la vescica non si svuota bene, per esempio per un ingrossamento della prostata.',
+        q: 'Perché a volte si controlla la vescica anche dopo aver urinato?',
+        a: 'Si fa quando lo chiede il medico curante, per misurare quanta urina resta in vescica dopo la minzione, il cosiddetto residuo post-minzionale. Un residuo elevato può indicare che la vescica non si svuota bene, per esempio per un ingrossamento della prostata.',
       },
       en: {
-        q: 'Why is the bladder also checked after urinating?',
-        a: 'To measure how much urine remains in the bladder after urinating, the so-called post-void residual. A high residual may indicate that the bladder does not empty properly, for example because of an enlarged prostate.',
+        q: 'Why is the bladder sometimes also checked after urinating?',
+        a: 'It is done when your doctor asks for it, to measure how much urine remains in the bladder after urinating, the so-called post-void residual. A high residual may indicate that the bladder does not empty properly, for example because of an enlarged prostate.',
       },
     },
     {
