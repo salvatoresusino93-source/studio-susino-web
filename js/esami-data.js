@@ -1,4 +1,3 @@
-/* DA VERIFICARE: iconaAlt = testo alternativo delle illustrazioni nelle pagine esame (descrizione anatomica). */
 window.ESAMI = [
   {
     id: 'addome-completo',
@@ -30,8 +29,6 @@ window.ESAMI = [
     nome: 'Ecografia addome inferiore',
     categoria: 'Addome',
     descrizione:
-      /* DA VERIFICARE: reni spostati nell’addome superiore, come indicato dal medico il 31/10/2026 */
-      /* DA VERIFICARE: utero e ovaie nominati su decisione del medico del 31/10/2026 */
       'Esplora vescica, prostata (dall’esterno, sopra il pube), utero e ovaie, grossi vasi del bacino e, nei casi indicati, l’intestino del bacino. ' +
       'Il medico la richiede per dolore al basso ventre, tracce di sangue nelle urine, infezioni urinarie che si ripetono, difficoltà a svuotare la vescica o sospetta malattia della vescica.',
     prenotaNome: 'Ecografia addome inferiore',
@@ -77,7 +74,6 @@ window.ESAMI = [
     nome: 'Ecografia scrotale e testicolare',
     categoria: 'Apparato urinario e urologia',
     descrizione:
-      /* DA VERIFICARE: glosse di varicocele e idrocele (31/10/2026) */
       'Studia testicoli, epididimi (i piccoli canali dietro ogni testicolo) e funicolo spermatico. ' +
       'Si richiede per dolore o gonfiore dello scroto, un nodulo che si sente al tatto, un trauma, sospetta torsione del testicolo (urgenza), varicocele (vene dilatate), idrocele (raccolta di liquido), infiammazione del testicolo o dell’epididimo, o nello studio dell’infertilità maschile.',
     prenotaNome: 'Ecografia scrotale e testicolare',
@@ -160,7 +156,6 @@ window.ESAMI = [
     nome: 'Ecografia anca neonatale',
     categoria: 'Pediatrica',
     descrizione:
-      /* DA VERIFICARE: «displasia evolutiva» al posto di «displasia congenita» e spiegazione per i genitori (31/10/2026) */
       'Controllo con ultrasuoni delle anche del neonato e del lattante (metodo di Graf), per vedere se le anche si stanno formando bene e riconoscere presto la displasia evolutiva dell’anca, cioè un’anca che non si è formata bene o che tende a uscire dalla sua sede. ' +
       'Si fa nelle prime settimane di vita, soprattutto se ci sono fattori di rischio (parto podalico, casi in famiglia, poco liquido amniotico in gravidanza) o se il pediatra ha notato qualcosa alla visita. A volte il pediatra chiede di ripeterla dopo qualche settimana per seguire la crescita dell’anca.',
     prenotaNome: 'Ecografia anca neonatale',
@@ -185,7 +180,6 @@ window.ESAMI = [
     nome: 'Ecografia polso e mano',
     categoria: 'Muscolo-scheletrico',
     descrizione:
-      /* DA VERIFICARE: glosse di tunnel carpale e tenosinovite (31/10/2026) */
       'Studia i tendini che piegano e raddrizzano le dita, il nervo mediano nel tunnel carpale (il passaggio al polso), le borse e le articolazioni di polso e mano. ' +
       'Indicata per sospetta sindrome del tunnel carpale (formicolio e dolore alle dita), tenosinovite (infiammazione della guaina dei tendini), dolore da sforzo ripetuto o trauma.',
     prenotaNome: 'Ecografia polso e mano',
@@ -221,7 +215,6 @@ window.ESAMI = [
     nome: 'Ecocolordoppler carotidi',
     categoria: 'Vascolare (Doppler)',
     descrizione:
-      /* DA VERIFICARE: glosse di soffio carotideo e TIA (31/10/2026) */
       'Valuta forma e flusso di carotidi, vertebrali e succlavie, le grandi arterie che dal cuore portano il sangue alla testa e alle braccia (sull’impegnativa anche «TSA», tronchi sovra-aortici). ' +
       'Indicata per valutare e seguire nel tempo il rischio di ictus: fattori di rischio cardiovascolare, soffio carotideo (rumore che il medico sente con lo stetoscopio), TIA (disturbo simile all’ictus che passa in poco tempo) o ictus precedenti, vertigini di origine vascolare o restringimenti già noti.',
     prenotaNome: 'Ecocolordoppler TSA (tronchi sovra-aortici)',
@@ -258,7 +251,6 @@ window.ESAMI = [
     nome: 'Ecocolordoppler arti inferiori',
     categoria: 'Vascolare (Doppler)',
     descrizione:
-      /* DA VERIFICARE: glosse di arteriopatia periferica e trombosi venosa profonda (31/10/2026) */
       'Studia la circolazione delle arterie e/o delle vene di gambe e piedi. ' +
       'Arterie: claudicatio intermittente (dolore alle gambe camminando, che passa con il riposo), sospetta arteriopatia periferica (restringimento delle arterie delle gambe), ferite che guariscono male. Vene: gambe pesanti, varici, sospetta trombosi venosa profonda (coagulo in una vena della gamba) o insufficienza venosa.',
     prenotaNome: 'Ecocolordoppler arti inferiori',

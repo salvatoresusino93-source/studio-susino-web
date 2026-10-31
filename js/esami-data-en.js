@@ -1,4 +1,3 @@
-/* DA VERIFICARE: iconaAlt = testo alternativo delle illustrazioni nelle pagine esame (descrizione anatomica). */
 window.ESAMI = [
   {
     id: 'addome-completo',
