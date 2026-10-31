@@ -4,9 +4,9 @@ window.ESAMI_PAZIENTE = {
     perche:
       'Il medico la prescrive in caso di dolore o fastidi all’addome, analisi del sangue alterate, sospetta calcolosi o se serve un controllo di una patologia già nota.',
     svolgimento:
-      'Il paziente si sdraia sul lettino. Metto il gel sull’addome e muovo la sonda. A volte chiedo di trattenere un po’ il respiro. Dura in genere 15–30 minuti, di solito circa 20.',
+      'Il paziente si sdraia sul lettino. Si applica il gel sull’addome e si muove la sonda. A volte viene chiesto di trattenere un po’ il respiro. Dura in genere 15–30 minuti, di solito circa 20.',
     cosaControlla:
-      'Guardo fegato, colecisti e vie biliari, pancreas, milza, reni, vescica e l’aorta addominale. Negli uomini valuto anche la prostata.',
+      'Si valutano fegato, colecisti e vie biliari, pancreas, milza, reni, vescica e l’aorta addominale. Negli uomini si valuta anche la prostata.',
   },
   'addome-superiore': {
     sintesi: 'Controllo della parte alta dell’addome: fegato, colecisti (cistifellea), pancreas, milza e reni.',
@@ -14,9 +14,9 @@ window.ESAMI_PAZIENTE = {
       'Serve in caso di dolore sotto le costole, sospetta colica della colecisti, febbre senza causa chiara o analisi del fegato o del pancreas fuori norma.',
     svolgimento:
       /* DA VERIFICARE: posizione e manovre descritte (respiro, fianco) da confermare con il modo di lavorare del medico */
-      'Il paziente si sdraia sulla schiena. Metto il gel sulla parte alta dell’addome e faccio scorrere la sonda sotto le costole, a destra e a sinistra. A volte chiedo di trattenere il respiro qualche secondo o di girarsi su un fianco.',
+      'Il paziente si sdraia sulla schiena. Si applica il gel sulla parte alta dell’addome e si fa scorrere la sonda sotto le costole, a destra e a sinistra. A volte viene chiesto di trattenere il respiro qualche secondo o di girarsi su un fianco.',
     cosaControlla:
-      'Controllo fegato, colecisti, vie biliari, pancreas, milza e i due reni.',
+      'Si controllano fegato, colecisti, vie biliari, pancreas, milza e i due reni.',
     faqExtra: [
       {
         q: "Si vedono i calcoli della colecisti (cistifellea)?",
@@ -46,10 +46,10 @@ window.ESAMI_PAZIENTE = {
     perche:
       'Utile per dolore in basso ventre, bruciore o infezioni urinarie di ripetizione, difficoltà a urinare o sangue nelle urine.',
     svolgimento:
-      'Serve arrivare con la vescica piena. Il paziente si sdraia sulla schiena, metto il gel sul basso ventre e passo la sonda sopra la vescica e sul bacino, da un lato e dall’altro. Da questa posizione vedo anche la prostata negli uomini, l’utero e le ovaie nelle donne.',
+      'Serve arrivare con la vescica piena. Il paziente si sdraia sulla schiena, si applica il gel sul basso ventre e si passa la sonda sopra la vescica e sul bacino, da un lato e dall’altro. Da questa posizione si vedono anche la prostata negli uomini, l’utero e le ovaie nelle donne.',
     cosaControlla:
       /* DA VERIFICARE: casi particolari (sospetta appendicite o diverticolite) indicati dal medico il 31/10/2026 */
-      'Guardo vescica, prostata (negli uomini), utero e ovaie (nelle donne) e le altre strutture del bacino visibili da sopra il pube. Nei casi indicati dal medico, per esempio se si sospetta un’appendicite o una diverticolite, guardo anche la parte bassa dell’intestino.',
+      'Si valutano vescica, prostata (negli uomini), utero e ovaie (nelle donne) e le altre strutture del bacino visibili da sopra il pube. Nei casi indicati dal medico, per esempio se si sospetta un’appendicite o una diverticolite, si valuta anche la parte bassa dell’intestino.',
     faqExtra: [
       {
         q: "Ho infezioni urinarie ricorrenti: l’ecografia serve?",
@@ -70,10 +70,10 @@ window.ESAMI_PAZIENTE = {
     perche:
       'Si fa in caso di colica renale, sangue nelle urine, infezioni urinarie frequenti o il medico sospetta un ostacolo al passaggio dell’urina.',
     svolgimento:
-      'Prima guardo con la vescica piena. Poi, solo se il medico che ha prescritto l’esame lo richiede, chiedo di urinare e controllo quanta urina resta in vescica. Metto il gel sull’addome e sui fianchi, dove si trovano i reni.',
+      'L’esame inizia con la vescica piena. Poi, solo se il medico che ha prescritto l’esame lo richiede, viene chiesto di urinare e si controlla quanta urina resta in vescica. Si applica il gel sull’addome e sui fianchi, dove si trovano i reni.',
     cosaControlla:
       /* DA VERIFICARE: residuo post-minzionale solo su richiesta del medico curante (indicazione del 31/10/2026) */
-      'Valuto reni, ureteri e vescica e, se richiesto dal medico, misuro l’urina che resta dopo aver urinato.',
+      'Si valutano reni, ureteri e vescica e, se richiesto dal medico, si misura l’urina che resta dopo aver urinato.',
     faqExtra: [
       {
         q: 'Quanto devo bere e da che ora non devo urinare?',
@@ -83,12 +83,12 @@ window.ESAMI_PAZIENTE = {
       {
         q: 'E se proprio non riesco a trattenere?',
         a:
-          'Basta dirlo all’arrivo, non è un problema. Inizio studiando reni e alta via urinaria, che non dipendono dalla vescica, e recupero il resto appena possibile. Se il medico ha chiesto anche la misura dell’urina che resta dopo aver urinato, quella parte si fa comunque.',
+          'Basta dirlo all’arrivo, non è un problema. Si inizia studiando reni e alta via urinaria, che non dipendono dalla vescica, e si recupera il resto appena possibile. Se il medico ha chiesto anche la misura dell’urina che resta dopo aver urinato, quella parte si fa comunque.',
       },
       {
         q: 'L’ecografia vede i calcoli?',
         a:
-          'Vede bene i calcoli dentro il rene e l’eventuale dilatazione delle vie urinarie. I calcoli lungo l’uretere, che è profondo e circondato da aria intestinale, spesso non si vedono direttamente: in quel caso ne riconosco i segni indiretti e lo scrivo chiaramente nel referto.',
+          'Vede bene i calcoli dentro il rene e l’eventuale dilatazione delle vie urinarie. I calcoli lungo l’uretere, che è profondo e circondato da aria intestinale, spesso non si vedono direttamente: in quel caso se ne riconoscono i segni indiretti, indicati chiaramente nel referto.',
       },
     ],
   },
@@ -97,9 +97,9 @@ window.ESAMI_PAZIENTE = {
     perche:
       'Il medico la prescrive per dolore al fianco o alla schiena, sospetta colica renale, sangue nelle urine, oppure per controllare nel tempo un rene già seguito, per esempio per una cisti o un calcolo già noti. Si sceglie questo esame, mirato solo ai reni, quando non serve guardare anche la vescica o il flusso del sangue.',
     svolgimento:
-      'Il paziente si sdraia sul lettino, prima supino e poi su un fianco e sull’altro. Metto un po’ di gel sulla schiena e sul fianco, dove si trovano i reni, e sposto la sonda per vederli da più lati. È indolore, come ogni ecografia.',
+      'Il paziente si sdraia sul lettino, prima supino e poi su un fianco e sull’altro. Si applica un po’ di gel sulla schiena e sul fianco, dove si trovano i reni, e si sposta la sonda per vederli da più lati. È indolore, come ogni ecografia.',
     cosaControlla:
-      'Guardo dimensioni, forma e posizione dei reni, lo spessore del tessuto renale e la pelvi renale, cioè la parte interna dove si raccoglie l’urina prima di scendere nell’uretere. Vedo anche l’inizio degli ureteri, ma non la vescica. Noto se ci sono calcoli, cisti o un rene dilatato per un ostacolo al deflusso dell’urina.',
+      'Si valutano dimensioni, forma e posizione dei reni, lo spessore del tessuto renale e la pelvi renale, cioè la parte interna dove si raccoglie l’urina prima di scendere nell’uretere. Si vede anche l’inizio degli ureteri, ma non la vescica. Si nota se ci sono calcoli, cisti o un rene dilatato per un ostacolo al deflusso dell’urina.',
     faqExtra: [
       {
         q: "Che differenza c’è con l’ecografia dell’apparato urinario?",
@@ -132,9 +132,9 @@ window.ESAMI_PAZIENTE = {
     perche:
       'Serve se si urina spesso, con getto debole, se ci si alza di notte per urinare o il medico sospetta un ingrossamento della prostata.',
     svolgimento:
-      'È importante arrivare con la vescica abbastanza piena. Il paziente si sdraia sulla schiena, metto il gel sul basso ventre e appoggio la sonda sopra il pube.',
+      'È importante arrivare con la vescica abbastanza piena. Il paziente si sdraia sulla schiena, si applica il gel sul basso ventre e si appoggia la sonda sopra il pube.',
     cosaControlla:
-      'Valuto vescica e prostata e, se il medico lo richiede, quanta urina resta dopo aver urinato.',
+      'Si valutano vescica e prostata e, se il medico lo richiede, quanta urina resta dopo aver urinato.',
     faqExtra: [
       {
         q: "La prostata si vede con la sonda sull’addome?",
@@ -145,7 +145,7 @@ window.ESAMI_PAZIENTE = {
       {
         q: "E se la vescica non è abbastanza piena?",
         a:
-          "Con la vescica poco piena vedo male vescica e prostata. In genere faccio bere altra acqua e ripeto l’esame quando la vescica si è riempita, di solito dopo 30–60 minuti; se non è possibile, fissiamo un nuovo appuntamento.",
+          "Con la vescica poco piena, vescica e prostata si vedono male. In genere si beve altra acqua e si ripete l’esame quando la vescica si è riempita, di solito dopo 30–60 minuti; se non è possibile, fissiamo un nuovo appuntamento.",
         verificata: true,
       },
     ],
@@ -155,9 +155,9 @@ window.ESAMI_PAZIENTE = {
     perche:
       'Serve per dolore o gonfiore ai testicoli, un nodulo che si sente al tatto, un trauma o controlli legati a varicocele, idrocele o infertilità.',
     svolgimento:
-      'Il paziente si sdraia e metto il gel sullo scroto; passo la sonda con delicatezza, con poca pressione. Se durante l’esame si sente dolore, è importante dirlo subito. Se il dolore è comparso all’improvviso, leggere prima la domanda qui sotto sul pronto soccorso.',
+      'Il paziente si sdraia e si applica il gel sullo scroto; si passa la sonda con delicatezza, con poca pressione. Se durante l’esame si sente dolore, è importante dirlo subito. Se il dolore è comparso all’improvviso, leggere prima la domanda qui sotto sul pronto soccorso.',
     cosaControlla:
-      'Valuto testicoli, epididimo e il funicolo spermatico, cercando cause di dolore, gonfiore o masse.',
+      'Si valutano testicoli, epididimo e il funicolo spermatico, cercando cause di dolore, gonfiore o masse.',
     faqExtra: [
       {
         q: 'Quando bisogna correre subito, senza aspettare?',
@@ -181,18 +181,18 @@ window.ESAMI_PAZIENTE = {
     perche:
       'Si fa in caso di gonfiore al collo, nodulo palpabile, disturbi alla voce o analisi della tiroide alterate.',
     svolgimento:
-      'Il paziente si sdraia con il collo leggermente all’indietro. Metto il gel sul collo e faccio scorrere la sonda sulla tiroide. Dura in genere 15–20 minuti.',
+      'Il paziente si sdraia con il collo leggermente all’indietro. Si applica il gel sul collo e si fa scorrere la sonda sulla tiroide. Dura in genere 15–20 minuti.',
     cosaControlla:
-      'Guardo grandezza, struttura e presenza di noduli o altre alterazioni della tiroide.',
+      'Si valutano grandezza, struttura e presenza di noduli o altre alterazioni della tiroide.',
   },
   collo: {
     sintesi: 'Controllo di tiroide, ghiandole salivari, linfonodi e altre strutture del collo.',
     perche:
       'Utile in caso di gonfiore al collo, linfonodi ingrossati, problemi alle ghiandole salivari o controlli dopo un intervento.',
     svolgimento:
-      'Il paziente si sdraia con il collo leggermente all’indietro, senza collane né sciarpe. Metto il gel e passo la sonda su tutto il collo, davanti e ai lati, fermandomi sulla zona indicata dal medico o dove si avverte il gonfiore.',
+      'Il paziente si sdraia con il collo leggermente all’indietro, senza collane né sciarpe. Si applica il gel e si passa la sonda su tutto il collo, davanti e ai lati, soffermandosi sulla zona indicata dal medico o dove si avverte il gonfiore.',
     cosaControlla:
-      'Posso valutare tiroide, ghiandole salivari (sotto l’orecchio e sotto la mandibola), linfonodi e vasi del collo.',
+      'Si possono valutare tiroide, ghiandole salivari (sotto l’orecchio e sotto la mandibola), linfonodi e vasi del collo.',
     faqExtra: [
       {
         q: "Si fa anche per i controlli dopo un intervento al collo?",
@@ -213,9 +213,9 @@ window.ESAMI_PAZIENTE = {
     perche:
       'Serve dopo un trauma, uno strappo, un sovraccarico sportivo o un dolore che non passa a un’articolazione o a un muscolo.',
     svolgimento:
-      'Metto il gel sulla zona interessata. A volte chiedo di muovere l’arto mentre guardo lo schermo.',
+      'Si applica il gel sulla zona interessata. A volte viene chiesto di muovere l’arto mentre si osserva lo schermo.',
     cosaControlla:
-      'Guardo muscoli, tendini, legamenti e borse nella regione indicata nella richiesta del medico.',
+      'Si valutano muscoli, tendini, legamenti e borse nella regione indicata nella richiesta del medico.',
   },
   spalla: {
     sintesi: 'Controllo di tendini e strutture della spalla.',
@@ -223,10 +223,10 @@ window.ESAMI_PAZIENTE = {
       'Si fa se alzare il braccio fa male, dopo un trauma o se si sospetta un’infiammazione o una lesione alla spalla.',
     svolgimento:
       /* DA VERIFICARE: posizione e manovre descritte da confermare con il modo di lavorare del medico */
-      'Il paziente si siede su uno sgabello con la spalla scoperta. Metto il gel e passo la sonda davanti, di lato e dietro la spalla. Chiedo di alzare, ruotare e portare dietro la schiena il braccio: i tendini si vedono meglio in movimento.',
+      'Il paziente si siede su uno sgabello con la spalla scoperta. Si applica il gel e si passa la sonda davanti, di lato e dietro la spalla. Viene chiesto di alzare, ruotare e portare dietro la schiena il braccio: i tendini si vedono meglio in movimento.',
     cosaControlla:
       /* DA VERIFICARE: glossa anatomica (acromion) */
-      'Valuto i tendini della cuffia dei rotatori, la borsa sotto l’acromion (la sporgenza ossea in cima alla spalla) e il tendine del bicipite.',
+      'Si valutano i tendini della cuffia dei rotatori, la borsa sotto l’acromion (la sporgenza ossea in cima alla spalla) e il tendine del bicipite.',
     faqExtra: [
       {
         q: 'L’ecografia della spalla vede la cuffia dei rotatori?',
@@ -241,7 +241,7 @@ window.ESAMI_PAZIENTE = {
       {
         q: 'Perché mi fa muovere il braccio durante l’esame?',
         a:
-          'Perché la spalla si studia in movimento. Facendo alzare e ruotare il braccio vedo i tendini scorrere sotto l’acromion: alcuni attriti fra tendine e osso (i cosiddetti conflitti) e certe lesioni si rendono evidenti solo così, mentre a braccio fermo passerebbero inosservati.',
+          'Perché la spalla si studia in movimento. Facendo alzare e ruotare il braccio si vedono i tendini scorrere sotto l’acromion: alcuni attriti fra tendine e osso (i cosiddetti conflitti) e certe lesioni si rendono evidenti solo così, mentre a braccio fermo passerebbero inosservati.',
       },
       {
         q: "Si vedono le calcificazioni della spalla?",
@@ -268,9 +268,9 @@ window.ESAMI_PAZIENTE = {
     perche:
       'Utile dopo una distorsione, un infortunio durante lo sport, gonfiore del ginocchio o dolore davanti o ai lati.',
     svolgimento:
-      'Il paziente si sdraia o resta seduto con il ginocchio piegato. Metto il gel e passo la sonda sulla zona dolente. Posso chiedere piccoli movimenti.',
+      'Il paziente si sdraia o resta seduto con il ginocchio piegato. Si applica il gel e si passa la sonda sulla zona dolente. Possono essere richiesti piccoli movimenti.',
     cosaControlla:
-      'Guardo tendini del ginocchio, legamenti laterali, borse e se c’è liquido dentro l’articolazione. I menischi profondi si vedono meno bene.',
+      'Si valutano tendini del ginocchio, legamenti laterali, borse e se c’è liquido dentro l’articolazione. I menischi profondi si vedono meno bene.',
     faqExtra: [
       {
         q: 'L’ecografia del ginocchio vede i menischi e i legamenti crociati?',
@@ -285,7 +285,7 @@ window.ESAMI_PAZIENTE = {
       {
         q: 'Ho il ginocchio gonfio: l’ecografia serve?',
         a:
-          'Sì, è uno dei casi in cui rende di più. Vedo subito se il gonfiore è liquido dentro l’articolazione, quanto ne c’è e dove si raccoglie, e se dietro si è formata una cisti di Baker. È un’informazione utile al medico curante o all’ortopedico per decidere come procedere.',
+          'Sì, è uno dei casi in cui rende di più. Si vede subito se il gonfiore è liquido dentro l’articolazione, quanto ne c’è e dove si raccoglie, e se dietro si è formata una cisti di Baker. È un’informazione utile al medico curante o all’ortopedico per decidere come procedere.',
       },
     ],
   },
@@ -294,9 +294,9 @@ window.ESAMI_PAZIENTE = {
     perche:
       'Il medico la prescrive per dolore sul fianco dell’anca, spesso legato ai tendini dei glutei o alla borsa trocanterica, oppure per dolore all’inguine legato ai tendini più profondi (ileopsoas o adduttori). È utile anche se si avverte uno scatto o un click camminando, dopo un trauma, o per un fastidio comparso con lo sport, per esempio corsa o calcio. Si usa pure per controllare i tessuti molli intorno a una protesi d’anca già impiantata. Non è invece l’esame giusto per studiare l’osso o la cartilagine dell’articolazione: per l’artrosi dell’anca il medico userà più spesso una radiografia.',
     svolgimento:
-      'Il paziente si sdraia sul lettino. Metto il gel sull’inguine, sul fianco o su entrambi, a seconda di dove si avverte dolore: a volte chiedo di girarsi su un fianco o di mettersi a faccia in giù, per vedere bene anche la parte posteriore. Se sospetto uno scatto dell’anca, chiedo di muovere la gamba mentre guardo lo schermo, per vedere come si comporta il tendine. L’esame è indolore e dura in genere 15–20 minuti.',
+      'Il paziente si sdraia sul lettino. Si applica il gel sull’inguine, sul fianco o su entrambi, a seconda di dove si avverte dolore: a volte viene chiesto di girarsi su un fianco o di mettersi a faccia in giù, per vedere bene anche la parte posteriore. Se si sospetta uno scatto dell’anca, viene chiesto di muovere la gamba mentre si osserva lo schermo, per vedere come si comporta il tendine. L’esame è indolore e dura in genere 15–20 minuti.',
     cosaControlla:
-      'Valuto i tendini dei muscoli glutei e la borsa trocanterica sul fianco, i tendini dell’ileopsoas e degli adduttori all’inguine, ed eventuale liquido nell’articolazione dell’anca. Se è presente una protesi, controllo anche i tessuti molli intorno all’impianto. Non vedo bene l’osso in profondità né la cartilagine dell’articolazione: per quelli restano più adatte la radiografia o la risonanza.',
+      'Si valutano i tendini dei muscoli glutei e la borsa trocanterica sul fianco, i tendini dell’ileopsoas e degli adduttori all’inguine, ed eventuale liquido nell’articolazione dell’anca. Se è presente una protesi, si controllano anche i tessuti molli intorno all’impianto. Non si vedono bene l’osso in profondità né la cartilagine dell’articolazione: per quelli restano più adatte la radiografia o la risonanza.',
     faqExtra: [
       {
         q: "Ho dolore sul lato dell’anca: l’ecografia serve?",
@@ -336,9 +336,9 @@ window.ESAMI_PAZIENTE = {
       'Si fa nelle prime settimane di vita per escludere l’anca che non è formata bene o che esce dalla sede, soprattutto se ci sono fattori di rischio o se il pediatra lo chiede.',
     svolgimento:
       /* DA VERIFICARE: posizione del neonato e modalità dell’esame da confermare con il medico */
-      'Il bambino viene sdraiato su un fianco, con il pannolino aperto, mentre il genitore gli sta accanto e lo tiene tranquillo. Appoggio una sonda piccola sull’anca con un po’ di gel tiepido, prima da un lato e poi dall’altro. Si può fare anche mentre poppa o dorme.',
+      'Il bambino viene sdraiato su un fianco, con il pannolino aperto, mentre il genitore gli sta accanto e lo tiene tranquillo. Si appoggia una sonda piccola sull’anca con un po’ di gel tiepido, prima da un lato e poi dall’altro. Si può fare anche mentre poppa o dorme.',
     cosaControlla:
-      'Guardo se l’anca è ben formata e stabile, misurandone gli angoli secondo il metodo di Graf, quello usato di norma per i neonati.',
+      'Si valuta se l’anca è ben formata e stabile, misurandone gli angoli secondo il metodo di Graf, quello usato di norma per i neonati.',
     faqExtra: [
       {
         q: 'A che età si fa l’ecografia delle anche al neonato?',
@@ -364,9 +364,9 @@ window.ESAMI_PAZIENTE = {
       'Si fa in caso di “gomito del tennista” o del golfista, dolore dopo movimenti ripetuti, gonfiore sul gomito o dopo un colpo.',
     svolgimento:
       /* DA VERIFICARE: posizione e manovre descritte da confermare con il modo di lavorare del medico */
-      'Il paziente si siede o si sdraia con il gomito appoggiato, un po’ piegato. Metto il gel e passo la sonda sul lato esterno, su quello interno e sulla piega del gomito. A volte chiedo di stringere il pugno o ruotare l’avambraccio.',
+      'Il paziente si siede o si sdraia con il gomito appoggiato, un po’ piegato. Si applica il gel e si passa la sonda sul lato esterno, su quello interno e sulla piega del gomito. A volte viene chiesto di stringere il pugno o ruotare l’avambraccio.',
     cosaControlla:
-      'Valuto i tendini interni ed esterni del gomito, quello del bicipite e la borsa sulla punta del gomito.',
+      'Si valutano i tendini interni ed esterni del gomito, quello del bicipite e la borsa sulla punta del gomito.',
     faqExtra: [
       {
         q: "Serve per l’epicondilite (“gomito del tennista”)?",
@@ -396,14 +396,14 @@ window.ESAMI_PAZIENTE = {
       'Altre indicazioni sono un nodulo sul dorso del polso, spesso una cisti tendinea (detta ganglio), e un dito che resta bloccato piegato (dito a scatto). ' +
       'Si esegue anche per dolore alle piccole articolazioni delle dita o dolore persistente dopo un trauma al polso.',
     svolgimento:
-      'La mano e il polso si appoggiano sul lettino, con un piccolo cuscino di sostegno. Metto il gel sulla pelle e passo la sonda sulla zona indicata dal dolore. ' +
-      'A volte chiedo di piegare o distendere le dita, oppure di muovere il pollice: vedere i tendini in movimento aiuta a valutarli meglio. ' +
-      'Se sospetto una sindrome del tunnel carpale, esamino spesso entrambi i polsi.',
+      'La mano e il polso si appoggiano sul lettino, con un piccolo cuscino di sostegno. Si applica il gel sulla pelle e si passa la sonda sulla zona indicata dal dolore. ' +
+      'A volte viene chiesto di piegare o distendere le dita, oppure di muovere il pollice: vedere i tendini in movimento aiuta a valutarli meglio. ' +
+      'Se si sospetta una sindrome del tunnel carpale, si esaminano spesso entrambi i polsi.',
     cosaControlla:
-      'Guardo i tendini flessori, sul palmo, e i tendini estensori, sul dorso della mano: la loro struttura e la guaina che li avvolge (la membrana che li fa scorrere). ' +
-      'Controllo il nervo mediano nel punto in cui entra nel tunnel carpale, al polso. ' +
-      'Valuto le piccole articolazioni di polso e dita, le borse (piccole sacche che riducono l’attrito) ed eventuali cisti tendinee. ' +
-      'Dopo un trauma osservo anche i tendini e i legamenti vicini al punto dolente.',
+      'Si valutano i tendini flessori, sul palmo, e i tendini estensori, sul dorso della mano: la loro struttura e la guaina che li avvolge (la membrana che li fa scorrere). ' +
+      'Si controlla il nervo mediano nel punto in cui entra nel tunnel carpale, al polso. ' +
+      'Si valutano le piccole articolazioni di polso e dita, le borse (piccole sacche che riducono l’attrito) ed eventuali cisti tendinee. ' +
+      'Dopo un trauma si osservano anche i tendini e i legamenti vicini al punto dolente.',
     faqExtra: [
       {
         q: "Serve per la sindrome del tunnel carpale?",
@@ -437,20 +437,20 @@ window.ESAMI_PAZIENTE = {
       'Serve dopo una distorsione di caviglia, dolore al tallone o alla pianta del piede, o sospetta lesione ai legamenti.',
     svolgimento:
       /* DA VERIFICARE: posizione e manovre descritte da confermare con il modo di lavorare del medico */
-      'Il paziente si sdraia sul lettino con il piede scoperto. Metto il gel sulla caviglia o sulla pianta del piede, dove si avverte dolore, e passo la sonda. A volte chiedo di muovere il piede o di indicarmi il punto esatto che fa male, per vedere tendini e legamenti in movimento.',
+      'Il paziente si sdraia sul lettino con il piede scoperto. Si applica il gel sulla caviglia o sulla pianta del piede, dove si avverte dolore, e si passa la sonda. A volte viene chiesto di muovere il piede o di indicare il punto esatto che fa male, per vedere tendini e legamenti in movimento.',
     cosaControlla:
-      'Valuto legamenti della caviglia, tendine di Achille, fascia plantare e borse del piede.',
+      'Si valutano legamenti della caviglia, tendine di Achille, fascia plantare e borse del piede.',
     faqExtra: [
       {
         q: 'Serve per il dolore al tallone?',
         a:
           /* DA VERIFICARE: «spesso sì» e rimando alla radiografia se il dolore viene dall’osso */
-          'Spesso sì. La causa più frequente è la fascite plantare (infiammazione della fascia che sostiene la pianta del piede): misuro lo spessore della fascia dove si attacca al calcagno e lo confronto con l’altro lato. Guardo anche il tendine d’Achille e le borse vicine. Se il dolore viene dall’osso, il medico può indicare una radiografia.',
+          'Spesso sì. La causa più frequente è la fascite plantare (infiammazione della fascia che sostiene la pianta del piede): si misura lo spessore della fascia dove si attacca al calcagno e lo si confronta con l’altro lato. Si valutano anche il tendine d’Achille e le borse vicine. Se il dolore viene dall’osso, il medico può indicare una radiografia.',
       },
       {
         q: 'Dopo una distorsione della caviglia è utile?',
         a:
-          'Molto. Studio i legamenti esterni, in particolare il legamento peroneo-astragalico anteriore, quello sul lato esterno della caviglia che si lesiona più spesso, la presenza di versamento (liquido nell’articolazione) e lo stato dei tendini peronei, che passano dietro il malleolo esterno. Se serve, valuto anche il tendine d’Achille.',
+          'Molto. Si studiano i legamenti esterni, in particolare il legamento peroneo-astragalico anteriore, quello sul lato esterno della caviglia che si lesiona più spesso, la presenza di versamento (liquido nell’articolazione) e lo stato dei tendini peronei, che passano dietro il malleolo esterno. Se serve, si valuta anche il tendine d’Achille.',
       },
       {
         q: 'Si vede il neuroma di Morton?',
@@ -464,9 +464,9 @@ window.ESAMI_PAZIENTE = {
     perche:
       'Si fa se si avverte un rigonfiamento sotto la pelle e il medico vuole capire se è una cisti, un lipoma, un ematoma o altro.',
     svolgimento:
-      'Metto il gel sulla zona del gonfiore e faccio scorrere delicatamente la sonda. Dura in genere 15–20 minuti.',
+      'Si applica il gel sulla zona del gonfiore e si fa scorrere delicatamente la sonda. Dura in genere 15–20 minuti.',
     cosaControlla:
-      'Guardo se il rigonfiamento contiene liquido (come una cisti) o è solido (come un lipoma), dove si trova esattamente, quanto è grande e com’è il rapporto con muscoli e vasi vicini.',
+      'Si valuta se il rigonfiamento contiene liquido (come una cisti) o è solido (come un lipoma), dove si trova esattamente, quanto è grande e com’è il rapporto con muscoli e vasi vicini.',
     faqExtra: [
       {
         q: "Dopo un trauma si vede un ematoma?",
@@ -481,9 +481,9 @@ window.ESAMI_PAZIENTE = {
     perche:
       'Aiuta a valutare il rischio di ictus: si fa in presenza di fattori di rischio, di un soffio al collo, di vertigini o se si è già avuto un mini-ictus (TIA).',
     svolgimento:
-      'Il paziente si sdraia. Metto il gel sul collo e uso la sonda Doppler: si può sentire un suono simile al battito.',
+      'Il paziente si sdraia. Si applica il gel sul collo e si usa la sonda Doppler: si può sentire un suono simile al battito.',
     cosaControlla:
-      'Guardo carotidi e altre arterie del collo, se il sangue passa bene o se ci sono restringimenti.',
+      'Si valutano carotidi e altre arterie del collo, se il sangue passa bene o se ci sono restringimenti.',
   },
   'doppler-aorta': {
     sintesi: 'Controllo dell’aorta addominale e del flusso del sangue.',
@@ -491,9 +491,9 @@ window.ESAMI_PAZIENTE = {
       'Si fa per controllare nel tempo un aneurisma, cioè una dilatazione dell’aorta, già riscontrato, oppure se il medico sospetta un allargamento dell’aorta o un problema dei grossi vasi dell’addome.',
     svolgimento:
       /* DA VERIFICARE: manovre descritte (misura in più punti, respiro) da confermare con il medico */
-      'Il paziente si sdraia sulla schiena e scopre l’addome. Metto il gel e seguo l’aorta con la sonda dallo stomaco fino al basso ventre, misurandone il diametro in più punti. A volte chiedo di trattenere il respiro qualche secondo; si potrà sentire il suono del flusso.',
+      'Il paziente si sdraia sulla schiena e scopre l’addome. Si applica il gel e si segue l’aorta con la sonda dallo stomaco fino al basso ventre, misurandone il diametro in più punti. A volte viene chiesto di trattenere il respiro qualche secondo; si potrà sentire il suono del flusso.',
     cosaControlla:
-      'Misuro il diametro dell’aorta addominale in più punti e delle arterie iliache, i due rami in cui si divide nel basso addome, e guardo come scorre il sangue.',
+      'Si misura il diametro dell’aorta addominale in più punti e delle arterie iliache, i due rami in cui si divide nel basso addome, e si valuta come scorre il sangue.',
     faqExtra: [
       {
         q: "Ho un aneurisma già noto: a cosa serve il controllo?",
@@ -514,9 +514,9 @@ window.ESAMI_PAZIENTE = {
     perche:
       'Serve in caso di pressione alta difficile da controllare e il medico sospetta un problema alle arterie renali.',
     svolgimento:
-      'Il paziente si sdraia. Metto il gel sul fianco e sull’addome e passo la sonda Doppler sui reni: si sentirà il suono del flusso.',
+      'Il paziente si sdraia. Si applica il gel sul fianco e sull’addome e si passa la sonda Doppler sui reni: si sentirà il suono del flusso.',
     cosaControlla:
-      'Guardo se le arterie renali sono libere o presentano restringimenti (stenosi) e come arriva il sangue ai reni.',
+      'Si valuta se le arterie renali sono libere o presentano restringimenti (stenosi) e come arriva il sangue ai reni.',
     faqExtra: [
       {
         q: "Perché si controllano le arterie renali se ho la pressione alta?",
@@ -537,18 +537,18 @@ window.ESAMI_PAZIENTE = {
     perche:
       'Arterie: dolore alle gambe quando si cammina, ferite che guariscono male. Vene: gambe pesanti, varici, sospetta trombosi o gonfiore.',
     svolgimento:
-      'Il paziente si sdraia. Metto il gel su gambe e piedi e seguo arterie o vene con la sonda Doppler. Si può sentire un suono.',
+      'Il paziente si sdraia. Si applica il gel su gambe e piedi e si seguono arterie o vene con la sonda Doppler. Si può sentire un suono.',
     cosaControlla:
-      'Valuto se il sangue arriva bene alle gambe (arterioso) o se le vene portano il sangue verso il cuore come deve (venoso).',
+      'Si valuta se il sangue arriva bene alle gambe (arterioso) o se le vene portano il sangue verso il cuore come deve (venoso).',
   },
   'doppler-arti-superiori': {
     sintesi: 'Controllo di arterie e vene di braccia e avambracci.',
     perche:
       'Utile se un braccio è gonfio rispetto all’altro, sospetta trombosi, fistola per dialisi o problemi al flusso arterioso.',
     svolgimento:
-      'Il paziente si sdraia o si siede con il braccio appoggiato e scoperto fino alla spalla. Metto il gel e seguo con la sonda le arterie o le vene dalla spalla alla mano. Si potrà sentire il suono del flusso del sangue.',
+      'Il paziente si sdraia o si siede con il braccio appoggiato e scoperto fino alla spalla. Si applica il gel e si seguono con la sonda le arterie o le vene dalla spalla alla mano. Si potrà sentire il suono del flusso del sangue.',
     cosaControlla:
-      'Guardo arterie e vene del braccio e se il flusso del sangue è regolare.',
+      'Si valutano arterie e vene del braccio e se il flusso del sangue è regolare.',
     faqExtra: [
       {
         q: "Ho un braccio più gonfio dell’altro: l’esame serve?",
@@ -569,9 +569,9 @@ window.ESAMI_PAZIENTE = {
     perche:
       'Si fa se si nota un rigonfiamento o un linfonodo ingrossato che non scompare, in caso di febbre persistente, o per controllare linfonodi già noti.',
     svolgimento:
-      'Metto il gel sulla zona interessata (collo, ascella o inguine) e faccio scorrere delicatamente la sonda.',
+      'Si applica il gel sulla zona interessata (collo, ascella o inguine) e si fa scorrere delicatamente la sonda.',
     cosaControlla:
-      'Valuto dimensioni, forma e struttura interna del linfonodo e li descrivo nel referto: in base a questi elementi il medico curante decide se basta un controllo nel tempo o se servono altri accertamenti.',
+      'Si valutano dimensioni, forma e struttura interna del linfonodo , descritti nel referto: in base a questi elementi il medico curante decide se basta un controllo nel tempo o se servono altri accertamenti.',
     faqExtra: [
       {
         q: "Quali stazioni linfonodali si possono controllare?",

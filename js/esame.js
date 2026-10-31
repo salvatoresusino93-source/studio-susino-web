@@ -33,7 +33,7 @@
         notFoundDocTitle: 'Esame non trovato — Studio Ecografico Dr. Salvatore Susino',
         why: 'Perché si fa',
         how: 'Come si svolge',
-        whatWeCheck: 'Cosa controlliamo',
+        whatWeCheck: 'Cosa si controlla',
         whatFor: 'A cosa serve',
         deepLink: 'Approfondimento su questo tipo di esame →',
         home: 'Home',

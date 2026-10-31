@@ -97,7 +97,7 @@ const T = {
     hWhat: 'A cosa serve',
     hWhy: 'Perché si fa',
     hHow: 'Come si svolge',
-    hCheck: 'Cosa controllo',
+    hCheck: 'Cosa si controlla',
     hPrep: 'Serve preparazione?',
     hFee: 'Quanto costa',
     hFaq: 'Domande frequenti',
@@ -139,7 +139,7 @@ const T = {
     bookOnline: 'Prenota online',
     allExams: 'Vedi tutti gli esami',
     disclaimer:
-      'Queste informazioni descrivono l’esame in linea generale e non sostituiscono il parere del medico. Per sapere qual è l’esame più adatto al singolo caso, è bene rivolgersi al proprio medico curante oppure contattarmi.',
+      'Queste informazioni descrivono l’esame in linea generale e non sostituiscono il parere del medico. Per sapere qual è l’esame più adatto al singolo caso, è bene rivolgersi al proprio medico curante oppure contattare lo studio.',
     seeAlso: 'Si possono consultare anche tutti gli',
     seeAlsoLink: 'esami ecografici disponibili',
     seeAlsoTail: 'oppure le informazioni su',
