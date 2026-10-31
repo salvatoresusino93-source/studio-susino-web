@@ -324,12 +324,15 @@ window.ESAMI_PAZIENTE = {
   },
   'anca-neonatale': {
     sintesi: 'Controllo delle anche del neonato o del lattante piccolo.',
+    /* DA VERIFICARE: spiegazione di displasia (testa del femore non ben inserita nella cavità del bacino), assenza di sintomi iniziali, esempi di reperti alla visita del pediatra (anca che “scatta”, gambe che non si aprono allo stesso modo, pieghe diverse), possibilità di fare l’esame anche senza fattori di rischio */
     perche:
-      'Si fa nelle prime settimane di vita per escludere l’anca che non è formata bene o che esce dalla sede, soprattutto se ci sono fattori di rischio o se il pediatra lo chiede.',
+      'Si fa nelle prime settimane di vita per escludere l’anca che non è formata bene o che esce dalla sede, soprattutto se ci sono fattori di rischio o se il pediatra lo chiede. Displasia dell’anca vuol dire che la testa del femore (la parte rotonda dell’osso della coscia) non è ben inserita nella sua cavità del bacino. All’inizio spesso non dà sintomi e il bambino sta bene: per questo si controlla con l’ecografia. Il pediatra può chiederla dopo la visita, per esempio se un’anca “scatta”, se le gambe non si aprono allo stesso modo o se le pieghe della pelle sono diverse. Si può fare anche se non c’è alcun fattore di rischio.',
+    /* DA VERIFICARE: posizione del neonato (disteso su un fianco, tenuto dal genitore), movimenti delicati dell’anca durante l’esame, cosa fare se il bambino piange (pausa), abbigliamento (scoprire anche e gambe), nessun digiuno e possibilità di allattare prima, cosa portare (richiesta del pediatra se c’è, libretto, pannolino di ricambio, ciuccio o biberon) */
     svolgimento:
-      'Il bambino resta disteso o in braccio al genitore. Si passa una sonda piccola sulle anche, con gel.',
+      'Il bambino resta disteso o in braccio al genitore. Si passa una sonda piccola sulle anche, con gel. Di solito lo metto su un fianco, con te vicino che lo tieni. Devo vedere le anche, quindi vestilo con abiti facili da aprire e togliere. Controllo prima un’anca, poi l’altra. Non serve digiuno: puoi allattarlo prima o durante, se è più tranquillo. Porta la richiesta del pediatra, se ce l’hai, il libretto pediatrico o eventuali ecografie già fatte, un pannolino di ricambio e il ciuccio. Se il bambino piange, non c’è problema: faccio una pausa e aspetto che si calmi, perché immagini migliori si ottengono quando sta fermo.',
+    /* DA VERIFICARE: cosa si misura con il metodo di Graf (forma della cavità del bacino e copertura della testa del femore, classificazione in tipi), valutazione di entrambe le anche, spiegazione dei possibili esiti e del controllo ripetuto nel tempo */
     cosaControlla:
-      'Guardiamo se l’anca del bambino è matura e stabile, secondo il metodo usato in pediatria (Graf).',
+      'Guardiamo se l’anca del bambino è matura e stabile, secondo il metodo usato in pediatria (Graf). Il metodo di Graf misura la forma della cavità del bacino e quanto la testa del femore ci è appoggiata dentro. Sulla base di queste misure si classifica l’anca in tipi. Si controllano sempre entrambe le anche, anche se il dubbio riguarda solo una. Se un’anca è ancora immatura, può bastare ripetere il controllo dopo qualche settimana. Ti spiego il risultato a voce e ti consegno il referto scritto al termine dell’esame. Il pediatra decide poi come seguire il bambino.',
     faqExtra: [
       {
         q: 'A che età si fa l’ecografia delle anche al neonato?',
@@ -345,6 +348,41 @@ window.ESAMI_PAZIENTE = {
         q: 'Perché è importante farla nei tempi giusti?',
         a:
           'Perché una displasia riconosciuta nelle prime settimane si corregge quasi sempre con un semplice divaricatore, mentre se viene scoperta tardi può richiedere trattamenti molto più impegnativi. È il motivo per cui questo controllo si fa anche quando il bambino sta benissimo.',
+      },
+      /* DA VERIFICARE: esame possibile anche senza fattori di rischio e senza richiesta (prestazione privata, come da pagina Prenota); utilità della richiesta del pediatra */
+      {
+        q: 'Serve la richiesta del pediatra?',
+        a:
+          'Per la prestazione privata non è obbligatoria. Se il pediatra ti ha scritto una richiesta, portala: mi dice cosa ha notato e mi aiuta a indirizzare l’esame. Porta anche il libretto pediatrico e le ecografie precedenti, se ci sono.',
+        verificata: false,
+      },
+      /* DA VERIFICARE: se il bambino piange l’esame prosegue con pause; consigli per calmarlo (poppata, ciuccio, genitore vicino); eventuale riprogrammazione se non si calma */
+      {
+        q: 'E se il bambino piange durante l’esame?',
+        a:
+          'È normale e non è un problema. Mi fermo e aspetto che si calmi: puoi prenderlo in braccio, dargli il ciuccio o allattarlo. Un bambino tranquillo si vede meglio e l’esame è più rapido. Se proprio non si calma, ne parliamo insieme e decidiamo come procedere.',
+        verificata: false,
+      },
+      /* DA VERIFICARE: nessun digiuno necessario; consigli su orario rispetto alla poppata (non a digiuno, non subito dopo una poppata abbondante) */
+      {
+        q: 'Il bambino deve stare a digiuno?',
+        a:
+          'No, non serve nessun digiuno. Anzi, un bambino affamato piange di più. Prenota un orario che segua il ritmo delle sue poppate, così sarà più tranquillo.',
+        verificata: false,
+      },
+      /* DA VERIFICARE: abbigliamento (body o abiti apribili), tempo di posa, pannolino sbottonato, uso di polvere o creme sulla pelle prima dell’esame da evitare */
+      {
+        q: 'Come vesto il bambino e cosa porto?',
+        a:
+          'Vestilo con body o tutina facile da aprire: devo scoprire le anche e le gambe. Porta un pannolino di ricambio, un cambio, il ciuccio o il biberon. Evita creme e polveri sulla zona delle anche prima dell’esame.',
+        verificata: false,
+      },
+      /* DA VERIFICARE: un’anca immatura nelle prime settimane è abbastanza comune; se un’anca risulta immatura il controllo si ripete dopo qualche settimana; il trattamento è deciso dal pediatra o dall’ortopedico infantile */
+      {
+        q: 'E se l’anca non risulta del tutto matura?',
+        a:
+          'Un’anca ancora immatura nelle prime settimane è abbastanza comune e spesso si controlla di nuovo dopo qualche settimana. Ti spiego cosa vedo e ti consegno il referto. Poi sarà il pediatra, eventualmente con l’ortopedico infantile, a decidere come seguire il bambino.',
+        verificata: false,
       },
     ],
   },
