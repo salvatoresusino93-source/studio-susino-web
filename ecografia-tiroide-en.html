@@ -26,7 +26,7 @@
   <meta property="og:locale" content="en_US">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preload" href="fonts/atkinson-hyperlegible-next-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/style.css?v=20261031b">
+  <link rel="stylesheet" href="css/style.css?v=20261031d">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -170,7 +170,10 @@
         </p>
         </div>
         <figure class="hero-figure">
-          <img src="images/esame-tiroide.jpg?v=3" alt="Colour Doppler ultrasound of the thyroid" loading="lazy" width="700" height="603">
+          <picture>
+            <source type="image/webp" srcset="images/esame-tiroide-400.webp 400w, images/esame-tiroide.webp 442w" sizes="(min-width: 768px) 380px, 200px">
+            <img src="images/esame-tiroide.jpg?v=3" alt="Colour Doppler ultrasound of the thyroid" loading="lazy" width="700" height="603">
+          </picture>
           <figcaption class="hero-credit">Ultrasound image: Nevit Dilmen, <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener">CC BY-SA 3.0</a></figcaption>
         </figure>
       </div>
@@ -178,7 +181,28 @@
 
     <section class="content-block">
       <div class="container">
-        <h2>What it is and what it is for</h2>
+        <div class="in-breve">
+          <h2 class="in-breve-title">At a glance</h2>
+          <dl>
+            <div><dt>Preparation</dt><dd><a href="#preparazione">None</a></dd></div>
+            <div><dt>Report</dt><dd>Written, handed to you at the end of the scan</dd></div>
+            <div><dt>Fee</dt><dd>80 € · <a href="tariffe-en.html">See fees</a></dd></div>
+            <div><dt>Where</dt><dd>Via dell’Arno 34, by appointment</dd></div>
+          </dl>
+        </div>
+        <nav class="page-contents" aria-label="On this page">
+          <span class="page-contents-title">On this page</span>
+          <ol>
+            <li><a href="#a-cosa-serve">What it is for</a></li>
+            <li><a href="#quando">When to have it</a></li>
+            <li><a href="#come-si-svolge">How it works</a></li>
+            <li><a href="#preparazione">Is any preparation needed?</a></li>
+            <li><a href="#cosa-controllo">What I check</a></li>
+            <li><a href="#domande">Frequently asked questions</a></li>
+          </ol>
+        </nav>
+
+        <h2 id="a-cosa-serve">What it is and what it is for</h2>
         <p>
           The thyroid is a small gland at the base of the neck that regulates metabolism.
           Thyroid ultrasound lets us look at its shape, size and structure and
@@ -187,7 +211,7 @@
           it is accurate, safe and repeatable over time.
         </p>
 
-        <h2>When to have it</h2>
+        <h2 id="quando">When to have it</h2>
         <p>
           It is useful when your doctor finds a nodule or an abnormality, when
           thyroid hormone levels are abnormal, for a swelling or discomfort in the neck,
@@ -195,21 +219,30 @@
           a family history of thyroid disease.
         </p>
 
-        <h2>How it works</h2>
+        <h2 id="come-si-svolge">How it works</h2>
         <p>
           You lie down and I place the probe on your neck with a little gel. Nothing more is needed:
           no needles, no radiation, no discomfort. The exam usually takes
           15–20 minutes.
         </p>
 
-        <h2>Is any preparation needed?</h2>
+        <h2 id="preparazione">Is any preparation needed?</h2>
         <p>
           No. Thyroid ultrasound needs <strong>no fasting and no
           preparation</strong>. If you have previous tests or scans, bring them with you:
           they help with comparison and following changes over time.
         </p>
+        <div class="do-dont">
+          <div class="do-dont-box">
+            <h3>Do</h3>
+            <ul>
+              <li>Bring any previous reports or scans</li>
+              <li>Wear comfortable clothes</li>
+            </ul>
+          </div>
+        </div>
 
-        <h2>What I check</h2>
+        <h2 id="cosa-controllo">What I check</h2>
         <p>
           I assess the size and structure of the gland, the presence and features
           of any nodules and of the neck lymph nodes. At the end I give you the
@@ -223,7 +256,7 @@
           <a class="btn btn-outline" href="tel:+393513746102">Call +39 351 374 6102</a>
         </div>
 
-        <h2>Frequently asked questions</h2>
+        <h2 id="domande">Frequently asked questions</h2>
         <div class="faq">
           <details>
             <summary>Does thyroid ultrasound hurt?</summary>
@@ -263,7 +296,7 @@
         </div>
 
         <!-- CORRELATI: generato da scripts/correlati-pagine-manuali.js -->
-        <h2>Related scans</h2>
+        <h2 id="correlati">Related scans</h2>
         <ul class="related-list">
           <li><a href="ecografia-collo-en.html">Neck ultrasound</a></li>
           <li><a href="ecografia-linfonodi-en.html">Lymph node ultrasound</a></li>
@@ -276,6 +309,10 @@
           read about <a href="studio-en.html">the practice</a> and
           <a href="contatti-en.html">contact</a> details.
         </p>
+        <div class="inset">
+          <p>This information describes the scan in general terms and does not replace your doctor’s advice. To find out which exam suits your case, ask your doctor or contact me.</p>
+        </div>
+        <p class="review-date">Content by Dr. Salvatore Susino, specialist in Radiology. Last reviewed: 31 October 2026.</p>
       </div>
     </section>
 
@@ -295,7 +332,7 @@
       <div class="footer-links"><a href="prenota-en.html">Book</a> <a href="https://g.page/r/CQUbXzXQvvzqEBM/review" target="_blank" rel="noopener">Leave a review</a></div>
     </div>
   </footer>
-  <script src="js/main.js?v=20261018" defer></script>
+  <script src="js/main.js?v=20261031" defer></script>
   <!-- Librerie di animazione (usate da js/motion.js); integrity = sha384 dei file del pacchetto npm -->
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js" integrity="sha384-XmJ9SoHtVOHoQUcKvFAzVXwdkKo1Ie3bhmSoIAkcdsHGaIrVJIkmozyq0FJeb/Ly" crossorigin="anonymous" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js" integrity="sha384-wl5TeDVvOWt30Pbf8aSo2ZrzsOjddu3avOBvHe+p+OhJt9gP6w9YXmDkN5DK2/dF" crossorigin="anonymous" defer></script>

@@ -32,7 +32,7 @@
     imagesrcset="images/home/hero-ecografia-480.webp 480w, images/home/hero-ecografia-960.webp 960w, images/home/hero-ecografia-1600.webp 1600w"
     imagesizes="(min-width: 768px) 40vw, 100vw">
   <link rel="preload" href="fonts/atkinson-hyperlegible-next-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/style.css?v=20261031b">
+  <link rel="stylesheet" href="css/style.css?v=20261031d">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -335,7 +335,10 @@
         <div class="service-grid">
           <article class="service-card">
             <a class="service-card-media" href="ecografia-addome-en.html">
-              <img src="images/servizi/addome.jpg" alt="Abdominal and urinary tract ultrasound" width="640" height="480" loading="lazy">
+              <picture>
+                <source type="image/webp" srcset="images/servizi/addome-360.webp 360w, images/servizi/addome.webp 640w" sizes="(min-width: 768px) 330px, 100vw">
+                <img src="images/servizi/addome.jpg" alt="Abdominal and urinary tract ultrasound" width="640" height="480" loading="lazy">
+              </picture>
             </a>
             <div class="service-card-body">
               <h3>Abdomen and urinary tract</h3>
@@ -345,7 +348,10 @@
           </article>
           <article class="service-card">
             <a class="service-card-media" href="ecografia-tiroide-en.html">
-              <img src="images/servizi/tiroide.jpg" alt="Thyroid and neck ultrasound" width="640" height="480" loading="lazy">
+              <picture>
+                <source type="image/webp" srcset="images/servizi/tiroide-360.webp 360w, images/servizi/tiroide.webp 640w" sizes="(min-width: 768px) 330px, 100vw">
+                <img src="images/servizi/tiroide.jpg" alt="Thyroid and neck ultrasound" width="640" height="480" loading="lazy">
+              </picture>
             </a>
             <div class="service-card-body">
               <h3>Thyroid and neck</h3>
@@ -355,7 +361,10 @@
           </article>
           <article class="service-card">
             <a class="service-card-media" href="ecografia-muscolo-scheletrica-en.html">
-              <img src="images/servizi/muscolo-scheletrico.jpg" alt="Musculoskeletal ultrasound" width="640" height="480" loading="lazy">
+              <picture>
+                <source type="image/webp" srcset="images/servizi/muscolo-scheletrico-360.webp 360w, images/servizi/muscolo-scheletrico.webp 640w" sizes="(min-width: 768px) 330px, 100vw">
+                <img src="images/servizi/muscolo-scheletrico.jpg" alt="Musculoskeletal ultrasound" width="640" height="480" loading="lazy">
+              </picture>
             </a>
             <div class="service-card-body">
               <h3>Musculoskeletal</h3>
@@ -365,7 +374,10 @@
           </article>
           <article class="service-card">
             <a class="service-card-media" href="ecocolordoppler-carotidi-en.html">
-              <img src="images/servizi/doppler.jpg" alt="Vascular colour Doppler ultrasound" width="640" height="480" loading="lazy">
+              <picture>
+                <source type="image/webp" srcset="images/servizi/doppler-360.webp 360w, images/servizi/doppler.webp 640w" sizes="(min-width: 768px) 330px, 100vw">
+                <img src="images/servizi/doppler.jpg" alt="Vascular colour Doppler ultrasound" width="640" height="480" loading="lazy">
+              </picture>
             </a>
             <div class="service-card-body">
               <h3>Doppler ultrasound</h3>
@@ -382,15 +394,15 @@
     <section class="section info-strip-section">
       <div class="container info-strip">
         <article class="info-strip-item">
-          <strong>Appointments</strong>
+          <strong><span class="ico ico-calendar" aria-hidden="true"></span>Appointments</strong>
           <span>By appointment</span>
         </article>
         <article class="info-strip-item">
-          <strong>Address</strong>
+          <strong><span class="ico ico-map-pin" aria-hidden="true"></span>Address</strong>
           <span>Via dell'Arno, 34 — Pozzallo (RG), Italy<br>at Arcobaleno Dentisti</span>
         </article>
         <article class="info-strip-item">
-          <strong>Phone</strong>
+          <strong><span class="ico ico-phone" aria-hidden="true"></span>Phone</strong>
           <span>
             <a href="tel:+390932954441">+39 0932 954441</a> ·
             <a href="tel:+393513746102">+39 351 374 6102</a>
@@ -478,7 +490,7 @@
       </div>
     </div>
   </footer>
-  <script src="js/main.js?v=20261018" defer></script>
+  <script src="js/main.js?v=20261031" defer></script>
   <!-- Librerie di animazione (usate da js/motion.js); integrity = sha384 dei file del pacchetto npm -->
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js" integrity="sha384-XmJ9SoHtVOHoQUcKvFAzVXwdkKo1Ie3bhmSoIAkcdsHGaIrVJIkmozyq0FJeb/Ly" crossorigin="anonymous" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js" integrity="sha384-wl5TeDVvOWt30Pbf8aSo2ZrzsOjddu3avOBvHe+p+OhJt9gP6w9YXmDkN5DK2/dF" crossorigin="anonymous" defer></script>
