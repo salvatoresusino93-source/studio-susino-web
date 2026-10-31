@@ -36,7 +36,7 @@ const FAQ_GRUPPI = {
       verificata: true,
       it: {
         q: 'Ho già fatto una TAC o una risonanza: l’ecografia serve lo stesso?',
-        a: 'Dipende dal quesito clinico. L’ecografia è spesso usata per i controlli nel tempo, perché è rapida e senza radiazioni. Porta con te referti e immagini degli esami precedenti: il confronto rende l’ecografia più utile.',
+        a: 'Dipende dal quesito clinico. L’ecografia è spesso usata per i controlli nel tempo, perché è rapida e senza radiazioni. Porti con sé referti e immagini degli esami precedenti: il confronto rende l’ecografia più utile.',
       },
       en: {
         q: 'I have already had a CT or MRI scan: is the ultrasound still useful?',
@@ -107,7 +107,7 @@ const FAQ_GRUPPI = {
       solo: ['collo'],
       it: {
         q: 'Che differenza c’è con l’ecografia della tiroide?',
-        a: 'L’ecografia della tiroide si concentra sulla ghiandola; l’ecografia del collo allarga lo sguardo a ghiandole salivari, linfonodi e vasi. Se non sai quale prenotare, chiamami: la scelta dipende dalla richiesta del medico.',
+        a: 'L’ecografia della tiroide si concentra sulla ghiandola; l’ecografia del collo allarga lo sguardo a ghiandole salivari, linfonodi e vasi. Se non sa quale prenotare, mi chiami: la scelta dipende dalla richiesta del medico.',
       },
       en: {
         q: 'How does it differ from a thyroid ultrasound?',
@@ -185,7 +185,7 @@ const FAQ_GRUPPI = {
       verificata: true,
       it: {
         q: 'Devo portare radiografie o risonanze già fatte?',
-        a: 'Sì, se le hai. Il confronto con gli esami precedenti permette di capire come è cambiata la situazione e di concentrare l’ecografia sul punto giusto.',
+        a: 'Sì, se le ha. Il confronto con gli esami precedenti permette di capire come è cambiata la situazione e di concentrare l’ecografia sul punto giusto.',
       },
       en: {
         q: 'Should I bring X-rays or MRI scans I have already had?',
@@ -295,7 +295,7 @@ const FAQ_GRUPPI = {
       solo: ['linfonodi'],
       it: {
         q: 'Quando conviene fare l’ecografia di un linfonodo?',
-        a: 'Quando un linfonodo resta palpabile nel tempo, oppure su indicazione del medico per seguire una condizione già nota. Se hai dubbi sull’esame da prenotare, chiamami.',
+        a: 'Quando un linfonodo resta palpabile nel tempo, oppure su indicazione del medico per seguire una condizione già nota. Se ha dubbi sull’esame da prenotare, mi chiami.',
       },
       en: {
         q: 'When is a lymph node ultrasound worth doing?',

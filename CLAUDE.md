@@ -28,6 +28,7 @@ Il sito è **informazione sanitaria, non pubblicità** (Codice di deontologia me
   - in HTML: `<!-- DA VERIFICARE: ... -->` prima della frase;
   - nei file `.js` di dati: `/* DA VERIFICARE: ... */` sopra il campo (un commento HTML dentro una stringa finirebbe visibile).
 - Linguaggio da scuola media, frasi brevi, termini tecnici spiegati la prima volta; ogni pagina esame con contenuto proprio, non un modello ripetuto.
+- Registro (IT): si dà sempre del **Lei**, con tono cortese e formale, mai del tu: «se sente dolore, me lo dica», «Porti con sé…», «Le consegno il referto e Le spiego…». Pronomi di cortesia con la maiuscola (Lei, La, Le, Suo/Sua, chiederLe); il medico parla in prima persona per l’esame. Restano all’imperativo breve solo le etichette dei pulsanti (Prenota, Chiama, Scopri di più). La versione EN non cambia.
 - Lessico deciso: specialità "Radiologia" (non "radiodiagnostica"); "addome" non "pancia"; nome "Studio Ecografico Dr. Salvatore Susino".
 - Esami **non** offerti, da non citare come disponibili: mammella, ginecologia, ostetricia.
 - Non cambiare contatti, orari, indirizzo, onorario senza richiesta esplicita.
