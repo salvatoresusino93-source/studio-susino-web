@@ -475,7 +475,8 @@ ${faq
           <p>${esc(t.lead(esame.nome))}</p>
         </div>
         <figure class="hero-figure hero-figure-icona">
-          <img src="${icona}?v=20261018" alt="${esc(esame.iconaAlt)}" width="240" height="240">
+          <!-- Icona decorativa: il titolo accanto nomina gia' l'esame (iconaAlt resta nei dati come riserva) -->
+          <img src="${icona}?v=20261018" alt="" role="presentation" width="240" height="240">
         </figure>
       </div>
     </section>

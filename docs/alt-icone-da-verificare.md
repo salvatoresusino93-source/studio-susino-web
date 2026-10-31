@@ -1,5 +1,7 @@
 # Testi alternativi delle icone — da verificare
 
+**Proposta del 25/10/2026 (approvata da Claude, da confermare dal medico):** l'icona in cima a ogni pagina esame è decorativa, perché il titolo accanto nomina già l'esame; nelle pagine ha `alt=""` e `role="presentation"`, come già le icone dell'elenco. I testi qui sotto restano come riserva: se il medico decide che le icone sono informative, basta rimettere `alt="${esc(esame.iconaAlt)}"` nel generatore e approvare questi testi.
+
 Testi letti dai lettori di schermo per l'icona in cima alle pagine esame (campo `iconaAlt` in `js/esami-data.js` e `js/esami-data-en.js`).
 Nelle card dell'elenco ecografie l'icona è decorativa (`alt=""`), perché il titolo accanto nomina già l'esame.
 
