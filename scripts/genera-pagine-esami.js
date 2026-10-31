@@ -108,7 +108,7 @@ const T = {
     briefFee: 'Onorario',
     briefWhere: 'Dove',
     briefReportText: 'Scritto, consegnato al termine dell’esame',
-    briefWhereText: 'Pozzallo (RG), su appuntamento',
+    briefWhereText: 'Via dell’Arno 34, su appuntamento',
     briefPrepFasting: 'Digiuno da 6-8 ore',
     briefPrepBladder: 'Vescica piena',
     briefPrepNone: 'Nessuna',
@@ -135,7 +135,7 @@ const T = {
     bookThis: 'Prenota questo esame',
     call: 'Chiama',
     ctaTitle: 'Vuoi prenotare questo esame?',
-    ctaText: 'Online in pochi passaggi, oppure al telefono. Si riceve su appuntamento a Pozzallo (RG).',
+    ctaText: 'Online in pochi passaggi, oppure al telefono. Si riceve su appuntamento.',
     bookOnline: 'Prenota online',
     allExams: 'Vedi tutti gli esami',
     disclaimer:
@@ -164,7 +164,7 @@ const T = {
       `${breve} | Studio Dr. Susino`,
     ],
     descTail: ' Studio a Pozzallo (RG): prenota online o al telefono.',
-    lead: (nome) => `${nome} eseguita personalmente dal medico radiologo, su appuntamento, nello studio di Pozzallo (RG). Referto e spiegazione al termine dell’esame.`,
+    lead: (nome) => `${nome} eseguita personalmente dal medico radiologo, su appuntamento. Referto e spiegazione al termine dell’esame.`,
   },
   en: {
     lang: 'en',
@@ -202,7 +202,7 @@ const T = {
     briefFee: 'Fee',
     briefWhere: 'Where',
     briefReportText: 'Written, handed to you at the end of the scan',
-    briefWhereText: 'Pozzallo (RG), Italy, by appointment',
+    briefWhereText: 'Via dell’Arno 34, by appointment',
     briefPrepFasting: 'Fast for 6-8 hours',
     briefPrepBladder: 'Full bladder',
     briefPrepNone: 'None',
@@ -227,7 +227,7 @@ const T = {
     bookThis: 'Book this scan',
     call: 'Call',
     ctaTitle: 'Would you like to book this scan?',
-    ctaText: 'Online in a few steps, or by phone. By appointment in Pozzallo (RG), Italy.',
+    ctaText: 'Online in a few steps, or by phone. By appointment.',
     bookOnline: 'Book online',
     allExams: 'See all scans',
     disclaimer:
@@ -257,7 +257,7 @@ const T = {
       `${breve} | Studio Dr. Susino`,
     ],
     descTail: ' Practice in Pozzallo (RG), Italy: book online or by phone.',
-    lead: (nome) => `${nome} performed personally by the radiologist, by appointment, at the practice in Pozzallo (RG), Italy. Report and explanation at the end of the scan.`,
+    lead: (nome) => `${nome} performed personally by the radiologist, by appointment. Report and explanation at the end of the scan.`,
   },
 };
 
