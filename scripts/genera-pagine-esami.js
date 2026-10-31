@@ -27,6 +27,10 @@ const ONORARIO = {
   PAGINA_EN: 'tariffe-en.html',
 };
 
+/* Data di revisione mostrata in fondo a ogni pagina esame ("Review date" del
+   design system NHS.UK). Si aggiorna a mano quando il medico rivede i testi. */
+const REVISIONE = { iso: '2026-10-31', it: '31 ottobre 2026', en: '31 October 2026' };
+
 /* Mappa id -> nome file, condivisa con generate-sitemap.js */
 const { SLUG, GIA_ESISTENTI, CORRELATI_EXTRA } = require('./esami-mappa');
 const { faqGruppo } = require('./faq-gruppi');
@@ -97,6 +101,30 @@ const T = {
     hFee: 'Quanto costa',
     hFaq: 'Domande frequenti',
     hRelated: 'Esami correlati',
+    hContents: 'In questa pagina',
+    hBrief: 'In breve',
+    briefPrep: 'Preparazione',
+    briefReport: 'Referto',
+    briefFee: 'Onorario',
+    briefWhere: 'Dove',
+    briefReportText: 'Scritto, consegnato al termine dell’esame',
+    briefWhereText: 'Pozzallo (RG), su appuntamento',
+    briefPrepFasting: 'Digiuno da 6-8 ore',
+    briefPrepBladder: 'Vescica piena',
+    briefPrepNone: 'Nessuna',
+    doTitle: 'Cosa fare',
+    dontTitle: 'Cosa evitare',
+    // Liste "cosa fare / cosa evitare": stesse indicazioni dei testi prepFasting,
+    // prepBladder e prepNone qui sotto, solo riordinate in forma di elenco.
+    doFasting: ['Puoi bere acqua', 'Puoi prendere i farmaci abituali', 'Porta con te referti o ecografie precedenti'],
+    dontFasting: ['Non mangiare nelle 6-8 ore prima dell’esame'],
+    doBladder: ['Bevi circa un litro d’acqua un’ora prima', 'Porta con te referti o ecografie precedenti'],
+    dontBladder: ['Non urinare fino all’esame'],
+    doNone: ['Porta con te referti o ecografie precedenti', 'Vieni con abbigliamento comodo'],
+    calloutTitle: 'Importante',
+    /* DA VERIFICARE: frase nuova, da confermare dal medico */
+    calloutPrep: 'Se non riesci a seguire la preparazione, avvisa prima dell’appuntamento: senza, alcuni organi si vedono male e l’esame potrebbe andare ripetuto.',
+    reviewText: (data) => `Contenuti a cura del Dr. Salvatore Susino, medico specialista in Radiologia. Ultima revisione: ${data}.`,
     feeMore: 'Vedi le tariffe',
     prepNone:
       'No. Per questo esame <strong>non serve digiuno né alcuna preparazione</strong>. Se hai referti o ecografie precedenti portali con te: aiutano a confrontare e a seguire l’evoluzione nel tempo.',
@@ -167,6 +195,28 @@ const T = {
     hFee: 'How much it costs',
     hFaq: 'Frequently asked questions',
     hRelated: 'Related scans',
+    hContents: 'On this page',
+    hBrief: 'At a glance',
+    briefPrep: 'Preparation',
+    briefReport: 'Report',
+    briefFee: 'Fee',
+    briefWhere: 'Where',
+    briefReportText: 'Written, handed to you at the end of the scan',
+    briefWhereText: 'Pozzallo (RG), Italy, by appointment',
+    briefPrepFasting: 'Fast for 6-8 hours',
+    briefPrepBladder: 'Full bladder',
+    briefPrepNone: 'None',
+    doTitle: 'Do',
+    dontTitle: 'Don’t',
+    doFasting: ['You may drink water', 'You may take your usual medication', 'Bring any previous reports or scans'],
+    dontFasting: ['Do not eat in the 6-8 hours before the scan'],
+    doBladder: ['Drink about a litre of water an hour before', 'Bring any previous reports or scans'],
+    dontBladder: ['Do not go to the toilet until the scan'],
+    doNone: ['Bring any previous reports or scans', 'Wear comfortable clothes'],
+    calloutTitle: 'Important',
+    /* DA VERIFICARE: frase nuova, da confermare dal medico */
+    calloutPrep: 'If you cannot follow the preparation, let us know before the appointment: without it some organs are hard to see and the scan may need to be repeated.',
+    reviewText: (date) => `Content by Dr. Salvatore Susino, specialist in Radiology. Last reviewed: ${date}.`,
     feeMore: 'See fees',
     prepNone:
       'No. This scan needs <strong>no fasting and no preparation</strong>. If you have previous reports or scans, bring them with you: they help to compare and follow any change over time.',
@@ -231,6 +281,66 @@ function preparazione(id, t) {
   if (DIGIUNO.includes(id)) return t.prepFasting;
   if (VESCICA_PIENA.includes(id)) return t.prepBladder;
   return t.prepNone;
+}
+function tipoPreparazione(id) {
+  if (DIGIUNO.includes(id)) return 'fasting';
+  if (VESCICA_PIENA.includes(id)) return 'bladder';
+  return 'none';
+}
+
+/* Blocchi ispirati al design system NHS.UK (vedi css/style.css):
+   "Do and Don't list" + "Warning callout" per la preparazione. */
+function bloccoPreparazione(id, t) {
+  const tipo = tipoPreparazione(id);
+  const fai = tipo === 'fasting' ? t.doFasting : tipo === 'bladder' ? t.doBladder : t.doNone;
+  const evita = tipo === 'fasting' ? t.dontFasting : tipo === 'bladder' ? t.dontBladder : [];
+  const lista = (titolo, voci, cls) =>
+    `          <div class="do-dont-box${cls ? ' ' + cls : ''}">
+            <h3>${titolo}</h3>
+            <ul>
+${voci.map((v) => `              <li>${esc(v)}</li>`).join('\n')}
+            </ul>
+          </div>`;
+  return `        <div class="do-dont">
+${lista(t.doTitle, fai, '')}${evita.length ? '\n' + lista(t.dontTitle, evita, 'dont') : ''}
+        </div>
+${evita.length ? `        <div class="callout">
+          <h3>${t.calloutTitle}</h3>
+          <p>${esc(t.calloutPrep)}</p>
+        </div>
+` : ''}`;
+}
+
+/* "Summary list": i dati essenziali dell'esame, subito sotto il titolo. */
+function bloccoInBreve(id, t, isEN) {
+  const tipo = tipoPreparazione(id);
+  const prep = tipo === 'fasting' ? t.briefPrepFasting : tipo === 'bladder' ? t.briefPrepBladder : t.briefPrepNone;
+  const righe = [
+    [t.briefPrep, `<a href="#preparazione">${esc(prep)}</a>`],
+    [t.briefReport, esc(t.briefReportText)],
+  ];
+  if (ONORARIO.MOSTRA) {
+    righe.push([t.briefFee, `${esc(ONORARIO.IMPORTO)} · <a href="${isEN ? ONORARIO.PAGINA_EN : ONORARIO.PAGINA_IT}">${t.feeMore}</a>`]);
+  }
+  righe.push([t.briefWhere, esc(t.briefWhereText)]);
+  return `        <div class="in-breve">
+          <h2 class="in-breve-title">${t.hBrief}</h2>
+          <dl>
+${righe.map(([k, v]) => `            <div><dt>${k}</dt><dd>${v}</dd></div>`).join('\n')}
+          </dl>
+        </div>
+`;
+}
+
+/* "Contents list": indice delle sezioni presenti nella pagina. */
+function bloccoIndice(voci, t) {
+  return `        <nav class="page-contents" aria-label="${t.hContents}">
+          <span class="page-contents-title">${t.hContents}</span>
+          <ol>
+${voci.map(([id, label]) => `            <li><a href="#${id}">${label}</a></li>`).join('\n')}
+          </ol>
+        </nav>
+`;
 }
 
 /* Gruppo FAQ (scripts/faq-gruppi.js) dalla categoria italiana dell'esame:
@@ -320,9 +430,16 @@ function paginaEsame(esame, info, t, tuttiEsami, isEN) {
     encodeURIComponent(esame.prenotaNome || esame.nome) +
     (isEN ? '&lang=en' : '');
 
+  // Voci dell'indice "In questa pagina", solo per le sezioni presenti
+  const indice = [['a-cosa-serve', t.hWhat]];
+  if (info && info.svolgimento) indice.push(['come-si-svolge', t.hHow]);
+  indice.push(['preparazione', t.hPrep]);
+  if (ONORARIO.MOSTRA) indice.push(['costo', t.hFee]);
+  if (faq.length) indice.push(['domande', t.hFaq]);
+
   const feeBlock = ONORARIO.MOSTRA
     ? `
-        <h2>${t.hFee}</h2>
+        <h2 id="costo">${t.hFee}</h2>
         <p>
           ${isEN ? ONORARIO.EN : ONORARIO.IT}
           <a href="${isEN ? ONORARIO.PAGINA_EN : ONORARIO.PAGINA_IT}">${t.feeMore}</a>
@@ -332,7 +449,7 @@ function paginaEsame(esame, info, t, tuttiEsami, isEN) {
 
   const correlatiBlock = correlati.length
     ? `
-        <h2>${t.hRelated}</h2>
+        <h2 id="correlati">${t.hRelated}</h2>
         <ul class="related-list">
 ${correlati
   .map(
@@ -372,7 +489,7 @@ ${correlati
   <meta name="twitter:description" content="${esc(description)}">
   <meta name="twitter:image" content="${BASE}/${imgSocial}">
   <link rel="preload" href="fonts/atkinson-hyperlegible-next-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/style.css?v=20261031">
+  <link rel="stylesheet" href="css/style.css?v=20261031b">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -480,28 +597,29 @@ ${faq
 
     <section class="content-block">
       <div class="container">
-        <h2>${t.hWhat}</h2>
+${bloccoInBreve(esame.id, t, isEN)}${bloccoIndice(indice, t)}
+        <h2 id="a-cosa-serve">${t.hWhat}</h2>
         <p>${esc(esame.descrizione)}</p>
 ${info && info.perche ? `
-        <h2>${t.hWhy}</h2>
+        <h2 id="perche">${t.hWhy}</h2>
         <p>${esc(info.perche)}</p>
 ` : ''}${info && info.svolgimento ? `
-        <h2>${t.hHow}</h2>
+        <h2 id="come-si-svolge">${t.hHow}</h2>
         <p>${esc(info.svolgimento)}</p>
 ` : ''}${info && info.cosaControlla ? `
-        <h2>${t.hCheck}</h2>
+        <h2 id="cosa-controllo">${t.hCheck}</h2>
         <p>${esc(info.cosaControlla)}</p>
 ` : ''}
-        <h2>${t.hPrep}</h2>
+        <h2 id="preparazione">${t.hPrep}</h2>
         <p>${prep}</p>
-${feeBlock}
+${bloccoPreparazione(esame.id, t)}${feeBlock}
         <div class="btn-stack content-spaced">
           <a class="btn btn-primary" href="${esc(prenotaUrl)}" rel="noopener">${t.bookThis}</a>
           <a class="btn btn-outline" href="tel:+390932954441">${t.call} ${TEL1}</a>
           <a class="btn btn-outline" href="tel:+393513746102">${t.call} ${TEL2}</a>
         </div>
 
-${faq.length ? `        <h2>${t.hFaq}</h2>
+${faq.length ? `        <h2 id="domande">${t.hFaq}</h2>
         <div class="faq">
 ${faq
   .map(
@@ -519,7 +637,10 @@ ${faq
           <a href="${t.contactPage}">${t.contactWord}</a>.
         </p>
 
-        <p class="exam-disclaimer">${t.disclaimer}</p>
+        <div class="inset">
+          <p>${t.disclaimer}</p>
+        </div>
+        <p class="review-date">${t.reviewText(REVISIONE[t.lang])}</p>
       </div>
     </section>
 

@@ -26,7 +26,7 @@
   <meta property="og:locale" content="it_IT">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preload" href="fonts/atkinson-hyperlegible-next-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/style.css?v=20261031">
+  <link rel="stylesheet" href="css/style.css?v=20261031b">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -162,7 +162,27 @@
 
     <section class="content-block">
       <div class="container">
-        <h2>Che cos'è e a cosa serve</h2>
+        <div class="in-breve">
+          <h2 class="in-breve-title">In breve</h2>
+          <dl>
+            <div><dt>Preparazione</dt><dd><a href="#preparazione">Digiuno o vescica piena, dipende dall’esame</a></dd></div>
+            <div><dt>Referto</dt><dd>Scritto, consegnato al termine dell’esame</dd></div>
+            <div><dt>Onorario</dt><dd>80 € · <a href="tariffe.html">Vedi le tariffe</a></dd></div>
+            <div><dt>Dove</dt><dd>Pozzallo (RG), su appuntamento</dd></div>
+          </dl>
+        </div>
+        <nav class="page-contents" aria-label="In questa pagina">
+          <span class="page-contents-title">In questa pagina</span>
+          <ol>
+            <li><a href="#a-cosa-serve">A cosa serve</a></li>
+            <li><a href="#quale-esame">Quale esame</a></li>
+            <li><a href="#preparazione">Come prepararsi</a></li>
+            <li><a href="#come-si-svolge">Come si svolge</a></li>
+            <li><a href="#domande">Domande frequenti</a></li>
+          </ol>
+        </nav>
+
+        <h2 id="a-cosa-serve">Che cos'è e a cosa serve</h2>
         <p>
           L'ecografia dell'addome permette di osservare gli organi interni e di valutarne
           forma, dimensioni e struttura. È utile per controllare <strong>fegato e vie
@@ -171,7 +191,7 @@
           dare risposta a dolori addominali, esami del sangue alterati o controlli periodici.
         </p>
 
-        <h2>Addome superiore, inferiore o completo</h2>
+        <h2 id="quale-esame">Addome superiore, inferiore o completo</h2>
         <p>
           L'<strong>addome superiore</strong> studia fegato, colecisti, pancreas, milza e
           reni; l'<strong>addome inferiore</strong> la vescica e gli organi pelvici; l'<strong>addome
@@ -179,15 +199,37 @@
           indicato quale serve; se hai dubbi, chiamami e lo verifichiamo insieme.
         </p>
 
-        <h2>Come prepararsi</h2>
+        <h2 id="preparazione">Come prepararsi</h2>
         <p>La preparazione dipende dall'esame:</p>
         <ul>
           <li><strong>Addome superiore o completo:</strong> digiuno da <strong>6-8 ore</strong> (così colecisti e organi si vedono meglio).</li>
           <li><strong>Addome inferiore / pelvi:</strong> <strong>vescica piena</strong> — bevi circa un litro d'acqua un'ora prima e non urinare fino all'esame.</li>
         </ul>
         <p>Nel dubbio sulla tua preparazione, chiamami prima dell'appuntamento.</p>
+        <div class="do-dont">
+          <div class="do-dont-box">
+            <h3>Cosa fare</h3>
+            <ul>
+              <li>Addome superiore o completo: puoi bere acqua e prendere i farmaci abituali</li>
+              <li>Addome inferiore: bevi circa un litro d’acqua un’ora prima</li>
+              <li>Porta con te referti o ecografie precedenti</li>
+            </ul>
+          </div>
+          <div class="do-dont-box dont">
+            <h3>Cosa evitare</h3>
+            <ul>
+              <li>Addome superiore o completo: non mangiare nelle 6-8 ore prima</li>
+              <li>Addome inferiore: non urinare fino all’esame</li>
+            </ul>
+          </div>
+        </div>
+        <!-- DA VERIFICARE: frase nuova, da confermare dal medico -->
+        <div class="callout">
+          <h3>Importante</h3>
+          <p>Se non riesci a seguire la preparazione, avvisa prima dell’appuntamento: senza, alcuni organi si vedono male e l’esame potrebbe andare ripetuto.</p>
+        </div>
 
-        <h2>Come si svolge</h2>
+        <h2 id="come-si-svolge">Come si svolge</h2>
         <p>
           Ti sdrai e appoggio la sonda sull'addome con un po' di gel. Niente aghi, niente
           radiazioni, nessun fastidio. L'esame dura in genere 15–30 minuti, di solito circa 20; al termine ti consegno
@@ -200,7 +242,7 @@
           <a class="btn btn-outline" href="tel:+393513746102">Chiama +39 351 374 6102</a>
         </div>
 
-        <h2>Domande frequenti</h2>
+        <h2 id="domande">Domande frequenti</h2>
         <div class="faq">
           <details>
             <summary>Devo essere a digiuno?</summary>
@@ -227,7 +269,7 @@
         </div>
 
         <!-- CORRELATI: generato da scripts/correlati-pagine-manuali.js -->
-        <h2>Esami correlati</h2>
+        <h2 id="correlati">Esami correlati</h2>
         <ul class="related-list">
           <li><a href="ecografia-addome-superiore.html">Ecografia addome superiore</a></li>
           <li><a href="ecografia-addome-inferiore.html">Ecografia addome inferiore</a></li>
@@ -241,6 +283,10 @@
           Vedi tutti gli <a href="ecografie.html">esami disponibili</a> oppure
           l'<a href="ecografia-tiroide.html">ecografia della tiroide</a>.
         </p>
+        <div class="inset">
+          <p>Queste informazioni descrivono l’esame in linea generale e non sostituiscono il parere del medico. Per sapere qual è l’esame più adatto al tuo caso, rivolgiti al tuo medico curante oppure contattami.</p>
+        </div>
+        <p class="review-date">Contenuti a cura del Dr. Salvatore Susino, medico specialista in Radiologia. Ultima revisione: 31 ottobre 2026.</p>
       </div>
     </section>
 
