@@ -60,6 +60,14 @@
   --safe-right: env(safe-area-inset-right, 0px);
   --safe-bottom: env(safe-area-inset-bottom, 0px);
   --safe-left: env(safe-area-inset-left, 0px);
+  /* Icone di interfaccia: Tabler Icons (MIT), vedi images/icone/ui/LEGGIMI.md */
+  --ico-phone: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d=%22M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2%22 /%3E%3C/svg%3E");
+  --ico-car: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d=%22M5 17a2 2 0 1 0 4 0a2 2 0 1 0 -4 0%22 /%3E%3Cpath d=%22M15 17a2 2 0 1 0 4 0a2 2 0 1 0 -4 0%22 /%3E%3Cpath d=%22M5 17h-2v-6l2 -5h9l4 5h1a2 2 0 0 1 2 2v4h-2m-4 0h-6m-6 -6h15m-6 0v-5%22 /%3E%3C/svg%3E");
+  --ico-map-pin: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d=%22M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0%22 /%3E%3Cpath d=%22M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0%22 /%3E%3C/svg%3E");
+  --ico-clock: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d=%22M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0%22 /%3E%3Cpath d=%22M12 7v5l3 3%22 /%3E%3C/svg%3E");
+  --ico-calendar: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d=%22M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2l0 -12%22 /%3E%3Cpath d=%22M16 3l0 4%22 /%3E%3Cpath d=%22M8 3l0 4%22 /%3E%3Cpath d=%22M4 11l16 0%22 /%3E%3Cpath d=%22M8 15h2v2h-2l0 -2%22 /%3E%3C/svg%3E");
+  --ico-mail: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d=%22M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10%22 /%3E%3Cpath d=%22M3 7l9 6l9 -6%22 /%3E%3C/svg%3E");
+  --ico-check: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d=%22M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0%22 /%3E%3Cpath d=%22M9 12l2 2l4 -4%22 /%3E%3C/svg%3E");
 }
 
 *,
@@ -453,9 +461,14 @@ button {
 }
 
 .hero-trust li::before {
-  content: "✓";
-  color: var(--accent);
-  font-weight: 700;
+  content: "";
+  flex: none;
+  width: 1.35em;
+  height: 1.35em;
+  margin-top: 0.05em;
+  background-color: var(--accent);
+  -webkit-mask: var(--ico-check) center / contain no-repeat;
+  mask: var(--ico-check) center / contain no-repeat;
 }
 
 .hero-card {
@@ -2254,4 +2267,46 @@ html.lenis body {
   .in-breve div:nth-child(odd) {
     border-right: 1px solid var(--border);
   }
+}
+
+/* ------------------------------------------------------------------ */
+/* Icone di interfaccia (Tabler Icons, MIT): maschere che prendono il   */
+/* colore del testo. Decorative: sempre con aria-hidden o in ::before.  */
+/* ------------------------------------------------------------------ */
+.ico {
+  display: inline-block;
+  flex: none;
+  width: 1.25em;
+  height: 1.25em;
+  margin-right: 0.4em;
+  vertical-align: -0.28em;
+  background-color: currentColor;
+  -webkit-mask: var(--ico) center / contain no-repeat;
+  mask: var(--ico) center / contain no-repeat;
+}
+.ico-phone { --ico: var(--ico-phone); }
+.ico-map-pin { --ico: var(--ico-map-pin); }
+.ico-clock { --ico: var(--ico-clock); }
+.ico-calendar { --ico: var(--ico-calendar); }
+.ico-mail { --ico: var(--ico-mail); }
+
+/* Pulsanti: telefono e indicazioni stradali con icona, senza toccare l'HTML */
+.btn[href^="tel:"]::before,
+.btn[href*="maps/dir"]::before,
+.btn[href*="maps/search"]::before {
+  content: "";
+  flex: none;
+  width: 1.2em;
+  height: 1.2em;
+  background-color: currentColor;
+  -webkit-mask: var(--ico-phone) center / contain no-repeat;
+  mask: var(--ico-phone) center / contain no-repeat;
+}
+.btn[href*="maps/dir"]::before {
+  -webkit-mask-image: var(--ico-car);
+  mask-image: var(--ico-car);
+}
+.btn[href*="maps/search"]::before {
+  -webkit-mask-image: var(--ico-map-pin);
+  mask-image: var(--ico-map-pin);
 }

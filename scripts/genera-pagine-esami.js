@@ -489,7 +489,7 @@ ${correlati
   <meta name="twitter:description" content="${esc(description)}">
   <meta name="twitter:image" content="${BASE}/${imgSocial}">
   <link rel="preload" href="fonts/atkinson-hyperlegible-next-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/style.css?v=20261031b">
+  <link rel="stylesheet" href="css/style.css?v=20261031c">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
