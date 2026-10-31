@@ -13,9 +13,10 @@ window.ESAMI_PAZIENTE = {
     perche:
       'Useful if you have pain below the ribs, suspected gallbladder colic, fever with no clear cause, or abnormal liver or pancreas blood tests.',
     svolgimento:
-      'You lie on your back. Gel on the skin and the probe gliding over the upper abdomen. Sometimes you need to hold your breath for a few seconds.',
+      /* DA VERIFICARE: come nella versione italiana */
+      'You lie on your back. I put gel on the upper abdomen and move the probe under the ribs, on the right and on the left. Sometimes I ask you to hold your breath for a few seconds or turn on your side.',
     cosaControlla:
-      'We check the liver, gallbladder, biliary tract, pancreas, spleen and the upper part of the kidneys.',
+      'I check the liver, gallbladder, bile ducts, pancreas, spleen and both kidneys.',
     faqExtra: [
       {
         q: "Can gallstones be seen?",
@@ -32,7 +33,8 @@ window.ESAMI_PAZIENTE = {
       {
         q: "How does it differ from a complete abdominal ultrasound?",
         a:
-          "The upper abdomen covers the liver, gallbladder, bile ducts, pancreas, spleen and kidneys. The complete abdomen also includes the bladder and, in men, the prostate with a suprapubic approach.",
+          /* DA VERIFICARE: come nella versione italiana */
+          "The upper abdomen covers the liver, gallbladder, bile ducts, pancreas, spleen and kidneys, and needs fasting. The complete abdomen adds the bladder, the abdominal aorta and, in men, the prostate: this is why it needs a full bladder as well as fasting.",
         verificata: true,
       },
     ],
@@ -96,12 +98,12 @@ window.ESAMI_PAZIENTE = {
     svolgimento:
       'You lie on the couch, first on your back and then on each side. I apply a little gel to your back and flank, where the kidneys are, and move the probe to see them from different angles. It is painless, like any ultrasound scan.',
     cosaControlla:
-      'We check the size, shape and position of the kidneys, the thickness of the kidney tissue and the renal pelvis, the inner part where urine collects before flowing into the ureter. We also see the start of the ureters, but not the bladder. We look for stones, cysts or a kidney that is dilated because of an obstruction to urine flow.',
+      'I check the size, shape and position of the kidneys, the thickness of the kidney tissue and the renal pelvis, the inner part where urine collects before flowing into the ureter. I also see the start of the ureters, but not the bladder. I look for stones, cysts or a kidney that is dilated because of an obstruction to urine flow.',
     faqExtra: [
       {
         q: "How does it differ from the urinary tract ultrasound?",
         a:
-          "Kidney ultrasound studies the kidneys, the renal pelvis (the cavity that collects urine inside the kidney) and the first part of the ureters. The urinary tract ultrasound also includes the bladder and the post-void residual measurement, which is why it needs a full bladder.",
+          "Kidney ultrasound studies the kidneys, the renal pelvis (the cavity that collects urine inside the kidney) and the first part of the ureters. The urinary tract ultrasound also includes the bladder, which is why it needs a full bladder; if your doctor asks for it, it also measures the urine left after you urinate.",
         verificata: true,
       },
       {
@@ -119,7 +121,7 @@ window.ESAMI_PAZIENTE = {
       {
         q: "Do I need to fast? Do I need a full bladder?",
         a:
-          "Yes, fasting for 6–8 hours is recommended: bowel gas, which increases after meals, can hide the kidneys and make them harder to assess. You may drink water and take your usual medication. A full bladder is not needed, because the bladder is not part of this scan.",
+          "Yes, 6–8 hours of fasting (see above, under “Do I need to prepare?”). A full bladder is not needed, because the bladder is not part of this scan.",
         verificata: true,
       },
     ],
@@ -129,7 +131,7 @@ window.ESAMI_PAZIENTE = {
     perche:
       'Useful if you urinate often, with a weak stream, get up at night to urinate, or your doctor suspects an enlarged prostate.',
     svolgimento:
-      'It is important to arrive with a reasonably full bladder. You lie down, gel on the lower abdomen, the probe above the pubic bone.',
+      'It is important to arrive with a reasonably full bladder. You lie on your back, I put gel on the lower abdomen and place the probe above the pubic bone.',
     cosaControlla:
       'I assess the bladder and prostate and, if your doctor requests it, how much urine remains after you have urinated.',
     faqExtra: [
@@ -142,7 +144,7 @@ window.ESAMI_PAZIENTE = {
       {
         q: "What if my bladder is not full enough?",
         a:
-          "With an under-filled bladder the scan is not reliable. Usually you drink more water and the scan is repeated once the bladder has filled, typically after 30–60 minutes; if this is not possible, a new appointment is arranged.",
+          "With a bladder that is not full enough I cannot see the bladder and prostate well. Usually I ask you to drink more water and repeat the scan once the bladder has filled, typically after 30–60 minutes; if that is not possible, we arrange a new appointment.",
         verificata: true,
       },
     ],
@@ -152,9 +154,9 @@ window.ESAMI_PAZIENTE = {
     perche:
       'Useful for pain or swelling of the testicles, a lump you can feel, trauma, or checks related to varicocele, hydrocele or infertility.',
     svolgimento:
-      'You lie down. Gel is applied to the scrotum and the probe is passed gently. Any acute pain should be reported straight away.',
+      'You lie down and I put gel on the scrotum; I move the probe gently, with little pressure. If you feel pain during the scan, tell me straight away. If the pain came on suddenly, read the question below about the emergency department first.',
     cosaControlla:
-      'We assess the testicles, epididymis and spermatic cord, looking for causes of pain, swelling or lumps.',
+      'I assess the testicles, epididymis and spermatic cord, looking for causes of pain, swelling or lumps.',
     faqExtra: [
       {
         q: "When should I go straight away, without waiting?",
@@ -178,18 +180,18 @@ window.ESAMI_PAZIENTE = {
     perche:
       'You have it if you notice a swelling in the neck, a palpable nodule, voice problems or abnormal thyroid blood tests.',
     svolgimento:
-      'You lie down with your neck tilted slightly back. Gel on the neck, the probe gliding over the thyroid. It usually takes 15–20 minutes.',
+      'You lie down with your neck tilted slightly back. I put gel on the neck and glide the probe over the thyroid. It usually takes 15–20 minutes.',
     cosaControlla:
-      'We look at the size, structure and presence of nodules or other changes in the thyroid.',
+      'I look at the size, structure and presence of nodules or other changes in the thyroid.',
   },
   collo: {
     sintesi: 'A check of the thyroid, salivary glands, lymph nodes and other neck structures.',
     perche:
       'Useful if you have a swelling in the neck, enlarged lymph nodes, salivary gland problems or checks after surgery.',
     svolgimento:
-      'Same position as the thyroid ultrasound: lying down, gel on the neck, the probe exploring the area indicated by the doctor.',
+      'You lie down with your neck tilted slightly back, with no necklaces or scarves. I apply gel and move the probe over the whole neck, front and sides, focusing on the area indicated by your doctor or where you feel the swelling.',
     cosaControlla:
-      'We can assess the thyroid, salivary glands (below the ear and below the jaw), lymph nodes and neck vessels.',
+      'I can assess the thyroid, salivary glands (below the ear and below the jaw), lymph nodes and neck vessels.',
     faqExtra: [
       {
         q: "Is it also done for check-ups after neck surgery?",
@@ -210,18 +212,19 @@ window.ESAMI_PAZIENTE = {
     perche:
       'Useful after trauma, a tear, sports overload or pain that won\'t go away in a joint or muscle.',
     svolgimento:
-      'Gel is applied to the affected area. Sometimes we ask you to move the limb while we look at the screen.',
+      'I apply gel to the affected area. Sometimes I ask you to move the limb while I look at the screen.',
     cosaControlla:
-      'We look at muscles, tendons, ligaments and bursae in the region indicated on the referral.',
+      'I look at muscles, tendons, ligaments and bursae in the region indicated on the referral.',
   },
   spalla: {
     sintesi: 'A check of the tendons and structures of the shoulder.',
     perche:
       'You have it if it hurts to raise your arm, after trauma, or if you suspect inflammation or an injury to the shoulder.',
     svolgimento:
-      'Gel on the shoulder; sometimes you move your arm as directed. The probe passes in front of and to the side of the shoulder.',
+      /* DA VERIFICARE: come nella versione italiana */
+      'You sit on a stool with your shoulder uncovered. I apply gel and move the probe over the front, side and back of the shoulder. I will ask you to raise, rotate and put your arm behind your back: the tendons are seen better in motion.',
     cosaControlla:
-      'We assess the rotator cuff tendons, the bursa under the acromion and the biceps tendon.',
+      'I assess the rotator cuff tendons, the bursa under the acromion (the bony tip at the top of the shoulder) and the biceps tendon.',
     faqExtra: [
       {
         q: "Can shoulder ultrasound see the rotator cuff?",
@@ -231,12 +234,12 @@ window.ESAMI_PAZIENTE = {
       {
         q: "Is ultrasound or MRI better for the shoulder?",
         a:
-          "It depends on what is suspected. For tendons, bursa and calcifications ultrasound is the first choice: it is quick and lets you move your arm during the scan. MRI is needed when the suspicion concerns the glenoid labrum, cartilage or bone, or when surgery is being planned.",
+          "It depends on what is suspected. For tendons, bursa and calcifications ultrasound is the first choice: it is quick and lets you move your arm during the scan. MRI is needed when the suspicion concerns the glenoid labrum (the cartilage rim of the shoulder socket), cartilage or bone, or when surgery is being planned.",
       },
       {
         q: "Why do you ask me to move my arm during the scan?",
         a:
-          "Because the shoulder is studied in motion. By having you raise and rotate your arm I can see the tendons slide under the acromion: some impingements and certain tears only become visible this way, while with the arm still they would go unnoticed.",
+          "Because the shoulder is studied in motion. By having you raise and rotate your arm I can see the tendons slide under the acromion: some impingements (the tendon catching against the bone) and certain tears only become visible this way, while with the arm still they would go unnoticed.",
       },
       {
         q: "Can shoulder calcifications be seen?",
@@ -263,9 +266,9 @@ window.ESAMI_PAZIENTE = {
     perche:
       'Useful after a sprain, a sports injury, knee swelling or pain at the front or sides.',
     svolgimento:
-      'You lie down or stay seated with the knee bent. Gel and probe on the painful area. We may ask for small movements.',
+      'You lie down or stay seated with the knee bent. I put gel on the painful area and move the probe over it. I may ask for small movements.',
     cosaControlla:
-      'We look at the knee tendons, collateral ligaments, bursae and whether there is fluid inside the joint. The deep menisci are less easily seen.',
+      'I look at the knee tendons, collateral ligaments, bursae and whether there is fluid inside the joint. The deep menisci are less easily seen.',
     faqExtra: [
       {
         q: "Can knee ultrasound see the menisci and cruciate ligaments?",
@@ -275,7 +278,7 @@ window.ESAMI_PAZIENTE = {
       {
         q: "So what is knee ultrasound useful for?",
         a:
-          "It is very useful for the patellar and quadriceps tendons, bursitis, the collateral ligaments, a Baker's cyst behind the knee and for measuring joint effusion. These are the most common problems after sports overload or a sprain.",
+          "It is very useful for the patellar and quadriceps tendons, bursitis, the collateral ligaments, a Baker's cyst (a pocket of fluid behind the knee) and for measuring joint effusion. These are the most common problems after sports overload or a sprain.",
       },
       {
         q: "My knee is swollen: will ultrasound help?",
@@ -291,7 +294,7 @@ window.ESAMI_PAZIENTE = {
     svolgimento:
       'You lie on the couch. I apply gel to the groin, the side of the hip or both, depending on where it hurts: sometimes I ask you to turn on your side or lie face down, so I can see the back of the hip well too. If a snapping hip is suspected, I ask you to move your leg while I watch the screen, to see how the tendon behaves. The scan is painless and usually takes 15–20 minutes.',
     cosaControlla:
-      'We assess the gluteal tendons and the trochanteric bursa on the side, the iliopsoas and adductor tendons in the groin, and any fluid in the hip joint. If you have a hip replacement, we also check the soft tissue around the implant. We cannot see the bone in depth or the joint cartilage well: X-ray or MRI remain more suitable for those.',
+      'I assess the gluteal tendons and the trochanteric bursa on the side, the iliopsoas and adductor tendons in the groin, and any fluid in the hip joint. If you have a hip replacement, I also check the soft tissue around the implant. I cannot see the bone in depth or the joint cartilage well: X-ray or MRI remain more suitable for those.',
     faqExtra: [
       {
         q: "I have pain on the side of my hip: is ultrasound useful?",
@@ -330,9 +333,10 @@ window.ESAMI_PAZIENTE = {
     perche:
       'Done in the first weeks of life to rule out a hip that has not formed well or that comes out of place, especially if there are risk factors or the paediatrician requests it.',
     svolgimento:
-      'The baby stays lying down or in the parent\'s arms. A small probe is passed over the hips, with gel.',
+      /* DA VERIFICARE: come nella versione italiana */
+      'The baby lies on one side, with the nappy open, while you stay beside them and keep them calm. I place a small probe on the hip with a little warm gel, first on one side and then on the other. It can be done while the baby feeds or sleeps.',
     cosaControlla:
-      'We check whether the baby\'s hip is mature and stable, using the method used in paediatrics (Graf).',
+      'I check whether the hip is well formed and stable, measuring its angles with the Graf method, the one normally used for newborns.',
     faqExtra: [
       {
         q: "At what age is the newborn hip ultrasound done?",
@@ -347,7 +351,8 @@ window.ESAMI_PAZIENTE = {
       {
         q: "Why is it important to do it at the right time?",
         a:
-          "Because dysplasia recognised in the first weeks can almost always be corrected with a simple abduction brace, whereas if it is discovered late it may require much more demanding treatment. That is why this check is done even when the baby is perfectly well.",
+          /* DA VERIFICARE: come nella versione italiana */
+          "Because, if the hip needs help to develop properly, acting in the first months is simpler: often a brace (abduction splint), prescribed and followed up by the paediatric orthopaedic specialist, is enough. That is why this check is done even when the baby is perfectly well.",
       },
     ],
   },
@@ -356,14 +361,15 @@ window.ESAMI_PAZIENTE = {
     perche:
       'You have it if you have tennis or golfer\'s elbow, pain after repeated movements, swelling on the elbow or after a knock.',
     svolgimento:
-      'Elbow resting or extended, gel on the skin, the probe exploring the painful area.',
+      /* DA VERIFICARE: come nella versione italiana */
+      'You sit or lie down with your elbow resting, slightly bent. I put gel on the skin and move the probe over the outer side, the inner side and the crease of the elbow. Sometimes I ask you to clench your fist or turn your forearm.',
     cosaControlla:
-      'We assess the inner and outer tendons of the elbow, the biceps tendon and the bursa over the ulna.',
+      'I assess the inner and outer tendons of the elbow, the biceps tendon and the bursa on the tip of the elbow.',
     faqExtra: [
       {
         q: "Is it useful for epicondylitis (“tennis elbow”)?",
         a:
-          "Yes. In lateral epicondylitis (“tennis elbow”) the common extensor tendon, attached to the lateral epicondyle, is assessed. In medial epicondylitis (“golfer’s elbow”) the common flexor-pronator tendon, attached to the medial epicondyle on the inner side of the elbow, is assessed. The scan looks for thickening, changes in tendon structure and any partial tears.",
+          "Yes. In lateral epicondylitis (“tennis elbow”) the common extensor tendon, attached to the lateral epicondyle, the bony bump on the outer side of the elbow, is assessed. In medial epicondylitis (“golfer’s elbow”) the common flexor-pronator tendon, attached to the medial epicondyle on the inner side of the elbow, is assessed. The scan looks for thickening, changes in tendon structure and any partial tears.",
         verificata: true,
       },
       {
@@ -392,10 +398,10 @@ window.ESAMI_PAZIENTE = {
       'Sometimes I ask you to bend or straighten your fingers, or move your thumb: seeing the tendons move helps assess them better. ' +
       'If carpal tunnel syndrome is suspected, I often examine both wrists.',
     cosaControlla:
-      'We look at the flexor tendons, on the palm side, and the extensor tendons, on the back of the hand: their structure and the sheath that surrounds them (the lining that lets them glide). ' +
-      'We check the median nerve where it enters the carpal tunnel, at the wrist. ' +
-      'We assess the small joints of the wrist and fingers, the bursae (small fluid-filled sacs that reduce friction) and any tendon cysts. ' +
-      'After an injury, we also look at the tendons and ligaments near the painful area.',
+      'I look at the flexor tendons, on the palm side, and the extensor tendons, on the back of the hand: their structure and the sheath that surrounds them (the lining that lets them glide). ' +
+      'I check the median nerve where it enters the carpal tunnel, at the wrist. ' +
+      'I assess the small joints of the wrist and fingers, the bursae (small fluid-filled sacs that reduce friction) and any tendon cysts. ' +
+      'After an injury, I also look at the tendons and ligaments near the painful area.',
     faqExtra: [
       {
         q: "Is it useful for carpal tunnel syndrome?",
@@ -428,19 +434,21 @@ window.ESAMI_PAZIENTE = {
     perche:
       'Useful after an ankle sprain, heel or sole pain, or suspected ligament injury.',
     svolgimento:
-      'Foot and ankle with gel; sometimes small movements of the foot.',
+      /* DA VERIFICARE: come nella versione italiana */
+      'You lie on the couch with your foot uncovered. I put gel on the ankle or the sole of the foot, where it hurts, and move the probe. Sometimes I ask you to move your foot or point to the exact spot that hurts, to see the tendons and ligaments in motion.',
     cosaControlla:
-      'We assess the ankle ligaments, the Achilles tendon, the plantar fascia and the bursae of the foot.',
+      'I assess the ankle ligaments, the Achilles tendon, the plantar fascia and the bursae of the foot.',
     faqExtra: [
       {
         q: "Is it useful for heel pain?",
         a:
-          "Yes, it is the first-choice exam. In plantar fasciitis I measure the thickness of the fascia where it attaches to the heel bone and compare it with the healthy side: it is an objective measurement, also useful for following the response to treatment at later checks.",
+          /* DA VERIFICARE: come nella versione italiana */
+          "Often, yes. The most common cause is plantar fasciitis (inflammation of the band of tissue supporting the sole): I measure the thickness of the fascia where it attaches to the heel bone and compare it with the other side. I also look at the Achilles tendon and nearby bursae. If the pain comes from the bone, your doctor may suggest an X-ray.",
       },
       {
         q: "Is it useful after an ankle sprain?",
         a:
-          "Very. I study the outer ligaments, in particular the anterior talofibular ligament, which is the one most often injured, any effusion and the state of the peroneal tendons. If needed, I also assess the Achilles tendon.",
+          "Very. I study the outer ligaments, in particular the anterior talofibular ligament, on the outer side of the ankle, the one most often injured, any effusion (fluid in the joint) and the state of the peroneal tendons, which run behind the outer ankle bone. If needed, I also assess the Achilles tendon.",
       },
       {
         q: "Can a Morton's neuroma be seen?",
@@ -454,9 +462,9 @@ window.ESAMI_PAZIENTE = {
     perche:
       'You have it if you feel a lump under the skin and the doctor wants to understand whether it is a cyst, a lipoma, a haematoma or something else.',
     svolgimento:
-      'Gel is applied to the area of the swelling and the probe is gently moved over it. It usually takes 15–20 minutes.',
+      'I apply gel to the area of the swelling and gently move the probe over it. It usually takes 15–20 minutes.',
     cosaControlla:
-      'We look at whether the lesion is fluid-filled or solid, where it is and how large it is.',
+      'I look at whether the lump contains fluid (like a cyst) or is solid (like a lipoma), exactly where it is, how large it is and how it relates to nearby muscles and vessels.',
     faqExtra: [
       {
         q: "Can a haematoma be seen after an injury?",
@@ -471,18 +479,19 @@ window.ESAMI_PAZIENTE = {
     perche:
       'It helps assess the risk of stroke: if you have risk factors, a bruit (a sound the doctor hears) in the neck, dizziness or have already had a mini-stroke (TIA).',
     svolgimento:
-      'You lie down. Gel is applied to the neck and the Doppler probe is used: you may hear a sound like a heartbeat.',
+      'You lie down. I apply gel to the neck and use the Doppler probe: you may hear a sound like a heartbeat.',
     cosaControlla:
-      'We look at the carotid and other neck arteries, whether the blood flows well or there are any narrowings.',
+      'I look at the carotid and other neck arteries, whether the blood flows well or there are any narrowings.',
   },
   'doppler-aorta': {
     sintesi: 'A check of the abdominal aorta and the blood flow.',
     perche:
-      'You have it to monitor a known aneurysm, a dilation of the aorta or diseases of the vessels in the abdomen.',
+      'You have it to monitor an aneurysm, that is a widening of the aorta, that has already been found, or if your doctor suspects the aorta is enlarged or there is a problem with the large vessels of the abdomen.',
     svolgimento:
-      'Lying on your back, gel on the abdomen. The Doppler probe shows the blood flow in the aorta.',
+      /* DA VERIFICARE: come nella versione italiana */
+      'You lie on your back with your abdomen uncovered. I apply gel and follow the aorta with the probe from the stomach down to the lower abdomen, measuring its diameter at several points. Sometimes I ask you to hold your breath for a few seconds; you may hear the sound of the flow.',
     cosaControlla:
-      'We assess the size of the abdominal aorta and iliac arteries and how the blood flows.',
+      'I measure the diameter of the abdominal aorta at several points and of the iliac arteries, the two branches it divides into in the lower abdomen, and look at how the blood flows.',
     faqExtra: [
       {
         q: "I have a known aneurysm: what is the check for?",
@@ -503,7 +512,7 @@ window.ESAMI_PAZIENTE = {
     perche:
       'Useful if you have high blood pressure that is hard to control and the doctor suspects a problem with the renal arteries.',
     svolgimento:
-      'You lie down, gel on the flank and abdomen. Doppler probe over the kidneys: you will hear the sound of the flow.',
+      'You lie down. I put gel on the flank and abdomen and move the Doppler probe over the kidneys: you will hear the sound of the flow.',
     cosaControlla:
       'I look at whether the renal arteries are clear or narrowed (stenosis) and how the blood reaches the kidneys.',
     faqExtra: [
@@ -526,18 +535,18 @@ window.ESAMI_PAZIENTE = {
     perche:
       'Arteries: leg pain when walking, wounds that heal poorly. Veins: heavy legs, varicose veins, suspected thrombosis or swelling.',
     svolgimento:
-      'You lie down. Gel on the legs and feet, the Doppler probe following the arteries or veins. You may hear a sound.',
+      'You lie down. I put gel on the legs and feet and follow the arteries or veins with the Doppler probe. You may hear a sound.',
     cosaControlla:
-      'We assess whether the blood reaches the legs well (arterial) or whether the veins carry the blood back to the heart as they should (venous).',
+      'I assess whether the blood reaches the legs well (arterial) or whether the veins carry the blood back to the heart as they should (venous).',
   },
   'doppler-arti-superiori': {
     sintesi: 'A check of the arteries and veins of the arms and forearms.',
     perche:
       'Useful if one arm is swollen compared with the other, suspected thrombosis, a dialysis fistula or problems with arterial flow.',
     svolgimento:
-      'Arm resting, gel and Doppler probe along the arteries and veins.',
+      'You lie or sit with your arm resting and uncovered up to the shoulder. I apply gel and follow the arteries or veins with the probe from the shoulder to the hand. You may hear the sound of the blood flow.',
     cosaControlla:
-      'We look at the arteries and veins of the arm and whether the blood flow is normal.',
+      'I look at the arteries and veins of the arm and whether the blood flow is normal.',
     faqExtra: [
       {
         q: "One arm is more swollen than the other: is the scan useful?",
@@ -558,7 +567,7 @@ window.ESAMI_PAZIENTE = {
     perche:
       'You have it if you notice a swelling or an enlarged lymph node that does not go away, in case of persistent fever, or to check lymph nodes already known.',
     svolgimento:
-      'Gel is applied to the area (neck, armpit or groin) and the probe is gently moved over it.',
+      'I apply gel to the area (neck, armpit or groin) and gently move the probe over it.',
     cosaControlla:
       'I assess the size, shape and internal structure of the lymph node and describe them in the report: based on these, your doctor decides whether a follow-up check is enough or further tests are needed.',
     faqExtra: [

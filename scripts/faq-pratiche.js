@@ -44,7 +44,7 @@ const FAQ_PRATICHE = [
         },
         en: {
           q: "Does it hurt?",
-          a: "No, ultrasound does not hurt. It is a painless exam: the probe glides over the skin with a little gel. In some cases the pressure of the probe may cause slight discomfort, for example on an area that is already inflamed, on a very full bladder or on a painful joint. In rare situations, such as appendicitis, the scan may be more uncomfortable, but these cases are rare and the pressure is adapted to what you can tolerate. If you feel pain, tell me: we stop straight away.",
+          a: "No, ultrasound does not hurt. It is a painless scan: the probe glides over the skin with a little gel. In some cases the pressure of the probe may cause slight discomfort, for example on an area that is already inflamed, on a very full bladder or on a painful joint. In rare situations, such as appendicitis, the scan may be more uncomfortable, but these cases are rare and the pressure is adapted to what you can tolerate. If you feel pain, tell me: we stop straight away.",
         },
       },
     ],
@@ -445,11 +445,11 @@ const FAQ_PRATICHE = [
         gruppi: ['muscolo-scheletrico'],
         it: {
           q: "Devo togliere creme, gioielli o fasciature?",
-          a: "Evita creme, pomate o oli sulla zona da esaminare il giorno dell’esame e togli anelli, bracciali od orologio se la zona è la mano o il polso. Le fasciature semplici si tolgono in studio; tutori o bendaggi prescritti vanno rimossi solo se il medico che li ha indicati è d’accordo.",
+          a: "Evita creme, pomate o oli sulla zona da esaminare il giorno dell’esame. Se la zona è la mano o il polso, togli anelli, bracciali e orologio. Le fasciature semplici si tolgono in studio. Tutori o bendaggi prescritti: toglili solo se il medico che li ha indicati è d’accordo.",
         },
         en: {
           q: "Should I remove creams, jewellery or bandages?",
-          a: "Avoid creams, ointments or oils on the area to be examined on the day of the scan, and remove rings, bracelets or your watch if the area is the hand or wrist. Simple bandages are removed at the practice; prescribed braces or dressings should only be removed if the doctor who prescribed them agrees.",
+          a: "Avoid creams, ointments or oils on the area to be scanned on the day of the scan. If the area is the hand or wrist, remove rings, bracelets and your watch. Simple bandages are removed at the practice. Prescribed braces or dressings: remove them only if the doctor who prescribed them agrees.",
         },
       },
       {
