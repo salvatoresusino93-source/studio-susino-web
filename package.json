@@ -1,0 +1,19 @@
+{
+  "name": "studio-susino-web",
+  "private": true,
+  "description": "Sito statico studiosusino.it: nessuna build. Le dipendenze servono solo ai controlli automatici (tests/, scripts/).",
+  "scripts": {
+    "test": "node --test tests/*.test.js",
+    "seo": "node scripts/verifica-seo.js",
+    "html": "html-validate \"*.html\"",
+    "a11y": "node scripts/verifica-accessibilita.js",
+    "lighthouse": "lhci autorun",
+    "genera": "node scripts/genera-pagine-esami.js && node scripts/generate-sitemap.js"
+  },
+  "devDependencies": {
+    "@lhci/cli": "0.15.1",
+    "axe-core": "4.11.1",
+    "html-validate": "11.17.0",
+    "playwright": "1.63.0"
+  }
+}

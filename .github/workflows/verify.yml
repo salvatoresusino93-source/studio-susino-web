@@ -1,6 +1,8 @@
 # Verifica automatica del sito a ogni Pull Request e a ogni push su main.
 # Non contatta il sistema di prenotazione né alcun servizio esterno:
-# esegue solo i test Node, il controllo SEO del repository e la validazione HTML.
+# esegue i test Node, il controllo SEO del repository, la validazione HTML,
+# il controllo di accessibilità (axe-core su tutte le pagine) e Lighthouse
+# (prestazioni, accessibilità, buone pratiche, SEO) su sei pagine campione.
 name: Verifica sito
 
 on:
@@ -40,9 +42,17 @@ jobs:
             exit 1
           fi
           echo "Nessuna credenziale nel repository."
+      - name: Dipendenze dei controlli (playwright, axe-core, html-validate, lighthouse)
+        run: npm ci
       - name: Test Node
         run: node --test tests/*.test.js
       - name: Controllo SEO (canonical, hreflang, sitemap, JSON-LD, link interni)
         run: node scripts/verifica-seo.js
       - name: Validazione HTML
-        run: npx --yes html-validate "*.html"
+        run: npx html-validate "*.html"
+      - name: Browser per i controlli in pagina
+        run: npx playwright install --with-deps chromium
+      - name: Accessibilità (axe-core, WCAG 2.1 A/AA, tutte le pagine a 390 px)
+        run: node scripts/verifica-accessibilita.js
+      - name: Lighthouse (accessibilità ≥ 95, SEO ≥ 95, buone pratiche ≥ 90; prestazioni ≥ 90 solo avviso)
+        run: npx lhci autorun

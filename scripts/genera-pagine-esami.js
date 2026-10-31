@@ -489,7 +489,7 @@ ${correlati
   <meta name="twitter:description" content="${esc(description)}">
   <meta name="twitter:image" content="${BASE}/${imgSocial}">
   <link rel="preload" href="fonts/atkinson-hyperlegible-next-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/style.css?v=20261031c">
+  <link rel="stylesheet" href="css/style.css?v=20261031d">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -660,7 +660,7 @@ ${faq
       <div class="footer-links"><a href="${t.bookPage}">${t.navPrenota}</a> <a href="https://g.page/r/CQUbXzXQvvzqEBM/review" target="_blank" rel="noopener">${t.navRecensione}</a></div>
     </div>
   </footer>
-  <script src="js/main.js?v=20261018" defer></script>
+  <script src="js/main.js?v=20261031" defer></script>
   <!-- Librerie di animazione (usate da js/motion.js); integrity = sha384 dei file del pacchetto npm -->
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js" integrity="sha384-XmJ9SoHtVOHoQUcKvFAzVXwdkKo1Ie3bhmSoIAkcdsHGaIrVJIkmozyq0FJeb/Ly" crossorigin="anonymous" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js" integrity="sha384-wl5TeDVvOWt30Pbf8aSo2ZrzsOjddu3avOBvHe+p+OhJt9gP6w9YXmDkN5DK2/dF" crossorigin="anonymous" defer></script>

@@ -13,3 +13,7 @@
 *client_secret*.json
 token.json
 .gsc/
+
+# Dipendenze dei controlli automatici (npm ci)
+node_modules/
+.lighthouseci/
