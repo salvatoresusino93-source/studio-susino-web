@@ -173,11 +173,11 @@ const FAQ_GRUPPI = {
       verificata: true,
       it: {
         q: 'Perché a volte si guarda anche il lato che non fa male?',
-        a: 'Perché il confronto con il lato sano aiuta a capire se una differenza è significativa. Se serve lo faccio durante lo stesso esame, senza costi aggiuntivi.',
+        a: 'Perché il confronto con il lato sano aiuta a capire se una differenza è significativa. Se serve lo faccio durante lo stesso appuntamento.',
       },
       en: {
         q: 'Why is the side that does not hurt sometimes checked too?',
-        a: 'Because comparing with the healthy side helps to tell whether a difference is significant. If needed I do it during the same appointment, at no extra cost.',
+        a: 'Because comparing with the healthy side helps to tell whether a difference is significant. If needed I do it during the same appointment.',
       },
     },
     {

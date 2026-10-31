@@ -43,7 +43,7 @@ window.ESAMI = [
     categoria: 'Apparato urinario e urologia',
     descrizione:
       'Valuta reni, ureteri, vescica e residuo urinario post-minzionale. ' +
-      'Si prescrivono per colica renale, ematuria, infezioni urinarie di ripetizione, sospetta ostruzione delle vie urinarie o controllo di patologia renale nota.',
+      'Si prescrive per colica renale, ematuria, infezioni urinarie di ripetizione, sospetta ostruzione delle vie urinarie o controllo di patologia renale nota.',
     prenotaNome: 'Ecografia apparato urinario',
   },
   {
@@ -75,7 +75,7 @@ window.ESAMI = [
     nome: 'Ecografia scrotale e testicolare',
     categoria: 'Apparato urinario e urologia',
     descrizione:
-      'Studia testicoli, epidididi e funicolo spermatico. ' +
+      'Studia testicoli, epididimi (i piccoli canali dietro ogni testicolo) e funicolo spermatico. ' +
       'Si richiede per dolore o gonfiore scrotale, nodulo palpabile, trauma, sospetta torsione testicolare (urgenza), varicocele, idrocele, orchite/epididimite o indagine di infertilità maschile.',
     prenotaNome: 'Ecografia scrotale e testicolare',
   },
@@ -133,8 +133,8 @@ window.ESAMI = [
     nome: 'Ecografia ginocchio',
     categoria: 'Muscolo-scheletrico',
     descrizione:
-      'Studia tendini (rotuleo e quadricipitale), legamenti collaterali, borse e eventuale versamento articolare. ' +
-      'Indicata dopo distorsione o trauma sportivo, gonfiore del ginocchio o sospetto derrame e tendinopatia; ha limiti nello studio meniscale profondo.',
+      'Studia tendini (rotuleo e quadricipitale), legamenti collaterali, borse ed eventuale versamento articolare (liquido dentro l’articolazione). ' +
+      'Indicata dopo distorsione o trauma sportivo, gonfiore del ginocchio, sospetto versamento o tendinopatia; ha limiti nello studio meniscale profondo.',
     prenotaNome: 'Ecografia ginocchio',
   },
   {
@@ -169,7 +169,7 @@ window.ESAMI = [
     nome: 'Ecografia gomito',
     categoria: 'Muscolo-scheletrico',
     descrizione:
-      'Esamina tendini epicondiloidea ed epitrocleare, tendine bicipitale distale e borsa olecranica. ' +
+      'Esamina i tendini che si attaccano sul lato esterno (epicondilo) e interno (epitroclea) del gomito, il tendine del bicipite nella piega del gomito e la borsa sulla punta del gomito (borsa olecranica). ' +
       'Indicata per epicondilite o epitrocleite, dolore da movimenti ripetitivi, borsite olecranica o limitazione funzionale post-trauma.',
     prenotaNome: 'Ecografia gomito',
   },
@@ -253,7 +253,7 @@ window.ESAMI = [
     categoria: 'Vascolare (Doppler)',
     descrizione:
       'Studia il circolo arterioso e/o venoso di gambe e piedi. ' +
-      'Arterioso: claudicatio intermitente, sospetta arteriopatia periferica, ferite che guariscono male. Venoso: gambe pesanti, varici, sospetta trombosi venosa profonda o insufficienza venosa.',
+      'Arterioso: claudicatio intermittente (dolore alle gambe camminando, che passa con il riposo), sospetta arteriopatia periferica, ferite che guariscono male. Venoso: gambe pesanti, varici, sospetta trombosi venosa profonda o insufficienza venosa.',
     prenotaNome: 'Ecocolordoppler arti inferiori',
   },
   {

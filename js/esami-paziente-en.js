@@ -166,7 +166,7 @@ window.ESAMI_PAZIENTE = {
       {
         q: "I have noticed a swelling: what can be told apart?",
         a:
-          "Ultrasound distinguishes well between the most common causes: epididymal cysts, hydrocele, varicocele and solid lumps of the testicle. This distinction is what decides whether a follow-up check is enough or further tests are needed, and we know it at the end of the scan.",
+          "Ultrasound distinguishes well between the most common causes: epididymal cysts, hydrocele (fluid around the testicle), varicocele (dilated veins) and solid lumps of the testicle. The report describes what is seen; with it, your doctor or urologist decides whether a follow-up check is enough or further tests are needed.",
       },
     ],
   },
@@ -277,7 +277,7 @@ window.ESAMI_PAZIENTE = {
       {
         q: "My knee is swollen: will ultrasound help?",
         a:
-          "Yes, it is one of the cases where it helps most. I can see straight away whether the swelling is fluid inside the joint, how much there is and where it collects, and whether a Baker's cyst has formed behind the knee. It is information that guides treatment on the same day.",
+          "Yes, it is one of the cases where it helps most. I can see straight away whether the swelling is fluid inside the joint, how much there is and where it collects, and whether a Baker's cyst has formed behind the knee. This information helps your doctor or orthopaedic specialist decide how to proceed.",
       },
     ],
   },
@@ -466,7 +466,7 @@ window.ESAMI_PAZIENTE = {
   'doppler-tsa': {
     sintesi: 'A check of the blood flow in the neck arteries (carotids).',
     perche:
-      'Used to prevent stroke: if you have risk factors, a bruit in the neck, dizziness or have already had a mini-stroke (TIA).',
+      'It helps assess the risk of stroke: if you have risk factors, a bruit (a sound the doctor hears) in the neck, dizziness or have already had a mini-stroke (TIA).',
     svolgimento:
       'You lie down. Gel is applied to the neck and the Doppler probe is used: you may hear a sound like a heartbeat.',
     cosaControlla:
@@ -502,7 +502,7 @@ window.ESAMI_PAZIENTE = {
     svolgimento:
       'You lie down, gel on the flank and abdomen. Doppler probe over the kidneys: you will hear the sound of the flow.',
     cosaControlla:
-      'We look at whether the renal arteries are clear or narrowed and how the blood reaches the kidneys.',
+      'I look at whether the renal arteries are clear or narrowed (stenosis) and how the blood reaches the kidneys.',
     faqExtra: [
       {
         q: "Why are the renal arteries checked if I have high blood pressure?",
@@ -557,7 +557,7 @@ window.ESAMI_PAZIENTE = {
     svolgimento:
       'Gel is applied to the area (neck, armpit or groin) and the probe is gently moved over it.',
     cosaControlla:
-      'We assess the size, shape and internal structure of the lymph node to understand whether it has benign features or requires further investigation.',
+      'I assess the size, shape and internal structure of the lymph node and describe them in the report: based on these, your doctor decides whether a follow-up check is enough or further tests are needed.',
     faqExtra: [
       {
         q: "Which lymph node areas can be checked?",

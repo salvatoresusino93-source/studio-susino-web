@@ -65,7 +65,7 @@ window.ESAMI_PAZIENTE = {
     perche:
       'La fai se hai colica renale, sangue nelle urine, infezioni urinarie frequenti o il medico sospetta un ostacolo al passaggio dell’urina.',
     svolgimento:
-      'Prima si guarda con la vescica piena; poi, se serve, ti chiederemo di urinare e si controlla quanta urina resta in vescica. Gel sulla pancia o sul fianco.',
+      'Prima si guarda con la vescica piena; poi, se serve, ti chiederemo di urinare e si controlla quanta urina resta in vescica. Metto il gel sull’addome e sui fianchi, dove si trovano i reni.',
     cosaControlla:
       'Valutiamo reni, ureteri e vescica, e misuriamo l’eventuale residuo di urina dopo la minzione.',
     faqExtra: [
@@ -166,12 +166,12 @@ window.ESAMI_PAZIENTE = {
       {
         q: 'Mi sono accorto di un gonfiore: cosa si riesce a distinguere?',
         a:
-          'L’ecografia separa bene fra loro le cause più comuni: cisti dell’epididimo, idrocele, varicocele e formazioni solide del testicolo. È proprio questa distinzione a stabilire se basta un controllo nel tempo o se serve approfondire, e la sappiamo al termine dell’esame.',
+          'L’ecografia distingue bene le cause più comuni: cisti dell’epididimo, idrocele (liquido intorno al testicolo), varicocele (vene dilatate) e formazioni solide del testicolo. Il referto descrive cosa si vede; con quello, il medico curante o l’urologo decide se basta un controllo nel tempo o se servono altri accertamenti.',
       },
     ],
   },
   tiroide: {
-    sintesi: 'Controllo della tiroide al collo: dimensioni, forma e eventuali noduli.',
+    sintesi: 'Controllo della tiroide al collo: dimensioni, forma ed eventuali noduli.',
     perche:
       'La fai se senti un gonfiore al collo, hai un nodulo palpabile, disturbi alla voce o analisi della tiroide alterate.',
     svolgimento:
@@ -277,7 +277,7 @@ window.ESAMI_PAZIENTE = {
       {
         q: 'Ho il ginocchio gonfio: l’ecografia serve?',
         a:
-          'Sì, è uno dei casi in cui rende di più. Vedo subito se il gonfiore è liquido dentro l’articolazione, quanto ne c’è e dove si raccoglie, e se dietro si è formata una cisti di Baker. È un’informazione che indirizza la terapia già lo stesso giorno.',
+          'Sì, è uno dei casi in cui rende di più. Vedo subito se il gonfiore è liquido dentro l’articolazione, quanto ne c’è e dove si raccoglie, e se dietro si è formata una cisti di Baker. È un’informazione utile al medico curante o all’ortopedico per decidere come procedere.',
       },
     ],
   },
@@ -286,7 +286,7 @@ window.ESAMI_PAZIENTE = {
     perche:
       'Il medico te la prescrive per dolore sul fianco dell’anca, spesso legato ai tendini dei glutei o alla borsa trocanterica, oppure per dolore all’inguine legato ai tendini più profondi (ileopsoas o adduttori). È utile anche se senti uno scatto o un click camminando, dopo un trauma, o per un fastidio comparso con lo sport, per esempio corsa o calcio. Si usa pure per controllare i tessuti molli intorno a una protesi d’anca già impiantata. Non è invece l’esame giusto per studiare l’osso o la cartilagine dell’articolazione: per l’artrosi dell’anca il medico userà più spesso una radiografia.',
     svolgimento:
-      'Ti sdrai sul lettino. Metto il gel sull’inguine, sul fianco o su entrambi, a seconda di dove senti dolore: a volte ti chiedo di girarti su un fianco o di metterti a pancia in giù, per vedere bene anche la parte posteriore. Se sospetto uno scatto dell’anca, ti chiedo di muovere la gamba mentre guardo lo schermo, per vedere come si comporta il tendine. L’esame è indolore e dura in genere 15–20 minuti.',
+      'Ti sdrai sul lettino. Metto il gel sull’inguine, sul fianco o su entrambi, a seconda di dove senti dolore: a volte ti chiedo di girarti su un fianco o di metterti a faccia in giù, per vedere bene anche la parte posteriore. Se sospetto uno scatto dell’anca, ti chiedo di muovere la gamba mentre guardo lo schermo, per vedere come si comporta il tendine. L’esame è indolore e dura in genere 15–20 minuti.',
     cosaControlla:
       'Valutiamo i tendini dei muscoli glutei e la borsa trocanterica sul fianco, i tendini dell’ileopsoas e degli adduttori all’inguine, ed eventuale liquido nell’articolazione dell’anca. Se hai una protesi, controlliamo anche i tessuti molli intorno all’impianto. Non vediamo bene l’osso in profondità né la cartilagine dell’articolazione: per quelli restano più adatte la radiografia o la risonanza.',
     faqExtra: [
@@ -466,7 +466,7 @@ window.ESAMI_PAZIENTE = {
   'doppler-tsa': {
     sintesi: 'Controllo del flusso del sangue nelle arterie del collo (carotidi).',
     perche:
-      'Serve per prevenire l’ictus: se hai fattori di rischio, un soffio al collo, vertigini o hai già avuto un mini-ictus (TIA).',
+      'Aiuta a valutare il rischio di ictus: se hai fattori di rischio, un soffio al collo, vertigini o hai già avuto un mini-ictus (TIA).',
     svolgimento:
       'Ti sdrai. Si passa gel sul collo e si usa la sonda Doppler: puoi sentire un suono simile al battito.',
     cosaControlla:
@@ -502,7 +502,7 @@ window.ESAMI_PAZIENTE = {
     svolgimento:
       'Ti sdrai, gel su fianco e addome. Sonda Doppler sui reni: sentirai il suono del flusso.',
     cosaControlla:
-      'Guardiamo se le arterie renali sono libere o restringite e come arriva il sangue ai reni.',
+      'Guardo se le arterie renali sono libere o presentano restringimenti (stenosi) e come arriva il sangue ai reni.',
     faqExtra: [
       {
         q: "Perché si controllano le arterie renali se ho la pressione alta?",
@@ -557,7 +557,7 @@ window.ESAMI_PAZIENTE = {
     svolgimento:
       'Si applica il gel sulla zona interessata (collo, ascella o inguine) e si fa scorrere delicatamente la sonda.',
     cosaControlla:
-      'Valutiamo dimensioni, forma e struttura interna del linfonodo per capire se ha caratteristiche benigne o se necessita di approfondimenti.',
+      'Valuto dimensioni, forma e struttura interna del linfonodo e li descrivo nel referto: in base a questi elementi il medico curante decide se basta un controllo nel tempo o se servono altri accertamenti.',
     faqExtra: [
       {
         q: "Quali stazioni linfonodali si possono controllare?",
