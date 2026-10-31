@@ -661,7 +661,7 @@ ${faq
 
   <footer class="site-footer">
     <div class="container footer-grid">
-      <div><strong>Studio Ecografico Dr. Salvatore Susino</strong> Via dell'Arno, 34 — Pozzallo (RG)<br>${isEN ? 'Mon–Fri' : 'Lun–Ven'} 9:00–12:30 · 15:00–19:00</div>
+      <div><strong>Studio Ecografico Dr. Salvatore Susino</strong> Via dell'Arno, 34 — Pozzallo (RG)<br>${isEN ? 'Mon–Fri' : 'Lun–Ven'} 9:00–12:30 · 15:00–19:00<br>${isEN ? 'VAT no. (P. IVA)' : 'P. IVA'} 01737560886</div>
       <div>Tel. <a href="tel:+390932954441">${TEL1}</a> · <a href="tel:+393513746102">${TEL2}</a></div>
       <div class="footer-links"><a href="${t.bookPage}">${t.navPrenota}</a> <a href="https://g.page/r/CQUbXzXQvvzqEBM/review" target="_blank" rel="noopener">${t.navRecensione}</a></div>
     </div>
