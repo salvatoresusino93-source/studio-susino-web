@@ -30,8 +30,6 @@ window.ESAMI = [
     nome: 'Ecografia addome inferiore',
     categoria: 'Addome',
     descrizione:
-      /* DA VERIFICARE: reni spostati nell’addome superiore, come indicato dal medico il 31/10/2026 */
-      /* DA VERIFICARE: utero e ovaie nominati su decisione del medico del 31/10/2026 */
       'Esplora vescica, prostata (dall’esterno, sopra il pube), utero e ovaie, grossi vasi del bacino e, nei casi indicati, l’intestino del bacino. ' +
       'Il medico la richiede per dolore al basso ventre, tracce di sangue nelle urine, infezioni urinarie che si ripetono, difficoltà a svuotare la vescica o sospetta malattia della vescica.',
     prenotaNome: 'Ecografia addome inferiore',

@@ -14,7 +14,7 @@ window.ESAMI_PAZIENTE = {
       'Useful if you have pain below the ribs, suspected gallbladder colic, fever with no clear cause, or abnormal liver or pancreas blood tests.',
     svolgimento:
       /* DA VERIFICARE: come nella versione italiana */
-      'You lie on your back. I put gel on the upper abdomen and move the probe under the ribs, on the right and on the left. Sometimes I ask you to hold your breath for a few seconds or turn on your side.',
+      'You lie on your back. I put gel on the upper abdomen and move the probe over the subcostal region, on the right and on the left. Sometimes I ask you to hold your breath for a few seconds or turn on your side.',
     cosaControlla:
       'I check the liver, gallbladder, bile ducts, pancreas, spleen and both kidneys.',
     faqExtra: [
@@ -41,7 +41,6 @@ window.ESAMI_PAZIENTE = {
   },
   'addome-inferiore': {
     /* DA VERIFICARE: come nella versione italiana */
-    /* DA VERIFICARE: uterus and ovaries named on the doctor's decision of 31/10/2026 (view from above the pubic bone, not a gynaecological scan) */
     sintesi: 'A check of the lower abdomen: bladder, prostate (in men), uterus and ovaries (in women) and other pelvic structures seen from above the pubic bone.',
     perche:
       'Useful for lower abdominal pain, burning or recurrent urinary infections, difficulty urinating or blood in the urine.',
@@ -223,7 +222,7 @@ window.ESAMI_PAZIENTE = {
       'You have it if it hurts to raise your arm, after trauma, or if you suspect inflammation or an injury to the shoulder.',
     svolgimento:
       /* DA VERIFICARE: come nella versione italiana */
-      'You sit on a stool with your shoulder uncovered. I apply gel and move the probe over the front, side and back of the shoulder. I will ask you to raise, rotate and put your arm behind your back: the tendons are seen better in motion.',
+      'With your shoulder uncovered, I apply gel and move the probe over the front, side and back of the shoulder. I will ask you to raise, rotate and put your arm behind your back: the tendons are seen better in motion.',
     cosaControlla:
       'I assess the rotator cuff tendons, the bursa under the acromion (the bony tip at the top of the shoulder) and the biceps tendon.',
     faqExtra: [

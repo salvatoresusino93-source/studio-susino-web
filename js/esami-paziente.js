@@ -13,8 +13,7 @@ window.ESAMI_PAZIENTE = {
     perche:
       'Serve in caso di dolore sotto le costole, sospetta colica della colecisti, febbre senza causa chiara o analisi del fegato o del pancreas fuori norma.',
     svolgimento:
-      /* DA VERIFICARE: posizione e manovre descritte (respiro, fianco) da confermare con il modo di lavorare del medico */
-      'Il paziente si sdraia sulla schiena. Si applica il gel sulla parte alta dell’addome e si fa scorrere la sonda sotto le costole, a destra e a sinistra. A volte viene chiesto di trattenere il respiro qualche secondo o di girarsi su un fianco.',
+      'Il paziente si sdraia sulla schiena. Si applica il gel sulla parte alta dell’addome e si fa scorrere la sonda in regione sottocostale, a destra e a sinistra. A volte viene chiesto di trattenere il respiro qualche secondo o di girarsi su un fianco.',
     cosaControlla:
       'Si controllano fegato, colecisti, vie biliari, pancreas, milza e i due reni.',
     faqExtra: [
@@ -33,22 +32,18 @@ window.ESAMI_PAZIENTE = {
       {
         q: "Che differenza c’è con l’ecografia dell’addome completo?",
         a:
-          /* DA VERIFICARE: perimetro dell’addome completo (aorta, prostata) e vescica piena, come indicato dal medico il 31/10/2026 */
           "L’addome superiore comprende fegato, colecisti, vie biliari, pancreas, milza e reni, e richiede il digiuno. L’addome completo aggiunge la vescica, l’aorta addominale e, negli uomini, la prostata: per questo richiede, oltre al digiuno, anche la vescica piena.",
         verificata: true,
       },
     ],
   },
   'addome-inferiore': {
-    /* DA VERIFICARE: perimetro dell’addome inferiore come indicato dal medico il 31/10/2026 (reni nell’addome superiore) */
-    /* DA VERIFICARE: utero e ovaie nominati su decisione del medico del 31/10/2026 (visione da sopra il pube, non ecografia ginecologica) */
     sintesi: 'Controllo della parte bassa dell’addome: vescica, prostata (negli uomini), utero e ovaie (nelle donne) e altre strutture del bacino visibili da sopra il pube.',
     perche:
       'Utile per dolore in basso ventre, bruciore o infezioni urinarie di ripetizione, difficoltà a urinare o sangue nelle urine.',
     svolgimento:
       'Serve arrivare con la vescica piena. Il paziente si sdraia sulla schiena, si applica il gel sul basso ventre e si passa la sonda sopra la vescica e sul bacino, da un lato e dall’altro. Da questa posizione si vedono anche la prostata negli uomini, l’utero e le ovaie nelle donne.',
     cosaControlla:
-      /* DA VERIFICARE: casi particolari (sospetta appendicite o diverticolite) indicati dal medico il 31/10/2026 */
       'Si valutano vescica, prostata (negli uomini), utero e ovaie (nelle donne) e le altre strutture del bacino visibili da sopra il pube. Nei casi indicati dal medico, per esempio se si sospetta un’appendicite o una diverticolite, si valuta anche la parte bassa dell’intestino.',
     faqExtra: [
       {
@@ -72,7 +67,6 @@ window.ESAMI_PAZIENTE = {
     svolgimento:
       'L’esame inizia con la vescica piena. Poi, solo se il medico che ha prescritto l’esame lo richiede, viene chiesto di urinare e si controlla quanta urina resta in vescica. Si applica il gel sull’addome e sui fianchi, dove si trovano i reni.',
     cosaControlla:
-      /* DA VERIFICARE: residuo post-minzionale solo su richiesta del medico curante (indicazione del 31/10/2026) */
       'Si valutano reni, ureteri e vescica e, se richiesto dal medico, si misura l’urina che resta dopo aver urinato.',
     faqExtra: [
       {
@@ -222,8 +216,7 @@ window.ESAMI_PAZIENTE = {
     perche:
       'Si fa se alzare il braccio fa male, dopo un trauma o se si sospetta un’infiammazione o una lesione alla spalla.',
     svolgimento:
-      /* DA VERIFICARE: posizione e manovre descritte da confermare con il modo di lavorare del medico */
-      'Il paziente si siede su uno sgabello con la spalla scoperta. Si applica il gel e si passa la sonda davanti, di lato e dietro la spalla. Viene chiesto di alzare, ruotare e portare dietro la schiena il braccio: i tendini si vedono meglio in movimento.',
+      'Con la spalla scoperta, si applica il gel e si passa la sonda davanti, di lato e dietro la spalla. Viene chiesto di alzare, ruotare e portare dietro la schiena il braccio: i tendini si vedono meglio in movimento.',
     cosaControlla:
       /* DA VERIFICARE: glossa anatomica (acromion) */
       'Si valutano i tendini della cuffia dei rotatori, la borsa sotto l’acromion (la sporgenza ossea in cima alla spalla) e il tendine del bicipite.',
@@ -490,7 +483,6 @@ window.ESAMI_PAZIENTE = {
     perche:
       'Si fa per controllare nel tempo un aneurisma, cioè una dilatazione dell’aorta, già riscontrato, oppure se il medico sospetta un allargamento dell’aorta o un problema dei grossi vasi dell’addome.',
     svolgimento:
-      /* DA VERIFICARE: manovre descritte (misura in più punti, respiro) da confermare con il medico */
       'Il paziente si sdraia sulla schiena e scopre l’addome. Si applica il gel e si segue l’aorta con la sonda dallo stomaco fino al basso ventre, misurandone il diametro in più punti. A volte viene chiesto di trattenere il respiro qualche secondo; si potrà sentire il suono del flusso.',
     cosaControlla:
       'Si misura il diametro dell’aorta addominale in più punti e delle arterie iliache, i due rami in cui si divide nel basso addome, e si valuta come scorre il sangue.',
