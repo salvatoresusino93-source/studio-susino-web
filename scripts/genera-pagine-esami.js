@@ -21,8 +21,9 @@ const BASE = 'https://studiosusino.it';
 const ONORARIO = {
   MOSTRA: true,
   IMPORTO: '80 €',
+  IMPORTO_EN: '€80',
   IT: 'Onorario unico di 80 €, uguale per ogni esame: comprende l’esame, il referto scritto consegnato subito e la spiegazione a voce.',
-  EN: 'A single fee of €80 for every exam: includes the scan, the written report handed to you straight away and a spoken explanation.',
+  EN: 'A single fee of €80 for every scan: includes the scan, the written report handed to you straight away and a spoken explanation.',
   PAGINA_IT: 'tariffe.html',
   PAGINA_EN: 'tariffe-en.html',
 };
@@ -126,7 +127,7 @@ const T = {
     reviewText: (data) => `Contenuti a cura del Dr. Salvatore Susino, medico specialista in Radiologia. Ultima revisione: ${data}.`,
     feeMore: 'Vedi le tariffe',
     prepNone:
-      'No. Per questo esame <strong>non serve digiuno né alcuna preparazione</strong>. Se hai referti o ecografie precedenti portali con te: aiutano a confrontare e a seguire l’evoluzione nel tempo.',
+      'No. Per questo esame <strong>non serve digiuno né vescica piena</strong>. Basta poter scoprire con facilità la zona da esaminare e, se li hai, portare referti o ecografie precedenti: aiutano a confrontare e a seguire l’evoluzione nel tempo.',
     prepFasting:
       'Sì: è consigliato il <strong>digiuno da 6–8 ore</strong>, perché lo stomaco e l’intestino pieni di aria coprono la vista di fegato, colecisti e pancreas. Puoi bere acqua e prendere i farmaci abituali. Porta con te eventuali esami precedenti.',
     prepBladder:
@@ -217,7 +218,7 @@ const T = {
     reviewText: (date) => `Content by Dr. Salvatore Susino, specialist in Radiology. Last reviewed: ${date}.`,
     feeMore: 'See fees',
     prepNone:
-      'No. This scan needs <strong>no fasting and no preparation</strong>. If you have previous reports or scans, bring them with you: they help to compare and follow any change over time.',
+      'No. This scan needs <strong>no fasting and no full bladder</strong>. Just make sure the area can be uncovered easily and, if you have them, bring previous reports or scans: they help to compare and follow any change over time.',
     prepFasting:
       'Yes: <strong>fasting for 6–8 hours</strong> is recommended, because a full stomach and bowel gas hide the liver, gallbladder and pancreas. You may drink water and take your usual medication. Bring any previous scans with you.',
     prepBladder:
@@ -229,7 +230,7 @@ const T = {
     bookOnline: 'Book online',
     allExams: 'See all scans',
     disclaimer:
-      'This information describes the scan in general terms and does not replace your doctor’s advice. To find out which exam suits your case, ask your doctor or contact me.',
+      'This information describes the scan in general terms and does not replace your doctor’s advice. To find out which scan suits your case, ask your doctor or contact me.',
     seeAlso: 'See all the',
     seeAlsoLink: 'ultrasound scans available',
     seeAlsoTail: 'or read about',
@@ -326,7 +327,7 @@ function bloccoInBreve(id, t, isEN) {
     [t.briefReport, esc(t.briefReportText)],
   ];
   if (ONORARIO.MOSTRA) {
-    righe.push([t.briefFee, `${esc(ONORARIO.IMPORTO)} · <a href="${isEN ? ONORARIO.PAGINA_EN : ONORARIO.PAGINA_IT}">${t.feeMore}</a>`]);
+    righe.push([t.briefFee, `${esc(isEN ? ONORARIO.IMPORTO_EN : ONORARIO.IMPORTO)} · <a href="${isEN ? ONORARIO.PAGINA_EN : ONORARIO.PAGINA_IT}">${t.feeMore}</a>`]);
   }
   righe.push([t.briefWhere, esc(t.briefWhereText)]);
   return `        <div class="in-breve">
@@ -666,7 +667,7 @@ ${faq
       <div class="footer-links"><a href="${t.bookPage}">${t.navPrenota}</a> <a href="https://g.page/r/CQUbXzXQvvzqEBM/review" target="_blank" rel="noopener">${t.navRecensione}</a></div>
     </div>
   </footer>
-  <script src="js/main.js?v=20261031" defer></script>
+  <script src="js/main.js?v=20261101" defer></script>
   <!-- Librerie di animazione (usate da js/motion.js); integrity = sha384 dei file del pacchetto npm -->
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js" integrity="sha384-XmJ9SoHtVOHoQUcKvFAzVXwdkKo1Ie3bhmSoIAkcdsHGaIrVJIkmozyq0FJeb/Ly" crossorigin="anonymous" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js" integrity="sha384-wl5TeDVvOWt30Pbf8aSo2ZrzsOjddu3avOBvHe+p+OhJt9gP6w9YXmDkN5DK2/dF" crossorigin="anonymous" defer></script>

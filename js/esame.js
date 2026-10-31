@@ -7,9 +7,9 @@
   const T = EN
     ? {
         notFoundTitle: 'Exam not found',
-        notFoundText: 'We could not find the page for this exam.',
+        notFoundText: 'This address does not match any scan. Look for your scan in the list or call the practice on +39 0932 954441.',
         backToScans: 'Back to scans',
-        notFoundDocTitle: 'Exam not found — Studio Ecografico Dr. Salvatore Susino',
+        notFoundDocTitle: 'Exam not found — Dr. Salvatore Susino Ultrasound Practice',
         why: 'Why it is done',
         how: 'How it works',
         whatWeCheck: 'What we check',
@@ -28,7 +28,7 @@
       }
     : {
         notFoundTitle: 'Esame non trovato',
-        notFoundText: 'Non siamo riusciti a trovare la pagina di questo esame.',
+        notFoundText: 'Questo indirizzo non corrisponde a nessun esame. Cerca il tuo esame nell’elenco oppure chiama lo studio al +39 0932 954441.',
         backToScans: 'Torna agli esami',
         notFoundDocTitle: 'Esame non trovato — Studio Ecografico Dr. Salvatore Susino',
         why: 'Perché si fa',
@@ -169,8 +169,8 @@
     '<a class="btn btn-outline" href="' + listPage + '">' + T.backToList + '</a>' +
     '</div>' +
     '<p class="exam-note">' + T.byPhone +
-    '<a href="tel:+390932954441">0932 954441</a> · ' +
-    '<a href="tel:+393513746102">351 374 6102</a></p>' +
+    '<a href="tel:+390932954441">+39 0932 954441</a> · ' +
+    '<a href="tel:+393513746102">+39 351 374 6102</a></p>' +
     '</div>' +
     '<p class="exam-disclaimer">' + T.disclaimer + '</p>' +
     '</div></section>';

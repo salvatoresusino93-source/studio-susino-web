@@ -8,8 +8,8 @@ window.ESAMI = [
     nome: 'Ecografia addome completo',
     categoria: 'Addome',
     descrizione:
-      'Valuta fegato, colecisti, vie biliari, pancreas, milza, reni, vescica, aorta addominale e, negli uomini, la prostata. ' +
-      'Si richiede con quesito clinico definito: dolore addominale, alterazioni ematochimiche (fegato, pancreas, reni), sospetta litiasi biliare o renale, ittero, febbre di origine incerta o follow-up di patologie già note.',
+      'Valuta fegato, colecisti (cistifellea), vie biliari, pancreas, milza, reni, vescica, aorta addominale e, negli uomini, la prostata. ' +
+      'Il medico la richiede per dolore all’addome, analisi del sangue alterate (fegato, pancreas, reni), sospetti calcoli alla colecisti o ai reni, ittero (colorito giallo della pelle), febbre senza causa chiara, o per controllare nel tempo una malattia già nota.',
     prenotaNome: 'Ecografia addome completo',
   },
   {
@@ -19,8 +19,8 @@ window.ESAMI = [
     nome: 'Ecografia addome superiore',
     categoria: 'Addome',
     descrizione:
-      'Studia fegato, colecisti, vie biliari, pancreas, milza e reni. ' +
-      'Indicata per dolore ai quadranti superiori, colica biliare, epatomegalia o splenomegalia, ittero, alterazioni di transaminasi, bilirubina, amilasi/lipasi o febbre di origine sconosciuta.',
+      'Studia fegato, colecisti (cistifellea), vie biliari, pancreas, milza e reni. ' +
+      'Il medico la richiede per dolore nella parte alta dell’addome, colica biliare (dolore forte dovuto ai calcoli della colecisti), fegato o milza ingrossati, ittero (colorito giallo della pelle), analisi del sangue alterate (transaminasi, bilirubina, amilasi/lipasi) o febbre senza causa chiara.',
     prenotaNome: 'Ecografia addome superiore',
   },
   {
@@ -31,8 +31,8 @@ window.ESAMI = [
     categoria: 'Addome',
     descrizione:
       /* DA VERIFICARE: reni spostati nell’addome superiore, come indicato dal medico il 31/10/2026 */
-      'Esplora vescica, prostata (sovrapubica), grossi vasi pelvici e, nei casi indicati, intestino pelvico. ' +
-      'Utile per dolore ipogastrico, microematuria, infezioni urinarie ricorrenti, ritenzione urinaria o sospetta patologia vescicale.',
+      'Esplora vescica, prostata (dall’esterno, sopra il pube), grossi vasi del bacino e, nei casi indicati, l’intestino del bacino. ' +
+      'Il medico la richiede per dolore al basso ventre, tracce di sangue nelle urine, infezioni urinarie che si ripetono, difficoltà a svuotare la vescica o sospetta malattia della vescica.',
     prenotaNome: 'Ecografia addome inferiore',
   },
   {
@@ -43,8 +43,8 @@ window.ESAMI = [
     nome: 'Ecografia apparato urinario',
     categoria: 'Apparato urinario e urologia',
     descrizione:
-      'Valuta reni, ureteri, vescica e residuo urinario post-minzionale. ' +
-      'Si prescrive per colica renale, ematuria, infezioni urinarie di ripetizione, sospetta ostruzione delle vie urinarie o controllo di patologia renale nota.',
+      'Valuta reni, ureteri (i canali che portano l’urina dai reni alla vescica), vescica e, se il medico lo richiede, l’urina che resta in vescica dopo aver urinato (residuo post-minzionale). ' +
+      'Si prescrive per colica renale, sangue nelle urine (ematuria), infezioni urinarie che si ripetono, sospetto ostacolo al passaggio dell’urina o controllo di una malattia dei reni già nota.',
     prenotaNome: 'Ecografia apparato urinario',
   },
   {
@@ -54,8 +54,8 @@ window.ESAMI = [
     nome: 'Ecografia renale',
     categoria: 'Apparato urinario e urologia',
     descrizione:
-      'Studia reni, pelvi renali e ureteri prossimali. ' +
-      'Indicata per dolore laterale, colica renale, ematuria, controllo di litiasi o follow-up renale quando non serve lo studio completo dell\'apparato urinario con vescica.',
+      'Studia i reni, la pelvi renale (la parte del rene in cui si raccoglie l’urina) e il primo tratto degli ureteri. ' +
+      'Indicata per dolore al fianco, colica renale, sangue nelle urine (ematuria), controllo di calcoli o di una malattia dei reni già nota, quando non serve lo studio completo dell’apparato urinario con la vescica.',
     prenotaNome: 'Ecografia renale',
   },
   {
@@ -65,8 +65,8 @@ window.ESAMI = [
     nome: 'Ecografia vescico-prostatica',
     categoria: 'Apparato urinario e urologia',
     descrizione:
-      'Esame sovrapubico di vescica e prostata. ' +
-      'Indicata per disturbi minzionali (getto debole, pollachiuria, risveglio notturno), sospetta ipertrofia prostatica benigna, valutazione del residuo post-minzionale o follow-up urologico; richiede vescica adeguatamente piena.',
+      'Esame di vescica e prostata fatto dall’esterno, sopra il pube. ' +
+      'Indicata per disturbi nell’urinare (getto debole, bisogno frequente, risvegli notturni), sospetto ingrossamento benigno della prostata, misura dell’urina che resta in vescica dopo aver urinato o controlli urologici nel tempo; richiede la vescica ben piena.',
     prenotaNome: 'Ecografia vescico-prostatica',
   },
   {
@@ -76,8 +76,9 @@ window.ESAMI = [
     nome: 'Ecografia scrotale e testicolare',
     categoria: 'Apparato urinario e urologia',
     descrizione:
+      /* DA VERIFICARE: glosse di varicocele e idrocele (31/10/2026) */
       'Studia testicoli, epididimi (i piccoli canali dietro ogni testicolo) e funicolo spermatico. ' +
-      'Si richiede per dolore o gonfiore scrotale, nodulo palpabile, trauma, sospetta torsione testicolare (urgenza), varicocele, idrocele, orchite/epididimite o indagine di infertilità maschile.',
+      'Si richiede per dolore o gonfiore dello scroto, un nodulo che si sente al tatto, un trauma, sospetta torsione del testicolo (urgenza), varicocele (vene dilatate), idrocele (raccolta di liquido), infiammazione del testicolo o dell’epididimo, o nello studio dell’infertilità maschile.',
     prenotaNome: 'Ecografia scrotale e testicolare',
   },
   {
@@ -87,8 +88,8 @@ window.ESAMI = [
     nome: 'Ecografia tiroide',
     categoria: 'Tiroide e collo',
     descrizione:
-      'Valuta volume, struttura ed eventuali noduli tiroidei. ' +
-      'Indicata per gozzo, nodulo palpabile, disfonia o disfagia, familiarità per patologia tiroidea, tiroidite o alterazioni di TSH, fT4 e anticorpi anti-tiroidei.',
+      'Valuta volume, struttura ed eventuali noduli della tiroide. ' +
+      'Indicata per gozzo (tiroide ingrossata), un nodulo che si sente al tatto, voce rauca o difficoltà a deglutire, familiari con malattie della tiroide, tiroidite o analisi alterate (TSH, fT4, anticorpi anti-tiroide).',
     prenotaNome: 'Ecografia tiroide',
   },
   {
@@ -99,8 +100,8 @@ window.ESAMI = [
     nome: 'Ecografia del collo',
     categoria: 'Tiroide e collo',
     descrizione:
-      'Esamina tiroide, ghiandole salivari (parotide, sottomandibolare), linfonodi laterocervicali e strutture vascolari del collo. ' +
-      'Utile per tumefazioni palpabili, linfadenopatie, patologie delle ghiandole salivari o follow-up post-chirurgico cervicale.',
+      'Esamina tiroide, ghiandole salivari (parotide e sottomandibolare), linfonodi e vasi del collo. ' +
+      'Utile per gonfiori che si sentono al tatto, linfonodi ingrossati, malattie delle ghiandole salivari o controlli dopo un intervento al collo.',
     prenotaNome: 'Ecografia del collo',
   },
   {
@@ -110,8 +111,8 @@ window.ESAMI = [
     nome: 'Ecografia muscolo-scheletrica',
     categoria: 'Muscolo-scheletrico',
     descrizione:
-      'Studio ecografico di muscoli, tendini, legamenti e borse nel distretto indicato dal medico. ' +
-      'Indicata dopo trauma o sovraccarico per escludere strappi muscolari, tendiniti, distorsioni, ematomi e borsiti; consente valutazione anche durante il movimento.',
+      'Studio ecografico di muscoli, tendini, legamenti e borse (piccole sacche di liquido che riducono l’attrito) nella zona indicata dal medico. ' +
+      'Indicata dopo un trauma o uno sforzo ripetuto per escludere strappi muscolari, tendiniti, distorsioni, ematomi e borsiti; permette di valutare la zona anche durante il movimento.',
     prenotaNome: 'Ecografia muscolo-scheletrica',
   },
   {
@@ -122,8 +123,8 @@ window.ESAMI = [
     nome: 'Ecografia spalla',
     categoria: 'Muscolo-scheletrico',
     descrizione:
-      'Valuta cuffia dei rotatori, tendine del sovraspinato, borsa sottoacromiale e capo lungo del bicipite. ' +
-      'Si richiede per dolore in abduzione o sollevamento del braccio, sospetta tendinopatia o lesione della cuffia, borsite subacromiale o trauma.',
+      'Valuta i tendini della cuffia dei rotatori (i tendini che muovono la spalla), in particolare il sovraspinato, la borsa sottoacromiale e il tendine del bicipite. ' +
+      'Si richiede per dolore nel sollevare o allargare il braccio, sospetta tendinopatia o lesione della cuffia, borsite (infiammazione della borsa) o trauma.',
     prenotaNome: 'Ecografia spalla',
   },
   {
@@ -135,7 +136,7 @@ window.ESAMI = [
     categoria: 'Muscolo-scheletrico',
     descrizione:
       'Studia tendini (rotuleo e quadricipitale), legamenti collaterali, borse ed eventuale versamento articolare (liquido dentro l’articolazione). ' +
-      'Indicata dopo distorsione o trauma sportivo, gonfiore del ginocchio, sospetto versamento o tendinopatia; ha limiti nello studio meniscale profondo.',
+      'Indicata dopo distorsione o trauma sportivo, gonfiore del ginocchio, sospetto versamento o tendinopatia; vede meno bene la parte profonda dei menischi.',
     prenotaNome: 'Ecografia ginocchio',
   },
   {
@@ -146,8 +147,8 @@ window.ESAMI = [
     nome: 'Ecografia anca',
     categoria: 'Muscolo-scheletrico',
     descrizione:
-      'Valuta tendini periarticolari (glutei, ileopsoas), borse trocanteriche e strutture morbide dell\'anca nell\'adulto. ' +
-      'Utile per tendinopatia del trocantere, borsite, dolore inguinale o laterale dell\'anca e follow-up post-trauma.',
+      'Valuta i tendini intorno all’anca (glutei, ileopsoas), le borse trocanteriche (sul fianco dell’anca) e i tessuti molli dell’anca nell’adulto. ' +
+      'Utile per tendinopatia del trocantere, borsite, dolore all’inguine o sul fianco dell’anca e controlli dopo un trauma.',
     prenotaNome: 'Ecografia anca',
   },
   {
@@ -158,8 +159,9 @@ window.ESAMI = [
     nome: 'Ecografia anca neonatale',
     categoria: 'Pediatrica',
     descrizione:
-      'Screening ecografico delle anche del neonato e del lattante (metodo di Graf) per escludere lussazione o displasia congenita dell\'anca. ' +
-      'Indicata nelle prime settimane di vita, in presenza di fattori di rischio (parto podalico, familiarità, oligoidramnios) o reperti clinici sospetti; spesso ripetuta nel follow-up.',
+      /* DA VERIFICARE: «displasia evolutiva» al posto di «displasia congenita» e spiegazione per i genitori (31/10/2026) */
+      'Controllo con ultrasuoni delle anche del neonato e del lattante (metodo di Graf), per vedere se le anche si stanno formando bene e riconoscere presto la displasia evolutiva dell’anca, cioè un’anca che non si è formata bene o che tende a uscire dalla sua sede. ' +
+      'Si fa nelle prime settimane di vita, soprattutto se ci sono fattori di rischio (parto podalico, casi in famiglia, poco liquido amniotico in gravidanza) o se il pediatra ha notato qualcosa alla visita. A volte il pediatra chiede di ripeterla dopo qualche settimana per seguire la crescita dell’anca.',
     prenotaNome: 'Ecografia anca neonatale',
   },
   {
@@ -171,7 +173,7 @@ window.ESAMI = [
     categoria: 'Muscolo-scheletrico',
     descrizione:
       'Esamina i tendini che si attaccano sul lato esterno (epicondilo) e interno (epitroclea) del gomito, il tendine del bicipite nella piega del gomito e la borsa sulla punta del gomito (borsa olecranica). ' +
-      'Indicata per epicondilite o epitrocleite, dolore da movimenti ripetitivi, borsite olecranica o limitazione funzionale post-trauma.',
+      'Indicata per epicondilite (il «gomito del tennista») o epitrocleite (il «gomito del golfista»), dolore da movimenti ripetuti, borsite olecranica o difficoltà a muovere il gomito dopo un trauma.',
     prenotaNome: 'Ecografia gomito',
   },
   {
@@ -182,8 +184,9 @@ window.ESAMI = [
     nome: 'Ecografia polso e mano',
     categoria: 'Muscolo-scheletrico',
     descrizione:
-      'Studia tendini flessori ed estensori, nervo mediano al tunnel carpale, borse e articolazioni del polso e della mano. ' +
-      'Indicata per sospetta sindrome del tunnel carpale, tenosinoviti, dolore da sovraccarico o trauma.',
+      /* DA VERIFICARE: glosse di tunnel carpale e tenosinovite (31/10/2026) */
+      'Studia i tendini che piegano e raddrizzano le dita, il nervo mediano nel tunnel carpale (il passaggio al polso), le borse e le articolazioni di polso e mano. ' +
+      'Indicata per sospetta sindrome del tunnel carpale (formicolio e dolore alle dita), tenosinovite (infiammazione della guaina dei tendini), dolore da sforzo ripetuto o trauma.',
     prenotaNome: 'Ecografia polso e mano',
   },
   {
@@ -193,8 +196,8 @@ window.ESAMI = [
     nome: 'Ecografia caviglia e piede',
     categoria: 'Muscolo-scheletrico',
     descrizione:
-      'Valuta legamenti perimalleolari, tendine di Achille, fascia plantare e borse del piede. ' +
-      'Si richiede dopo distorsione di caviglia, sospetta lesione legamentosa, tendinopatia achillea o dolore plantare.',
+      'Valuta i legamenti intorno alla caviglia (malleoli), il tendine di Achille, la fascia plantare (la fascia sotto la pianta del piede) e le borse del piede. ' +
+      'Si richiede dopo una distorsione della caviglia, per sospetta lesione dei legamenti, tendinopatia dell’Achille o dolore alla pianta del piede.',
     prenotaNome: 'Ecografia caviglia e piede',
   },
   {
@@ -205,8 +208,8 @@ window.ESAMI = [
     nome: 'Ecografia parti molli',
     categoria: 'Muscolo-scheletrico',
     descrizione:
-      'Analizza tumefazioni sottocutanee, cisti, lipomi, ematomi e raccolte fluide superficiali. ' +
-      'Utile per massa palpabile di origine incerta, sospetta cisti o lesione post-traumatica; aiuta a distinguere lesioni liquide da solide.',
+      'Analizza gonfiori sotto la pelle, cisti, lipomi (noduli di grasso), ematomi e raccolte di liquido superficiali. ' +
+      'Utile per una massa che si sente al tatto e di cui non si conosce l’origine, una sospetta cisti o una lesione dopo un trauma; aiuta a distinguere le lesioni piene di liquido da quelle solide.',
     prenotaNome: 'Ecografia parti molli',
   },
   {
@@ -217,8 +220,9 @@ window.ESAMI = [
     nome: 'Ecocolordoppler carotidi',
     categoria: 'Vascolare (Doppler)',
     descrizione:
-      'Valuta morfologia e flusso delle carotidi, vertebrali e succlavie (tronchi sovra-aortici). ' +
-      'Indicata per prevenzione e monitoraggio del rischio di ictus: fattori cardiovascolari, soffio carotideo, TIA o ictus pregressi, vertigini vascolari o stenosi già note.',
+      /* DA VERIFICARE: glosse di soffio carotideo e TIA (31/10/2026) */
+      'Valuta forma e flusso di carotidi, vertebrali e succlavie, le grandi arterie che dal cuore portano il sangue alla testa e alle braccia (sull’impegnativa anche «TSA», tronchi sovra-aortici). ' +
+      'Indicata per valutare e seguire nel tempo il rischio di ictus: fattori di rischio cardiovascolare, soffio carotideo (rumore che il medico sente con lo stetoscopio), TIA (disturbo simile all’ictus che passa in poco tempo) o ictus precedenti, vertigini di origine vascolare o restringimenti già noti.',
     prenotaNome: 'Ecocolordoppler TSA (tronchi sovra-aortici)',
   },
   {
@@ -229,8 +233,8 @@ window.ESAMI = [
     nome: 'Ecocolordoppler aorta addominale',
     categoria: 'Vascolare (Doppler)',
     descrizione:
-      'Valuta morfologia e flusso dell\'aorta addominale e delle iliache comuni. ' +
-      'Indicata per follow-up di aneurisma, sospetta dilatazione aortica o patologia vascolare addominale già nota.',
+      'Valuta forma e flusso dell’aorta addominale (la grande arteria che attraversa l’addome) e delle arterie iliache comuni, in cui si divide. ' +
+      'Indicata per seguire nel tempo un aneurisma (dilatazione dell’arteria), per sospetta dilatazione dell’aorta o per una malattia dei vasi dell’addome già nota.',
     prenotaNome: 'Ecocolordoppler aorta addominale',
   },
   {
@@ -241,8 +245,8 @@ window.ESAMI = [
     nome: 'Ecocolordoppler arterie renali',
     categoria: 'Vascolare (Doppler)',
     descrizione:
-      'Studia flusso e stenosi delle arterie renali. ' +
-      'Indicata per ipertensione arteriosa di origine renovascolare, stenosi nota o sospetta, follow-up post-intervento vascolare renale.',
+      'Studia il flusso e gli eventuali restringimenti (stenosi) delle arterie che portano il sangue ai reni. ' +
+      'Indicata per pressione alta causata da un restringimento delle arterie del rene (ipertensione renovascolare), restringimento già noto o sospetto, controlli dopo un intervento sui vasi del rene.',
     prenotaNome: 'Ecocolordoppler arterie renali',
   },
   {
@@ -253,8 +257,9 @@ window.ESAMI = [
     nome: 'Ecocolordoppler arti inferiori',
     categoria: 'Vascolare (Doppler)',
     descrizione:
-      'Studia il circolo arterioso e/o venoso di gambe e piedi. ' +
-      'Arterioso: claudicatio intermittente (dolore alle gambe camminando, che passa con il riposo), sospetta arteriopatia periferica, ferite che guariscono male. Venoso: gambe pesanti, varici, sospetta trombosi venosa profonda o insufficienza venosa.',
+      /* DA VERIFICARE: glosse di arteriopatia periferica e trombosi venosa profonda (31/10/2026) */
+      'Studia la circolazione delle arterie e/o delle vene di gambe e piedi. ' +
+      'Arterie: claudicatio intermittente (dolore alle gambe camminando, che passa con il riposo), sospetta arteriopatia periferica (restringimento delle arterie delle gambe), ferite che guariscono male. Vene: gambe pesanti, varici, sospetta trombosi venosa profonda (coagulo in una vena della gamba) o insufficienza venosa.',
     prenotaNome: 'Ecocolordoppler arti inferiori',
   },
   {
@@ -266,7 +271,7 @@ window.ESAMI = [
     categoria: 'Vascolare (Doppler)',
     descrizione:
       'Valuta arterie e vene di braccia e avambracci. ' +
-      'Indicata per edema o gonfiore asimmetrico, sospetta trombosi venosa degli arti superiori, fistole per emodialisi o alterazioni del flusso arterioso periferico.',
+      'Indicata per gonfiore di un solo braccio, sospetta trombosi delle vene del braccio, controllo della fistola per la dialisi o alterazioni del flusso nelle arterie del braccio.',
     prenotaNome: 'Ecocolordoppler arti superiori',
   },
   {
@@ -276,8 +281,8 @@ window.ESAMI = [
     nome: 'Ecografia linfonodi',
     categoria: 'Altro',
     descrizione:
-      'Valuta linfonodi superficiali (collo, ascelle, inguine) per dimensioni, forma e struttura interna. ' +
-      'Si richiede per linfonodo palpabile persistente, febbre o processi infiammatori reattivi, follow-up di patologia nota o sospetto di linfadenopatia.',
+      'Valuta i linfonodi superficiali (collo, ascelle, inguine) per dimensioni, forma e struttura interna. ' +
+      'Si richiede per un linfonodo che si sente al tatto e non scompare, febbre o infiammazioni in corso, controllo di una malattia già nota o sospetto di linfonodi ingrossati.',
     prenotaNome: 'Ecografia linfonodi',
   },
 ];

@@ -107,11 +107,11 @@ const FAQ_GRUPPI = {
       solo: ['collo'],
       it: {
         q: 'Che differenza c’è con l’ecografia della tiroide?',
-        a: 'L’ecografia della tiroide si concentra sulla ghiandola; l’ecografia del collo allarga lo sguardo a ghiandole salivari, linfonodi e vasi. Se non sai quale prenotare, chiamaci: la scelta dipende dalla richiesta del medico.',
+        a: 'L’ecografia della tiroide si concentra sulla ghiandola; l’ecografia del collo allarga lo sguardo a ghiandole salivari, linfonodi e vasi. Se non sai quale prenotare, chiamami: la scelta dipende dalla richiesta del medico.',
       },
       en: {
         q: 'How does it differ from a thyroid ultrasound?',
-        a: 'A thyroid ultrasound focuses on the gland; a neck ultrasound also looks at the salivary glands, lymph nodes and vessels. If you are not sure which one to book, call us: the choice depends on your doctor’s request.',
+        a: 'A thyroid ultrasound focuses on the gland; a neck ultrasound also looks at the salivary glands, lymph nodes and vessels. If you are not sure which one to book, call me: the choice depends on your doctor’s request.',
       },
     },
     {
@@ -124,7 +124,7 @@ const FAQ_GRUPPI = {
       },
       en: {
         q: 'I have a swelling in my neck: is ultrasound useful?',
-        a: 'Yes, it is usually the first exam. It shows which structure the swelling comes from (lymph node, salivary gland, thyroid or other) and whether it is fluid or solid. The report states whether further tests are needed.',
+        a: 'Yes, it is usually the first scan. It shows which structure the swelling comes from (lymph node, salivary gland, thyroid or other) and whether it is fluid or solid. The report states whether further tests are needed.',
       },
     },
     {
@@ -149,7 +149,7 @@ const FAQ_GRUPPI = {
       },
       en: {
         q: 'If a nodule is found, what happens next?',
-        a: 'The report describes the size and features of the nodule. Based on these, your GP or endocrinologist (the gland specialist) decides whether a follow-up check is enough or whether further tests are needed.',
+        a: 'The report describes the size and features of the nodule. Based on these, your family doctor or endocrinologist (the gland specialist) decides whether a follow-up check is enough or whether further tests are needed.',
       },
     },
   ],
@@ -165,7 +165,7 @@ const FAQ_GRUPPI = {
       },
       en: {
         q: 'Can ultrasound see fractures?',
-        a: 'Ultrasound shows tendons, muscles, ligaments and the surface of the bone well, but not the inside of the bone. If a fracture is suspected, the first exam is usually an X-ray.',
+        a: 'Ultrasound shows tendons, muscles, ligaments and the surface of the bone well, but not the inside of the bone. If a fracture is suspected, the first test is usually an X-ray.',
       },
     },
     {
@@ -295,11 +295,11 @@ const FAQ_GRUPPI = {
       solo: ['linfonodi'],
       it: {
         q: 'Quando conviene fare l’ecografia di un linfonodo?',
-        a: 'Quando un linfonodo resta palpabile nel tempo, oppure su indicazione del medico per seguire una condizione già nota. Se hai dubbi sull’esame da prenotare, chiamaci.',
+        a: 'Quando un linfonodo resta palpabile nel tempo, oppure su indicazione del medico per seguire una condizione già nota. Se hai dubbi sull’esame da prenotare, chiamami.',
       },
       en: {
         q: 'When is a lymph node ultrasound worth doing?',
-        a: 'When a lymph node remains palpable over time, or on your doctor’s advice to monitor a known condition. If you are unsure which exam to book, call us.',
+        a: 'When a lymph node remains palpable over time, or on your doctor’s advice to monitor a known condition. If you are unsure which scan to book, call me.',
       },
     },
   ],

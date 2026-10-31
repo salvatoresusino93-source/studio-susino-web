@@ -8,8 +8,8 @@ window.ESAMI = [
     nome: 'Complete abdominal ultrasound',
     categoria: 'Abdomen',
     descrizione:
-      'Assesses the liver, gallbladder, biliary tract, pancreas, spleen, kidneys, bladder, abdominal aorta and, in men, the prostate. ' +
-      'Requested with a defined clinical question: abdominal pain, abnormal blood tests (liver, pancreas, kidneys), suspected gallstones or kidney stones, jaundice, fever of unknown origin or follow-up of known conditions.',
+      'Assesses the liver, gallbladder, bile ducts, pancreas, spleen, kidneys, bladder, abdominal aorta and, in men, the prostate. ' +
+      'Your doctor requests it for abdominal pain, abnormal blood tests (liver, pancreas, kidneys), suspected gallstones or kidney stones, jaundice (yellow skin), fever with no clear cause, or to monitor a known condition over time.',
     prenotaNome: 'Ecografia addome completo',
   },
   {
@@ -19,8 +19,8 @@ window.ESAMI = [
     nome: 'Upper abdominal ultrasound',
     categoria: 'Abdomen',
     descrizione:
-      'Studies the liver, gallbladder, biliary tract, pancreas, spleen and kidneys. ' +
-      'Indicated for pain in the upper quadrants, biliary colic, an enlarged liver or spleen, jaundice, abnormal transaminases, bilirubin, amylase/lipase or fever of unknown origin.',
+      'Studies the liver, gallbladder, bile ducts, pancreas, spleen and kidneys. ' +
+      'Your doctor requests it for pain in the upper abdomen, biliary colic (severe pain caused by gallstones), an enlarged liver or spleen, jaundice (yellow skin), abnormal blood tests (transaminases, bilirubin, amylase/lipase) or fever with no clear cause.',
     prenotaNome: 'Ecografia addome superiore',
   },
   {
@@ -30,8 +30,8 @@ window.ESAMI = [
     nome: 'Lower abdominal ultrasound',
     categoria: 'Abdomen',
     descrizione:
-      'Explores the kidneys, bladder, prostate (suprapubic), large pelvic vessels and pelvic bowel. ' +
-      'Useful for lower abdominal pain, microscopic blood in the urine, recurrent urinary infections, urinary retention or suspected kidney and bladder disease.',
+      'Explores the bladder, the prostate (from the outside, above the pubic bone), the large pelvic vessels and, when indicated, the pelvic bowel. ' +
+      'Your doctor requests it for lower abdominal pain, traces of blood in the urine, recurrent urinary infections, difficulty emptying the bladder or suspected bladder disease.',
     prenotaNome: 'Ecografia addome inferiore',
   },
   {
@@ -42,8 +42,8 @@ window.ESAMI = [
     nome: 'Urinary tract ultrasound',
     categoria: 'Urinary tract and urology',
     descrizione:
-      'Assesses the kidneys, ureters, bladder and post-void residual urine. ' +
-      'Prescribed for renal colic, blood in the urine, recurrent urinary infections, suspected obstruction of the urinary tract or monitoring of known kidney disease.',
+      'Assesses the kidneys, the ureters (the tubes that carry urine from the kidneys to the bladder), the bladder and, if your doctor asks for it, the urine left in the bladder after you urinate (post-void residual). ' +
+      'Prescribed for renal colic, blood in the urine, recurrent urinary infections, a suspected blockage of the urinary tract or monitoring of known kidney disease.',
     prenotaNome: 'Ecografia apparato urinario',
   },
   {
@@ -53,8 +53,8 @@ window.ESAMI = [
     nome: 'Kidney ultrasound',
     categoria: 'Urinary tract and urology',
     descrizione:
-      'Studies the kidneys, renal pelvis and proximal ureters. ' +
-      'Indicated for flank pain, renal colic, blood in the urine, monitoring of kidney stones or kidney follow-up when a full urinary tract study with the bladder is not needed.',
+      'Studies the kidneys, the renal pelvis (the part of the kidney where urine collects) and the first part of the ureters. ' +
+      'Indicated for flank pain, renal colic, blood in the urine, monitoring of kidney stones or of known kidney disease, when a full urinary tract study with the bladder is not needed.',
     prenotaNome: 'Ecografia renale',
   },
   {
@@ -64,8 +64,8 @@ window.ESAMI = [
     nome: 'Bladder and prostate ultrasound',
     categoria: 'Urinary tract and urology',
     descrizione:
-      'Suprapubic examination of the bladder and prostate. ' +
-      'Indicated for urinary symptoms (weak stream, frequent urination, waking at night), suspected benign prostatic enlargement, assessment of post-void residual urine or urological follow-up; requires an adequately full bladder.',
+      'A scan of the bladder and prostate done from the outside, above the pubic bone. ' +
+      'Indicated for urinary symptoms (weak stream, frequent urination, waking at night), suspected benign prostatic enlargement, measuring the urine left in the bladder after you urinate, or urological follow-up; it requires a well-filled bladder.',
     prenotaNome: 'Ecografia vescico-prostatica',
   },
   {
@@ -75,8 +75,8 @@ window.ESAMI = [
     nome: 'Scrotal and testicular ultrasound',
     categoria: 'Urinary tract and urology',
     descrizione:
-      'Studies the testicles, epididymis and spermatic cord. ' +
-      'Requested for scrotal pain or swelling, a palpable lump, trauma, suspected testicular torsion (emergency), varicocele, hydrocele, orchitis/epididymitis or investigation of male infertility.',
+      'Studies the testicles, the epididymis (the small duct behind each testicle) and the spermatic cord. ' +
+      'Requested for scrotal pain or swelling, a lump you can feel, trauma, suspected testicular torsion (emergency), varicocele (dilated veins), hydrocele (a build-up of fluid), inflammation of the testicle or epididymis, or investigation of male infertility.',
     prenotaNome: 'Ecografia scrotale e testicolare',
   },
   {
@@ -86,8 +86,8 @@ window.ESAMI = [
     nome: 'Thyroid ultrasound',
     categoria: 'Thyroid and neck',
     descrizione:
-      'Assesses the volume, structure and any thyroid nodules. ' +
-      'Indicated for goitre, a palpable nodule, hoarseness or difficulty swallowing, a family history of thyroid disease, thyroiditis or abnormal TSH, fT4 and anti-thyroid antibodies.',
+      'Assesses the volume and structure of the thyroid and any nodules. ' +
+      'Indicated for goitre (an enlarged thyroid), a nodule you can feel, hoarseness or difficulty swallowing, a family history of thyroid disease, thyroiditis or abnormal blood tests (TSH, fT4, anti-thyroid antibodies).',
     prenotaNome: 'Ecografia tiroide',
   },
   {
@@ -98,8 +98,8 @@ window.ESAMI = [
     nome: 'Neck ultrasound',
     categoria: 'Thyroid and neck',
     descrizione:
-      'Examines the thyroid, salivary glands (parotid, submandibular), lateral cervical lymph nodes and the vascular structures of the neck. ' +
-      'Useful for palpable swellings, enlarged lymph nodes, salivary gland disorders or post-surgical neck follow-up.',
+      'Examines the thyroid, the salivary glands (parotid and submandibular), the lymph nodes and the blood vessels of the neck. ' +
+      'Useful for swellings you can feel, enlarged lymph nodes, salivary gland disorders or follow-up after neck surgery.',
     prenotaNome: 'Ecografia del collo',
   },
   {
@@ -109,8 +109,8 @@ window.ESAMI = [
     nome: 'Musculoskeletal ultrasound',
     categoria: 'Musculoskeletal',
     descrizione:
-      'Ultrasound study of muscles, tendons, ligaments and bursae in the area indicated by the doctor. ' +
-      'Indicated after trauma or overload to rule out muscle tears, tendinitis, sprains, haematomas and bursitis; it also allows assessment during movement.',
+      'Ultrasound study of muscles, tendons, ligaments and bursae (small fluid-filled sacs that reduce friction) in the area indicated by your doctor. ' +
+      'Indicated after an injury or repeated strain to rule out muscle tears, tendinitis, sprains, haematomas and bursitis; the area can also be assessed during movement.',
     prenotaNome: 'Ecografia muscolo-scheletrica',
   },
   {
@@ -121,8 +121,8 @@ window.ESAMI = [
     nome: 'Shoulder ultrasound',
     categoria: 'Musculoskeletal',
     descrizione:
-      'Assesses the rotator cuff, the supraspinatus tendon, the subacromial bursa and the long head of the biceps. ' +
-      'Requested for pain when raising or abducting the arm, suspected tendinopathy or rotator cuff tear, subacromial bursitis or trauma.',
+      'Assesses the rotator cuff tendons (the tendons that move the shoulder), in particular the supraspinatus, the subacromial bursa and the biceps tendon. ' +
+      'Requested for pain when raising or lifting the arm sideways, suspected tendinopathy or rotator cuff tear, bursitis (an inflamed bursa) or trauma.',
     prenotaNome: 'Ecografia spalla',
   },
   {
@@ -133,8 +133,8 @@ window.ESAMI = [
     nome: 'Knee ultrasound',
     categoria: 'Musculoskeletal',
     descrizione:
-      'Studies the tendons (patellar and quadriceps), the collateral ligaments, the bursae and any joint effusion. ' +
-      'Indicated after a sprain or sports trauma, knee swelling or suspected effusion and tendinopathy; it has limits in studying the deep meniscus.',
+      'Studies the tendons (patellar and quadriceps), the collateral ligaments, the bursae and any joint effusion (fluid inside the joint). ' +
+      'Indicated after a sprain or sports injury, knee swelling, suspected effusion or tendinopathy; it sees the deep part of the menisci less well.',
     prenotaNome: 'Ecografia ginocchio',
   },
   {
@@ -145,8 +145,8 @@ window.ESAMI = [
     nome: 'Hip ultrasound',
     categoria: 'Musculoskeletal',
     descrizione:
-      'Assesses the peri-articular tendons (gluteal, iliopsoas), the trochanteric bursae and the soft-tissue structures of the hip in adults. ' +
-      'Useful for trochanteric tendinopathy, bursitis, groin or lateral hip pain and post-trauma follow-up.',
+      'Assesses the tendons around the hip (gluteal, iliopsoas), the trochanteric bursae (on the side of the hip) and the soft tissues of the hip in adults. ' +
+      'Useful for trochanteric tendinopathy, bursitis, pain in the groin or on the side of the hip, and follow-up after an injury.',
     prenotaNome: 'Ecografia anca',
   },
   {
@@ -157,8 +157,8 @@ window.ESAMI = [
     nome: 'Newborn hip ultrasound',
     categoria: 'Paediatric',
     descrizione:
-      'Ultrasound screening of the hips in newborns and infants (Graf method) to rule out dislocation or developmental hip dysplasia. ' +
-      'Indicated in the first weeks of life, in the presence of risk factors (breech birth, family history, oligohydramnios) or suspicious clinical findings; often repeated at follow-up.',
+      'An ultrasound check of the hips of newborns and infants (Graf method), to see whether the hips are forming well and to detect developmental hip dysplasia early, that is a hip that has not formed properly or tends to slip out of its socket. ' +
+      'It is done in the first weeks of life, especially if there are risk factors (breech birth, cases in the family, little amniotic fluid during pregnancy) or if the paediatrician noticed something at the check-up. Sometimes the paediatrician asks to repeat it a few weeks later to follow the hip’s development.',
     prenotaNome: 'Ecografia anca neonatale',
   },
   {
@@ -169,8 +169,8 @@ window.ESAMI = [
     nome: 'Elbow ultrasound',
     categoria: 'Musculoskeletal',
     descrizione:
-      'Examines the epicondylar and epitrochlear tendons, the distal biceps tendon and the olecranon bursa. ' +
-      'Indicated for tennis or golfer\'s elbow, pain from repetitive movements, olecranon bursitis or functional limitation after trauma.',
+      'Examines the tendons attached to the outer (epicondyle) and inner (epitrochlea) side of the elbow, the biceps tendon at the crease of the elbow and the bursa on the tip of the elbow (olecranon bursa). ' +
+      'Indicated for tennis or golfer’s elbow, pain from repetitive movements, olecranon bursitis or difficulty moving the elbow after an injury.',
     prenotaNome: 'Ecografia gomito',
   },
   {
@@ -181,8 +181,8 @@ window.ESAMI = [
     nome: 'Wrist and hand ultrasound',
     categoria: 'Musculoskeletal',
     descrizione:
-      'Studies the flexor and extensor tendons, the median nerve at the carpal tunnel, and the bursae and joints of the wrist and hand. ' +
-      'Indicated for suspected carpal tunnel syndrome, tenosynovitis, overload pain or trauma.',
+      'Studies the tendons that bend and straighten the fingers, the median nerve at the carpal tunnel (the passage at the wrist), and the bursae and joints of the wrist and hand. ' +
+      'Indicated for suspected carpal tunnel syndrome (tingling and pain in the fingers), tenosynovitis (inflammation of the tendon sheath), pain from repeated strain or trauma.',
     prenotaNome: 'Ecografia polso e mano',
   },
   {
@@ -192,8 +192,8 @@ window.ESAMI = [
     nome: 'Ankle and foot ultrasound',
     categoria: 'Musculoskeletal',
     descrizione:
-      'Assesses the peri-malleolar ligaments, the Achilles tendon, the plantar fascia and the bursae of the foot. ' +
-      'Requested after an ankle sprain, suspected ligament injury, Achilles tendinopathy or plantar pain.',
+      'Assesses the ligaments around the ankle bones, the Achilles tendon, the plantar fascia (the band of tissue under the sole of the foot) and the bursae of the foot. ' +
+      'Requested after an ankle sprain, for a suspected ligament injury, Achilles tendinopathy or pain in the sole of the foot.',
     prenotaNome: 'Ecografia caviglia e piede',
   },
   {
@@ -204,8 +204,8 @@ window.ESAMI = [
     nome: 'Soft-tissue ultrasound',
     categoria: 'Musculoskeletal',
     descrizione:
-      'Analyses subcutaneous swellings, cysts, lipomas, haematomas and superficial fluid collections. ' +
-      'Useful for a palpable lump of uncertain origin, a suspected cyst or a post-traumatic lesion; it helps distinguish fluid from solid lesions.',
+      'Analyses swellings under the skin, cysts, lipomas (fatty lumps), haematomas and superficial fluid collections. ' +
+      'Useful for a lump you can feel whose origin is unclear, a suspected cyst or a lesion after an injury; it helps to tell fluid-filled lesions from solid ones.',
     prenotaNome: 'Ecografia parti molli',
   },
   {
@@ -213,11 +213,11 @@ window.ESAMI = [
     /* TEMP: icona provvisoria Health Icons, da sostituire con icona commissionata */
     icona: 'images/icone/doppler-tsa.svg',
     iconaAlt: 'Illustration: carotid and vertebral arteries in the neck',
-    nome: 'Carotid (supra-aortic) Doppler ultrasound',
+    nome: 'Carotid Doppler ultrasound (neck arteries)',
     categoria: 'Vascular (Doppler)',
     descrizione:
-      'Assesses the shape and flow of the carotid, vertebral and subclavian arteries (supra-aortic trunks). ' +
-      'Indicated for prevention and monitoring of stroke risk: cardiovascular risk factors, a carotid bruit, previous TIA or stroke, vascular dizziness or known stenosis.',
+      'Assesses the shape and blood flow of the carotid, vertebral and subclavian arteries, the large arteries that carry blood from the heart to the head and arms (on Italian referrals also called “TSA”, tronchi sovra-aortici). ' +
+      'Indicated to assess and monitor stroke risk over time: cardiovascular risk factors, a carotid bruit (a sound your doctor hears with the stethoscope), a previous TIA (a stroke-like episode that passes quickly) or stroke, dizziness of vascular origin or known narrowing.',
     prenotaNome: 'Ecocolordoppler TSA (tronchi sovra-aortici)',
   },
   {
@@ -228,8 +228,8 @@ window.ESAMI = [
     nome: 'Abdominal aorta Doppler ultrasound',
     categoria: 'Vascular (Doppler)',
     descrizione:
-      'Assesses the shape and flow of the abdominal aorta and the common iliac arteries. ' +
-      'Indicated for follow-up of an aneurysm, suspected aortic dilation or known abdominal vascular disease.',
+      'Assesses the shape and blood flow of the abdominal aorta (the large artery that runs through the abdomen) and of the common iliac arteries into which it divides. ' +
+      'Indicated to monitor an aneurysm (a widening of the artery), for suspected widening of the aorta or for known disease of the abdominal blood vessels.',
     prenotaNome: 'Ecocolordoppler aorta addominale',
   },
   {
@@ -240,8 +240,8 @@ window.ESAMI = [
     nome: 'Renal artery Doppler ultrasound',
     categoria: 'Vascular (Doppler)',
     descrizione:
-      'Studies the flow and any narrowing of the renal arteries. ' +
-      'Indicated for high blood pressure of renovascular origin, known or suspected stenosis, or follow-up after renal vascular procedures.',
+      'Studies the blood flow and any narrowing (stenosis) of the arteries that carry blood to the kidneys. ' +
+      'Indicated for high blood pressure caused by a narrowing of the kidney arteries (renovascular hypertension), known or suspected narrowing, or follow-up after a procedure on the kidney vessels.',
     prenotaNome: 'Ecocolordoppler arterie renali',
   },
   {
@@ -252,8 +252,8 @@ window.ESAMI = [
     nome: 'Lower-limb Doppler ultrasound',
     categoria: 'Vascular (Doppler)',
     descrizione:
-      'Studies the arterial and/or venous circulation of the legs and feet. ' +
-      'Arterial: intermittent claudication, suspected peripheral arterial disease, wounds that heal poorly. Venous: heavy legs, varicose veins, suspected deep vein thrombosis or venous insufficiency.',
+      'Studies the circulation in the arteries and/or veins of the legs and feet. ' +
+      'Arteries: intermittent claudication (leg pain when walking that eases with rest), suspected peripheral arterial disease (narrowed leg arteries), wounds that heal poorly. Veins: heavy legs, varicose veins, suspected deep vein thrombosis (a clot in a leg vein) or venous insufficiency.',
     prenotaNome: 'Ecocolordoppler arti inferiori',
   },
   {
@@ -265,7 +265,7 @@ window.ESAMI = [
     categoria: 'Vascular (Doppler)',
     descrizione:
       'Assesses the arteries and veins of the arms and forearms. ' +
-      'Indicated for asymmetric swelling or oedema, suspected upper-limb venous thrombosis, haemodialysis fistulas or changes in peripheral arterial flow.',
+      'Indicated for swelling of one arm only, suspected thrombosis of an arm vein, checks on a dialysis fistula or changes in the blood flow of the arm arteries.',
     prenotaNome: 'Ecocolordoppler arti superiori',
   },
   {
@@ -276,7 +276,7 @@ window.ESAMI = [
     categoria: 'Other',
     descrizione:
       'Assesses the superficial lymph nodes (neck, armpits, groin) for size, shape and internal structure. ' +
-      'Requested for a persistent palpable lymph node, fever or reactive inflammation, follow-up of known disease or suspected lymphadenopathy.',
+      'Requested for a lymph node you can feel that does not go away, fever or ongoing inflammation, follow-up of a known condition or suspected enlarged lymph nodes.',
     prenotaNome: 'Ecografia linfonodi',
   },
 ];
