@@ -41,14 +41,15 @@ window.ESAMI_PAZIENTE = {
   },
   'addome-inferiore': {
     /* DA VERIFICARE: come nella versione italiana */
-    sintesi: 'A check of the lower abdomen: bladder, prostate (in men) and the pelvic structures seen from above the pubic bone.',
+    /* DA VERIFICARE: uterus and ovaries named on the doctor's decision of 31/10/2026 (view from above the pubic bone, not a gynaecological scan) */
+    sintesi: 'A check of the lower abdomen: bladder, prostate (in men), uterus and ovaries (in women) and other pelvic structures seen from above the pubic bone.',
     perche:
       'Useful for lower abdominal pain, burning or recurrent urinary infections, difficulty urinating or blood in the urine.',
     svolgimento:
-      'You need to arrive with a full bladder. You lie on your back, I put gel on the lower abdomen and move the probe over the bladder and the pelvis, on both sides. In men, from this position I can also see the prostate.',
+      'You need to arrive with a full bladder. You lie on your back, I put gel on the lower abdomen and move the probe over the bladder and the pelvis, on both sides. From this position I can also see the prostate in men, and the uterus and ovaries in women.',
     cosaControlla:
       /* DA VERIFICARE: come nella versione italiana */
-      'I look at the bladder, the prostate (in men, from above the pubic bone) and the pelvic structures seen from there. When your doctor asks for it, for example if appendicitis or diverticulitis is suspected, I also look at the lower bowel.',
+      'I look at the bladder, the prostate (in men), the uterus and ovaries (in women) and the other pelvic structures seen from above the pubic bone. When your doctor asks for it, for example if appendicitis or diverticulitis is suspected, I also look at the lower bowel.',
     faqExtra: [
       {
         q: "I have recurrent urinary infections: is the ultrasound useful?",
@@ -59,7 +60,7 @@ window.ESAMI_PAZIENTE = {
       {
         q: "How does it differ from an upper abdominal ultrasound?",
         a:
-          "The lower abdomen covers the bladder, the prostate in men and the pelvic structures, and needs a full bladder. The upper abdomen covers the liver, gallbladder, bile ducts, pancreas, spleen and kidneys, and needs fasting.",
+          "The lower abdomen covers the bladder, the prostate in men, the uterus and ovaries in women and other pelvic structures, and needs a full bladder. The upper abdomen covers the liver, gallbladder, bile ducts, pancreas, spleen and kidneys, and needs fasting.",
         verificata: true,
       },
     ],

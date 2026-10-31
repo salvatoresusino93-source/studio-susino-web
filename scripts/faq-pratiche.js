@@ -40,7 +40,7 @@ const FAQ_PRATICHE = [
         esclusi: HANNO_GIA_DOLORE,
         it: {
           q: "Fa male?",
-          a: "No, l’ecografia non fa male. È un esame indolore: la sonda scorre sulla pelle con un po’ di gel. In alcuni casi la pressione della sonda può dare un lieve fastidio, per esempio su una zona già infiammata, su una vescica molto piena o su un’articolazione dolente. In situazioni rare, come un’appendicite, l’esame può essere più fastidioso, ma sono casi rari e la pressione si adatta a quello che tollera. Se sente dolore, me lo dica: ci si ferma subito.",
+          a: "No, l’ecografia non fa male. È un esame indolore: la sonda scorre sulla pelle con un po’ di gel. In alcuni casi la pressione della sonda può dare un lieve fastidio, per esempio su una zona già infiammata, su una vescica molto piena o su un’articolazione dolente. In situazioni rare, come un’appendicite, l’esame può essere più fastidioso, ma sono casi rari e la pressione si adatta a quello che il paziente tollera. Se si sente dolore, basta dirlo: ci si ferma subito.",
         },
         en: {
           q: "Does it hurt?",
@@ -315,7 +315,7 @@ const FAQ_PRATICHE = [
         solo: ['doppler-arti-inferiori'],
         it: {
           q: "Devo togliere calze, creme o gioielli?",
-          a: "Sì: tolga calze elastiche e collant, ed eviti creme sulle gambe il giorno dell’esame. Conviene un abbigliamento che permetta di scoprire facilmente le gambe.",
+          a: "Sì: togliere calze elastiche e collant, ed evitare creme sulle gambe il giorno dell’esame. Conviene un abbigliamento che permetta di scoprire facilmente le gambe.",
         },
         en: {
           q: "Should I remove stockings, creams or jewellery?",
@@ -328,7 +328,7 @@ const FAQ_PRATICHE = [
         solo: ['doppler-arti-superiori'],
         it: {
           q: "Devo togliere creme o gioielli?",
-          a: "Sì: tolga bracciali, anelli e orologio dal braccio da esaminare ed eviti creme sulla pelle il giorno dell’esame. Conviene una maglia che permetta di scoprire tutto il braccio.",
+          a: "Sì: togliere bracciali, anelli e orologio dal braccio da esaminare ed evitare creme sulla pelle il giorno dell’esame. Conviene una maglia che permetta di scoprire tutto il braccio.",
         },
         en: {
           q: "Should I remove creams or jewellery?",
@@ -341,7 +341,7 @@ const FAQ_PRATICHE = [
         solo: ['tiroide', 'doppler-tsa'],
         it: {
           q: "Devo togliere creme o gioielli?",
-          a: "Sì: tolga collane e orecchini lunghi ed eviti creme sul collo il giorno dell’esame, così il gel aderisce bene alla pelle.",
+          a: "Sì: togliere collane e orecchini lunghi ed evitare creme sul collo il giorno dell’esame, così il gel aderisce bene alla pelle.",
         },
         en: {
           q: "Should I remove creams or jewellery?",
@@ -354,7 +354,7 @@ const FAQ_PRATICHE = [
         solo: ['spalla'],
         it: {
           q: "Come devo vestirmi? Devo evitare creme?",
-          a: "Eviti creme e oli sulla spalla il giorno dell’esame. Conviene una canottiera o una maglia facile da togliere, perché la spalla va scoperta del tutto; tolga collane lunghe.",
+          a: "Evitare creme e oli sulla spalla il giorno dell’esame. Conviene una canottiera o una maglia facile da togliere, perché la spalla va scoperta del tutto; togliere collane lunghe.",
         },
         en: {
           q: "What should I wear? Should I avoid creams?",
@@ -367,7 +367,7 @@ const FAQ_PRATICHE = [
         solo: ['ginocchio'],
         it: {
           q: "Come devo vestirmi? Devo evitare creme?",
-          a: "Eviti creme sul ginocchio il giorno dell’esame. Conviene indossare pantaloncini o pantaloni larghi che si arrotolino sopra il ginocchio; le ginocchiere si tolgono, i tutori prescritti solo se il medico è d’accordo.",
+          a: "Evitare creme sul ginocchio il giorno dell’esame. Conviene indossare pantaloncini o pantaloni larghi che si arrotolino sopra il ginocchio; le ginocchiere si tolgono, i tutori prescritti solo se il medico è d’accordo.",
         },
         en: {
           q: "What should I wear? Should I avoid creams?",
@@ -380,7 +380,7 @@ const FAQ_PRATICHE = [
         solo: ['anca'],
         it: {
           q: "Come devo vestirmi? Devo evitare creme?",
-          a: "Eviti creme su fianco e inguine il giorno dell’esame. Conviene un abbigliamento comodo, per esempio pantaloni con elastico, che permetta di scoprire facilmente fianco e inguine.",
+          a: "Evitare creme su fianco e inguine il giorno dell’esame. Conviene un abbigliamento comodo, per esempio pantaloni con elastico, che permetta di scoprire facilmente fianco e inguine.",
         },
         en: {
           q: "What should I wear? Should I avoid creams?",
@@ -393,7 +393,7 @@ const FAQ_PRATICHE = [
         solo: ['gomito'],
         it: {
           q: "Come devo vestirmi? Devo evitare creme?",
-          a: "Eviti creme sul gomito il giorno dell’esame e indossi una maglia a maniche corte o con maniche larghe; le fasce per epicondilite si tolgono, i tutori prescritti solo se il medico è d’accordo.",
+          a: "Evitare creme sul gomito il giorno dell’esame e indossare una maglia a maniche corte o con maniche larghe; le fasce per epicondilite si tolgono, i tutori prescritti solo se il medico è d’accordo.",
         },
         en: {
           q: "What should I wear? Should I avoid creams?",
@@ -406,7 +406,7 @@ const FAQ_PRATICHE = [
         solo: ['polso-mano'],
         it: {
           q: "Devo togliere anelli, bracciali o creme?",
-          a: "Sì: tolga anelli, bracciali e orologio ed eviti creme sulle mani il giorno dell’esame. Se non riesce a sfilare un anello, me lo dica all’inizio.",
+          a: "Sì: togliere anelli, bracciali e orologio ed evitare creme sulle mani il giorno dell’esame. Se un anello non si sfila, basta dirlo all’inizio.",
         },
         en: {
           q: "Should I remove rings, bracelets or creams?",
@@ -419,7 +419,7 @@ const FAQ_PRATICHE = [
         solo: ['caviglia-piede'],
         it: {
           q: "Come devo vestirmi? Devo evitare creme?",
-          a: "Eviti creme su caviglia e piede il giorno dell’esame. Tolga calze e cavigliere; conviene un pantalone che si arrotoli facilmente sopra la caviglia.",
+          a: "Evitare creme su caviglia e piede il giorno dell’esame. Togliere calze e cavigliere; conviene un pantalone che si arrotoli facilmente sopra la caviglia.",
         },
         en: {
           q: "What should I wear? Should I avoid creams?",
@@ -432,7 +432,7 @@ const FAQ_PRATICHE = [
         solo: ['parti-molli'],
         it: {
           q: "Devo evitare creme o pomate?",
-          a: "Sì, eviti creme o pomate sulla zona della tumefazione il giorno dell’esame e scelga abiti che permettano di scoprirla facilmente.",
+          a: "Sì, evitare creme o pomate sulla zona della tumefazione il giorno dell’esame e scegliere abiti che permettano di scoprirla facilmente.",
         },
         en: {
           q: "Should I avoid creams or ointments?",
@@ -445,7 +445,7 @@ const FAQ_PRATICHE = [
         gruppi: ['muscolo-scheletrico'],
         it: {
           q: "Devo togliere creme, gioielli o fasciature?",
-          a: "Eviti creme, pomate o oli sulla zona da esaminare il giorno dell’esame. Se la zona è la mano o il polso, tolga anelli, bracciali e orologio. Le fasciature semplici si tolgono in studio. Tutori o bendaggi prescritti: li tolga solo se il medico che li ha indicati è d’accordo.",
+          a: "Evitare creme, pomate o oli sulla zona da esaminare il giorno dell’esame. Se la zona è la mano o il polso, togliere anelli, bracciali e orologio. Le fasciature semplici si tolgono in studio. Tutori o bendaggi prescritti: toglierli solo se il medico che li ha indicati è d’accordo.",
         },
         en: {
           q: "Should I remove creams, jewellery or bandages?",
@@ -458,7 +458,7 @@ const FAQ_PRATICHE = [
         gruppi: ['altro'],
         it: {
           q: "Devo togliere creme o gioielli?",
-          a: "Eviti creme e deodoranti sulla zona da esaminare, per esempio le ascelle, e tolga collane o gioielli se la zona è il collo.",
+          a: "Evitare creme e deodoranti sulla zona da esaminare, per esempio le ascelle, e togliere collane o gioielli se la zona è il collo.",
         },
         en: {
           q: "Should I remove creams or jewellery?",
@@ -472,7 +472,7 @@ const FAQ_PRATICHE = [
         esclusi: ['scrotale-testicolare'],
         it: {
           q: "Devo evitare creme o vestirmi in un certo modo?",
-          a: "Eviti creme o oli sull’addome il giorno dell’esame e scelga un abbigliamento comodo, che permetta di scoprire facilmente l’addome.",
+          a: "Evitare creme o oli sull’addome il giorno dell’esame e scegliere un abbigliamento comodo, che permetta di scoprire facilmente l’addome.",
         },
         en: {
           q: "Should I avoid creams or wear anything in particular?",

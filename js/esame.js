@@ -28,7 +28,7 @@
       }
     : {
         notFoundTitle: 'Esame non trovato',
-        notFoundText: 'Questo indirizzo non corrisponde a nessun esame. Cerchi il Suo esame nell’elenco oppure chiami lo studio al +39 0932 954441.',
+        notFoundText: 'Questo indirizzo non corrisponde a nessun esame. È possibile cercare l’esame nell’elenco oppure chiamare lo studio al +39 0932 954441.',
         backToScans: 'Torna agli esami',
         notFoundDocTitle: 'Esame non trovato — Studio Ecografico Dr. Salvatore Susino',
         why: 'Perché si fa',
@@ -38,14 +38,14 @@
         deepLink: 'Approfondimento su questo tipo di esame →',
         home: 'Home',
         scans: 'Ecografie',
-        ctaTitle: 'Desidera prenotare questo esame?',
-        ctaText: 'Online in pochi passaggi, oppure al telefono se preferisce.',
+        ctaTitle: 'Come prenotare questo esame',
+        ctaText: 'Online in pochi passaggi, oppure al telefono.',
         bookOnline: 'Prenota online',
         backToList: "Torna all'elenco",
         byPhone: 'Al telefono: ',
         disclaimer:
           'Queste informazioni descrivono l’esame in linea generale. ' +
-          'Per dubbi o per sapere qual è l’esame più adatto da eseguire, si rivolga al Suo medico oppure ci contatti.',
+          'Per dubbi o per sapere qual è l’esame più adatto da eseguire, è bene rivolgersi al proprio medico oppure contattare lo studio.',
       };
 
   const params = new URLSearchParams(window.location.search);

@@ -90,7 +90,7 @@ const T = {
     navComeArrivare: 'Come arrivare',
     navContatti: 'Contatti',
     navPrenota: 'Prenota',
-    navRecensione: 'Lasci una recensione',
+    navRecensione: 'Lasciare una recensione',
     navPrenotaLong: 'Prenota online',
     altLang: 'EN',
     altLangLabel: 'English version',
@@ -117,30 +117,30 @@ const T = {
     dontTitle: 'Cosa evitare',
     // Liste "cosa fare / cosa evitare": stesse indicazioni dei testi prepFasting,
     // prepBladder e prepNone qui sotto, solo riordinate in forma di elenco.
-    doFasting: ['Può bere acqua', 'Può prendere i farmaci abituali', 'Porti con sé referti o ecografie precedenti'],
-    dontFasting: ['Non mangi nelle 6–8 ore prima dell’esame'],
-    doBladder: ['Beva circa un litro d’acqua, finendo un’ora prima dell’esame', 'Può mangiare normalmente', 'Porti con sé referti o ecografie precedenti'],
-    dontBladder: ['Non urini da un’ora prima fino all’esame'],
-    doNone: ['Porti con sé referti o ecografie precedenti', 'Venga con un abbigliamento comodo'],
+    doFasting: ['Si può bere acqua', 'Si possono prendere i farmaci abituali', 'Portare con sé referti o ecografie precedenti'],
+    dontFasting: ['Non mangiare nelle 6–8 ore prima dell’esame'],
+    doBladder: ['Bere circa un litro d’acqua, finendo un’ora prima dell’esame', 'Si può mangiare normalmente', 'Portare con sé referti o ecografie precedenti'],
+    dontBladder: ['Non urinare da un’ora prima fino all’esame'],
+    doNone: ['Portare con sé referti o ecografie precedenti', 'Indossare un abbigliamento comodo'],
     calloutTitle: 'Importante',
-    calloutPrep: 'Se non riesce a seguire la preparazione, me lo dica quando prenota o mi chiami prima: troviamo una soluzione. Senza preparazione alcuni organi si vedono male e l’esame potrebbe dover essere ripetuto.',
+    calloutPrep: 'Se non si riesce a seguire la preparazione, è bene dirlo al momento della prenotazione o chiamare prima: troviamo una soluzione. Senza preparazione alcuni organi si vedono male e l’esame potrebbe dover essere ripetuto.',
     reviewText: (data) => `Contenuti a cura del Dr. Salvatore Susino, medico specialista in Radiologia. Ultima revisione: ${data}.`,
     feeMore: 'Vedi le tariffe',
     prepNone:
-      'No. Per questo esame <strong>non serve digiuno né vescica piena</strong>. Basta poter scoprire con facilità la zona da esaminare e, se li ha, portare referti o ecografie precedenti: aiutano a confrontare e a seguire l’evoluzione nel tempo.',
+      'No. Per questo esame <strong>non serve digiuno né vescica piena</strong>. Basta poter scoprire con facilità la zona da esaminare e, se disponibili, portare referti o ecografie precedenti: aiutano a confrontare e a seguire l’evoluzione nel tempo.',
     prepFasting:
-      'Sì: è consigliato il <strong>digiuno da 6–8 ore</strong>, perché lo stomaco e l’intestino pieni di aria coprono la vista di fegato, colecisti e pancreas. Può bere acqua e prendere i farmaci abituali. Porti con sé eventuali esami precedenti.',
+      'Sì: è consigliato il <strong>digiuno da 6–8 ore</strong>, perché lo stomaco e l’intestino pieni di aria coprono la vista di fegato, colecisti e pancreas. Sono consentiti l’acqua e i farmaci abituali. Portare con sé eventuali esami precedenti.',
     prepBladder:
-      'Sì: serve arrivare con la <strong>vescica piena</strong>. Finisca di bere circa un litro d’acqua un’ora prima dell’appuntamento e da quel momento non urini: la vescica distesa fa da finestra e permette di vedere bene gli organi del bacino. Non serve il digiuno: può mangiare normalmente.',
+      'Sì: serve arrivare con la <strong>vescica piena</strong>. Finire di bere circa un litro d’acqua un’ora prima dell’appuntamento e da quel momento non urinare: la vescica distesa fa da finestra e permette di vedere bene gli organi del bacino. Non serve il digiuno: si può mangiare normalmente.',
     bookThis: 'Prenota questo esame',
     call: 'Chiama',
-    ctaTitle: 'Desidera prenotare questo esame?',
+    ctaTitle: 'Come prenotare questo esame',
     ctaText: 'Online in pochi passaggi, oppure al telefono. Si riceve su appuntamento.',
     bookOnline: 'Prenota online',
     allExams: 'Vedi tutti gli esami',
     disclaimer:
-      'Queste informazioni descrivono l’esame in linea generale e non sostituiscono il parere del medico. Per sapere qual è l’esame più adatto al Suo caso, si rivolga al Suo medico curante oppure mi contatti.',
-    seeAlso: 'Può consultare anche tutti gli',
+      'Queste informazioni descrivono l’esame in linea generale e non sostituiscono il parere del medico. Per sapere qual è l’esame più adatto al singolo caso, è bene rivolgersi al proprio medico curante oppure contattarmi.',
+    seeAlso: 'Si possono consultare anche tutti gli',
     seeAlsoLink: 'esami ecografici disponibili',
     seeAlsoTail: 'oppure le informazioni su',
     studioWord: 'lo studio',
@@ -270,15 +270,15 @@ const PRENOTA_BASE = 'https://referteco-production.up.railway.app/prenota';
 // Preparazione con testo proprio, quando quello generico non si adatta all'esame
 const PREP_SPECIFICA = {
   renale: {
-    it: 'Sì: è consigliato il <strong>digiuno da 6–8 ore</strong>, perché l’aria nell’intestino, che aumenta dopo i pasti, può coprire i reni. Può bere acqua e prendere i farmaci abituali. Non serve invece la vescica piena. Porti con sé eventuali esami precedenti.',
+    it: 'Sì: è consigliato il <strong>digiuno da 6–8 ore</strong>, perché l’aria nell’intestino, che aumenta dopo i pasti, può coprire i reni. Sono consentiti l’acqua e i farmaci abituali. Non serve invece la vescica piena. Portare con sé eventuali esami precedenti.',
     en: 'Yes: <strong>fasting for 6–8 hours</strong> is recommended, because bowel gas, which increases after meals, can hide the kidneys. You may drink water and take your usual medication. A full bladder is not needed. Bring any previous scans with you.',
   },
   'doppler-aorta': {
-    it: 'Sì: è consigliato il <strong>digiuno da 6–8 ore</strong>, perché l’aorta sta in profondità, dietro l’intestino, e l’aria intestinale, che aumenta dopo i pasti, può coprirla. Può bere acqua e prendere i farmaci abituali. Porti con sé eventuali esami precedenti.',
+    it: 'Sì: è consigliato il <strong>digiuno da 6–8 ore</strong>, perché l’aorta sta in profondità, dietro l’intestino, e l’aria intestinale, che aumenta dopo i pasti, può coprirla. Sono consentiti l’acqua e i farmaci abituali. Portare con sé eventuali esami precedenti.',
     en: 'Yes: <strong>fasting for 6–8 hours</strong> is recommended, because the aorta lies deep, behind the bowel, and bowel gas, which increases after meals, can hide it. You may drink water and take your usual medication. Bring any previous scans with you.',
   },
   'doppler-arterie-renali': {
-    it: 'Sì: è consigliato il <strong>digiuno da 6–8 ore</strong>, perché le arterie renali stanno in profondità, dietro l’intestino, e l’aria intestinale, che aumenta dopo i pasti, può coprirle. Può bere acqua e prendere i farmaci abituali. Porti con sé eventuali esami precedenti.',
+    it: 'Sì: è consigliato il <strong>digiuno da 6–8 ore</strong>, perché le arterie renali stanno in profondità, dietro l’intestino, e l’aria intestinale, che aumenta dopo i pasti, può coprirle. Sono consentiti l’acqua e i farmaci abituali. Portare con sé eventuali esami precedenti.',
     en: 'Yes: <strong>fasting for 6–8 hours</strong> is recommended, because the renal arteries lie deep, behind the bowel, and bowel gas, which increases after meals, can hide them. You may drink water and take your usual medication. Bring any previous scans with you.',
   },
 };

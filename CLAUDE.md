@@ -28,9 +28,9 @@ Il sito è **informazione sanitaria, non pubblicità** (Codice di deontologia me
   - in HTML: `<!-- DA VERIFICARE: ... -->` prima della frase;
   - nei file `.js` di dati: `/* DA VERIFICARE: ... */` sopra il campo (un commento HTML dentro una stringa finirebbe visibile).
 - Linguaggio da scuola media, frasi brevi, termini tecnici spiegati la prima volta; ogni pagina esame con contenuto proprio, non un modello ripetuto.
-- Registro (IT): si dà sempre del **Lei**, con tono cortese e formale, mai del tu: «se sente dolore, me lo dica», «Porti con sé…», «Le consegno il referto e Le spiego…». Pronomi di cortesia con la maiuscola (Lei, La, Le, Suo/Sua, chiederLe); il medico parla in prima persona per l’esame. Restano all’imperativo breve solo le etichette dei pulsanti (Prenota, Chiama, Scopri di più). La versione EN non cambia.
+- Registro (IT): tono cortese e formale, **mai il tu** e nemmeno il Lei diretto: si usano la forma impersonale e l’infinito, come nella comunicazione sanitaria («Il paziente si sdraia sul lettino», «Portare con sé referti o ecografie precedenti», «Se si sente dolore, basta dirlo», «Per dubbi, è possibile chiamare lo studio»). Il medico parla in prima persona per l’esame («metto il gel», «consegno il referto e spiego…»). Restano all’imperativo breve solo le etichette dei pulsanti (Prenota, Chiama, Scopri di più). La versione EN non cambia.
 - Lessico deciso: specialità "Radiologia" (non "radiodiagnostica"); "addome" non "pancia"; nome "Studio Ecografico Dr. Salvatore Susino".
-- Esami **non** offerti, da non citare come disponibili: mammella, ginecologia, ostetricia.
+- Esami **non** offerti, da non citare come disponibili: mammella, ginecologia, ostetricia. Nell’ecografia dell’addome inferiore (sovrapubica) si nominano però utero e ovaie tra gli organi visibili (decisione del medico, 31/10/2026), senza presentarla come ecografia ginecologica.
 - Non cambiare contatti, orari, indirizzo, onorario senza richiesta esplicita.
 
 ## Regole sulle immagini (vincolanti, valgono per chiunque modifichi il sito)

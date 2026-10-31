@@ -30,7 +30,7 @@ window.ESAMI = [
     nome: 'Lower abdominal ultrasound',
     categoria: 'Abdomen',
     descrizione:
-      'Explores the bladder, the prostate (from the outside, above the pubic bone), the large pelvic vessels and, when indicated, the pelvic bowel. ' +
+      'Explores the bladder, the prostate (from the outside, above the pubic bone), the uterus and ovaries, the large pelvic vessels and, when indicated, the pelvic bowel. ' +
       'Your doctor requests it for lower abdominal pain, traces of blood in the urine, recurrent urinary infections, difficulty emptying the bladder or suspected bladder disease.',
     prenotaNome: 'Ecografia addome inferiore',
   },
